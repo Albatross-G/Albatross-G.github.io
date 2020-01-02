@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020.01.03日目标</title>
+    <url>/2020/01/02/2020-01-03%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<p>1. 9:30在1307考html<br>2. 10min英语听力+10个英语单词<br>3. <a href="https://www.runoob.com/js/js-typeof.html" target="_blank" rel="noopener">JS typeof操作符</a>-JS代码规范<br>4. <a href="https://cgctf.nuptsast.com/challenges#Web" target="_blank" rel="noopener">南邮ctf “这题不是web”</a><br>5. CSS盒子模型</p>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
     <title>以数组作为函数参数的两种方法</title>
     <url>/2020/01/01/%E4%BB%A5%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>数组可以作为函数的参数使用，进行数据传送。数组作为函数参数有两种形式。<br>（1）把元素作为实参使用。<br>（2）把数组名作为函数的形参和实参使用。</p>
@@ -14,8 +23,8 @@
         <category>C语言</category>
       </categories>
       <tags>
-        <tag>数组</tag>
         <tag>函数</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -37,8 +46,8 @@
         <category>C语言</category>
       </categories>
       <tags>
-        <tag>函数</tag>
         <tag>指针</tag>
+        <tag>函数</tag>
       </tags>
   </entry>
   <entry>
