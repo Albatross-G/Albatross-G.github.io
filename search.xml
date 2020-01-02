@@ -4,11 +4,14 @@
     <title>PHP弱类型比较</title>
     <url>/2020/01/03/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/</url>
     <content><![CDATA[<p>前两天在做南邮ctf“md5 collision”时，遇到了关于php弱类型比较的问题，当时搞得似懂非懂，所以今天查了有关资料然后稍微总结一下。</p>
-<p>##php完全相等(“===”)<br>“===” 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较。<br>也就是说如果两边字符串类型就不同的话，就直接判断为两边不相等。</p>
+<h2 id="php完全相等-“-”"><a href="#php完全相等-“-”" class="headerlink" title="php完全相等(“===”)"></a>php完全相等(“===”)</h2><p>“===” 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较。<br>也就是说如果两边字符串类型就不同的话，就直接判断为两边不相等。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump(1&#x3D;&#x3D;&#x3D;&quot;1abc&quot;)</span><br></pre></td></tr></table></figure>
-<p>结果是：bool(false)<br>甚至</p>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
+<p>甚至</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump(1&#x3D;&#x3D;&#x3D;1e0)</span><br></pre></td></tr></table></figure>
-<p>这种我们正常认知里数值相等的结果也是<br>bool(false)</p>
+<p>这种我们正常认知里数值相等的结果也是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>当一个字符串欸当作一个数值来取值，其结果和类型如下:如果该字符串没有包含’.’,’e’,’E’并且其数值值在整形的范围之内。</p>
 </blockquote>
@@ -17,14 +20,18 @@
 <p><strong>注意：</strong>使用var_dump函数时，在括号内如果给整型(如1)增加””变成(“1”),则”1”会被认为是字符串。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump(1&#x3D;&#x3D;&#x3D;&quot;1&quot;)</span><br></pre></td></tr></table></figure>
-<p>结果是：bool(false)</p>
-<p>##php弱相等(“==”)</p>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
+
+<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><a href="https://Albatross-G.github.io/img/php弱相等比较表.png" target="_blank" rel="noopener"></a></p>
+<h3 id="php弱相等时类型的转化"><a href="#php弱相等时类型的转化" class="headerlink" title="php弱相等时类型的转化"></a>php弱相等时类型的转化</h3><p>首先一定要注意：<strong>只有当类型不同时才会转化！</strong><br>“1e1234567”会被看成浮点型，正常计算法则计算即可<br>“1e1234abc”会被看成字符串，转化规则：<br>取第一个字母之前的数字，如无数字则为0。<br>如：1e1234abc转化为1，abcd转化为0。</p>
 ]]></content>
       <categories>
         <category>php</category>
       </categories>
       <tags>
         <tag>比较</tag>
+        <tag>数据类型的转化</tag>
       </tags>
   </entry>
   <entry>
