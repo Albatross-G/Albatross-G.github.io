@@ -23,7 +23,7 @@
 <p>结果是：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
 
-<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><a href="https://Albatross-G.github.io/img/php弱相等比较表.png" target="_blank" rel="noopener"></a></p>
+<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><img src="https://Albatross-G.github.io/img/php%E5%BC%B1%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E8%A1%A8.png" alt=""></p>
 <h3 id="php弱相等时类型的转化"><a href="#php弱相等时类型的转化" class="headerlink" title="php弱相等时类型的转化"></a>php弱相等时类型的转化</h3><p>首先一定要注意：<strong>只有当类型不同时才会转化！</strong><br>“1e1234567”会被看成浮点型，正常计算法则计算即可<br>“1e1234abc”会被看成字符串，转化规则：<br>取第一个字母之前的数字，如无数字则为0。<br>如：1e1234abc转化为1，abcd转化为0。</p>
 ]]></content>
       <categories>
