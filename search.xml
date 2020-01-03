@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JS 函数总结</title>
-    <url>/2020/01/03/JS-%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</url>
+    <title>JS indexOf()函数</title>
+    <url>/2020/01/03/JS%20indexOf()%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。</p>
 <p>如果没有找到匹配的字符串则返回 -1。</p>
 <p><strong>注意：</strong> indexOf() 方法区分大小写。</p>
@@ -40,7 +40,7 @@
 
 ]]></content>
       <categories>
-        <category>JS</category>
+        <category>JS 函数整理</category>
       </categories>
       <tags>
         <tag>函数</tag>
