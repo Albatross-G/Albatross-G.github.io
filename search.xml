@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-01-05日目标</title>
+    <url>/2020/01/05/2020-01-05%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-01-05日目标"><a href="#2020-01-05日目标" class="headerlink" title="2020-01-05日目标"></a>2020-01-05日目标</h2><ol>
+<li>听力10min+单词10个</li>
+<li>继续学习完善正则表达式</li>
+<li>南邮ctf <a href="https://cgctf.nuptsast.com/challenges#Web" target="_blank" rel="noopener">AAencode</a></li>
+<li><a href="https://www.runoob.com/js/js-conventions.html" target="_blank" rel="noopener">学习至JS代码规范</a></li>
+<li>花一点时间备考大英1</li>
+</ol>
+<h2 id="2020-01-04总结"><a href="#2020-01-04总结" class="headerlink" title="2020-01-04总结"></a>2020-01-04总结</h2><ol>
+<li><a href="https://blog.csdn.net/h610443955/article/details/81079439" target="_blank" rel="noopener">发现了一篇有关正则表达式不错的文章</a>并学习整理了第一章节</li>
+<li>在阿里云买了域名并绑定了博客，以后可以直接访问 <a href="www.albatross-g.site">我的新域名</a></li>
+<li>复习了高数的渐近线和间断点</li>
+<li>Js正则表达式-JS使用误区</li>
+<li>完成了bugku前三道简单题（和南邮前三题几乎一样）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>(0/10)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>完善今日对 JS正则表达式 的整理</td>
+<td>8</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/js/js-conventions.html" target="_blank" rel="noopener">学习至JS代码规范</a></td>
+<td>6</td>
+</tr>
+<tr>
+<td>南邮ctf <a href="https://cgctf.nuptsast.com/challenges#Web" target="_blank" rel="noopener">AAencode</a></td>
+<td>0</td>
+</tr>
+<tr>
+<td>听力10min+单词10个</td>
+<td>5</td>
+</tr>
+<tr>
+<td>9:00去图书馆</td>
+<td>9</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>6</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JS prototype属性</title>
     <url>/2020/01/04/JS-prototype%E5%B1%9E%E6%80%A7/</url>
     <content><![CDATA[<h2 id="prototype属性"><a href="#prototype属性" class="headerlink" title="prototype属性"></a>prototype属性</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>prototype 属性允许您向对象添加属性和方法</p>
