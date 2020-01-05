@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js parseFloat()函数[去除数字后的非数字字符]</title>
+    <title>Js parseFloat()函数 [去除数字后的非数字字符]</title>
     <url>/2020/01/05/Js-parseFloat-%E5%87%BD%E6%95%B0-%E5%8E%BB%E9%99%A4%E6%95%B0%E5%AD%97%E5%90%8E%E7%9A%84%E9%9D%9E%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="parseFloat"><a href="#parseFloat" class="headerlink" title="parseFloat()"></a>parseFloat()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>该函数指定字符串中的首个字符是否是数字。如果是，则对字符串进行解析，直到到达数字的末端为止，然后以数字返回该数字，而不是作为字符串。</p>
 <p><em>其实就是要有一段字符串然后以数字开头，然后开始检索，遇到第一个不是数字的（空格也算）就把后头（包括这个）全砍掉。</em></p>
@@ -282,7 +282,7 @@
       </categories>
   </entry>
   <entry>
-    <title>JS test()/exec()函数[字符串是否匹配]</title>
+    <title>JS test()/exec()函数 [字符串是否匹配]</title>
     <url>/2020/01/04/JS-test-exec-%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="test"><a href="#test" class="headerlink" title="test()"></a>test()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">regex.test(string);</span><br></pre></td></tr></table></figure>
@@ -312,7 +312,7 @@
       </tags>
   </entry>
   <entry>
-    <title>JS search()/repalce()函数[找/替代字符串]</title>
+    <title>JS search()/repalce()函数 [找/替代字符串]</title>
     <url>/2020/01/03/JS%20search()%20repalce()%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子串的起始位置。</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string.search(regex(正则表达式));</span><br></pre></td></tr></table></figure>
@@ -344,7 +344,7 @@
       </tags>
   </entry>
   <entry>
-    <title>JS indexOf()函数[检索字符在字符串的位置]</title>
+    <title>JS indexOf()函数 [检索字符在字符串的位置]</title>
     <url>/2020/01/03/JS%20indexOf()%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。</p>
 <p>如果没有找到匹配的字符串则返回 -1。</p>
