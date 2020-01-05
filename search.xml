@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS isFinite函数 [检测是否为无穷大]</title>
+    <url>/2020/01/06/JS-isFinite%E5%87%BD%E6%95%B0-%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E4%B8%BA%E6%97%A0%E7%A9%B7%E5%A4%A7/</url>
+    <content><![CDATA[<h2 id="isFinite"><a href="#isFinite" class="headerlink" title="isFinite()"></a>isFinite()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">isFinite(value)</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.write(isFinite(123)+ &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(isFinite(-1.23)+ &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(isFinite(5-2)+ &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(isFinite(0)+ &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(isFinite(&quot;Hello&quot;)+ &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(isFinite(&quot;2005&#x2F;12&#x2F;12&quot;)+ &quot;&lt;br&gt;&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JS 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Js parseFloat()函数 [去除数字后的非数字字符]</title>
     <url>/2020/01/05/Js-parseFloat-%E5%87%BD%E6%95%B0-%E5%8E%BB%E9%99%A4%E6%95%B0%E5%AD%97%E5%90%8E%E7%9A%84%E9%9D%9E%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="parseFloat"><a href="#parseFloat" class="headerlink" title="parseFloat()"></a>parseFloat()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>该函数指定字符串中的首个字符是否是数字。如果是，则对字符串进行解析，直到到达数字的末端为止，然后以数字返回该数字，而不是作为字符串。</p>
