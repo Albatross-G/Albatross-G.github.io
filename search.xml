@@ -567,6 +567,7 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;m,n&#125;?</span><br><span class="line">&#123;m,&#125;?</span><br><span class="line">??</span><br><span class="line">+?</span><br><span class="line">*?</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p><em>惰性匹配指的是在现有情况下去匹配最优（少）解，比如”??”代表1or0，如果匹配不到1则匹配0.</em></p>
 <h4 id="a-b-多选分支"><a href="#a-b-多选分支" class="headerlink" title="/a|b/多选分支"></a>/a|b/多选分支</h4><p>具体形式如下：<code>(p1|p2|p3)</code>，其中<code>p1</code>、<code>p2</code>和<code>p3</code>是子模式，用<code>|</code>（管道符）分隔，表示其中任何之一。</p>
 <p>实例</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var regex &#x3D; &#x2F;good|nice&#x2F;g;</span><br><span class="line">var string &#x3D; &quot;good idea, nice try.&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; [&quot;good&quot;, &quot;nice&quot;]</span><br></pre></td></tr></table></figure>
@@ -610,15 +611,79 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <blockquote>
 <p><code>/^[a-zA-Z]:\\([^\\:*&lt;&gt;|&quot;?\r\n/]+\\)*([^\\:*&lt;&gt;|&quot;?\r\n/]+)?$/</code></p>
 </blockquote>
-<h5 id="匹配id"><a href="#匹配id" class="headerlink" title="匹配id"></a><strong>匹配id</strong></h5><p>Q:要求从</p>
-<blockquote>
-<div id="container" class="main"></div>
-</blockquote>
-<p>提取出id=”container”</p>
-<p>A:</p>
-<blockquote>
-<p> /id=”.*?”/</p>
-</blockquote>
+<h3 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h3><h4 id="6个锚字符"><a href="#6个锚字符" class="headerlink" title="6个锚字符"></a>6个锚字符</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^ </span><br><span class="line">$ </span><br><span class="line">\b </span><br><span class="line">\B </span><br><span class="line">(?&#x3D;p) </span><br><span class="line">(?!p)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="和"><a href="#和" class="headerlink" title="^和$"></a>^和$</h5><p><code>^</code>（脱字符）匹配开头，在多行匹配中匹配行开头。</p>
+<p><code>$</code>（美元符号）匹配结尾，在多行匹配中匹配行结尾。</p>
+<p><em>多行匹配模式时，二者是<strong>行</strong>的概念，这个需要我们的注意：</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var result &#x3D; &quot;I\nlove\njavascript&quot;.replace(&#x2F;^|$&#x2F;gm, &#39;#&#39;);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line"></span><br><span class="line">#I#</span><br><span class="line"></span><br><span class="line">#love#</span><br><span class="line"></span><br><span class="line">#javascript#</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="b和-B"><a href="#b和-B" class="headerlink" title="\b和\B"></a><strong>\b和\B</strong></h5><p><code>\b</code>是单词边界，具体就是<code>\w</code>和<code>\W</code>之间的位置，也包括<code>\w</code>和<code>^</code>之间的位置，也包括<code>\w</code>和<code>$</code>之间的位置。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var result &#x3D; &quot;[JS] Lesson_01.mp4&quot;.replace(&#x2F;\b&#x2F;g, &#39;#&#39;);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;[#JS#] #Lesson_01#.#mp4#&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>\B</code>就是<code>\b</code>的反面的意思，非单词边界。例如在字符串中所有位置中，扣掉<code>\b</code>，剩下的都是<code>\B</code>的。</p>
+<p>具体说来就是<code>\w</code>与<code>\w</code>、<code>\W</code>与<code>\W</code>、<code>^</code>与<code>\W</code>，<code>\W</code>与<code>$</code>之间的位置。</p>
+<p>比如上面的例子，把所有<code>\B</code>替换成”#”：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var result &#x3D; &quot;[JS] Lesson_01.mp4&quot;.replace(&#x2F;\B&#x2F;g, &#39;#&#39;);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;#[J#S]# L#e#s#s#o#n#_#0#1.m#p#4&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="p-和-p"><a href="#p-和-p" class="headerlink" title="(?=p)和(?!p)"></a><strong>(?=p)和(?!p)</strong></h5><p><code>(?=p)</code>，其中 <code>p</code> 是一个子模式，即 <code>p</code> 前面的位置，或者说，该位置后面的字符要匹配 <code>p</code>。比如<code>(?=l)</code>，表示 <code>l</code> 字符前面的位置，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let result &#x3D; &#39;lemon&#39;.replace(&#x2F;(?&#x3D;l)&#x2F;g, &#39;#&#39;);</span><br><span class="line">console.log(result);</span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; #lemon</span><br></pre></td></tr></table></figure>
+
+<p>而 <code>(?!p)</code> 就是<code>(?=p)</code> 的反面意思，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let result &#x3D; &#39;lemon&#39;.replace(&#x2F;(?!l)&#x2F;g, &#39;#&#39;);</span><br><span class="line">console.log(result);</span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; l#e#m#o#n#</span><br></pre></td></tr></table></figure>
+
+<p>二者的学名分别是positive lookahead 和 negative lookahead。中文意思分别为正向先行断言和负向先行断言。ES5之后的版本，会支持positive lookbehind 和 negative lookbehind。意思是正向后行断言和负向后行断言。具体是<code>(?&lt;=p)</code> 和 (?&lt;!p)。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let result &#x3D; &#39;lemon&#39;.replace(&#x2F;(?&lt;&#x3D;l)&#x2F;g, &#39;#&#39;);</span><br><span class="line">console.log(result);</span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; l#emon</span><br></pre></td></tr></table></figure>
+
+<p>表示该位置之前的字符要匹配 <code>l</code> 表达式。而 (?&lt;!p) 为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let result &#x3D; &#39;lemon&#39;.replace(&#x2F;(?&lt;&#x3D;l)&#x2F;g, &#39;#&#39;);</span><br><span class="line">console.log(result);</span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; #le#m#o#n#</span><br></pre></td></tr></table></figure>
+
+<p>表示该位置之前的字符不能匹配 <code>l</code>。</p>
+<h4 id="相关案例"><a href="#相关案例" class="headerlink" title="相关案例"></a>相关案例</h4><h5 id="不匹配任何东西的正则"><a href="#不匹配任何东西的正则" class="headerlink" title="不匹配任何东西的正则"></a><strong>不匹配任何东西的正则</strong></h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;.^&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数字的千位分隔符表示法"><a href="#数字的千位分隔符表示法" class="headerlink" title="数字的千位分隔符表示法"></a><strong>数字的千位分隔符表示法</strong></h5><h6 id="弄出最后一个逗号"><a href="#弄出最后一个逗号" class="headerlink" title="弄出最后一个逗号"></a><strong>弄出最后一个逗号</strong></h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var result &#x3D; &quot;12345678&quot;.replace(&#x2F;(?&#x3D;\d&#123;3&#125;$)&#x2F;g, &#39;,&#39;)</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;12345,678&quot;</span><br></pre></td></tr></table></figure>
+
+<h6 id="弄出所有的逗号"><a href="#弄出所有的逗号" class="headerlink" title="弄出所有的逗号"></a><strong>弄出所有的逗号</strong></h6><p>因为逗号出现的位置，要求后面3个数字一组，也就是<code>\d{3}</code>至少出现一次。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var result &#x3D; &quot;12345678&quot;.replace(&#x2F;(?&#x3D;(\d&#123;3&#125;)+$)&#x2F;g, &#39;,&#39;)</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;12,345,678&quot;</span><br></pre></td></tr></table></figure>
+
+<h6 id="匹配其余案例"><a href="#匹配其余案例" class="headerlink" title="匹配其余案例"></a><strong>匹配其余案例</strong></h6><p>我们要求匹配的到这个位置不能是开头。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var string1 &#x3D; &quot;12345678&quot;,</span><br><span class="line"></span><br><span class="line">string2 &#x3D; &quot;123456789&quot;;</span><br><span class="line"></span><br><span class="line">reg &#x3D; &#x2F;(?!^)(?&#x3D;(\d&#123;3&#125;)+$)&#x2F;g;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">var result &#x3D; string1.replace(reg, &#39;,&#39;)</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;12,345,678&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>(?!^)代表我们将匹配的字符串其后面一位不能是^,即开头</em></strong></p>
+<h5 id="支持其他形式"><a href="#支持其他形式" class="headerlink" title="支持其他形式"></a><strong>支持其他形式</strong></h5><p>如果要把”12345678 123456789”替换成”12,345,678 123,456,789”。</p>
+<p>此时我们需要修改正则，把里面的开头<code>^</code>和结尾<code>$</code>，替换成<code>\b</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var string &#x3D; &quot;12345678 123456789&quot;,</span><br><span class="line"></span><br><span class="line">reg &#x3D; &#x2F;(?!\b)(?&#x3D;(\d&#123;3&#125;)+\b)&#x2F;g;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">var result &#x3D; string.replace(reg, &#39;,&#39;)</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&gt; &quot;12,345,678 123,456,789&quot;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>(?!\b)</code>怎么理解呢？</p>
+<p>要求当前是一个位置，但不是<code>\b</code>前面的位置，其实<code>(?!\b)</code>说的就是<code>\B</code>。</p>
+<p>因此最终正则变成了：<code>/\B(?=(\d{3})+\b)/g</code>。</p>
+<h4 id="验证密码问题"><a href="#验证密码问题" class="headerlink" title="验证密码问题"></a><strong>验证密码问题</strong></h4><p>密码长度6-12位，由数字、小写字符和大写字母组成，但必须至少包括2种字符。</p>
+<h5 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h5><p>不考虑“但必须至少包括2种字符”这一条件。我们可以容易写出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reg &#x3D; &#x2F;^[0-9A-Za-z]&#123;6,12&#125;$&#x2F;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="判断是否包含有某一种字符"><a href="#判断是否包含有某一种字符" class="headerlink" title="判断是否包含有某一种字符"></a><strong>判断是否包含有某一种字符</strong></h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reg &#x3D; &#x2F;(?&#x3D;.*[0-9])^[0-9A-Za-z]&#123;6,12&#125;$&#x2F;;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>(?=.[0-9])代表我们将匹配的字符串其后应该是：任意个任意字符后加一个数字，即存在数字。</em></strong></p>
+<h5 id="最终答案"><a href="#最终答案" class="headerlink" title="最终答案"></a>最终答案</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reg &#x3D; &#x2F;((?&#x3D;.*[0-9])(?&#x3D;.*[a-z])|(?&#x3D;.*[0-9])(?&#x3D;.*[A-Z])|(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z]))^[0-9A-Za-z]&#123;6,12&#125;$&#x2F;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="另一种解法"><a href="#另一种解法" class="headerlink" title="另一种解法"></a>另一种解法</h5><p>“至少包含两种字符”的意思就是说，不能全部都是数字，也不能全部都是小写字母，也不能全部都是大写字母。</p>
+<p>那么要求“不能全部都是数字”，怎么做呢？<code>(?!p)</code>出马！</p>
+<p>对应的正则是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reg &#x3D; &#x2F;(?!^[0-9]&#123;6,12&#125;$)^[0-9A-Za-z]&#123;6,12&#125;$&#x2F;;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>(?!^[0-9]{6,12}$)代表我们将匹配的字符串，该位置后不能满足^[0-9]{6,12}$，即全是数字。</em></strong></p>
+<h6 id="另一种解法的最终答案"><a href="#另一种解法的最终答案" class="headerlink" title="另一种解法的最终答案"></a>另一种解法的最终答案</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reg &#x3D; &#x2F;(?!^[0-9]&#123;6,12&#125;$)(?!^[a-z]&#123;6,12&#125;$)(?!^[A-Z]&#123;6,12&#125;$)^[0-9A-Za-z]&#123;6,12&#125;$&#x2F;;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>JS</category>
