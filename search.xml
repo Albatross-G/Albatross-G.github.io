@@ -6,7 +6,7 @@
     <content><![CDATA[<h2 id="文件的类型"><a href="#文件的类型" class="headerlink" title="文件的类型"></a>文件的类型</h2><h3 id="file命令"><a href="#file命令" class="headerlink" title="file命令"></a>file命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file filename</span><br></pre></td></tr></table></figure>
 
 <p><strong><em>注：若使用file命令显示类型为data，则可能出现了文件头缺失，可自行打开“010editor”修改文件头。</em></strong></p>
-<h3 id="不同文件有不同文件头"><a href="#不同文件有不同文件头" class="headerlink" title="不同文件有不同文件头"></a>不同文件有不同文件头</h3><p><img src="https://Albatross-G.github.io/img/head.png" alt=""></p>
+<h3 id="不同文件有不同文件头"><a href="#不同文件有不同文件头" class="headerlink" title="不同文件有不同文件头"></a>不同文件有不同文件头</h3><p><img src="D:%5Cgitblog%5C1%5Cimg%5Cfilehead.png" alt=""></p>
 <h2 id="文件的分离"><a href="#文件的分离" class="headerlink" title="文件的分离"></a>文件的分离</h2><h3 id="binwalk工具-自动"><a href="#binwalk工具-自动" class="headerlink" title="binwalk工具(自动)"></a>binwalk工具(自动)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析文件：binwalk filename</span><br><span class="line">分离文件：binwalk -e filename</span><br></pre></td></tr></table></figure>
 
 
