@@ -1,12 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>文件的合并与分离</title>
+    <url>/2020/01/11/%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E4%B8%8E%E5%88%86%E7%A6%BB/</url>
+    <content><![CDATA[<h2 id="文件的类型"><a href="#文件的类型" class="headerlink" title="文件的类型"></a>文件的类型</h2><h3 id="file命令"><a href="#file命令" class="headerlink" title="file命令"></a>file命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file filename</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注：若使用file命令显示类型为data，则可能出现了文件头缺失，可自行打开“010editor”修改文件头。</em></strong></p>
+<h3 id="不同文件有不同文件头"><a href="#不同文件有不同文件头" class="headerlink" title="不同文件有不同文件头"></a>不同文件有不同文件头</h3><p><img src="/2020/01/11/%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E4%B8%8E%E5%88%86%E7%A6%BB/D:%5Cgitblog%5C1%5Csource_posts%5C%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E4%B8%8E%E5%88%86%E7%A6%BB%5CfileHead.png" alt></p>
+<h2 id="文件的分离"><a href="#文件的分离" class="headerlink" title="文件的分离"></a>文件的分离</h2><h3 id="binwalk工具-自动"><a href="#binwalk工具-自动" class="headerlink" title="binwalk工具(自动)"></a>binwalk工具(自动)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析文件：binwalk filename</span><br><span class="line">分离文件：binwalk -e filename</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="foremost-自动"><a href="#foremost-自动" class="headerlink" title="foremost(自动)"></a>foremost(自动)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">foremost filename -o outputFilename</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="dd-半自动半手动分离"><a href="#dd-半自动半手动分离" class="headerlink" title="dd(半自动半手动分离)"></a>dd(半自动半手动分离)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if&#x3D;输入的文件名 of&#x3D;输出的文件名 bs&#x3D;设置读写块的大小 copy&#x3D;一共读取几个读写快 slip&#x3D;跳过几个读写快开始读取</span><br></pre></td></tr></table></figure>
+
+
+
+<p>比如对”1.txt”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1234567890abcde</span><br></pre></td></tr></table></figure>
+
+<p>实施命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if&#x3D;1.txt of &#x3D;2.txt bs&#x3D;5 count&#x3D;3 skip&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>会得到”2.txt”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">67890abcde</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="010editor-半自动半手动"><a href="#010editor-半自动半手动" class="headerlink" title="010editor(半自动半手动)"></a>010editor(半自动半手动)</h3><p>找出想分离的部分，右键并点击”save selection”.</p>
+<h2 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h2><h3 id="linux下的文件合并"><a href="#linux下的文件合并" class="headerlink" title="linux下的文件合并"></a>linux下的文件合并</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat file1 file2 file3 &gt; outputFilename</span><br></pre></td></tr></table></figure>
+
+<p>完整性检测</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5sum filename</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="windows下的文件合并"><a href="#windows下的文件合并" class="headerlink" title="windows下的文件合并"></a>windows下的文件合并</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">copy &#x2F;B file1+file2+file3 outputFilename</span><br></pre></td></tr></table></figure>
+
+<p>完整性检测</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">certutil -hashfile filename md5</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ctf技巧</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文件分离与合并</title>
     <url>/2020/01/11/%E6%96%87%E4%BB%B6%E5%88%86%E7%A6%BB%E4%B8%8E%E5%90%88%E5%B9%B6/</url>
     <content><![CDATA[<h2 id="文件的类型"><a href="#文件的类型" class="headerlink" title="文件的类型"></a>文件的类型</h2><h3 id="file命令"><a href="#file命令" class="headerlink" title="file命令"></a>file命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file filename</span><br></pre></td></tr></table></figure>
 
 <p><strong><em>注：若使用file命令显示类型为data，则可能出现了文件头缺失，可自行打开“010editor”修改文件头。</em></strong></p>
-<h3 id="不同文件有不同文件头"><a href="#不同文件有不同文件头" class="headerlink" title="不同文件有不同文件头"></a>不同文件有不同文件头</h3><p><img src="D:%5Cgitblog%5C1%5Cimg%5Cfilehead.png" alt=""></p>
+<h3 id="不同文件有不同文件头"><a href="#不同文件有不同文件头" class="headerlink" title="不同文件有不同文件头"></a>不同文件有不同文件头</h3><p><img src="/2020/01/11/%E6%96%87%E4%BB%B6%E5%88%86%E7%A6%BB%E4%B8%8E%E5%90%88%E5%B9%B6/D:%5Cgitblog%5C1%5Cimg%5Cfilehead.png" alt></p>
 <h2 id="文件的分离"><a href="#文件的分离" class="headerlink" title="文件的分离"></a>文件的分离</h2><h3 id="binwalk工具-自动"><a href="#binwalk工具-自动" class="headerlink" title="binwalk工具(自动)"></a>binwalk工具(自动)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析文件：binwalk filename</span><br><span class="line">分离文件：binwalk -e filename</span><br></pre></td></tr></table></figure>
 
 
@@ -927,7 +978,7 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <p>结果是：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
 
-<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><img src="https://Albatross-G.github.io/img/php%E5%BC%B1%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E8%A1%A8.png" alt=""></p>
+<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><img src="https://Albatross-G.github.io/img/php%E5%BC%B1%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E8%A1%A8.png" alt></p>
 <h3 id="php弱相等时类型的转化"><a href="#php弱相等时类型的转化" class="headerlink" title="php弱相等时类型的转化"></a>php弱相等时类型的转化</h3><p>首先一定要注意：<strong>只有当类型不同时才会转化！</strong><br>“1e1234567”会被看成浮点型，正常计算法则计算即可<br>“1e1234abc”会被看成字符串，转化规则：<br>取第一个字母之前的数字，如无数字则为0。<br>如：1a1234abc转化为1，abcd转化为0。</p>
 <h3 id="一些发现"><a href="#一些发现" class="headerlink" title="一些发现"></a>一些发现</h3><p>可是笔者经过一些测试发现</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump(&quot;1e2abc&quot;&#x3D;&#x3D;100);</span><br></pre></td></tr></table></figure>
