@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-01-13日目标</title>
+    <url>/2020/01/13/2020-01-13%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-01-13目标"><a href="#2020-01-13目标" class="headerlink" title="2020-01-13目标"></a>2020-01-13目标</h2><ol>
+<li>听力10min+单词10个</li>
+<li>早上9：00前起床</li>
+<li>高数定积分&amp;&amp;不定积分</li>
+<li>整理图片隐写</li>
+<li>安装好kali虚拟机</li>
+<li>晚上1：00前睡觉</li>
+</ol>
+<h2 id="2020-01-12总结"><a href="#2020-01-12总结" class="headerlink" title="2020-01-12总结"></a>2020-01-12总结</h2><ol>
+<li>看完了正则表达式第三章</li>
+<li>整理了两个JS函数</li>
+<li>kali的虚拟机一直安不好。。。明天再试试</li>
+<li>b站图片隐写看完，明天整理发博客</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>(Y/N)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>听力10min+单词10个</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>早上9：00前起床</td>
+<td>N</td>
+</tr>
+<tr>
+<td>高数定积分&amp;&amp;不定积分</td>
+<td>N</td>
+</tr>
+<tr>
+<td>b站题型介绍看完</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>正则表达式第三章</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>晚上1：00前睡觉</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Y</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>图像的隐写</title>
+    <url>/2020/01/13/%E5%9B%BE%E5%83%8F%E7%9A%84%E9%9A%90%E5%86%99/</url>
+    <content><![CDATA[<h2 id="查看gif每一帧"><a href="#查看gif每一帧" class="headerlink" title="查看gif每一帧"></a>查看gif每一帧</h2><ol>
+<li>fireworks</li>
+<li>photoshop</li>
+</ol>
+<h2 id="查看exif"><a href="#查看exif" class="headerlink" title="查看exif"></a>查看exif</h2><p>右键属性可查看（有些隐藏信息储存其中）</p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>ctf技巧</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JS split()方法 [将字符串分割成字符串数组]</title>
     <url>/2020/01/12/JS-split-%E6%96%B9%E6%B3%95-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>split() 方法用于把一个字符串分割成字符串数组。</p>
