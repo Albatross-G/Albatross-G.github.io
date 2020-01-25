@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>URI格式</title>
+    <url>/2020/01/25/URI%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<p><img src="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/7.png" alt="7"></p>
+<p>使用 http: 或 https: 等协议方案名获取访问资源时要指定协议类型。不 区分字母大小写，最后附一个冒号（:）。 也可使用 data: 或 javascript: 这类指定数据或脚本程序的方案名。</p>
+<h3 id="登录信息（认证）"><a href="#登录信息（认证）" class="headerlink" title="登录信息（认证）"></a>登录信息（认证）</h3><p>指定用户名和密码作为从服务器端获取资源时必要的登录信息（身份 认证）。此项是<strong><em>可选项</em></strong>。</p>
+<h3 id="服务器地址"><a href="#服务器地址" class="headerlink" title="服务器地址"></a>服务器地址</h3><p>使用绝对 URI 必须指定待访问的服务器地址。地址可以是类似 hackr.jp 这种 DNS 可解析的名称，或是 192.168.1.1 这类 IPv4 地址 名，还可以是 [0:0:0:0:0:0:0:1] 这样用方括号括起来的 IPv6 地址名。</p>
+<h3 id="服务器端口号"><a href="#服务器端口号" class="headerlink" title="服务器端口号"></a>服务器端口号</h3><p>指定服务器连接的网络端口号。此项也是<strong><em>可选项</em></strong>，若用户省略则自动 使用默认端口号。</p>
+<h3 id="带层次的文件路径"><a href="#带层次的文件路径" class="headerlink" title="带层次的文件路径"></a>带层次的文件路径</h3><p>指定服务器上的文件路径来定位特指的资源。这与 UNIX 系统的文件 目录结构相似。</p>
+<h3 id="查询字符串"><a href="#查询字符串" class="headerlink" title="查询字符串"></a>查询字符串</h3><p>针对已指定的文件路径内的资源，可以使用查询字符串传入任意参 数。此项<strong><em>可选</em></strong>。</p>
+<h3 id="片段标识符"><a href="#片段标识符" class="headerlink" title="片段标识符"></a>片段标识符</h3><p>使用片段标识符通常可标记出已获取资源中的子资源（文档内的某个 位置）。但在 RFC 中并没有明确规定其使用方法。该项也为可选 项。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTTP协议</title>
+    <url>/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<h1 id="与HTTP有关的协议"><a href="#与HTTP有关的协议" class="headerlink" title="与HTTP有关的协议"></a>与HTTP有关的协议</h1><p>先通过一张图大致了解一下http协议与相关协议之间的关系：</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/3.png" alt="3"></p>
+<h2 id="DNS服务（域名解析）"><a href="#DNS服务（域名解析）" class="headerlink" title="DNS服务（域名解析）"></a>DNS服务（域名解析）</h2><p>DNS 协议提供通过域名 查找 IP 地址，或逆向从 IP 地址反查域名的服务。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/4.png" alt="4"></p>
+<h2 id="TCP协议（位于传输层）"><a href="#TCP协议（位于传输层）" class="headerlink" title="TCP协议（位于传输层）"></a>TCP协议（位于传输层）</h2><ol>
+<li>为了方便传输，TCP协议将 大块数据 分割以 报文段（segment）。</li>
+<li>为了确保数据能准确无误地送达，TCP协议采用三次握手策略，TCP 不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/5.png" alt="5"></p>
+<h2 id="IP协议（位于网络层）"><a href="#IP协议（位于网络层）" class="headerlink" title="IP协议（位于网络层）"></a>IP协议（位于网络层）</h2><p>IP 间的通信依赖 MAC 地址。在网络上，通信的双方在同一局域网 （LAN）内的情况是很少的，通常是经过多台计算机和网络设备中转 才能连接到对方。而在进行中转时，会利用下一站中转设备的 MAC 地址来搜索下一个中转目标。这时，会采用 ARP 协议（Address Resolution Protocol）。ARP 是一种用以解析地址的协议，根据通信方 的 IP 地址就可以反查出对应的 MAC 地址。<br>没有人能够全面掌握互联网中的传输状况<br>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只 能获悉很粗略的传输路线。<br>这种机制称为路由选择（routing），有点像快递公司的送货过程。想 要寄快递的人，只要将自己的货物送到集散中心，就可以知道快递公 司是否肯收件发货，该快递公司的集散中心检查货物的送达地址，明 确下站该送往哪个区域的集散中心。接着，那个区域的集散中心自会 判断是否能送到对方的家中。<br>我们是想通过这个比喻说明，无论哪台计算机、哪台网络设备，它们 都无法全面掌握互联网中的细节。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/6.png" alt="6"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>文件压缩</title>
     <url>/2020/01/17/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/</url>
     <content><![CDATA[<h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><h3 id="zip文件"><a href="#zip文件" class="headerlink" title="zip文件"></a>zip文件</h3><p>用winhex打开压缩文件，搜索十六进制”50 4B 01 02”，找到从”50”开始的第九第十个字节全部改成”00 00”。</p>
