@@ -75,6 +75,50 @@
 <p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/27.png" alt="27"></p>
 <h3 id="CONNECT方法（要求用隧道协议链接代理）"><a href="#CONNECT方法（要求用隧道协议链接代理）" class="headerlink" title="CONNECT方法（要求用隧道协议链接代理）"></a>CONNECT方法（要求用隧道协议链接代理）</h3><p>CONNECT 方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行 TCP 通信。主要使用 SSL（Secure Sockets Layer，安全套接层）和 TLS（Transport Layer Security，传输层安全）协议把通信内容加密后经网络隧道传输。</p>
 <p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/28.png" alt="28"></p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/29.png" alt="29"></p>
+<h3 id="2XX-成功（2XX-的响应结果表明请求被正常处理了。-）"><a href="#2XX-成功（2XX-的响应结果表明请求被正常处理了。-）" class="headerlink" title="2XX 成功（2XX 的响应结果表明请求被正常处理了。 ）"></a>2XX 成功（2XX 的响应结果表明请求被正常处理了。 ）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/30.png" alt="30"></p>
+<p>表示从客户端发来的请求在服务器端被正常处理了。<br>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改 变。比如，使用 GET 方法时，对应请求资源的实体会作为响应返 回；而使用 HEAD 方法时，对应请求资源的实体首部不随报文主体 作为响应返回（即在响应中只返回首部，不会返回实体的主体部 分）。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/31.png" alt="31"></p>
+<p>该状态码代表服务器接收的请求已成功处理，但在返回的响应报文中 不含实体的主体部分。另外，也不允许返回任何实体的主体。比如， 当从浏览器发出请求处理后，返回 204 响应，那么浏览器显示的页面 不发生更新。<br>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/32.png" alt="32"></p>
+<p>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求。响应报文中包含由 Content-Range 指定范围的实体内容。 </p>
+<h3 id="3XX-重定向（3XX-响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）"><a href="#3XX-重定向（3XX-响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）" class="headerlink" title="　3XX 重定向（3XX 响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）"></a>　3XX 重定向（3XX 响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/33.png" alt="33"></p>
+<p><strong>永久性重定向。</strong>该状态码表示请求的资源已被分配了新的 URI，以后 应使用资源现在所指的 URI。也就是说，如果已经把资源对应的 URI 保存为书签了，这时应该按 Location 首部字段提示的 URI 重新保存。</p>
+<p>像下方给出的请求 URI，当指定资源路径的最后忘记添加斜杠“/”，就 会产生 301 状态码。</p>
+<blockquote>
+<p><a href="http://example.com/sample" target="_blank" rel="noopener">http://example.com/sample</a></p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/34.png" alt="34"></p>
+<p><strong>临时性重定向。</strong>该状态码表示请求的资源已被分配了新的 URI，希望 用户（本次）能使用新的 URI 访问。 </p>
+<p>和 301 Moved Permanently 状态码相似，但 302 状态码代表的资源不是被永久移动，只是临时性质的。换句话说，已移动的资源对应的 URI 将来还有可能发生改变。比如，用户把 URI 保存成书签，但不会 像 301 状态码出现时那样去更新书签，而是仍旧保留返回 302 状态码 的页面对应的 URI。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/35.png" alt="35"></p>
+<p>该状态码表示由于请求对应的资源存在着另一个 URI，应使用 GET 方法定向获取请求的资源。</p>
+<p>303 状态码和 302 Found 状态码有着相同的功能，但 303 状态码明确 表示客户端应当采用 GET 方法获取资源，这点与 302 状态码有区别。</p>
+<p>比如，当使用 POST 方法访问 CGI 程序，其执行后的处理结果是希望 客户端能以 GET 方法重定向到另一个 URI 上去时，返回 303 状态 码。虽然 302 Found 状态码也可以实现相同的功能，但这里使用 303 状态码是最理想的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/36.png" alt="36"></p>
+<p>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。304 状态码返回时，不包含任何响应 的主体部分。304 虽然被划分在 3XX 类别中，但是和重定向没有关 系。</p>
+<blockquote>
+<p><strong>附带条件</strong>的请求是指采用 GET 方法的请求报文中包含 If-Match，If-ModifiedSince，If-None-Match，If-Range，If-Unmodified-Since 中任一首部。</p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/37.png" alt="37"></p>
+<p>临时重定向。该状态码与 302 Found 有着相同的含义。尽管 302 标准<br>禁止 POST 变换成 GET，但实际使用时大家并不遵守。 307 会遵照浏览器标准，不会从 POST 变成 GET。但是，对于处理响应时的行为，每种浏览器有可能出现不同的情况。</p>
+<h3 id="4XX-客户端错误（4XX-的响应结果表明客户端是发生错误的原因所在）"><a href="#4XX-客户端错误（4XX-的响应结果表明客户端是发生错误的原因所在）" class="headerlink" title="4XX 客户端错误（4XX 的响应结果表明客户端是发生错误的原因所在）"></a>4XX 客户端错误（4XX 的响应结果表明<em>客户端</em>是发生错误的原因所在）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/38.png" alt="38"></p>
+<p>该状态码表示请求报文中存在语法错误。当错误发生时，需修改请求 的内容后再次发送请求。另外，浏览器会像 200 OK 一样对待该状态 码。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/39.png" alt="39"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/40.png" alt="40"></p>
+<p>该状态码表示发送的请求需要有通过 HTTP 认证（BASIC 认证、 DIGEST 认证）的认证信息。另外若之前已进行过 1 次请求，则表示 用 户认证失败。 </p>
+<p>返回含有 401 的响应必须包含一个适用于被请求资源的 WWWAuthenticate 首部用以质询（challenge）用户信息。当浏览器初次接收 到 401 响应，会弹出认证用的对话窗口。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/41.png" alt="41"></p>
+<p>该状态码表明对请求资源的访问被服务器拒绝了。服务器端没有必要 给出拒绝的详细理由，但如果想作说明的话，可以在实体的主体部分对原因进行描述，这样就能让用户看到了。<br>未获得文件系统的访问授权，访问权限出现某些问题（从未授权的发送源 IP 地址试图访问）等列举的情况都可能是发生 403 的原因。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/42.png" alt="42"></p>
+<p>该状态码表明服务器上无法找到请求的资源。除此之外，也可以在服务器端<strong>拒绝请求且不想说明理由</strong>时使用。 </p>
+<h3 id="5XX-服务器错误（5XX-的响应结果表明服务器本身发生错误。-）"><a href="#5XX-服务器错误（5XX-的响应结果表明服务器本身发生错误。-）" class="headerlink" title="5XX 服务器错误（5XX 的响应结果表明服务器本身发生错误。 ）"></a>5XX 服务器错误（5XX 的响应结果表明<em>服务器</em>本身发生错误。 ）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/43.png" alt="43"></p>
+<p>该状态码表明服务器端在执行请求时发生了错误。也有可能是 Web 应用存在的 bug 或某些临时的故障。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/44.png" alt="44"></p>
+<p>该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法 处理请求。如果事先得知解除以上状况需要的时间，最好写入 RetryAfter 首部字段再返回给客户端。</p>
+<blockquote>
+<p>状态码和状况的不一致<br>不少返回的状态码响应都是错误的，但是用户可能察觉不到这点。 比如 Web 应用程序内部发生错误，状态码依然返回 200 OK，这种 情况也经常遇到。</p>
+</blockquote>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/17/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/">文件压缩</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/ctf%E6%8A%80%E5%B7%A7/">ctf技巧</a></span><div class="content"><h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><h3 id="zip文件"><a href="#zip文件" class="headerlink" title="zip文件"></a>zip文件</h3><p>用winhex打开压缩文件，搜索十六进制”50 4B 01 02”，找到从”50”开始的第九第十个字节全部改成”00 00”。</p>
 <p><em>（十六进制编译器里每两个数字称为一个字节）</em></p>
 <h3 id="rar文件"><a href="#rar文件" class="headerlink" title="rar文件"></a>rar文件</h3><p>用winhex打开十六进制，找到第24个字节，其尾数为0为未加密，为4则为加密。例如将’’84”改为’’80”.</p>
