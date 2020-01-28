@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>php var_dump()函数 [输出变量具体信息]</title>
+    <url>/2020/01/28/php-var-dump-%E5%87%BD%E6%95%B0-%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h2 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump()"></a>var_dump()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p><strong>var_dump()</strong> 函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump($expression)</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><strong>例1</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a &#x3D; array(1, 2, array(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;));</span><br><span class="line">var_dump($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array(3) &#123;</span><br><span class="line">  [0]&#x3D;&gt;</span><br><span class="line">  int(1)</span><br><span class="line">  [1]&#x3D;&gt;</span><br><span class="line">  int(2)</span><br><span class="line">  [2]&#x3D;&gt;</span><br><span class="line">  array(3) &#123;</span><br><span class="line">    [0]&#x3D;&gt;</span><br><span class="line">    string(1) &quot;a&quot;</span><br><span class="line">    [1]&#x3D;&gt;</span><br><span class="line">    string(1) &quot;b&quot;</span><br><span class="line">    [2]&#x3D;&gt;</span><br><span class="line">    string(1) &quot;c&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>例2</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$b &#x3D; 3.1;</span><br><span class="line">$c &#x3D; true;</span><br><span class="line">var_dump($b, $c);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">float(3.1)</span><br><span class="line">bool(true)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>php 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bugku 变量1</title>
+    <url>/2020/01/28/bugku-%E5%8F%98%E9%87%8F1/</url>
+    <content><![CDATA[<h2 id="题目：变量1"><a href="#题目：变量1" class="headerlink" title="题目：变量1"></a>题目：<a href="http://123.206.87.240:8004/index1.php" target="_blank" rel="noopener">变量1</a></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag In the variable ! &lt;?php  </span><br><span class="line"></span><br><span class="line">error_reporting(0);</span><br><span class="line">include &quot;flag1.php&quot;;</span><br><span class="line">highlight_file(__file__);</span><br><span class="line">if(isset($_GET[&#39;args&#39;]))&#123;</span><br><span class="line">    $args &#x3D; $_GET[&#39;args&#39;];</span><br><span class="line">    if(!preg_match(&quot;&#x2F;^\w+$&#x2F;&quot;,$args))&#123;</span><br><span class="line">        die(&quot;args error!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    eval(&quot;var_dump($$args);&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li><p>error_reporting() 函数规定报告哪个错误。</p>
+<p>而error_reporting(0) 表示关闭php错误显示。</p>
+</li>
+<li><p>用<a href="https://www.runoob.com/php/php-includes.html" target="_blank" rel="noopener">include</a>语句引入flag1.php文件，而flag应该就在里面</p>
+</li>
+<li><p>highlight_file()函数显示括号中文件的源代码</p>
+</li>
+<li><p>$_GET变量用来收集上传数据，具体方法为在网页域名后“?(要上传的数据)”</p>
+</li>
+<li><p>“/^\w+$/“该正则表达式代表$args变量要符合至少一个（0-9/a-z/A-Z）组成的字符串</p>
+</li>
+<li><p>要显示flag1.php里的值，尝试使用超级全局变量<strong>$GLOBALS</strong>($GLOBALS 是一个包含了全部变量的全局组合数组。变量的名字就是数组的键。)</p>
+</li>
+<li><p>var_dump()函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p>
+</li>
+</ol>
+<p>所以在域名后加“ ?args=GLOBALS ”,</p>
+]]></content>
+      <categories>
+        <category>ctf总结</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>php is_numeric()函数 [检测变量是否为数字或数字字符串]</title>
+    <url>/2020/01/28/php-is-numeric-%E5%87%BD%E6%95%B0-%E6%A3%80%E6%B5%8B%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E5%AD%97%E6%88%96%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="is-numeric"><a href="#is-numeric" class="headerlink" title="is _numeric()"></a>is _numeric()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>检测变量是否为数字或数字字符串</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_numeric( &amp;var )</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果指定的变量是数字和数字字符串则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$var_name1&#x3D;678;</span><br><span class="line">$var_name2&#x3D;&quot;a678&quot;;</span><br><span class="line">$var_name3&#x3D;&quot;678&quot;;</span><br><span class="line">$var_name4&#x3D;&quot;runoob.com&quot;;</span><br><span class="line">$var_name5&#x3D;698.99;</span><br><span class="line">$var_name6&#x3D;array(&quot;a1&quot;,&quot;a2&quot;);</span><br><span class="line">$var_name7&#x3D;+125689.66;</span><br><span class="line">if (is_numeric($var_name1))</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;$var_name1 是数字&quot; . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;$var_name1 不是数字&quot; . PHP_EOL ;</span><br><span class="line">&#125;</span><br><span class="line">if (is_numeric($var_name2))</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;$var_name2 是数字&quot; . PHP_EOL ;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;$var_name2 不是数字&quot; . PHP_EOL ;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$result&#x3D;is_numeric($var_name3);</span><br><span class="line">echo &quot;[ $var_name3 是数字吗? ]&quot; .var_dump($result) . PHP_EOL;</span><br><span class="line">$result&#x3D;is_numeric($var_name4);</span><br><span class="line">echo &quot;[ $var_name4 是数字吗? ]&quot; .var_dump($result) . PHP_EOL;</span><br><span class="line">$result&#x3D;is_numeric($var_name5);</span><br><span class="line">echo &quot;[ $var_name5 是数字吗? ]&quot; .var_dump($result) . PHP_EOL;</span><br><span class="line">$result&#x3D;is_numeric($var_name6);</span><br><span class="line">echo &quot;[ $var_name6 是数字吗? ]&quot; .var_dump($result) . PHP_EOL;</span><br><span class="line">$result&#x3D;is_numeric($var_name7);</span><br><span class="line">echo &quot;[ $var_name7 是数字吗? ]&quot; .var_dump($result);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">678 是数字</span><br><span class="line">a678 不是数字</span><br><span class="line">[ 678 是数字吗? ]</span><br><span class="line">bool(true)</span><br><span class="line">[ runoob.com 是数字吗? ]</span><br><span class="line">bool(false)</span><br><span class="line">[ 698.99 是数字吗? ]</span><br><span class="line">bool(true)</span><br><span class="line">[ Array 是数字吗? ]</span><br><span class="line">bool(false)</span><br><span class="line">[ 125689.66 是数字吗? ]</span><br><span class="line">bool(true)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>php 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>URI格式</title>
     <url>/2020/01/25/URI%E6%A0%BC%E5%BC%8F/</url>
     <content><![CDATA[<p><img src="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/7.png" alt="7"></p>
@@ -119,6 +200,33 @@
 <p>该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法 处理请求。如果事先得知解除以上状况需要的时间，最好写入 RetryAfter 首部字段再返回给客户端。</p>
 <blockquote>
 <p>状态码和状况的不一致<br>不少返回的状态码响应都是错误的，但是用户可能察觉不到这点。 比如 Web 应用程序内部发生错误，状态码依然返回 200 OK，这种 情况也经常遇到。</p>
+</blockquote>
+<h2 id="首部字段"><a href="#首部字段" class="headerlink" title="首部字段"></a>首部字段</h2><p>HTTP/1.1 规范定义了如下 47 种首部字段。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/45.png" alt="45"></p>
+<p><strong>请求首部字段</strong></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/46.png" alt="46"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/47.png" alt="47"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/48.png" alt="48"></p>
+<p>在 HTTP 协议通信交互中使用到的首部字段，不限于 RFC2616 中定 义的 47 种首部字段。还有 Cookie、Set-Cookie 和 Content-Disposition 等在其他 RFC 中定义的首部字段，它们的使用频率也很高。 </p>
+<p>这些非正式的首部字段统一归纳在 RFC4229 HTTP Header Field Registrations 中。 </p>
+<blockquote>
+<p><strong>注：</strong></p>
+<p><strong>End-to-end 首部和 Hop-by-hop 首部</strong> </p>
+<p>HTTP 首部字段将定义成缓存代理和非缓存代理的行为，分成 2 种类 型。</p>
+<p><strong>端到端首部（End-to-end Header）</strong> </p>
+<p>分在此类别中的首部会转发给请求 / 响应对应的最终接收目标，且必须保存在由缓存生成的响应中，另外规定它必须被转发。</p>
+<p><strong>逐跳首部（Hop-by-hop Header）</strong><br>分在此类别中的首部只对单次转发有效，会因通过缓存或代理而不再 转发。HTTP/1.1 和之后版本中，如果要使用 hop-by-hop 首部，需提 供 Connection 首部字段。</p>
+<p>下面列举了 HTTP/1.1 中的逐跳首部字段。除这 8 个首部字段之外， 其他所有字段都属于端到端首部。</p>
+<ol>
+<li>Connection </li>
+<li>Keep-Alive </li>
+<li>Proxy-Authenticate </li>
+<li>Proxy-Authorization </li>
+<li>Trailer </li>
+<li>TE </li>
+<li>Transfer-Encoding </li>
+<li>Upgrade </li>
+</ol>
 </blockquote>
 ]]></content>
   </entry>
@@ -736,7 +844,7 @@
   <entry>
     <title>php eval()函数 [把字符串作为PHP代码执行]</title>
     <url>/2020/01/06/php-eval-%E5%87%BD%E6%95%B0-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BAPHP%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</url>
-    <content><![CDATA[<h2 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h2><h2 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h2><p>把字符串作为PHP代码执行</p>
+    <content><![CDATA[<h2 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>把字符串作为PHP代码执行</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">eval(phpcode)</span><br></pre></td></tr></table></figure>
 
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$string &#x3D; &#39;cup&#39;;</span><br><span class="line">$name &#x3D; &#39;coffee&#39;;</span><br><span class="line">$str &#x3D; &#39;This is a $string with my $name in it.&#39;;</span><br><span class="line">echo $str. &quot;\n&quot;;</span><br><span class="line">eval(&quot;\$str &#x3D; \&quot;$str\&quot;;&quot;);</span><br><span class="line">echo $str. &quot;\n&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
@@ -1381,13 +1489,15 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <p>结果是：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
 
-<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。<br><img src="https://Albatross-G.github.io/img/php%E5%BC%B1%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E8%A1%A8.png" alt></p>
+<h2 id="php弱相等-“-”"><a href="#php弱相等-“-”" class="headerlink" title="php弱相等(“==”)"></a>php弱相等(“==”)</h2><h3 id="php弱相等比较表"><a href="#php弱相等比较表" class="headerlink" title="php弱相等比较表"></a>php弱相等比较表</h3><p>首先看一张图，一般比较就参考下图。</p>
+<p><img src="/2020/01/03/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/weak.jpg" alt="weak"></p>
 <h3 id="php弱相等时类型的转化"><a href="#php弱相等时类型的转化" class="headerlink" title="php弱相等时类型的转化"></a>php弱相等时类型的转化</h3><p>首先一定要注意：<strong>只有当类型不同时才会转化！</strong><br>“1e1234567”会被看成浮点型，正常计算法则计算即可<br>“1e1234abc”会被看成字符串，转化规则：<br>取第一个字母之前的数字，如无数字则为0。<br>如：1a1234abc转化为1，abcd转化为0。</p>
 <h3 id="一些发现"><a href="#一些发现" class="headerlink" title="一些发现"></a>一些发现</h3><p>可是笔者经过一些测试发现</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var_dump(&quot;1e2abc&quot;&#x3D;&#x3D;100);</span><br></pre></td></tr></table></figure>
 <p>得到</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool(true)</span><br></pre></td></tr></table></figure>
 <p>也就是说如果第一个非e/E字母前满足科学计数法形式，会先计算科学计数法数变成整型然后去掉之后字母。</p>
+<p><img src="/2020/01/03/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/1.jpg" alt="1"></p>
 ]]></content>
       <categories>
         <category>php</category>
