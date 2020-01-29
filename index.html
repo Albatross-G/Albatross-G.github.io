@@ -194,6 +194,37 @@
 <li>Upgrade </li>
 </ol>
 </blockquote>
+<h3 id="通用首部字段"><a href="#通用首部字段" class="headerlink" title="通用首部字段"></a>通用首部字段</h3><h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>通过指定首部字段 Cache-Control 的指令，就能操作缓存的工作机制。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/49.png" alt="49"></p>
+<p><em>可用的指令按请求和响应分类如下所示。</em></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/50.png" alt="50"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/51.png" alt="51"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/52.png" alt="52"></p>
+<p>使用 no-cache 指令的目的是为了防止从缓存中返回过期的资源。 </p>
+<p><strong>客户端</strong>发送的请求中如果包含 no-cache 指令，则表示客户端将不会接收缓存过的响应。于是，“中间”的缓存服务器必须把客户端请求转发 给源服务器。</p>
+<p>如果<strong>服务器</strong>返回的响应中包含 no-cache 指令，那么缓存服务器不能对资源进行缓存。源服务器以后也将不再对缓存服务器请求中提出的资源有效性进行确认，且禁止其对响应资源进行缓存操作。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/53.png" alt="53"></p>
+<p>由服务器返回的响应中，若报文首部字段 Cache-Control 中对 no-cache 字段名具体指定参数值，那么<em>客户端</em>I在接收到这个被指定参数值的首 部字段对应的响应报文后，就不能使用缓存。换言之，无参数值的首 部字段可以使用缓存。只能在<strong>响应指令</strong>中指定该参数。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/54.png" alt="54"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/55.png" alt="55"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/56.png" alt="56"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/57.png" alt="57"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/58.png" alt="58"></p>
+<h4 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h4><p>Connection 首部字段具备如下两个作用。</p>
+<ol>
+<li>控制不再转发给代理的首部字段</li>
+<li>管理持久连接</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/59.png" alt="59"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/60.png" alt="60"></p>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><p>表明创建HTTP报文的日期和时间。</p>
+<h4 id="Trailer"><a href="#Trailer" class="headerlink" title="Trailer"></a>Trailer</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/62.png" alt="62"></p>
+<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><p>首部字段 Upgrade 用于检测 HTTP 协议及其他协议是否可使用更高的 版本进行通信，其参数值可以用来指定一个完全不同的通信协议</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/63.png" alt="63"></p>
+<p>上图用例中，首部字段 Upgrade 指定的值为 TLS/1.0。请注意此处两 个字段首部字段的对应关系，Connection 的值被指定为 Upgrade。 Upgrade 首部字段产生作用的 Upgrade 对象仅限于客户端和邻接服务 器之间。因此，使用首部字段 Upgrade 时，还需要额外指定 Connection:Upgrade。 </p>
+<h4 id="Via"><a href="#Via" class="headerlink" title="Via"></a>Via</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/64.png" alt="64"></p>
+<p>Via 首部是为了追踪传输路径，所以经常会和 TRACE 方法一起使 用。比如，代理服务器接收到由 TRACE 方法发送过来的请求（其中 Max-Forwards: 0）时，代理服务器就不能再转发该请求了。这种情况 下，代理服务器会将自身的信息附加到 Via 首部后，返回该请求的响 应。</p>
+<h4 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/65.png" alt="65"></p>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/17/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/">文件压缩</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/ctf%E6%8A%80%E5%B7%A7/">ctf技巧</a></span><div class="content"><h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><h3 id="zip文件"><a href="#zip文件" class="headerlink" title="zip文件"></a>zip文件</h3><p>用winhex打开压缩文件，搜索十六进制”50 4B 01 02”，找到从”50”开始的第九第十个字节全部改成”00 00”。</p>
 <p><em>（十六进制编译器里每两个数字称为一个字节）</em></p>
 <h3 id="rar文件"><a href="#rar文件" class="headerlink" title="rar文件"></a>rar文件</h3><p>用winhex打开十六进制，找到第24个字节，其尾数为0为未加密，为4则为加密。例如将’’84”改为’’80”.</p>
