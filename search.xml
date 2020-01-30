@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-01-31日目标</title>
+    <url>/2020/01/30/2020-01-31%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-01-31目标"><a href="#2020-01-31目标" class="headerlink" title="2020-01-31目标"></a>2020-01-31目标</h2><ol>
+<li>英语听力10min</li>
+<li>英语单词20个</li>
+<li>2-3篇数学通识</li>
+<li>HTTP协议第7章看完</li>
+<li>做一道ctf杂项题</li>
+<li>b站ctflinux基础看完</li>
+</ol>
+<h2 id="2020-01-30总结"><a href="#2020-01-30总结" class="headerlink" title="2020-01-30总结"></a>2020-01-30总结</h2><p>下午状态略差，其余时间还OK</p>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>Y/N</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP协议第6章看完</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>b站ctf密码学看完</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>做一道ctf杂项题</td>
+<td>N</td>
+</tr>
+<tr>
+<td>英语听力10min</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>英语单词20个</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>2-3篇数学通识</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Y</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
     <title>2020-01-30日目标</title>
     <url>/2020/01/29/2020-01-30%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
-    <content><![CDATA[<h2 id="2020-01-29目标"><a href="#2020-01-29目标" class="headerlink" title="2020-01-29目标"></a>2020-01-29目标</h2><ol>
+    <content><![CDATA[<h2 id="2020-01-30目标"><a href="#2020-01-30目标" class="headerlink" title="2020-01-30目标"></a>2020-01-30目标</h2><ol>
 <li>HTTP协议第6章看完</li>
 <li>b站ctf密码学看完</li>
 <li>做一道ctf杂项题</li>
@@ -370,6 +423,119 @@
 <h4 id="TE"><a href="#TE" class="headerlink" title="TE"></a>TE</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/82.png" alt="82"></p>
 <h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>首部字段 User-Agent 会将<strong>创建请求的浏览器</strong>和<strong>用户代理名称</strong>等信息传 达给服务器。</p>
 <p>由网络爬虫发起请求时，有可能会在字段内添加爬虫作者的电子邮件地址。此外，如果请求经过代理，那么中间也很可能被添加上代理服务器的名称。 </p>
+<h3 id="响应首部字段"><a href="#响应首部字段" class="headerlink" title="响应首部字段"></a>响应首部字段</h3><p>响应首部字段是由服务器端向客户端返回响应报文中所使用的字段， 用于<strong>补充响应的附加信息</strong>、<strong>服务器信息</strong>，以及<strong>对客户端的附加要求</strong>等信息。</p>
+<h4 id="Accept-Ranges"><a href="#Accept-Ranges" class="headerlink" title="Accept-Ranges"></a>Accept-Ranges</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/83.png" alt="83"></p>
+<h4 id="Age"><a href="#Age" class="headerlink" title="Age"></a>Age</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/84.png" alt="84"></p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>首部字段 ETag 能告知客户端实体标识。它是一种可将资源以字符串 形式做唯一性标识的方式。服务器会为每份资源分配对应的 ETag 值。</p>
+<p>另外，当资源更新时，ETag 值也需要更新。生成 ETag 值时，并没有 统一的算法规则，而仅仅是由服务器来分配。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/85.png" alt="85"></p>
+<p>资源被缓存时，就会被分配唯一性标识。例如，当使用中文版的浏览器访问 <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a> 时，就会返回中文版对应的资源，而 使用英文版的浏览器访问时，则会返回英文版对应的资源。两者的 URI 是相同的，所以仅凭 URI 指定缓存的资源是相当困难的。若在下 载过程中出现连接中断、再连接的情况，都会依照 ETag 值来指定资源。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/86.png" alt="86"></p>
+<blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/87.png" alt="87"></p>
+</blockquote>
+<h4 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h4><p>使用首部字段 Location 可以将响应接收方引导至某个与请求 URI 位置 不同的资源。</p>
+<p>基本上，该字段会配合 3xx ：Redirection 的响应，提供重定向的 URI。 </p>
+<p>几乎所有的浏览器在接收到包含首部字段 Location 的响应后，都会强制性地尝试对已提示的重定向资源的访问。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/88.png" alt="88"></p>
+<h4 id="Proxy-Authenticate"><a href="#Proxy-Authenticate" class="headerlink" title="Proxy-Authenticate"></a>Proxy-Authenticate</h4><p>首部字段 Proxy-Authenticate 会把由代理服务器所要求的认证信息发送 给客户端。</p>
+<p>它与客户端和服务器之间的 HTTP 访问认证的行为相似，不同之处在 于其认证行为是在客户端与代理之间进行的。而客户端与服务器之间 进行认证时，首部字段 WWW-Authorization 有着相同的作用。有关 HTTP 访问认证，后面的章节会再进行详尽阐述。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/89.png" alt="89"></p>
+<h4 id="WWW-Authenticate"><a href="#WWW-Authenticate" class="headerlink" title="WWW-Authenticate"></a>WWW-Authenticate</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/93.png" alt="93"></p>
+<h4 id="Retry-After"><a href="#Retry-After" class="headerlink" title="Retry-After"></a>Retry-After</h4><p>首部字段 Retry-After 告知客户端应该在多久之后再次发送请求。主要 配合状态码 503 Service Unavailable 响应，或 3xx Redirect 响应一起使 用。</p>
+<p>字段值可以指定为具体的日期时间（Wed, 04 Jul 2012 06：34：24 GMT 等格式），也可以是创建响应后的秒数。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/90.png" alt="90"></p>
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/91.png" alt="91"></p>
+<h4 id="Vary"><a href="#Vary" class="headerlink" title="Vary"></a>Vary</h4><p>首部字段 Vary 可对缓存进行控制。源服务器会向代理服务器传达关 于本地缓存使用方法的命令。</p>
+<p>从代理服务器接收到源服务器返回包含 Vary 指定项的响应之后，若 再要进行缓存，仅对请求中含有相同 Vary 指定首部字段的请求返回 缓存。即使对相同资源发起请求，但由于 Vary 指定的首部字段不相 同，因此必须要从源服务器重新获取资源。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/92.png" alt="92"></p>
+<p>图：当代理服务器接收到带有 Vary 首部字段指定获取资源的请求 时，如果使用的 Accept-Language 字段的值相同，那么就直接从缓 存返回响应。反之，则需要先从源服务器端获取资源后才能作为响应返回.</p>
+<h3 id="实体首部字段"><a href="#实体首部字段" class="headerlink" title="实体首部字段"></a>实体首部字段</h3><p>实体首部字段是包含在请求报文和响应报文中的实体部分所使用的首 部，用于补充内容的更新时间等与实体相关的信息。</p>
+<h4 id="Allow"><a href="#Allow" class="headerlink" title="Allow"></a>Allow</h4><p>首部字段 Allow 用于通知客户端能够支持 Request-URI 指定资源的所 有 HTTP 方法。当服务器接收到不支持的 HTTP 方法时，会以状态码 405 Method Not Allowed 作为响应返回。与此同时，还会把所有能支 持的 HTTP 方法写入首部字段 Allow 后返回。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/94.png" alt="94"></p>
+<h4 id="Content-Encoding"><a href="#Content-Encoding" class="headerlink" title="Content-Encoding"></a>Content-Encoding</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/95png.png" alt="95png"></p>
+<h4 id="Content-Language"><a href="#Content-Language" class="headerlink" title="Content-Language"></a>Content-Language</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/96.png" alt="96"></p>
+<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length"></a>Content-Length</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/97.png" alt="97"></p>
+<h4 id="Content-Location"><a href="#Content-Location" class="headerlink" title="Content-Location"></a>Content-Location</h4><p>首部字段 Content-Location 给出与报文主体部分相对应的 URI。和首 部字段 Location 不同，Content-Location 表示的是报文主体返回资源对 应的 URI。 </p>
+<p>比如，对于使用首部字段 Accept-Language 的服务器驱动型请求，当 返回的页面内容与实际请求的对象不同时，首部字段 Content-Location 内会写明 URI。（访问 <a href="http://www.hackr.jp/" target="_blank" rel="noopener">http://www.hackr.jp/</a> 返回的对象却是 <a href="http://www.hackr.jp/index-ja.html" target="_blank" rel="noopener">http://www.hackr.jp/index-ja.html</a> 等类似情况） </p>
+<h4 id="Content-MD5"><a href="#Content-MD5" class="headerlink" title="Content-MD5"></a>Content-MD5</h4><p>首部字段 Content-MD5 是一串由 MD5 算法生成的值，其目的在于检 查报文主体在传输过程中是否保持完整，以及确认传输到达。</p>
+<p>对报文主体执行 MD5 算法获得的 128 位二进制数，再通过 Base64 编 码后将结果写入 Content-MD5 字段值。由于 HTTP 首部无法记录二进 制值，所以要通过 Base64 编码处理。为确保报文的有效性，作为接 收方的客户端会对报文主体再执行一次相同的 MD5 算法。计算出的值与字段值作比较后，即可判断出报文主体的准确性。</p>
+<p>采用这种方法，对内容上的偶发性改变是无从查证的，也无法检测出 恶意篡改。其中一个原因在于，内容如果能够被篡改，那么同时意味 着 Content-MD5 也可重新计算然后被篡改。所以处在接收阶段的客户 端是无法意识到报文主体以及首部字段 Content-MD5 是已经被篡改过 的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/98.png" alt="98"></p>
+<h4 id="Content-Range"><a href="#Content-Range" class="headerlink" title="Content-Range"></a>Content-Range</h4><p>针对范围请求，返回响应时使用的首部字段 Content-Range，能告知客 户端作为响应返回的实体的哪个部分符合范围请求。字段值以字节为 单位，表示当前发送部分及整个实体大小。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/99.png" alt="99"></p>
+<h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h4><p>首部字段 Content-Type 说明了实体主体内对象的媒体类型。和首部字 段 Accept 一样，字段值用 type/subtype 形式赋值。</p>
+<blockquote>
+<p>Content-Type: text/html; charset=UTF-8</p>
+</blockquote>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>首部字段 Expires 会将资源失效的日期告知客户端。缓存服务器在接 收到含有首部字段 Expires 的响应后，会以缓存来应答请求，在 Expires 字段值指定的时间<strong>之前</strong>，响应的副本会一直被保存。当超过指定的时间<strong>后</strong>，缓存服务器在请求发送过来时，会转向源服务器请求 资源。</p>
+<p>源服务器不希望缓存服务器对资源缓存时，最好在 Expires 字段内写 入与首部字段 Date 相同的时间值。 </p>
+<p>但是，当首部字段 Cache-Control 有指定 max-age 指令时，比起首部字 段 Expires，会<strong>优先处理 max-age</strong> 指令。 </p>
+<h4 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h4><p>首部字段 Last-Modified 指明资源最终修改的时间。一般来说，这个 值就是 Request-URI 指定资源被修改的时间。但类似使用 CGI 脚本进 行动态数据处理时，该值有可能会变成数据最终修改时的时间</p>
+<h3 id="为-Cookie-服务的首部字段"><a href="#为-Cookie-服务的首部字段" class="headerlink" title="为 Cookie 服务的首部字段"></a>为 Cookie 服务的首部字段</h3><p>Cookie 的工作机制是用户识别及状态管理。Web 网站为了管理用户的 状态会通过 Web 浏览器，把一些数据临时写入用户的计算机内。接 着当用户访问该Web网站时，可通过通信方式取回之前发放的 Cookie。 </p>
+<p>调用 Cookie 时，由于可校验 Cookie 的有效期，以及发送方的域、路 径、协议等信息，所以正规发布的 Cookie 内的数据不会因来自其他 Web 站点和攻击者的攻击而泄露。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/100.png" alt="100"></p>
+<h4 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h4><p>当服务器准备开始管理客户端的状态时，会事先告知各种信息。</p>
+<blockquote>
+<p>Set-Cookie: status=enable; expires=Tue, 05 Jul 2011 07:26:31</p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/101.png" alt="101"></p>
+<h5 id="domain-属性"><a href="#domain-属性" class="headerlink" title="domain 属性"></a>domain 属性</h5><p>通过 Cookie 的 domain 属性指定的域名可做到与结尾匹配一致。比 如，当指定 example.com 后，除 example.com 以外，<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 或 www2.example.com 等都可以发送 Cookie。 </p>
+<p>因此，除了针对具体指定的多个域名发送 Cookie 之 外，不指定 domain 属性显得更安全。 </p>
+<h5 id="secure-属性"><a href="#secure-属性" class="headerlink" title="secure 属性"></a>secure 属性</h5><p>发送 Cookie 时，指定 secure 属性的方法如下所示。</p>
+<blockquote>
+<p>Set-Cookie: name=value; secure</p>
+</blockquote>
+<h5 id="HttpOnly-属性"><a href="#HttpOnly-属性" class="headerlink" title="HttpOnly 属性"></a>HttpOnly 属性</h5><p>发送指定 HttpOnly 属性的 Cookie 的方法如下所示。</p>
+<blockquote>
+<p>Set-Cookie: name=value; HttpOnly</p>
+</blockquote>
+<p>通过上述设置，通常从 Web 页面内还可以对 Cookie 进行读取操作。 但使用 JavaScript 的 document.cookie 就无法读取附加 HttpOnly 属性后 的 Cookie 的内容了。因此，也就无法在 XSS 中利用 JavaScript 劫持 Cookie 了。 </p>
+<h5 id="expires-属性"><a href="#expires-属性" class="headerlink" title="expires 属性"></a>expires 属性</h5><p>一旦 Cookie 从服务器端发送至客户端，服务器端就不存在可 以显式删除 Cookie 的方法。但可通过覆盖已过期的 Cookie，实现对 客户端 Cookie 的实质性删除操作。 </p>
+<h5 id="path-属性"><a href="#path-属性" class="headerlink" title="path 属性"></a>path 属性</h5><p>Cookie 的 path 属性可用于限制指定 Cookie 的发送范围的文件目录。 不过另有办法可避开这项限制，看来对其作为安全机制的效果不能抱 有期待。</p>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>首部字段 Cookie 会告知服务器，当客户端想获得 HTTP 状态管理支 持时，就会在请求中包含从服务器接收到的 Cookie。接收到多个 Cookie 时，同样可以以多个 Cookie 形式发送。 </p>
+<blockquote>
+<p>Cookie: status=enable</p>
+</blockquote>
+<h3 id="其他首部字段"><a href="#其他首部字段" class="headerlink" title="其他首部字段"></a>其他首部字段</h3><p>HTTP 首部字段是可以自行扩展的。所以在 Web 服务器和浏览器的应 用上，会出现各种非标准的首部字段。</p>
+<h4 id="X-Frame-Options"><a href="#X-Frame-Options" class="headerlink" title="X-Frame-Options"></a>X-Frame-Options</h4><p>首部字段 X-Frame-Options 属于 HTTP 响应首部，用于控制网站内容 在其他 Web 网站的 Frame 标签内的显示问题。其主要目的是为了防 止点击劫持（clickjacking）攻击。</p>
+<p>首部字段 X-Frame-Options 有以下两个可指定的字段值。 </p>
+<ol>
+<li>DENY ：拒绝 </li>
+<li>SAMEORIGIN ：仅同源域名下的页面（Top-level-browsingcontext）匹配时许可。（比如，当指定 <a href="http://hackr.jp/sample.html" target="_blank" rel="noopener">http://hackr.jp/sample.html</a> 页面为 SAMEORIGIN 时，那么 hackr.jp 上所有页面的 frame 都被 允许可加载该页面，而 example.com 等其他域名的页面就不行 了）</li>
+</ol>
+<p>对 apache2.conf 的配置实例</p>
+<blockquote>
+<IfModule mod_headers.c>
+
+<p>Header append X-FRAME-OPTIONS “SAMEORIGIN” </p>
+</IfModule>
+</blockquote>
+<h4 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h4><p>首部字段 X-XSS-Protection 属于 HTTP 响应首部，它是针对跨站脚本 攻击（XSS）的一种对策，用于控制浏览器 XSS 防护机制的开关。 </p>
+<p>首部字段 X-XSS-Protection 可指定的字段值如下。 </p>
+<ol>
+<li>0 ：将 XSS 过滤设置成无效状态 </li>
+<li>1 ：将 XSS 过滤设置成有效状态 </li>
+</ol>
+<h4 id="DNT"><a href="#DNT" class="headerlink" title="DNT"></a>DNT</h4><p>首部字段 DNT 属于 HTTP 请求首部，其中 DNT 是 Do Not Track 的简 称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法。</p>
+<p>首部字段 DNT 可指定的字段值如下。</p>
+<ol>
+<li>0 ：同意被追踪 </li>
+<li>1 ：拒绝被追踪 </li>
+</ol>
+<h4 id="P3P"><a href="#P3P" class="headerlink" title="P3P"></a>P3P</h4><p>首部字段 P3P 属于 HTTP 相应首部，通过利用 P3P（The Platform for Privacy Preferences，在线隐私偏好平台）技术，可以让 Web 网站上 的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的 目的。、</p>
+<blockquote>
+<p>P3P: CP=”CAO DSP LAW CURa ADMa DEVa TAIa PSAa PSDa IVAa IVDa</p>
+</blockquote>
+<p>要进行 P3P 的设定，需按以下操作步骤进行。 </p>
+<ol>
+<li>步骤 1：创建 P3P 隐私 </li>
+<li>步骤 2：创建 P3P 隐私对照文件后，保存命名在 /w3c/p3p.xml </li>
+<li>步骤 3：从 P3P 隐私中新建 Compact policies 后，输出到 HTTP 响应中</li>
+</ol>
+<blockquote>
+<p>P3P详情：<a href="https://www.w3.org/TR/P3P/" target="_blank" rel="noopener">https://www.w3.org/TR/P3P/</a></p>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
