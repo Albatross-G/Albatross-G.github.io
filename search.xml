@@ -301,6 +301,75 @@
 <h4 id="Via"><a href="#Via" class="headerlink" title="Via"></a>Via</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/64.png" alt="64"></p>
 <p>Via 首部是为了追踪传输路径，所以经常会和 TRACE 方法一起使 用。比如，代理服务器接收到由 TRACE 方法发送过来的请求（其中 Max-Forwards: 0）时，代理服务器就不能再转发该请求了。这种情况 下，代理服务器会将自身的信息附加到 Via 首部后，返回该请求的响 应。</p>
 <h4 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/65.png" alt="65"></p>
+<h3 id="请求首部字段"><a href="#请求首部字段" class="headerlink" title="请求首部字段"></a>请求首部字段</h3><p>请求首部字段是从客户端往服务器端发送请求报文中所使用的字段， 用于<strong>补充请求的附加信息、客户端信息、对响应内容相关的优先级</strong>等 内容。</p>
+<h4 id="Accept"><a href="#Accept" class="headerlink" title="Accept"></a>Accept</h4><p>Accept 首部字段可通知服务器，用户代理能够处理的媒体类型及媒体 类型的相对优先级。可使用 type/subtype 这种形式，一次指定多种媒体类型。</p>
+<ol>
+<li>文本文件<br>text/html, text/plain, text/css … application/xhtml+xml, application/xml …</li>
+<li>图片文件<br>image/jpeg, image/gif, image/png …</li>
+<li>视频文件<br>video/mpeg, video/quicktime …</li>
+<li>应用程序使用的二进制文件<br>application/octet-stream, application/zip … </li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/66.png" alt="66"></p>
+<p>若想要给显示的媒体类型增加优先级，则使用 q= 来额外表示权重值 1，用分号（;）进行分隔。权重值 q 的范围是 0~1（可精确到小数点 后 3 位），且 1 为最大值。不指定权重 q 值时，默认权重为 q=1.0。</p>
+<h4 id="Accept-Charset"><a href="#Accept-Charset" class="headerlink" title="Accept-Charset"></a>Accept-Charset</h4><p>Accept-Charset 首部字段可用来通知服务器用户代理支持的字符集及 字符集的相对优先顺序。另外，可一次性指定多种字符集。与首部字 段 Accept 相同的是可用权重 q 值来表示相对优先级。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/67.png" alt="67"></p>
+<h4 id="Accept-Encoding"><a href="#Accept-Encoding" class="headerlink" title="Accept-Encoding"></a>Accept-Encoding</h4><p>Accept-Encoding 首部字段用来告知服务器用户代理支持的内容编码及 内容编码的优先级顺序。可一次性指定多种内容编码。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/68.png" alt="68"></p>
+<p>下面试举出几个内容编码的例子。</p>
+<ol>
+<li>gzip 由文件压缩程序 gzip（GNU zip）生成的编码格式 （RFC1952），采用 Lempel-Ziv 算法（LZ77）及 32 位循环冗余 校验（Cyclic Redundancy Check，通称 CRC）。 </li>
+<li>compress 由 UNIX 文件压缩程序 compress 生成的编码格式，采用 LempelZiv-Welch 算法（LZW）。 </li>
+<li>deflate 组合使用 zlib 格式（RFC1950）及由 deflate 压缩算法 （RFC1951）生成的编码格式。 </li>
+<li>identity<br>不执行压缩或不会变化的默认编码格式</li>
+</ol>
+<p>采用权重 q 值来表示相对优先级，这点与首部字段 Accept 相同。另 外，也可使用星号（*）作为通配符，指定任意的编码格式。 </p>
+<h4 id="Accept-Language"><a href="#Accept-Language" class="headerlink" title="Accept-Language"></a>Accept-Language</h4><p>首部字段 Accept-Language 用来告知服务器用户代理能够处理的自然 语言集（指中文或英文等），以及自然语言集的相对优先级。可一次 指定多种自然语言集。</p>
+<p>和 Accept 首部字段一样，按权重值 q 来表示相对优先级。在下面图例中，客户端在服务器有中文版资源的情况下，会请求其返回中文版 对应的响应，没有中文版时，则请求返回英文版响应。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/69.png" alt="69"></p>
+<h4 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h4><p>首部字段 Authorization 是用来告知服务器，用户代理的认证信息（证书值）。通常，想要通过服务器认证的用户代理会在接收到返回的 401 状态码响应后，把首部字段 Authorization 加入请求中。共用缓存 在接收到含有 Authorization 首部字段的请求时的操作处理会略有差异。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/70.png" alt="70"></p>
+<h4 id="Expect"><a href="#Expect" class="headerlink" title="Expect"></a>Expect</h4><p>客户端使用首部字段 Expect 来告知服务器，期望出现的某种特定行 为。因服务器无法理解客户端的期望作出回应而发生错误时，会返回 状态码 417 Expectation Failed。 </p>
+<p>客户端可以利用该首部字段，写明所期望的扩展。虽然 HTTP/1.1 规 范只定义了 100-continue（状态码 100 Continue 之意）。 </p>
+<p>等待状态码 100 响应的客户端在发生请求时，需要指定 Expect:100continue。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/71.png" alt="71"></p>
+<h4 id="From"><a href="#From" class="headerlink" title="From"></a>From</h4><p>首部字段 From 用来告知服务器使用用户代理的用户的电子邮件地 址。通常，其使用目的就是为了显示搜索引擎等用户代理的负责人的 电子邮件联系方式。使用代理时，应尽可能包含 From 首部字段（但 可能会因代理不同，将电子邮件地址记录在 User-Agent 首部字段 内）。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/72.png" alt="72"></p>
+<h4 id="Host"><a href="#Host" class="headerlink" title="Host"></a>Host</h4><p>首部字段 Host 会告知服务器，请求的资源所处的互联网主机名和端 口号。Host 首部字段在 HTTP/1.1 规范内是唯一一个必须被包含在请 求内的首部字段。</p>
+<p>首部字段 Host 和以单台服务器分配多个域名的虚拟主机的工作机制 有很密切的关联，这是首部字段 Host 必须存在的意义。 </p>
+<p>请求被发送至服务器时，请求中的主机名会用 IP 地址直接替换解 决。但如果这时，相同的 IP 地址下部署运行着多个域名，那么服务 器就会无法理解究竟是哪个域名对应的请求。因此，就需要使用首部 字段 Host 来明确指出请求的主机名。若服务器未设定主机名，那直 接发送一个空值即可。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/73.png" alt="73"></p>
+<h4 id="If-XXX"><a href="#If-XXX" class="headerlink" title="If-XXX"></a>If-XXX</h4><p>形如 If-xxx 这种样式的请求首部字段，都可称为条件请求。服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求。</p>
+<h5 id="If-Match"><a href="#If-Match" class="headerlink" title="If-Match"></a>If-Match</h5><p>首部字段 If-Match，属附带条件之一，它会告知服务器匹配资源所用 的实体标记（ETag）值。这时的服务器无法使用弱 ETag 值。（请参 照本章有关首部字段 ETag 的说明）</p>
+<p>服务器会比对 If-Match 的字段值和资源的 ETag 值，仅当两者一致 时，才会执行请求。反之，则返回状态码 412 Precondition Failed 的响 应。</p>
+<p>还可以使用星号（*）指定 If-Match 的字段值。针对这种情况，服务 器将会忽略 ETag 的值，只要资源存在就处理请求。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/74.png" alt="74"></p>
+<h5 id="If-None-Match"><a href="#If-None-Match" class="headerlink" title="If-None-Match"></a>If-None-Match</h5><p>首部字段 If-None-Match 属于附带条件之一。它和首部字段 If-Match 作用相反。用于指定 If-None-Match 字段值的实体标记（ETag）值与 请求资源的 ETag 不一致时，它就告知服务器处理该请求。 </p>
+<p>在 GET 或 HEAD 方法中使用首部字段 If-None-Match 可获取最新的资源。因此，这与使用首部字段 If-Modified-Since 时有些类似。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/76.png" alt="76"></p>
+<h5 id="If-Modified-Since"><a href="#If-Modified-Since" class="headerlink" title="If-Modified-Since"></a>If-Modified-Since</h5><p>If-Modified-Since 用于确认代理或客户端拥有的本地资源的有效性。 获取资源的更新日期时间，可通过确认首部字段 Last-Modified 来确定。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/75.png" alt="75"></p>
+<h5 id="If-Unmodified-Since"><a href="#If-Unmodified-Since" class="headerlink" title="If-Unmodified-Since"></a>If-Unmodified-Since</h5><p>首部字段 If-Unmodified-Since 和首部字段 If-Modified-Since 的作用相反。</p>
+<h5 id="If-Range"><a href="#If-Range" class="headerlink" title="If-Range"></a>If-Range</h5><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/77.png" alt="77"></p>
+<p>思考：If-Range存在的意义</p>
+<p>当资源更新后，其ETag值会改变。所以当客户端持有部分文件而请求另一部分文件时，如果单单用GET请求，服务器会返回412 Precondition Failed，这样客户端还需再发一遍GET来获取更新后的全部文件，会用双倍时间。</p>
+<h4 id="Max-Forwards"><a href="#Max-Forwards" class="headerlink" title="Max-Forwards"></a>Max-Forwards</h4><p>通过 TRACE 方法或 OPTIONS 方法，发送包含首部字段 MaxForwards 的请求时，该字段以十进制整数形式指定可经过的服务器最 大数目。服务器在往下一个服务器转发请求之前，Max-Forwards 的 值减 1 后重新赋值。当服务器接收到 Max-Forwards 值为 0 的请求 时，则不再进行转发，而是直接返回响应。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/78.png" alt="78"></p>
+<p>使用 HTTP 协议通信时，请求可能会经过代理等多台服务器。途中， 如果代理服务器由于某些原因导致请求转发失败，客户端也就等不到 服务器返回的响应了。对此，我们无从可知。</p>
+<p>可以灵活使用首部字段 Max-Forwards，针对以上问题产生的原因展 开调查。由于当 Max-Forwards 字段值为 0 时，服务器就会立即返回 响应，由此我们至少可以对以那台服务器为终点的传输路径的通信状 况有所把握。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/79.png" alt="79"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/80.png" alt="80"></p>
+<h4 id="Proxy-Authorization"><a href="#Proxy-Authorization" class="headerlink" title="Proxy-Authorization"></a>Proxy-Authorization</h4><p>接收到从代理服务器发来的认证质询时，客户端会发送包含首部字段 Proxy-Authorization 的请求，以告知服务器认证所需要的信息。 </p>
+<p>这个行为是与客户端和服务器之间的 HTTP 访问认证相类似的，不同 之处在于，认证行为发生在客户端与代理之间。客户端与服务器之间 的认证，使用首部字段 Authorization 可起到相同作用。</p>
+<h4 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h4><p>对于只需获取部分资源的范围请求，包含首部字段 Range 即可告知服 务器资源的指定范围。上面的示例表示请求获取从第 5001 字节至第 10000 字节的资源。 </p>
+<p>接收到附带 Range 首部字段请求的服务器，会在处理请求之后返回状 态码为 206 Partial Content 的响应。无法处理该范围请求时，则会返 回状态码 200 OK 的响应及全部资源。</p>
+<h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>首部字段 Referer 会告知服务器请求的原始资源的 URI。 </p>
+<p>客户端一般都会发送 Referer 首部字段给服务器。但当直接在浏览器 的地址栏输入 URI，或出于安全性的考虑时，也可以不发送该首部字 段。</p>
+<p>因为原始资源的 URI 中的查询字符串可能含有 ID 和密码等保密信 息，要是写进 Referer 转发给其他服务器，则有可能导致保密信息的 泄露。</p>
+<p>另外，Referer 的正确的拼写应该是 Referrer，但不知为何，大家一直 沿用这个错误的拼写。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/81.png" alt="81"></p>
+<h4 id="TE"><a href="#TE" class="headerlink" title="TE"></a>TE</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/82.png" alt="82"></p>
+<h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>首部字段 User-Agent 会将<strong>创建请求的浏览器</strong>和<strong>用户代理名称</strong>等信息传 达给服务器。</p>
+<p>由网络爬虫发起请求时，有可能会在字段内添加爬虫作者的电子邮件地址。此外，如果请求经过代理，那么中间也很可能被添加上代理服务器的名称。 </p>
 ]]></content>
   </entry>
   <entry>
