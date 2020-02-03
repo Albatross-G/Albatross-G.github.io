@@ -1,9 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2020-02-03计划</title>
+    <title>2020-02-04日目标</title>
+    <url>/2020/02/03/2020-02-04%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-02-04日目标"><a href="#2020-02-04日目标" class="headerlink" title="2020-02-04日目标"></a>2020-02-04日目标</h2><ol>
+<li>英语听力10min    </li>
+<li>英语单词20个    </li>
+<li>2-3篇数学通识    </li>
+<li>HTTP协议第10章看完</li>
+<li>mysql再看一些操作</li>
+<li><a href="https://www.anquanke.com/post/id/170626?from=timeline" target="_blank" rel="noopener">看完一篇关于sql盲注的文章</a></li>
+</ol>
+<h2 id="2020-02-03总结"><a href="#2020-02-03总结" class="headerlink" title="2020-02-03总结"></a>2020-02-03总结</h2><p>今天在看sql盲注的时候了解到一些东西需要用MySQL测试，所以就临时改变计划，在kali上就着菜鸟教程和一篇博客大概理解了MySQL的基本操作，刚才也自己建了个测试数据表供明天使用。</p>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>Y/N</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>英语听力10min</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>英语单词20个</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>2-3篇数学通识</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>HTTP协议第10章看完</td>
+<td>N</td>
+</tr>
+<tr>
+<td>看完菜鸟php与ajax</td>
+<td>N</td>
+</tr>
+<tr>
+<td><a href="https://www.anquanke.com/post/id/170626?from=timeline" target="_blank" rel="noopener">看完一篇关于sql盲注的文章</a></td>
+<td>N</td>
+</tr>
+<tr>
+<td>试着理解DVWA的sql low难度</td>
+<td>N</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>N</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在kali linux下mysql的基本操作</title>
+    <url>/2020/02/03/%E5%9C%A8kali-linux%E4%B8%8Bmysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>先进入所在目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mysql</span><br></pre></td></tr></table></figure>
+
+<p>进入mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注：</strong></p>
+<ol>
+<li><strong>以下语句为在mysql中操作，结尾必须有；</strong></li>
+<li><strong>所有符号均为英文符号</strong></li>
+</ol>
+<p>查看所有数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS test DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</span><br></pre></td></tr></table></figure>
+
+<p>删除数据库test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">drop test;</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use test;</span><br></pre></td></tr></table></figure>
+
+<p>显示数据库数据test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<p>创建数据表test1</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE test1 (</span><br><span class="line">-&gt; column_name1 column_type1 AUTO_INCREMENT,   #规定自增属性</span><br><span class="line">-&gt; column_name2 column_type2 NOT NULL,   #不允许字段为NULL</span><br><span class="line">-&gt; PRIMARY KEY(column_name1)   #规定主键</span><br><span class="line">-&gt; )CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.runoob.com/mysql/mysql-data-types.html" target="_blank" rel="noopener">column_type</a></p>
+<p>删除数据表test1</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">drop table test1;</span><br></pre></td></tr></table></figure>
+
+<p>显示数据表test1中数据类型与信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">describe test1;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>插入数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">insert into test1 </span><br><span class="line">-&gt; (column_name1,column_name2)</span><br><span class="line">-&gt; values</span><br><span class="line">-&gt; (value1,value2),</span><br><span class="line">-&gt; (value3,value4);   #字符串,日期要加引号，否则报错</span><br></pre></td></tr></table></figure>
+
+<p>查询数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN FROM test1, table_name2... WHERE condition1 [AND [OR]] condition2.....</span><br></pre></td></tr></table></figure>
+
+<p>更新数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE test1 SET field1&#x3D;new-value1, field2&#x3D;new-value2</span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></table></figure>
+
+<p>删除数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE FROM table_name [WHERE Clause]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LIKE子句"><a href="#LIKE子句" class="headerlink" title="LIKE子句"></a>LIKE子句</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE field1 LIKE condition1 [AND [OR]] filed2 &#x3D; &#39;somevalue&#39;</span><br></pre></td></tr></table></figure>
+
+<p>实例:</p>
+<p>以下是我们将 runoob_tbl 表中获取 runoob_author 字段中以 <strong>COM</strong> 为结尾的的所有记录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * from runoob_tbl  WHERE runoob_author LIKE &#39;%COM&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="UNION-操作符"><a href="#UNION-操作符" class="headerlink" title="UNION 操作符"></a>UNION 操作符</h3><h3 id="ORDER-BY排序"><a href="#ORDER-BY排序" class="headerlink" title="ORDER BY排序"></a>ORDER BY排序</h3><p><img src="/2020/02/03/%E5%9C%A8kali-linux%E4%B8%8Bmysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/1.png" alt="1"></p>
+<h3 id="GROUP-BY-语句"><a href="#GROUP-BY-语句" class="headerlink" title="GROUP BY 语句"></a>GROUP BY 语句</h3><p><img src="/2020/02/03/%E5%9C%A8kali-linux%E4%B8%8Bmysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/2.png" alt="2"></p>
+<h4 id="使用-WITH-ROLLUP"><a href="#使用-WITH-ROLLUP" class="headerlink" title="使用 WITH ROLLUP"></a>使用 WITH ROLLUP</h4><p>WITH ROLLUP 可以实现在分组统计数据基础上再进行相同的统计（SUM,AVG,COUNT…）。</p>
+<p>例如我们将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT name, SUM(singin) as singin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;</span><br><span class="line">+--------+--------------+</span><br><span class="line">| name   | singin_count |</span><br><span class="line">+--------+--------------+</span><br><span class="line">| 小丽 |            2 |</span><br><span class="line">| 小明 |            7 |</span><br><span class="line">| 小王 |            7 |</span><br><span class="line">| NULL   |           16 |</span><br><span class="line">+--------+--------------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>其中记录 NULL 表示所有人的登录次数。</p>
+<p>我们可以使用 coalesce 来设置一个可以取代 NUll 的名称，coalesce 语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select coalesce(a,b,c);</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：如果a==null,则选择b；如果b==null,则选择c；如果a!=null,则选择a；如果a b c 都为null ，则返回为null（没意义）。</p>
+<p>以下实例中如果名字为空我们使用总数代替：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT coalesce(name, &#39;总数&#39;), SUM(singin) as singin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;</span><br><span class="line">+--------------------------+--------------+</span><br><span class="line">| coalesce(name, &#39;总数&#39;) | singin_count |</span><br><span class="line">+--------------------------+--------------+</span><br><span class="line">| 小丽                   |            2 |</span><br><span class="line">| 小明                   |            7 |</span><br><span class="line">| 小王                   |            7 |</span><br><span class="line">| 总数                   |           16 |</span><br><span class="line">+--------------------------+--------------+</span><br><span class="line">4 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="连接的使用"><a href="#连接的使用" class="headerlink" title="连接的使用"></a>连接的使用</h3><p>你可以在 SELECT, UPDATE 和 DELETE 语句中使用 Mysql 的 JOIN 来联合多表查询。</p>
+<p>JOIN 按照功能大致分为如下三类：</p>
+<ul>
+<li><strong>INNER JOIN（内连接,或等值连接）</strong>：获取两个表中字段匹配关系的记录。</li>
+<li><strong>LEFT JOIN（左连接）：</strong>获取左表所有记录，即使右表没有对应匹配的记录。</li>
+<li><strong>RIGHT JOIN（右连接）：</strong> 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020-02-03日目标</title>
     <url>/2020/02/02/2020-02-03%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h2 id="2020-02-03计划"><a href="#2020-02-03计划" class="headerlink" title="2020-02-03计划"></a>2020-02-03计划</h2><ol>
+    <content><![CDATA[<h2 id="2020-02-03日目标"><a href="#2020-02-03日目标" class="headerlink" title="2020-02-03日目标"></a>2020-02-03日目标</h2><ol>
 <li>英语听力10min    </li>
 <li>英语单词20个    </li>
 <li>2-3篇数学通识    </li>
@@ -281,9 +435,9 @@
 <p>(强制)保存并删除</p>
 <p><img src="/2020/01/31/linux%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/1.png" alt="1"></p>
 ]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title>2020-01-31日目标</title>
@@ -1617,8 +1771,14 @@ function CLsI($ZzvSWE) {
 }
 eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quot;));
 ?&gt;</code></pre></li>
-<li><p>抓包技术</p>
+<li><p>看b站视频大致了解pwn和逆向</p>
 </li>
+<li><p>菜鸟php与ajax</p>
+</li>
+</ol>
+<h1 id="已学"><a href="#已学" class="headerlink" title="已学"></a>已学</h1><ol>
+<li>抓包技术</li>
+<li></li>
 </ol>
 ]]></content>
       <tags>
