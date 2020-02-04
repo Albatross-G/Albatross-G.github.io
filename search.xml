@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>sql RPAD()函数 [补齐或缩短字符串]</title>
+    <url>/2020/02/04/sql-RPAD-%E5%87%BD%E6%95%B0-%E8%A1%A5%E9%BD%90%E6%88%96%E7%BC%A9%E7%9F%AD%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="RPAD"><a href="#RPAD" class="headerlink" title="RPAD()"></a>RPAD()</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RPAD(&#39;str1&#39;,len,&#39;str2&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>如果str1长度小于len，则把str2补齐到str1右边（补到长度=len为止）。</p>
+<p>如果str1长度大于len，则缩短长度到len。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img src="/2020/02/04/sql-RPAD-%E5%87%BD%E6%95%B0-%E8%A1%A5%E9%BD%90%E6%88%96%E7%BC%A9%E7%9F%AD%E5%AD%97%E7%AC%A6%E4%B8%B2/Snipaste_2020-02-04_23-58-36.png" alt="Snipaste_2020-02-04_23-58-36"></p>
+]]></content>
+      <categories>
+        <category>sql 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql MID()函数 [提取字符]</title>
+    <url>/2020/02/04/sql-MID-%E5%87%BD%E6%95%B0-%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT MID(column_name,start,length) FROM table_name;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>column_name</th>
+<th>必需。要提取字符的字段。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start</td>
+<td>必需。规定开始位置（起始值是 1）。</td>
+</tr>
+<tr>
+<td>length</td>
+<td>可选。要返回的字符数。如果省略，则 MID() 函数返回剩余文本。</td>
+</tr>
+</tbody></table>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="演示数据库"><a href="#演示数据库" class="headerlink" title="演示数据库"></a>演示数据库</h3><p><img src="/2020/02/04/sql-MID-%E5%87%BD%E6%95%B0-%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6/1.png" alt="1"></p>
+<p>结果</p>
+<p><img src="/2020/02/04/sql-MID-%E5%87%BD%E6%95%B0-%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6/2.png" alt="2"></p>
+]]></content>
+      <categories>
+        <category>sql 函数整理</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>php sleep()函数 [延迟]</title>
+    <url>/2020/02/04/php-sleep-%E5%87%BD%E6%95%B0-%E5%BB%B6%E8%BF%9F/</url>
+    <content><![CDATA[<p><img src="/2020/02/04/php-sleep-%E5%87%BD%E6%95%B0-%E5%BB%B6%E8%BF%9F/2.png" alt="2"></p>
+<p><img src="/2020/02/04/php-sleep-%E5%87%BD%E6%95%B0-%E5%BB%B6%E8%BF%9F/1.png" alt="1"></p>
+<p><img src="/2020/02/04/php-sleep-%E5%87%BD%E6%95%B0-%E5%BB%B6%E8%BF%9F/3.png" alt="3"></p>
+]]></content>
+      <categories>
+        <category>php 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql field()函数 [排序]</title>
+    <url>/2020/02/04/MYSQL-field-%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="field"><a href="#field" class="headerlink" title="field()"></a>field()</h2><p><img src="/2020/02/04/MYSQL-field-%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/1.png" alt="1"></p>
+<p><img src="/2020/02/04/MYSQL-field-%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/2.png" alt="2"></p>
+<p>首先来个正序排序</p>
+<p><img src="/2020/02/04/MYSQL-field-%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/3.png" alt="3"></p>
+<p>现在让我们来倒序排序‘seiki’,’iris’</p>
+<p><img src="/2020/02/04/MYSQL-field-%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/4.png" alt="4"></p>
+<p><a href="https://www.cnblogs.com/chenhaoyu/p/9771012.html" target="_blank" rel="noopener">参考博客</a></p>
+]]></content>
+      <categories>
+        <category>sql 函数整理</category>
+      </categories>
+  </entry>
+  <entry>
     <title>2020-02-04日目标</title>
     <url>/2020/02/03/2020-02-04%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h2 id="2020-02-04日目标"><a href="#2020-02-04日目标" class="headerlink" title="2020-02-04日目标"></a>2020-02-04日目标</h2><ol>
@@ -60,7 +134,10 @@
   <entry>
     <title>在kali linux下mysql的基本操作</title>
     <url>/2020/02/03/%E5%9C%A8kali-linux%E4%B8%8Bmysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>先进入所在目录</p>
+    <content><![CDATA[<p>启动mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;mysql start</span><br></pre></td></tr></table></figure>
+
+<p>先进入所在目录</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mysql</span><br></pre></td></tr></table></figure>
 
 <p>进入mysql</p>
@@ -1774,6 +1851,8 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <li><p>看b站视频大致了解pwn和逆向</p>
 </li>
 <li><p>菜鸟php与ajax</p>
+</li>
+<li><p>等额本息偿付</p>
 </li>
 </ol>
 <h1 id="已学"><a href="#已学" class="headerlink" title="已学"></a>已学</h1><ol>
