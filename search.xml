@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-02-17日目标</title>
+    <url>/2020/02/16/2020-02-17%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-02-17日目标"><a href="#2020-02-17日目标" class="headerlink" title="2020-02-17日目标"></a>2020-02-17日目标</h2><table>
+<thead>
+<tr>
+<th>起床</th>
+<th>9：00</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>项目（外星人入侵地球）</td>
+<td>10：00-12：00</td>
+</tr>
+<tr>
+<td>dvwa：CSRF</td>
+<td>15：00-16：30</td>
+</tr>
+<tr>
+<td>看看书，数学通识</td>
+<td>16：30-dinner</td>
+</tr>
+<tr>
+<td>项目（外星人入侵地球）</td>
+<td>19：30-21：30</td>
+</tr>
+<tr>
+<td>上床</td>
+<td>0：00</td>
+</tr>
+</tbody></table>
+<h2 id="2020-02-16总结"><a href="#2020-02-16总结" class="headerlink" title="2020-02-16总结"></a>2020-02-16总结</h2><p>早上起床听了会六级听力。接着把python的书看完了，明天准备试着跟着步骤开始一个项目。然后就是把dvwa的command injection做好了。缺点的话就是数学通识没听，书也没看。</p>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>php stristr函数[搜索字符串]</title>
+    <url>/2020/02/16/php-stristr%E5%87%BD%E6%95%B0-%E6%90%9C%E7%B4%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h3 id="stristr-string-search-before-search-："><a href="#stristr-string-search-before-search-：" class="headerlink" title="stristr(string,search,before_search) ："></a>stristr(string,search,before_search) ：</h3><p>搜索字符串在另一字符串中的第一次出现，返回字符串的剩余部分（从匹配点），如果未找到所搜索的字符串，则返回 FALSE</p>
+<p>string    必需。规定被搜索的字符串<br>search    必需。规定要搜索的字符串，如果该参数是数字，则搜索匹配该数字对应的 ASCII 值的字符<br>before_search    可选。默认值为 “false” 的布尔值<br>如果设置为 “true”，它将返回 search 参数第一次出现之前的字符串部分</p>
+<p>注释：该函数是二进制安全的<br>注释：该函数是不区分大小写的，如需进行<strong>区分大小写</strong>的搜索，请使用 <strong>strstr()</strong> 函数</p>
+]]></content>
+      <categories>
+        <category>php 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>php stripslashes/mysqli_real_escape_string函数[过滤]</title>
+    <url>/2020/02/16/php-stripslashes-mysqli-real-escape-string%E5%87%BD%E6%95%B0-%E8%BF%87%E6%BB%A4/</url>
+    <content><![CDATA[<h3 id="stripslashes-string-："><a href="#stripslashes-string-：" class="headerlink" title="stripslashes(string)："></a>stripslashes(string)：</h3><p>去除掉string字符的反斜杠＼</p>
+<h3 id="mysqli-real-escape-string-string-connection-："><a href="#mysqli-real-escape-string-string-connection-：" class="headerlink" title="mysqli_real_escape_string(string,connection) ："></a>mysqli_real_escape_string(string,connection) ：</h3><p>函数会对字符串string中的特殊符号（\x00，\n，\r，\，‘，“，\x1a）进行转义。</p>
+]]></content>
+      <categories>
+        <category>php 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2020-02-16日目标</title>
     <url>/2020/02/15/2020-02-16%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h2 id="2020-02-16日目标"><a href="#2020-02-16日目标" class="headerlink" title="2020-02-16日目标"></a>2020-02-16日目标</h2><table>
@@ -237,6 +301,14 @@
 
 
 <h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set()    &#x2F;&#x2F;去除其中重复值</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">name.split()    &#x2F;&#x2F;以空格为界限，把字符串分割成若干块并放入列表</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="判断字符类型"><a href="#判断字符类型" class="headerlink" title="判断字符类型"></a>判断字符类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">isinstance(string,type)    &#x2F;&#x2F;判断string是否是type类型，返回布尔值</span><br><span class="line">isdigit(string)            &#x2F;&#x2F;判断字符串是否为数字</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
