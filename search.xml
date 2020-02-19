@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-02-20日目标</title>
+    <url>/2020/02/19/2020-02-20%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-02-18日目标"><a href="#2020-02-18日目标" class="headerlink" title="2020-02-18日目标"></a>2020-02-18日目标</h2><table>
+<thead>
+<tr>
+<th>8：00</th>
+<th>起床</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8：00-9：00</td>
+<td>英语听力，朗读，背单词</td>
+</tr>
+<tr>
+<td>9：30-10：30</td>
+<td>XSS(reflected)【太阳好的话看会书】</td>
+</tr>
+<tr>
+<td>11:00-12:00</td>
+<td>c语言菜单程序</td>
+</tr>
+<tr>
+<td>14：00-15：00</td>
+<td>brute force的high级别</td>
+</tr>
+<tr>
+<td>15：30-17：00</td>
+<td>buu和bugku刷刷题</td>
+</tr>
+<tr>
+<td></td>
+<td>预习高数</td>
+</tr>
+<tr>
+<td></td>
+<td>sqli-labs 11-12【心情好的话看看书】</td>
+</tr>
+<tr>
+<td>21：45-22：30</td>
+<td>总结下未完成的东西【搞完了就dvwa往后做】</td>
+</tr>
+<tr>
+<td></td>
+<td>上床</td>
+</tr>
+</tbody></table>
+<h2 id="2020-02-19总结"><a href="#2020-02-19总结" class="headerlink" title="2020-02-19总结"></a>2020-02-19总结</h2><ol>
+<li>做了dvwa的CSRF，做到high级时要用到关于XSS的知识</li>
+<li>做了XSS（DOM）所有级别</li>
+<li>想完成c语言做菜单的程序，但是遇到了一个问题：</li>
+</ol>
+<p>如何在一个c程序里运行另一个c程序，用system的话只能打开未编译的文本文件，于是明天想想</p>
+<ol>
+<li>看能不能把要用的c文件先编译一下</li>
+<li>或者看看运用头文件引用是否可行</li>
+<li>尝试一下bat文件？</li>
+</ol>
+<p>哦对，还和forest官方发了邮件，希望能找回以前的帐号</p>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
     <title>2020-02-17日目标</title>
     <url>/2020/02/16/2020-02-17%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h2 id="2020-02-17日目标"><a href="#2020-02-17日目标" class="headerlink" title="2020-02-17日目标"></a>2020-02-17日目标</h2><table>
