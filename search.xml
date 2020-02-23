@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020-02-24日目标</title>
+    <url>/2020/02/23/2020-02-24%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="2020-02-24目标"><a href="#2020-02-24目标" class="headerlink" title="2020-02-24目标"></a>2020-02-24目标</h2><table>
+<thead>
+<tr>
+<th>7：00</th>
+<th>起床</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7：00-8：00</td>
+<td>英语</td>
+</tr>
+<tr>
+<td>8：20-10：00</td>
+<td>c语言网课</td>
+</tr>
+<tr>
+<td>10：30-12：00</td>
+<td>sql书</td>
+</tr>
+<tr>
+<td>14：00-15：40</td>
+<td>近代史网课</td>
+</tr>
+<tr>
+<td>16：00-17：40</td>
+<td>高数网课</td>
+</tr>
+<tr>
+<td>19：00-19：30</td>
+<td>sql书</td>
+</tr>
+<tr>
+<td>19：30-21：10</td>
+<td>音乐鉴赏网课</td>
+</tr>
+<tr>
+<td>21：30-22：30</td>
+<td>DVWA JavaScript</td>
+</tr>
+<tr>
+<td>24：00</td>
+<td>上床</td>
+</tr>
+</tbody></table>
+<h2 id="2020-02-23总结"><a href="#2020-02-23总结" class="headerlink" title="2020-02-23总结"></a>2020-02-23总结</h2><ol>
+<li>完成DVWA  weak sid</li>
+<li>完成DVWA csp bypass（high级别以后再深入理解）</li>
+<li>看了sql第二节</li>
+<li>看了c语言指针第三节</li>
+</ol>
+]]></content>
+      <categories>
+        <category>日目标</category>
+      </categories>
+  </entry>
+  <entry>
     <title>php查询函数整理</title>
     <url>/2020/02/22/php%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h3 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">substr(string,start,length)</span><br></pre></td></tr></table></figure>
@@ -3047,14 +3105,16 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 ?&gt;</code></pre></li>
 <li><p>看b站视频大致了解pwn和逆向</p>
 </li>
-<li><p>菜鸟php与ajax</p>
+<li><p>中国菜刀调试</p>
+</li>
+<li><p>DVWA csp bypass high级别理解</p>
 </li>
 <li><p>等额本息偿付</p>
 </li>
 </ol>
 <h1 id="已学"><a href="#已学" class="headerlink" title="已学"></a>已学</h1><ol>
 <li>抓包技术</li>
-<li></li>
+<li>菜鸟php与ajax</li>
 </ol>
 ]]></content>
       <tags>
