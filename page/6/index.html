@@ -7,7 +7,449 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">80</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">14</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/17/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/">文件压缩</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/ctf%E6%8A%80%E5%B7%A7/">ctf技巧</a></span><div class="content"><h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><h3 id="zip文件"><a href="#zip文件" class="headerlink" title="zip文件"></a>zip文件</h3><p>用winhex打开压缩文件，搜索十六进制”50 4B 01 02”，找到从”50”开始的第九第十个字节全部改成”00 00”。</p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">81</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">14</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/">HTTP协议</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-25</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/http/">http</a></span><div class="content"><h1 id="与HTTP有关的协议"><a href="#与HTTP有关的协议" class="headerlink" title="与HTTP有关的协议"></a>与HTTP有关的协议</h1><p>先通过一张图大致了解一下http协议与相关协议之间的关系：</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/3.png" alt="3"></p>
+<h2 id="DNS服务（域名解析）"><a href="#DNS服务（域名解析）" class="headerlink" title="DNS服务（域名解析）"></a>DNS服务（域名解析）</h2><p>DNS 协议提供通过域名 查找 IP 地址，或逆向从 IP 地址反查域名的服务。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/4.png" alt="4"></p>
+<h2 id="TCP协议（位于传输层）"><a href="#TCP协议（位于传输层）" class="headerlink" title="TCP协议（位于传输层）"></a>TCP协议（位于传输层）</h2><ol>
+<li>为了方便传输，TCP协议将 大块数据 分割以 报文段（segment）。</li>
+<li>为了确保数据能准确无误地送达，TCP协议采用三次握手策略，TCP 不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/5.png" alt="5"></p>
+<h2 id="IP协议（位于网络层）"><a href="#IP协议（位于网络层）" class="headerlink" title="IP协议（位于网络层）"></a>IP协议（位于网络层）</h2><p>IP 间的通信依赖 MAC 地址。在网络上，通信的双方在同一局域网 （LAN）内的情况是很少的，通常是经过多台计算机和网络设备中转 才能连接到对方。而在进行中转时，会利用下一站中转设备的 MAC 地址来搜索下一个中转目标。这时，会采用 ARP 协议（Address Resolution Protocol）。ARP 是一种用以解析地址的协议，根据通信方 的 IP 地址就可以反查出对应的 MAC 地址。<br>没有人能够全面掌握互联网中的传输状况<br>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只 能获悉很粗略的传输路线。<br>这种机制称为路由选择（routing），有点像快递公司的送货过程。想 要寄快递的人，只要将自己的货物送到集散中心，就可以知道快递公 司是否肯收件发货，该快递公司的集散中心检查货物的送达地址，明 确下站该送往哪个区域的集散中心。接着，那个区域的集散中心自会 判断是否能送到对方的家中。<br>我们是想通过这个比喻说明，无论哪台计算机、哪台网络设备，它们 都无法全面掌握互联网中的细节。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/6.png" alt="6"></p>
+<h1 id="HTTP协议基本信息"><a href="#HTTP协议基本信息" class="headerlink" title="HTTP协议基本信息"></a>HTTP协议基本信息</h1><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/8.png" alt="8"></p>
+<ol>
+<li><p>用于客户端和服务器端的通信。</p>
+</li>
+<li><p>通过请求和响应的交换达成通信。</p>
+</li>
+<li><p>HTTP 是一种不保存状态，即无状态（stateless）协议。</p>
+</li>
+<li><p>HTTP 协议使用 <a href="http://albatross-g.site/2020/01/25/URI格式/" target="_blank" rel="noopener">URI</a> 定位互联网上的资源。</p>
+<p>当客户端请求访问资源而发送请求时，URI 需要将作为请求报文中的 请求 URI 包含在内。指定请求 URI 的方式有很多。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/9.png" alt="9"></p>
+</li>
+<li><p>HTTP协议使用持久连接。。持久连接的特点是，只要任意一端 没有明确提出断开连接，则保持 TCP 连接状态。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/10.png" alt="10"></p>
+</li>
+<li><p>持久连接使得多数请求以管线化（pipelining）方式发送成为可能。管线化技术 出现后，不用等待响应亦可直接发送下一个请求。这样就能够做到同时并行发送多个请求，而不需要一个接一个地等待 响应了。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/11.png" alt="11"></p>
+</li>
+<li><p>不可否认，无状态协议当然有它的优点。由于不必保存状态，自然 可减少服务器的 CPU 及内存资源的消耗。但面对需要保存的状况又会产生一定麻烦，于是引入了cookie技术。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/12.png" alt="12"></p>
+</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/13.png" alt="13"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/14.png" alt="14"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/15.png" alt="15"></p>
+<h1 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h1><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/19.png" alt="19"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/16.png" alt="16"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/17.png" alt="17"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/20.png" alt="20"></p>
+<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/18.png" alt="18"></p>
+<h3 id="GET方法（获取-访问资源）"><a href="#GET方法（获取-访问资源）" class="headerlink" title="GET方法（获取/访问资源）"></a>GET方法（获取/访问资源）</h3><p>GET 方法用来请求访问已被 URI 识别的资源。指定的资源经服务器 端解析后返回响应内容。也就是说，如果请求的资源是文本，那就保持原样返回；如果是像 CGI（Common Gateway Interface，通用网关接口）那样的程序，则返回经过执行后的输出结果。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/21.png" alt="21"></p>
+<h3 id="POST方法（传输实体主体）"><a href="#POST方法（传输实体主体）" class="headerlink" title="POST方法（传输实体主体）"></a>POST方法（传输实体主体）</h3><p>虽然用 GET 方法也可以传输实体的主体，但一般不用 GET 方法进行 传输，而是用 POST 方法。虽说 POST 的功能与 GET 很相似，但 POST 的主要目的并不是获取响应的主体内容。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/22.png" alt="22"></p>
+<h3 id="PUT方法（传输文件）"><a href="#PUT方法（传输文件）" class="headerlink" title="PUT方法（传输文件）"></a>PUT方法（传输文件）</h3><p>PUT 方法用来传输文件。就像 FTP 协议的文件上传一样，要求在请 求报文的主体中包含文件内容，然后保存到请求 URI 指定的位置。</p>
+<p>但是，鉴于 HTTP/1.1 的 PUT 方法自身不带验证机制，任何人都可以 上传文件 , 存在安全性问题，因此一般的 Web 网站不使用该方法。若 配合 Web 应用程序的验证机制，或架构设计采用 REST（REpresentational State Transfer，表征状态转移）标准的同类 Web 网站，就可能会开放使用 PUT 方法。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/23.png" alt="23"></p>
+<h3 id="HEAD方法（获取报文头部）"><a href="#HEAD方法（获取报文头部）" class="headerlink" title="HEAD方法（获取报文头部）"></a>HEAD方法（获取报文头部）</h3><p>HEAD 方法和 GET 方法一样，只是不返回报文主体部分。用于确认 URI 的有效性及资源更新的日期时间等。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/24.png" alt="24"></p>
+<h3 id="DELETE方法（删除文件）"><a href="#DELETE方法（删除文件）" class="headerlink" title="DELETE方法（删除文件）"></a>DELETE方法（删除文件）</h3><p>DELETE 方法用来删除文件，是与 PUT 相反的方法。DELETE 方法按 请求 URI 删除指定的资源。 </p>
+<p>但是，HTTP/1.1 的 DELETE 方法本身和 PUT 方法一样不带验证机 制，所以一般的 Web 网站也不使用 DELETE 方法。当配合 Web 应用 程序的验证机制，或遵守 REST 标准时还是有可能会开放使用的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/25.png" alt="25"></p>
+<h3 id="OPTIONS方法（询问支持的办法）"><a href="#OPTIONS方法（询问支持的办法）" class="headerlink" title="OPTIONS方法（询问支持的办法）"></a>OPTIONS方法（询问支持的办法）</h3><p>OPTIONS 方法用来查询针对请求 URI 指定的资源支持的方法。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/26.png" alt="26"></p>
+<h3 id="TRACE方法（追踪路径）"><a href="#TRACE方法（追踪路径）" class="headerlink" title="TRACE方法（追踪路径）"></a>TRACE方法（追踪路径）</h3><p>TRACE 方法是让 Web 服务器端将之前的请求通信环回给客户端的方 法。</p>
+<p>发送请求时，在 Max-Forwards 首部字段中填入数值，每经过一个服务器端就将该数字减 1，当数值刚好减到 0 时，就停止继续传输，最 后接收到请求的服务器端则返回状态码 200 OK 的响应。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/27.png" alt="27"></p>
+<h3 id="CONNECT方法（要求用隧道协议链接代理）"><a href="#CONNECT方法（要求用隧道协议链接代理）" class="headerlink" title="CONNECT方法（要求用隧道协议链接代理）"></a>CONNECT方法（要求用隧道协议链接代理）</h3><p>CONNECT 方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行 TCP 通信。主要使用 SSL（Secure Sockets Layer，安全套接层）和 TLS（Transport Layer Security，传输层安全）协议把通信内容加密后经网络隧道传输。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/28.png" alt="28"></p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/29.png" alt="29"></p>
+<h3 id="2XX-成功（2XX-的响应结果表明请求被正常处理了。-）"><a href="#2XX-成功（2XX-的响应结果表明请求被正常处理了。-）" class="headerlink" title="2XX 成功（2XX 的响应结果表明请求被正常处理了。 ）"></a>2XX 成功（2XX 的响应结果表明请求被正常处理了。 ）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/30.png" alt="30"></p>
+<p>表示从客户端发来的请求在服务器端被正常处理了。<br>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改 变。比如，使用 GET 方法时，对应请求资源的实体会作为响应返 回；而使用 HEAD 方法时，对应请求资源的实体首部不随报文主体 作为响应返回（即在响应中只返回首部，不会返回实体的主体部 分）。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/31.png" alt="31"></p>
+<p>该状态码代表服务器接收的请求已成功处理，但在返回的响应报文中 不含实体的主体部分。另外，也不允许返回任何实体的主体。比如， 当从浏览器发出请求处理后，返回 204 响应，那么浏览器显示的页面 不发生更新。<br>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/32.png" alt="32"></p>
+<p>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求。响应报文中包含由 Content-Range 指定范围的实体内容。 </p>
+<h3 id="3XX-重定向（3XX-响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）"><a href="#3XX-重定向（3XX-响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）" class="headerlink" title="　3XX 重定向（3XX 响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）"></a>　3XX 重定向（3XX 响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/33.png" alt="33"></p>
+<p><strong>永久性重定向。</strong>该状态码表示请求的资源已被分配了新的 URI，以后 应使用资源现在所指的 URI。也就是说，如果已经把资源对应的 URI 保存为书签了，这时应该按 Location 首部字段提示的 URI 重新保存。</p>
+<p>像下方给出的请求 URI，当指定资源路径的最后忘记添加斜杠“/”，就 会产生 301 状态码。</p>
+<blockquote>
+<p><a href="http://example.com/sample" target="_blank" rel="noopener">http://example.com/sample</a></p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/34.png" alt="34"></p>
+<p><strong>临时性重定向。</strong>该状态码表示请求的资源已被分配了新的 URI，希望 用户（本次）能使用新的 URI 访问。 </p>
+<p>和 301 Moved Permanently 状态码相似，但 302 状态码代表的资源不是被永久移动，只是临时性质的。换句话说，已移动的资源对应的 URI 将来还有可能发生改变。比如，用户把 URI 保存成书签，但不会 像 301 状态码出现时那样去更新书签，而是仍旧保留返回 302 状态码 的页面对应的 URI。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/35.png" alt="35"></p>
+<p>该状态码表示由于请求对应的资源存在着另一个 URI，应使用 GET 方法定向获取请求的资源。</p>
+<p>303 状态码和 302 Found 状态码有着相同的功能，但 303 状态码明确 表示客户端应当采用 GET 方法获取资源，这点与 302 状态码有区别。</p>
+<p>比如，当使用 POST 方法访问 CGI 程序，其执行后的处理结果是希望 客户端能以 GET 方法重定向到另一个 URI 上去时，返回 303 状态 码。虽然 302 Found 状态码也可以实现相同的功能，但这里使用 303 状态码是最理想的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/36.png" alt="36"></p>
+<p>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。304 状态码返回时，不包含任何响应 的主体部分。304 虽然被划分在 3XX 类别中，但是和重定向没有关 系。</p>
+<blockquote>
+<p><strong>附带条件</strong>的请求是指采用 GET 方法的请求报文中包含 If-Match，If-ModifiedSince，If-None-Match，If-Range，If-Unmodified-Since 中任一首部。</p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/37.png" alt="37"></p>
+<p>临时重定向。该状态码与 302 Found 有着相同的含义。尽管 302 标准<br>禁止 POST 变换成 GET，但实际使用时大家并不遵守。 307 会遵照浏览器标准，不会从 POST 变成 GET。但是，对于处理响应时的行为，每种浏览器有可能出现不同的情况。</p>
+<h3 id="4XX-客户端错误（4XX-的响应结果表明客户端是发生错误的原因所在）"><a href="#4XX-客户端错误（4XX-的响应结果表明客户端是发生错误的原因所在）" class="headerlink" title="4XX 客户端错误（4XX 的响应结果表明客户端是发生错误的原因所在）"></a>4XX 客户端错误（4XX 的响应结果表明<em>客户端</em>是发生错误的原因所在）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/38.png" alt="38"></p>
+<p>该状态码表示请求报文中存在语法错误。当错误发生时，需修改请求 的内容后再次发送请求。另外，浏览器会像 200 OK 一样对待该状态 码。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/39.png" alt="39"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/40.png" alt="40"></p>
+<p>该状态码表示发送的请求需要有通过 HTTP 认证（BASIC 认证、 DIGEST 认证）的认证信息。另外若之前已进行过 1 次请求，则表示 用 户认证失败。 </p>
+<p>返回含有 401 的响应必须包含一个适用于被请求资源的 WWWAuthenticate 首部用以质询（challenge）用户信息。当浏览器初次接收 到 401 响应，会弹出认证用的对话窗口。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/41.png" alt="41"></p>
+<p>该状态码表明对请求资源的访问被服务器拒绝了。服务器端没有必要 给出拒绝的详细理由，但如果想作说明的话，可以在实体的主体部分对原因进行描述，这样就能让用户看到了。<br>未获得文件系统的访问授权，访问权限出现某些问题（从未授权的发送源 IP 地址试图访问）等列举的情况都可能是发生 403 的原因。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/42.png" alt="42"></p>
+<p>该状态码表明服务器上无法找到请求的资源。除此之外，也可以在服务器端<strong>拒绝请求且不想说明理由</strong>时使用。 </p>
+<h3 id="5XX-服务器错误（5XX-的响应结果表明服务器本身发生错误。-）"><a href="#5XX-服务器错误（5XX-的响应结果表明服务器本身发生错误。-）" class="headerlink" title="5XX 服务器错误（5XX 的响应结果表明服务器本身发生错误。 ）"></a>5XX 服务器错误（5XX 的响应结果表明<em>服务器</em>本身发生错误。 ）</h3><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/43.png" alt="43"></p>
+<p>该状态码表明服务器端在执行请求时发生了错误。也有可能是 Web 应用存在的 bug 或某些临时的故障。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/44.png" alt="44"></p>
+<p>该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法 处理请求。如果事先得知解除以上状况需要的时间，最好写入 RetryAfter 首部字段再返回给客户端。</p>
+<blockquote>
+<p>状态码和状况的不一致<br>不少返回的状态码响应都是错误的，但是用户可能察觉不到这点。 比如 Web 应用程序内部发生错误，状态码依然返回 200 OK，这种 情况也经常遇到。</p>
+</blockquote>
+<h2 id="首部字段"><a href="#首部字段" class="headerlink" title="首部字段"></a>首部字段</h2><p>HTTP/1.1 规范定义了如下 47 种首部字段。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/45.png" alt="45"></p>
+<p><strong>请求首部字段</strong></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/46.png" alt="46"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/47.png" alt="47"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/48.png" alt="48"></p>
+<p>在 HTTP 协议通信交互中使用到的首部字段，不限于 RFC2616 中定 义的 47 种首部字段。还有 Cookie、Set-Cookie 和 Content-Disposition 等在其他 RFC 中定义的首部字段，它们的使用频率也很高。 </p>
+<p>这些非正式的首部字段统一归纳在 RFC4229 HTTP Header Field Registrations 中。 </p>
+<blockquote>
+<p><strong>注：</strong></p>
+<p><strong>End-to-end 首部和 Hop-by-hop 首部</strong> </p>
+<p>HTTP 首部字段将定义成缓存代理和非缓存代理的行为，分成 2 种类 型。</p>
+<p><strong>端到端首部（End-to-end Header）</strong> </p>
+<p>分在此类别中的首部会转发给请求 / 响应对应的最终接收目标，且必须保存在由缓存生成的响应中，另外规定它必须被转发。</p>
+<p><strong>逐跳首部（Hop-by-hop Header）</strong><br>分在此类别中的首部只对单次转发有效，会因通过缓存或代理而不再 转发。HTTP/1.1 和之后版本中，如果要使用 hop-by-hop 首部，需提 供 Connection 首部字段。</p>
+<p>下面列举了 HTTP/1.1 中的逐跳首部字段。除这 8 个首部字段之外， 其他所有字段都属于端到端首部。</p>
+<ol>
+<li>Connection </li>
+<li>Keep-Alive </li>
+<li>Proxy-Authenticate </li>
+<li>Proxy-Authorization </li>
+<li>Trailer </li>
+<li>TE </li>
+<li>Transfer-Encoding </li>
+<li>Upgrade </li>
+</ol>
+</blockquote>
+<h3 id="通用首部字段"><a href="#通用首部字段" class="headerlink" title="通用首部字段"></a>通用首部字段</h3><h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>通过指定首部字段 Cache-Control 的指令，就能操作缓存的工作机制。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/49.png" alt="49"></p>
+<p><em>可用的指令按请求和响应分类如下所示。</em></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/50.png" alt="50"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/51.png" alt="51"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/52.png" alt="52"></p>
+<p>使用 no-cache 指令的目的是为了防止从缓存中返回过期的资源。 </p>
+<p><strong>客户端</strong>发送的请求中如果包含 no-cache 指令，则表示客户端将不会接收缓存过的响应。于是，“中间”的缓存服务器必须把客户端请求转发 给源服务器。</p>
+<p>如果<strong>服务器</strong>返回的响应中包含 no-cache 指令，那么缓存服务器不能对资源进行缓存。源服务器以后也将不再对缓存服务器请求中提出的资源有效性进行确认，且禁止其对响应资源进行缓存操作。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/53.png" alt="53"></p>
+<p>由服务器返回的响应中，若报文首部字段 Cache-Control 中对 no-cache 字段名具体指定参数值，那么<em>客户端</em>I在接收到这个被指定参数值的首 部字段对应的响应报文后，就不能使用缓存。换言之，无参数值的首 部字段可以使用缓存。只能在<strong>响应指令</strong>中指定该参数。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/54.png" alt="54"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/55.png" alt="55"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/56.png" alt="56"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/57.png" alt="57"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/58.png" alt="58"></p>
+<h4 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h4><p>Connection 首部字段具备如下两个作用。</p>
+<ol>
+<li>控制不再转发给代理的首部字段</li>
+<li>管理持久连接</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/59.png" alt="59"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/60.png" alt="60"></p>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><p>表明创建HTTP报文的日期和时间。</p>
+<h4 id="Trailer"><a href="#Trailer" class="headerlink" title="Trailer"></a>Trailer</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/62.png" alt="62"></p>
+<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><p>首部字段 Upgrade 用于检测 HTTP 协议及其他协议是否可使用更高的 版本进行通信，其参数值可以用来指定一个完全不同的通信协议</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/63.png" alt="63"></p>
+<p>上图用例中，首部字段 Upgrade 指定的值为 TLS/1.0。请注意此处两 个字段首部字段的对应关系，Connection 的值被指定为 Upgrade。 Upgrade 首部字段产生作用的 Upgrade 对象仅限于客户端和邻接服务 器之间。因此，使用首部字段 Upgrade 时，还需要额外指定 Connection:Upgrade。 </p>
+<h4 id="Via"><a href="#Via" class="headerlink" title="Via"></a>Via</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/64.png" alt="64"></p>
+<p>Via 首部是为了追踪传输路径，所以经常会和 TRACE 方法一起使 用。比如，代理服务器接收到由 TRACE 方法发送过来的请求（其中 Max-Forwards: 0）时，代理服务器就不能再转发该请求了。这种情况 下，代理服务器会将自身的信息附加到 Via 首部后，返回该请求的响 应。</p>
+<h4 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/65.png" alt="65"></p>
+<h3 id="请求首部字段"><a href="#请求首部字段" class="headerlink" title="请求首部字段"></a>请求首部字段</h3><p>请求首部字段是从客户端往服务器端发送请求报文中所使用的字段， 用于<strong>补充请求的附加信息、客户端信息、对响应内容相关的优先级</strong>等 内容。</p>
+<h4 id="Accept"><a href="#Accept" class="headerlink" title="Accept"></a>Accept</h4><p>Accept 首部字段可通知服务器，用户代理能够处理的媒体类型及媒体 类型的相对优先级。可使用 type/subtype 这种形式，一次指定多种媒体类型。</p>
+<ol>
+<li>文本文件<br>text/html, text/plain, text/css … application/xhtml+xml, application/xml …</li>
+<li>图片文件<br>image/jpeg, image/gif, image/png …</li>
+<li>视频文件<br>video/mpeg, video/quicktime …</li>
+<li>应用程序使用的二进制文件<br>application/octet-stream, application/zip … </li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/66.png" alt="66"></p>
+<p>若想要给显示的媒体类型增加优先级，则使用 q= 来额外表示权重值 1，用分号（;）进行分隔。权重值 q 的范围是 0~1（可精确到小数点 后 3 位），且 1 为最大值。不指定权重 q 值时，默认权重为 q=1.0。</p>
+<h4 id="Accept-Charset"><a href="#Accept-Charset" class="headerlink" title="Accept-Charset"></a>Accept-Charset</h4><p>Accept-Charset 首部字段可用来通知服务器用户代理支持的字符集及 字符集的相对优先顺序。另外，可一次性指定多种字符集。与首部字 段 Accept 相同的是可用权重 q 值来表示相对优先级。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/67.png" alt="67"></p>
+<h4 id="Accept-Encoding"><a href="#Accept-Encoding" class="headerlink" title="Accept-Encoding"></a>Accept-Encoding</h4><p>Accept-Encoding 首部字段用来告知服务器用户代理支持的内容编码及 内容编码的优先级顺序。可一次性指定多种内容编码。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/68.png" alt="68"></p>
+<p>下面试举出几个内容编码的例子。</p>
+<ol>
+<li>gzip 由文件压缩程序 gzip（GNU zip）生成的编码格式 （RFC1952），采用 Lempel-Ziv 算法（LZ77）及 32 位循环冗余 校验（Cyclic Redundancy Check，通称 CRC）。 </li>
+<li>compress 由 UNIX 文件压缩程序 compress 生成的编码格式，采用 LempelZiv-Welch 算法（LZW）。 </li>
+<li>deflate 组合使用 zlib 格式（RFC1950）及由 deflate 压缩算法 （RFC1951）生成的编码格式。 </li>
+<li>identity<br>不执行压缩或不会变化的默认编码格式</li>
+</ol>
+<p>采用权重 q 值来表示相对优先级，这点与首部字段 Accept 相同。另 外，也可使用星号（*）作为通配符，指定任意的编码格式。 </p>
+<h4 id="Accept-Language"><a href="#Accept-Language" class="headerlink" title="Accept-Language"></a>Accept-Language</h4><p>首部字段 Accept-Language 用来告知服务器用户代理能够处理的自然 语言集（指中文或英文等），以及自然语言集的相对优先级。可一次 指定多种自然语言集。</p>
+<p>和 Accept 首部字段一样，按权重值 q 来表示相对优先级。在下面图例中，客户端在服务器有中文版资源的情况下，会请求其返回中文版 对应的响应，没有中文版时，则请求返回英文版响应。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/69.png" alt="69"></p>
+<h4 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h4><p>首部字段 Authorization 是用来告知服务器，用户代理的认证信息（证书值）。通常，想要通过服务器认证的用户代理会在接收到返回的 401 状态码响应后，把首部字段 Authorization 加入请求中。共用缓存 在接收到含有 Authorization 首部字段的请求时的操作处理会略有差异。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/70.png" alt="70"></p>
+<h4 id="Expect"><a href="#Expect" class="headerlink" title="Expect"></a>Expect</h4><p>客户端使用首部字段 Expect 来告知服务器，期望出现的某种特定行 为。因服务器无法理解客户端的期望作出回应而发生错误时，会返回 状态码 417 Expectation Failed。 </p>
+<p>客户端可以利用该首部字段，写明所期望的扩展。虽然 HTTP/1.1 规 范只定义了 100-continue（状态码 100 Continue 之意）。 </p>
+<p>等待状态码 100 响应的客户端在发生请求时，需要指定 Expect:100continue。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/71.png" alt="71"></p>
+<h4 id="From"><a href="#From" class="headerlink" title="From"></a>From</h4><p>首部字段 From 用来告知服务器使用用户代理的用户的电子邮件地 址。通常，其使用目的就是为了显示搜索引擎等用户代理的负责人的 电子邮件联系方式。使用代理时，应尽可能包含 From 首部字段（但 可能会因代理不同，将电子邮件地址记录在 User-Agent 首部字段 内）。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/72.png" alt="72"></p>
+<h4 id="Host"><a href="#Host" class="headerlink" title="Host"></a>Host</h4><p>首部字段 Host 会告知服务器，请求的资源所处的互联网主机名和端 口号。Host 首部字段在 HTTP/1.1 规范内是唯一一个必须被包含在请 求内的首部字段。</p>
+<p>首部字段 Host 和以单台服务器分配多个域名的虚拟主机的工作机制 有很密切的关联，这是首部字段 Host 必须存在的意义。 </p>
+<p>请求被发送至服务器时，请求中的主机名会用 IP 地址直接替换解 决。但如果这时，相同的 IP 地址下部署运行着多个域名，那么服务 器就会无法理解究竟是哪个域名对应的请求。因此，就需要使用首部 字段 Host 来明确指出请求的主机名。若服务器未设定主机名，那直 接发送一个空值即可。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/73.png" alt="73"></p>
+<h4 id="If-XXX"><a href="#If-XXX" class="headerlink" title="If-XXX"></a>If-XXX</h4><p>形如 If-xxx 这种样式的请求首部字段，都可称为条件请求。服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求。</p>
+<h5 id="If-Match"><a href="#If-Match" class="headerlink" title="If-Match"></a>If-Match</h5><p>首部字段 If-Match，属附带条件之一，它会告知服务器匹配资源所用 的实体标记（ETag）值。这时的服务器无法使用弱 ETag 值。（请参 照本章有关首部字段 ETag 的说明）</p>
+<p>服务器会比对 If-Match 的字段值和资源的 ETag 值，仅当两者一致 时，才会执行请求。反之，则返回状态码 412 Precondition Failed 的响 应。</p>
+<p>还可以使用星号（*）指定 If-Match 的字段值。针对这种情况，服务 器将会忽略 ETag 的值，只要资源存在就处理请求。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/74.png" alt="74"></p>
+<h5 id="If-None-Match"><a href="#If-None-Match" class="headerlink" title="If-None-Match"></a>If-None-Match</h5><p>首部字段 If-None-Match 属于附带条件之一。它和首部字段 If-Match 作用相反。用于指定 If-None-Match 字段值的实体标记（ETag）值与 请求资源的 ETag 不一致时，它就告知服务器处理该请求。 </p>
+<p>在 GET 或 HEAD 方法中使用首部字段 If-None-Match 可获取最新的资源。因此，这与使用首部字段 If-Modified-Since 时有些类似。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/76.png" alt="76"></p>
+<h5 id="If-Modified-Since"><a href="#If-Modified-Since" class="headerlink" title="If-Modified-Since"></a>If-Modified-Since</h5><p>If-Modified-Since 用于确认代理或客户端拥有的本地资源的有效性。 获取资源的更新日期时间，可通过确认首部字段 Last-Modified 来确定。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/75.png" alt="75"></p>
+<h5 id="If-Unmodified-Since"><a href="#If-Unmodified-Since" class="headerlink" title="If-Unmodified-Since"></a>If-Unmodified-Since</h5><p>首部字段 If-Unmodified-Since 和首部字段 If-Modified-Since 的作用相反。</p>
+<h5 id="If-Range"><a href="#If-Range" class="headerlink" title="If-Range"></a>If-Range</h5><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/77.png" alt="77"></p>
+<p>思考：If-Range存在的意义</p>
+<p>当资源更新后，其ETag值会改变。所以当客户端持有部分文件而请求另一部分文件时，如果单单用GET请求，服务器会返回412 Precondition Failed，这样客户端还需再发一遍GET来获取更新后的全部文件，会用双倍时间。</p>
+<h4 id="Max-Forwards"><a href="#Max-Forwards" class="headerlink" title="Max-Forwards"></a>Max-Forwards</h4><p>通过 TRACE 方法或 OPTIONS 方法，发送包含首部字段 MaxForwards 的请求时，该字段以十进制整数形式指定可经过的服务器最 大数目。服务器在往下一个服务器转发请求之前，Max-Forwards 的 值减 1 后重新赋值。当服务器接收到 Max-Forwards 值为 0 的请求 时，则不再进行转发，而是直接返回响应。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/78.png" alt="78"></p>
+<p>使用 HTTP 协议通信时，请求可能会经过代理等多台服务器。途中， 如果代理服务器由于某些原因导致请求转发失败，客户端也就等不到 服务器返回的响应了。对此，我们无从可知。</p>
+<p>可以灵活使用首部字段 Max-Forwards，针对以上问题产生的原因展 开调查。由于当 Max-Forwards 字段值为 0 时，服务器就会立即返回 响应，由此我们至少可以对以那台服务器为终点的传输路径的通信状 况有所把握。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/79.png" alt="79"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/80.png" alt="80"></p>
+<h4 id="Proxy-Authorization"><a href="#Proxy-Authorization" class="headerlink" title="Proxy-Authorization"></a>Proxy-Authorization</h4><p>接收到从代理服务器发来的认证质询时，客户端会发送包含首部字段 Proxy-Authorization 的请求，以告知服务器认证所需要的信息。 </p>
+<p>这个行为是与客户端和服务器之间的 HTTP 访问认证相类似的，不同 之处在于，认证行为发生在客户端与代理之间。客户端与服务器之间 的认证，使用首部字段 Authorization 可起到相同作用。</p>
+<h4 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h4><p>对于只需获取部分资源的范围请求，包含首部字段 Range 即可告知服 务器资源的指定范围。上面的示例表示请求获取从第 5001 字节至第 10000 字节的资源。 </p>
+<p>接收到附带 Range 首部字段请求的服务器，会在处理请求之后返回状 态码为 206 Partial Content 的响应。无法处理该范围请求时，则会返 回状态码 200 OK 的响应及全部资源。</p>
+<h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>首部字段 Referer 会告知服务器请求的原始资源的 URI。 </p>
+<p>客户端一般都会发送 Referer 首部字段给服务器。但当直接在浏览器 的地址栏输入 URI，或出于安全性的考虑时，也可以不发送该首部字 段。</p>
+<p>因为原始资源的 URI 中的查询字符串可能含有 ID 和密码等保密信 息，要是写进 Referer 转发给其他服务器，则有可能导致保密信息的 泄露。</p>
+<p>另外，Referer 的正确的拼写应该是 Referrer，但不知为何，大家一直 沿用这个错误的拼写。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/81.png" alt="81"></p>
+<h4 id="TE"><a href="#TE" class="headerlink" title="TE"></a>TE</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/82.png" alt="82"></p>
+<h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>首部字段 User-Agent 会将<strong>创建请求的浏览器</strong>和<strong>用户代理名称</strong>等信息传 达给服务器。</p>
+<p>由网络爬虫发起请求时，有可能会在字段内添加爬虫作者的电子邮件地址。此外，如果请求经过代理，那么中间也很可能被添加上代理服务器的名称。 </p>
+<h3 id="响应首部字段"><a href="#响应首部字段" class="headerlink" title="响应首部字段"></a>响应首部字段</h3><p>响应首部字段是由服务器端向客户端返回响应报文中所使用的字段， 用于<strong>补充响应的附加信息</strong>、<strong>服务器信息</strong>，以及<strong>对客户端的附加要求</strong>等信息。</p>
+<h4 id="Accept-Ranges"><a href="#Accept-Ranges" class="headerlink" title="Accept-Ranges"></a>Accept-Ranges</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/83.png" alt="83"></p>
+<h4 id="Age"><a href="#Age" class="headerlink" title="Age"></a>Age</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/84.png" alt="84"></p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>首部字段 ETag 能告知客户端实体标识。它是一种可将资源以字符串 形式做唯一性标识的方式。服务器会为每份资源分配对应的 ETag 值。</p>
+<p>另外，当资源更新时，ETag 值也需要更新。生成 ETag 值时，并没有 统一的算法规则，而仅仅是由服务器来分配。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/85.png" alt="85"></p>
+<p>资源被缓存时，就会被分配唯一性标识。例如，当使用中文版的浏览器访问 <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a> 时，就会返回中文版对应的资源，而 使用英文版的浏览器访问时，则会返回英文版对应的资源。两者的 URI 是相同的，所以仅凭 URI 指定缓存的资源是相当困难的。若在下 载过程中出现连接中断、再连接的情况，都会依照 ETag 值来指定资源。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/86.png" alt="86"></p>
+<blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/87.png" alt="87"></p>
+</blockquote>
+<h4 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h4><p>使用首部字段 Location 可以将响应接收方引导至某个与请求 URI 位置 不同的资源。</p>
+<p>基本上，该字段会配合 3xx ：Redirection 的响应，提供重定向的 URI。 </p>
+<p>几乎所有的浏览器在接收到包含首部字段 Location 的响应后，都会强制性地尝试对已提示的重定向资源的访问。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/88.png" alt="88"></p>
+<h4 id="Proxy-Authenticate"><a href="#Proxy-Authenticate" class="headerlink" title="Proxy-Authenticate"></a>Proxy-Authenticate</h4><p>首部字段 Proxy-Authenticate 会把由代理服务器所要求的认证信息发送 给客户端。</p>
+<p>它与客户端和服务器之间的 HTTP 访问认证的行为相似，不同之处在 于其认证行为是在客户端与代理之间进行的。而客户端与服务器之间 进行认证时，首部字段 WWW-Authorization 有着相同的作用。有关 HTTP 访问认证，后面的章节会再进行详尽阐述。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/89.png" alt="89"></p>
+<h4 id="WWW-Authenticate"><a href="#WWW-Authenticate" class="headerlink" title="WWW-Authenticate"></a>WWW-Authenticate</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/93.png" alt="93"></p>
+<h4 id="Retry-After"><a href="#Retry-After" class="headerlink" title="Retry-After"></a>Retry-After</h4><p>首部字段 Retry-After 告知客户端应该在多久之后再次发送请求。主要 配合状态码 503 Service Unavailable 响应，或 3xx Redirect 响应一起使 用。</p>
+<p>字段值可以指定为具体的日期时间（Wed, 04 Jul 2012 06：34：24 GMT 等格式），也可以是创建响应后的秒数。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/90.png" alt="90"></p>
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/91.png" alt="91"></p>
+<h4 id="Vary"><a href="#Vary" class="headerlink" title="Vary"></a>Vary</h4><p>首部字段 Vary 可对缓存进行控制。源服务器会向代理服务器传达关 于本地缓存使用方法的命令。</p>
+<p>从代理服务器接收到源服务器返回包含 Vary 指定项的响应之后，若 再要进行缓存，仅对请求中含有相同 Vary 指定首部字段的请求返回 缓存。即使对相同资源发起请求，但由于 Vary 指定的首部字段不相 同，因此必须要从源服务器重新获取资源。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/92.png" alt="92"></p>
+<p>图：当代理服务器接收到带有 Vary 首部字段指定获取资源的请求 时，如果使用的 Accept-Language 字段的值相同，那么就直接从缓 存返回响应。反之，则需要先从源服务器端获取资源后才能作为响应返回.</p>
+<h3 id="实体首部字段"><a href="#实体首部字段" class="headerlink" title="实体首部字段"></a>实体首部字段</h3><p>实体首部字段是包含在请求报文和响应报文中的实体部分所使用的首 部，用于补充内容的更新时间等与实体相关的信息。</p>
+<h4 id="Allow"><a href="#Allow" class="headerlink" title="Allow"></a>Allow</h4><p>首部字段 Allow 用于通知客户端能够支持 Request-URI 指定资源的所 有 HTTP 方法。当服务器接收到不支持的 HTTP 方法时，会以状态码 405 Method Not Allowed 作为响应返回。与此同时，还会把所有能支 持的 HTTP 方法写入首部字段 Allow 后返回。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/94.png" alt="94"></p>
+<h4 id="Content-Encoding"><a href="#Content-Encoding" class="headerlink" title="Content-Encoding"></a>Content-Encoding</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/95png.png" alt="95png"></p>
+<h4 id="Content-Language"><a href="#Content-Language" class="headerlink" title="Content-Language"></a>Content-Language</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/96.png" alt="96"></p>
+<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length"></a>Content-Length</h4><p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/97.png" alt="97"></p>
+<h4 id="Content-Location"><a href="#Content-Location" class="headerlink" title="Content-Location"></a>Content-Location</h4><p>首部字段 Content-Location 给出与报文主体部分相对应的 URI。和首 部字段 Location 不同，Content-Location 表示的是报文主体返回资源对 应的 URI。 </p>
+<p>比如，对于使用首部字段 Accept-Language 的服务器驱动型请求，当 返回的页面内容与实际请求的对象不同时，首部字段 Content-Location 内会写明 URI。（访问 <a href="http://www.hackr.jp/" target="_blank" rel="noopener">http://www.hackr.jp/</a> 返回的对象却是 <a href="http://www.hackr.jp/index-ja.html" target="_blank" rel="noopener">http://www.hackr.jp/index-ja.html</a> 等类似情况） </p>
+<h4 id="Content-MD5"><a href="#Content-MD5" class="headerlink" title="Content-MD5"></a>Content-MD5</h4><p>首部字段 Content-MD5 是一串由 MD5 算法生成的值，其目的在于检 查报文主体在传输过程中是否保持完整，以及确认传输到达。</p>
+<p>对报文主体执行 MD5 算法获得的 128 位二进制数，再通过 Base64 编 码后将结果写入 Content-MD5 字段值。由于 HTTP 首部无法记录二进 制值，所以要通过 Base64 编码处理。为确保报文的有效性，作为接 收方的客户端会对报文主体再执行一次相同的 MD5 算法。计算出的值与字段值作比较后，即可判断出报文主体的准确性。</p>
+<p>采用这种方法，对内容上的偶发性改变是无从查证的，也无法检测出 恶意篡改。其中一个原因在于，内容如果能够被篡改，那么同时意味 着 Content-MD5 也可重新计算然后被篡改。所以处在接收阶段的客户 端是无法意识到报文主体以及首部字段 Content-MD5 是已经被篡改过 的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/98.png" alt="98"></p>
+<h4 id="Content-Range"><a href="#Content-Range" class="headerlink" title="Content-Range"></a>Content-Range</h4><p>针对范围请求，返回响应时使用的首部字段 Content-Range，能告知客 户端作为响应返回的实体的哪个部分符合范围请求。字段值以字节为 单位，表示当前发送部分及整个实体大小。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/99.png" alt="99"></p>
+<h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h4><p>首部字段 Content-Type 说明了实体主体内对象的媒体类型。和首部字 段 Accept 一样，字段值用 type/subtype 形式赋值。</p>
+<blockquote>
+<p>Content-Type: text/html; charset=UTF-8</p>
+</blockquote>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>首部字段 Expires 会将资源失效的日期告知客户端。缓存服务器在接 收到含有首部字段 Expires 的响应后，会以缓存来应答请求，在 Expires 字段值指定的时间<strong>之前</strong>，响应的副本会一直被保存。当超过指定的时间<strong>后</strong>，缓存服务器在请求发送过来时，会转向源服务器请求 资源。</p>
+<p>源服务器不希望缓存服务器对资源缓存时，最好在 Expires 字段内写 入与首部字段 Date 相同的时间值。 </p>
+<p>但是，当首部字段 Cache-Control 有指定 max-age 指令时，比起首部字 段 Expires，会<strong>优先处理 max-age</strong> 指令。 </p>
+<h4 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h4><p>首部字段 Last-Modified 指明资源最终修改的时间。一般来说，这个 值就是 Request-URI 指定资源被修改的时间。但类似使用 CGI 脚本进 行动态数据处理时，该值有可能会变成数据最终修改时的时间</p>
+<h3 id="为-Cookie-服务的首部字段"><a href="#为-Cookie-服务的首部字段" class="headerlink" title="为 Cookie 服务的首部字段"></a>为 Cookie 服务的首部字段</h3><p>Cookie 的工作机制是用户识别及状态管理。Web 网站为了管理用户的 状态会通过 Web 浏览器，把一些数据临时写入用户的计算机内。接 着当用户访问该Web网站时，可通过通信方式取回之前发放的 Cookie。 </p>
+<p>调用 Cookie 时，由于可校验 Cookie 的有效期，以及发送方的域、路 径、协议等信息，所以正规发布的 Cookie 内的数据不会因来自其他 Web 站点和攻击者的攻击而泄露。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/100.png" alt="100"></p>
+<h4 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h4><p>当服务器准备开始管理客户端的状态时，会事先告知各种信息。</p>
+<blockquote>
+<p>Set-Cookie: status=enable; expires=Tue, 05 Jul 2011 07:26:31</p>
+</blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/101.png" alt="101"></p>
+<h5 id="domain-属性"><a href="#domain-属性" class="headerlink" title="domain 属性"></a>domain 属性</h5><p>通过 Cookie 的 domain 属性指定的域名可做到与结尾匹配一致。比 如，当指定 example.com 后，除 example.com 以外，<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 或 www2.example.com 等都可以发送 Cookie。 </p>
+<p>因此，除了针对具体指定的多个域名发送 Cookie 之 外，不指定 domain 属性显得更安全。 </p>
+<h5 id="secure-属性"><a href="#secure-属性" class="headerlink" title="secure 属性"></a>secure 属性</h5><p>发送 Cookie 时，指定 secure 属性的方法如下所示。</p>
+<blockquote>
+<p>Set-Cookie: name=value; secure</p>
+</blockquote>
+<h5 id="HttpOnly-属性"><a href="#HttpOnly-属性" class="headerlink" title="HttpOnly 属性"></a>HttpOnly 属性</h5><p>发送指定 HttpOnly 属性的 Cookie 的方法如下所示。</p>
+<blockquote>
+<p>Set-Cookie: name=value; HttpOnly</p>
+</blockquote>
+<p>通过上述设置，通常从 Web 页面内还可以对 Cookie 进行读取操作。 但使用 JavaScript 的 document.cookie 就无法读取附加 HttpOnly 属性后 的 Cookie 的内容了。因此，也就无法在 XSS 中利用 JavaScript 劫持 Cookie 了。 </p>
+<h5 id="expires-属性"><a href="#expires-属性" class="headerlink" title="expires 属性"></a>expires 属性</h5><p>一旦 Cookie 从服务器端发送至客户端，服务器端就不存在可 以显式删除 Cookie 的方法。但可通过覆盖已过期的 Cookie，实现对 客户端 Cookie 的实质性删除操作。 </p>
+<h5 id="path-属性"><a href="#path-属性" class="headerlink" title="path 属性"></a>path 属性</h5><p>Cookie 的 path 属性可用于限制指定 Cookie 的发送范围的文件目录。 不过另有办法可避开这项限制，看来对其作为安全机制的效果不能抱 有期待。</p>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>首部字段 Cookie 会告知服务器，当客户端想获得 HTTP 状态管理支 持时，就会在请求中包含从服务器接收到的 Cookie。接收到多个 Cookie 时，同样可以以多个 Cookie 形式发送。 </p>
+<blockquote>
+<p>Cookie: status=enable</p>
+</blockquote>
+<h3 id="其他首部字段"><a href="#其他首部字段" class="headerlink" title="其他首部字段"></a>其他首部字段</h3><p>HTTP 首部字段是可以自行扩展的。所以在 Web 服务器和浏览器的应 用上，会出现各种非标准的首部字段。</p>
+<h4 id="X-Frame-Options"><a href="#X-Frame-Options" class="headerlink" title="X-Frame-Options"></a>X-Frame-Options</h4><p>首部字段 X-Frame-Options 属于 HTTP 响应首部，用于控制网站内容 在其他 Web 网站的 Frame 标签内的显示问题。其主要目的是为了防 止点击劫持（clickjacking）攻击。</p>
+<p>首部字段 X-Frame-Options 有以下两个可指定的字段值。 </p>
+<ol>
+<li>DENY ：拒绝 </li>
+<li>SAMEORIGIN ：仅同源域名下的页面（Top-level-browsingcontext）匹配时许可。（比如，当指定 <a href="http://hackr.jp/sample.html" target="_blank" rel="noopener">http://hackr.jp/sample.html</a> 页面为 SAMEORIGIN 时，那么 hackr.jp 上所有页面的 frame 都被 允许可加载该页面，而 example.com 等其他域名的页面就不行 了）</li>
+</ol>
+<p>对 apache2.conf 的配置实例</p>
+<blockquote>
+<IfModule mod_headers.c>
+
+<p>Header append X-FRAME-OPTIONS “SAMEORIGIN” </p>
+</IfModule>
+</blockquote>
+<h4 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h4><p>首部字段 X-XSS-Protection 属于 HTTP 响应首部，它是针对跨站脚本 攻击（XSS）的一种对策，用于控制浏览器 XSS 防护机制的开关。 </p>
+<p>首部字段 X-XSS-Protection 可指定的字段值如下。 </p>
+<ol>
+<li>0 ：将 XSS 过滤设置成无效状态 </li>
+<li>1 ：将 XSS 过滤设置成有效状态 </li>
+</ol>
+<h4 id="DNT"><a href="#DNT" class="headerlink" title="DNT"></a>DNT</h4><p>首部字段 DNT 属于 HTTP 请求首部，其中 DNT 是 Do Not Track 的简 称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法。</p>
+<p>首部字段 DNT 可指定的字段值如下。</p>
+<ol>
+<li>0 ：同意被追踪 </li>
+<li>1 ：拒绝被追踪 </li>
+</ol>
+<h4 id="P3P"><a href="#P3P" class="headerlink" title="P3P"></a>P3P</h4><p>首部字段 P3P 属于 HTTP 相应首部，通过利用 P3P（The Platform for Privacy Preferences，在线隐私偏好平台）技术，可以让 Web 网站上 的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的 目的。、</p>
+<blockquote>
+<p>P3P: CP=”CAO DSP LAW CURa ADMa DEVa TAIa PSAa PSDa IVAa IVDa</p>
+</blockquote>
+<p>要进行 P3P 的设定，需按以下操作步骤进行。 </p>
+<ol>
+<li>步骤 1：创建 P3P 隐私 </li>
+<li>步骤 2：创建 P3P 隐私对照文件后，保存命名在 /w3c/p3p.xml </li>
+<li>步骤 3：从 P3P 隐私中新建 Compact policies 后，输出到 HTTP 响应中</li>
+</ol>
+<blockquote>
+<p>P3P详情：<a href="https://www.w3.org/TR/P3P/" target="_blank" rel="noopener">https://www.w3.org/TR/P3P/</a></p>
+</blockquote>
+<h2 id="HTTP-加密-认证-完整性保护-HTTPS"><a href="#HTTP-加密-认证-完整性保护-HTTPS" class="headerlink" title="HTTP+ 加密 + 认证 + 完整性保护 =HTTPS"></a>HTTP+ 加密 + 认证 + 完整性保护 =HTTPS</h2><h3 id="HTTPS-采用混合加密机制"><a href="#HTTPS-采用混合加密机制" class="headerlink" title="HTTPS 采用混合加密机制"></a>HTTPS 采用混合加密机制</h3><h4 id="共享密钥加密的困境"><a href="#共享密钥加密的困境" class="headerlink" title="共享密钥加密的困境"></a>共享密钥加密的困境</h4><p>加密和解密同用一个密钥的方式称为共享密钥加密（Common key crypto system），也被叫做对称密钥加密。</p>
+<p>以共享密钥方式加密时必须将密钥也发给对方。可究竟怎样才能 安全地转交？在互联网上转发密钥时，如果通信被监听那么密钥 就可会落入攻击者之手，同时也就失去了加密的意义。另外还得 设法安全地保管接收到的密钥</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/105.png" alt="105"></p>
+<h4 id="公开密钥加密方式解决了共享密钥加密的困难"><a href="#公开密钥加密方式解决了共享密钥加密的困难" class="headerlink" title="公开密钥加密方式解决了共享密钥加密的困难"></a>公开密钥加密方式解决了共享密钥加密的困难</h4><p>公开密钥加密使用一对非对称的密钥。一把叫做私有密钥 （private key），另一把叫做公开密钥（public key）。顾名思 义，私有密钥不能让其他任何人知道，而公开密钥则可以随意发布，任何人都可以获得。</p>
+<p>使用公开密钥加密方式，发送密文的一方使用对方的公开密钥进 行加密处理，对方收到被加密的信息后，再使用自己的私有密钥 进行解密。利用这种方式，不需要发送用来解密的私有密钥，也 不必担心密钥被攻击者窃听而盗走。</p>
+<p>另外，要想根据密文和公开密钥，恢复到信息原文是异常困难 的，因为解密过程就是在对离散对数进行求值，这并非轻而易举 就能办到。退一步讲，如果能对一个非常大的整数做到快速地因 式分解，那么密码破解还是存在希望的。但就目前的技术来看是 不太现实的。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/106.png" alt="106"></p>
+<h4 id="HTTPS-采用混合加密机制-1"><a href="#HTTPS-采用混合加密机制-1" class="headerlink" title="HTTPS 采用混合加密机制"></a>HTTPS 采用混合加密机制</h4><p>HTTPS 采用共享密钥加密和公开密钥加密两者并用的混合加密机制。若密钥能够实现安全交换，那么有可能会考虑仅使用公开密钥加密来通信。但是公开密钥加密与共享密钥加密相比，其处 理速度要慢。</p>
+<p>所以应充分利用两者各自的优势，将多种方法组合起来用于通 信。在交换密钥环节使用公开密钥加密方式，之后的建立通信交换报文阶段则使用共享密钥加密方式。</p>
+<h2 id="确认访问用户身份的认证"><a href="#确认访问用户身份的认证" class="headerlink" title="确认访问用户身份的认证"></a>确认访问用户身份的认证</h2><h3 id="BASIC-认证"><a href="#BASIC-认证" class="headerlink" title="BASIC 认证"></a>BASIC 认证</h3><ol>
+<li>步骤 1： 当请求的资源需要 BASIC 认证时，服务器会随状态码 401 Authorization Required，返回带 WWW-Authenticate 首部字段的响应。 该字段内包含认证的方式（BASIC） 及 Request-URI 安全域字符串 （realm）。 </li>
+<li>步骤 2： 接收到状态码 401 的客户端为了通过 BASIC 认证，需要将 用户 ID 及密码发送给服务器。发送的字符串内容是由用户 ID 和密码 构成，两者中间以冒号（:）连接后，再经过 Base64 编码处理。 假设用户 ID 为 guest，密码是 guest，连接起来就会形成 guest:guest 这 样的字符串。然后经过 Base64 编码，最后的结果即是 Z3Vlc3Q6Z3Vlc3Q=。把这串字符串写入首部字段 Authorization 后， 发送请求。<br>当用户代理为浏览器时，用户仅需输入用户 ID 和密码即可，之后， 浏览器会自动完成到 Base64 编码的转换工作。</li>
+<li>步骤 3： 接收到包含首部字段 Authorization 请求的服务器，会对认证 信息的正确性进行验证。如验证通过，则返回一条包含 Request-URI 资源的响应。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<p>BASIC 认证虽然采用 Base64 编码方式，但这不是加密处理。不需要 任何附加信息即可对其解码。换言之，由于明文解码后就是用户 ID 和密码，在 HTTP 等非加密通信的线路上进行 BASIC 认证的过程 中，如果被人窃听，被盗的可能性极高。</p>
+<p>另外，除此之外想再进行一次 BASIC 认证时，一般的浏览器却<strong>无法实现认证注销操作</strong>，这也是问题之一。</p>
+<p>BASIC 认证使用上不够便捷灵活，且达不到多数 Web 网站期望的安 全性等级，因此它并不常用。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/102.png" alt="102"></p>
+<h3 id="DIGEST-认证"><a href="#DIGEST-认证" class="headerlink" title="DIGEST 认证"></a>DIGEST 认证</h3><ol>
+<li>步骤 1： 请求需认证的资源时，服务器会随着状态码 401 Authorization Required，返 回带 WWW-Authenticate 首部字段的响应。 该字段内包含质问响应方式认证所需的临时质询码（随机数， nonce）。<br>首部字段 WWW-Authenticate 内必须包含 realm 和 nonce 这两个字段的 信息。客户端就是依靠向服务器回送这两个值进行认证的。<br>nonce 是一种每次随返回的 401 响应生成的任意随机字符串。该字符 串通常推荐由 Base64 编码的十六进制数的组成形式，但实际内容依 赖服务器的具体实现。</li>
+<li>步骤 2： 接收到 401 状态码的客户端，返回的响应中包含 DIGEST 认 证必须的首部字段 Authorization 信息。 首部字段 Authorization 内必须包含 username、realm、nonce、uri 和 response 的字段信息。其中，realm 和 nonce 就是之前从服务器接收到 的响应中的字段。<br>username 是 realm 限定范围内可进行认证的用户名。 uri（digest-uri）即 Request-URI 的值，但考虑到经代理转发后 Request-URI 的值可能被修改，因此事先会复制一份副本保存在 uri 内。<br>response 也可叫做 Request-Digest，存放经过 MD5 运算后的密码字符 串，形成响应码。<br>响应中其他的实体请参见第 6 章的请求首部字段 Authorization。另 外，有关 Request-Digest 的计算规则较复杂，有兴趣的读者不妨深入 学习一下 RFC2617。 </li>
+<li>步骤 3： 接收到包含首部字段 Authorization 请求的服务器，会确认认 证信息的正确性。认证通过后则返回包含 Request-URI 资源的响应。 并且这时会在首部字段 Authentication-Info 写入一些认证成功的相关信息。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<p>DIGEST 认证提供了高于 BASIC 认证的安全等级，但是和 HTTPS 的 客户端认证相比仍旧很弱。DIGEST 认证提供防止密码被窃听的保护机制，但并不存在防止用户伪装的保护机制。</p>
+<p>DIGEST 认证和 BASIC 认证一样，使用上不那么便捷灵活，且仍达不 到多数 Web 网站对高度安全等级的追求标准。因此它的适用范围也 有所受限</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/103.png" alt="103"></p>
+<h3 id="SSl客户端认证"><a href="#SSl客户端认证" class="headerlink" title="SSl客户端认证"></a>SSl客户端认证</h3><p>如果用户的ID和密码被盗，则很可能被冒充。</p>
+<p>SSL 客户端认证是借由 HTTPS 的客户端证书完成认证的方式。凭借客户端证书（在 HTTPS 一章已讲解）认证，服务器可确认访问<strong>是否来自已登录的客户端</strong>。</p>
+<p>为达到 SSL 客户端认证的目的，需要事先将客户端证书分发给客户 端，且客户端必须安装此证书。</p>
+<ol>
+<li>步骤 1： 接收到需要认证资源的请求，服务器会发送 Certificate Request 报文，要求客户端提供客户端证书。 </li>
+<li>步骤 2： 用户选择将发送的客户端证书后，客户端会把客户端证书信 息以 Client Certificate 报文方式发送给服务器。<br>图：选择客户端证书示例（三菱东京 UFJ 银行） </li>
+<li>步骤 3： 服务器验证客户端证书验证通过后方可领取证书内客户端的公开密钥，然后开始 HTTPS 加密通信。</li>
+</ol>
+<blockquote>
+<p>在多数情况下，SSL 客户端认证不会仅依靠证书完成认证，一般会和 基于表单认证（稍后讲解）组合形成一种双因素认证（Two-factor authentication）来使用。所谓双因素认证就是指，认证过程中不仅需 要密码这一个因素，还需要申请认证者提供其他持有信息，从而作为 另一个因素，与其组合使用的认证方式。</p>
+<p>换言之，第一个认证因素的 SSL 客户端证书用来认证客户端计算机， 另一个认证因素的密码则用来确定这是用户本人的行为。</p>
+<p>通过双因素认证后，就可以确认是<strong>用户本人</strong>正在使用<strong>匹配正确的计算机</strong>访问服务器。</p>
+</blockquote>
+<p>注：SSL客户端认证需要支付费用</p>
+<h3 id="基于表单认证"><a href="#基于表单认证" class="headerlink" title="基于表单认证"></a>基于表单认证</h3><p>基于表单的认证方法并不是在 HTTP 协议中定义的。客户端会向<strong>服务器上的 Web 应用程序</strong>发送登录信息（Credential），按登录信息的验 证结果认证。</p>
+<p>基于表单认证的标准规范尚未有定论，一般会使用 Cookie 来管理 Session（会话）。 </p>
+<ol>
+<li>步骤 1： 客户端把用户 ID 和密码等登录信息放入报文的实体部分， 通常是以 POST 方法把请求发送给服务器。而这时，会使用 HTTPS 通信来进行 HTML 表单画面的显示和用户输入数据的发送。 </li>
+<li>步骤 2： 服务器会发放用以识别用户的 Session ID。通过验证从客户端发送过来的登录信息进行身份认证，然后把用户的认证状态与 Session ID 绑定后记录在服务器端。 向客户端返回响应时，会在首部字段 Set-Cookie 内写入 Session ID（如 PHPSESSID=028a8c…）。 你可以把 Session ID 想象成一种用以区分不同用户的等位号。<br>然而，如果 Session ID 被第三方盗走，对方就可以伪装成你的身份进 行恶意操作了。因此必须防止 Session ID 被盗，或被猜出。为了做到 这点，Session ID 应使用难以推测的字符串，且服务器端也需要进行 有效期的管理，保证其安全性。<br>另外，为减轻跨站脚本攻击（XSS）造成的损失，建议事先在 Cookie 内加上 <strong>httponly</strong> 属性。</li>
+<li>步骤 3： 客户端接收到从服务器端发来的 Session ID 后，会将其作为 Cookie 保存在本地。下次向服务器发送请求时，浏览器会自动发送 Cookie，所以 Session ID 也随之发送到服务器。服务器端可通过验证 接收到的 Session ID 识别用户和其认证状态。</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/104.png" alt="104"></p>
+<p>另外，不仅基于表单认证的登录信息及认证过程都无标准化的方法， 服务器端应如何保存用户提交的密码等登录信息等也没有标准化。 </p>
+<p>通常，一种安全的保存方法是，先利用给密码加盐（salt）1 的方式增 加额外信息，再使用散列（hash）函数计算出散列值后保存。但是我 们也经常看到直接保存明文密码的做法，而这样的做法具有导致密码 泄露的风险。</p>
+<blockquote>
+<p>1 salt 其实就是由服务器随机生成的一个字符串，但是要保证长度足够长，并且是 真正随机生成的。然后把它和密码字符串相连接（前后都可以）生成散列值。当 两个用户使用了同一个密码时，由于随机生成的 salt 值不同，对应的散列值也将 是不同的。这样一来，很大程度上减少了密码特征，攻击者也就很难利用自己手 中的密码特征库进行破解。</p>
+</blockquote>
+<h2 id="基于HTTP协议追加的协议"><a href="#基于HTTP协议追加的协议" class="headerlink" title="基于HTTP协议追加的协议"></a>基于HTTP协议追加的协议</h2><h3 id="消除-HTTP-瓶颈的-SPDY"><a href="#消除-HTTP-瓶颈的-SPDY" class="headerlink" title="消除 HTTP 瓶颈的 SPDY"></a>消除 HTTP 瓶颈的 SPDY</h3><h4 id="原本的HTTP协议"><a href="#原本的HTTP协议" class="headerlink" title="原本的HTTP协议"></a>原本的HTTP协议</h4><p>若想在现有 Web 实现所需的功能，以下这些 HTTP 标准就会成为瓶 颈。</p>
+<ol>
+<li>一条连接上只可发送一个请求。</li>
+<li>请求只能从客户端开始。客户端不可以接收除响应以外的指 令。</li>
+<li>请求 / 响应首部未经压缩就发送。首部信息越多延迟越大。</li>
+<li>发送冗长的首部。每次互相发送相同的首部造成的浪费较 多。</li>
+<li>可任意选择数据压缩格式。非强制压缩发送。</li>
+</ol>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/107.png" alt="107"></p>
+<h4 id="Ajax-的解决方法"><a href="#Ajax-的解决方法" class="headerlink" title="Ajax 的解决方法"></a>Ajax 的解决方法</h4><p>Ajax 的核心技术是名为 XMLHttpRequest 的 API，通过 JavaScript 脚本语言的调用就能和服务器进行 HTTP 通信。借由这种手段，就能从已 加载完毕的 Web 页面上发起请求，<strong>只更新局部页面</strong>。 </p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/108.png" alt="108"></p>
+<h4 id="Comet-的解决方法"><a href="#Comet-的解决方法" class="headerlink" title="Comet 的解决方法"></a>Comet 的解决方法</h4><p>通常，服务器端接收到请求，在处理完毕后就会立即返回响应，但为 了实现推送功能，Comet 会先将响应置于挂起状态，当服务器端有内 容更新时，再返回该响应。因此，服务器端一旦有更新，就可以立即 反馈给客户端。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/109.png" alt="109"></p>
+<h4 id="SPDY-的设计与功能"><a href="#SPDY-的设计与功能" class="headerlink" title="SPDY 的设计与功能"></a>SPDY 的设计与功能</h4><p>SPDY 以<strong>会话层</strong>的形式加入，控制对数据的流动，但还是采用 HTTP 建立通信连接。因此，可照常使用 HTTP 的 GET 和 POST 等方 法、Cookie 以及 HTTP 报文等。</p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/110.png" alt="110"></p>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/111.png" alt="111"></p>
+<p>使用 SPDY 后，HTTP 协议额外获得以下功能。</p>
+<ol>
+<li><p>多路复用流<br>通过单一的 TCP 连接，可以无限制处理多个 HTTP 请求。所有请求的处理都在一条 TCP 连接上完成，因此 TCP 的处理效率得到提高。</p>
+</li>
+<li><p>赋予请求优先级<br>SPDY 不仅可以无限制地并发处理请求，还可以给请求逐个分配优先级顺序。这样主要是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题。</p>
+</li>
+<li><p>压缩 HTTP 首部                                                                        </p>
+<p>压缩 HTTP 请求和响应的首部。这样一来，通信产生的数据包数量和 发送的字节数就更少了。</p>
+</li>
+<li><p>推送功能<br>支持服务器主动向客户端推送数据的功能。这样，服务器可直接发送 数据，而不必等待客户端的请求。</p>
+</li>
+<li><p>服务器提示功能<br>服务器可以主动提示客户端请求所需的资源。由于在客户端发现资源之前就可以获知资源的存在，因此在资源已缓存等情况下，可以避免发送不必要的请求。</p>
+</li>
+</ol>
+<h3 id="WebSocket-协议"><a href="#WebSocket-协议" class="headerlink" title="WebSocket 协议"></a>WebSocket 协议</h3><p>下面我们列举一下 WebSocket 协议的主要特点。</p>
+<p>推送功能<br>支持由服务器向客户端推送数据的推送功能。这样，服务器可直接发送数据，而不必等待客户端的请求。</p>
+<p>减少通信量<br>只要建立起 WebSocket 连接，就希望一直保持连接状态。和 HTTP相 比，不但每次连接时的总开销减少，而且由于 WebSocket 的首部信息 很小，通信量也相应减少了。<br>为了实现 WebSocket 通信，在 HTTP 连接建立之后，需要完成一 次“握手”（Handshaking）的步骤。 </p>
+<blockquote>
+<p><img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/114.png" alt="114"></p>
+<p>握手步骤：</p>
+<ol>
+<li>（握手请求）为了实现 WebSocket 通信，需要用到 HTTP 的 Upgrade 首部字 段，告知服务器通信协议发生改变，以达到握手的目的。<br>Sec-WebSocket-Key 字段内记录着握手过程中必不可少的键值。 Sec-WebSocket-Protocol 字段内记录使用的子协议。 子协议按 WebSocket 协议标准在连接分开使用时，定义那些连接的名称。<img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/112.png" alt="112"></li>
+<li>（握手响应）对于之前的请求，返回状态码 101 Switching Protocols 的响应。Sec-WebSocket-Accept 的字段值是由握手请求中的 SecWebSocket-Key 的字段值生成的。 成功握手确立 WebSocket 连接之后，通信时不再使用 HTTP 的数据帧，而采用 WebSocket 独立的数据帧。<img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/113.png" alt="113"></li>
+<li>（WebSocket API ）JavaScript 可调用“The WebSocket API”（<a href="http://www.w3.org/TR/websockets/，由" target="_blank" rel="noopener">http://www.w3.org/TR/websockets/，由</a> W3C 标准制定）内 提供的 WebSocket 程序接口，以实现 WebSocket 协议下全双工通信。<br>以下为调用 WebSocket API，每 50ms 发送一次数据的实例。<img src="/2020/01/25/HTTP%E5%8D%8F%E8%AE%AE/115.png" alt="115"></li>
+</ol>
+</blockquote>
+<h3 id="Web-服务器管理文件的-WebDAV"><a href="#Web-服务器管理文件的-WebDAV" class="headerlink" title="Web 服务器管理文件的 WebDAV"></a>Web 服务器管理文件的 WebDAV</h3><p>等用到了再回来补充</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/17/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/">文件压缩</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/ctf%E6%8A%80%E5%B7%A7/">ctf技巧</a></span><div class="content"><h2 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h2><h3 id="zip文件"><a href="#zip文件" class="headerlink" title="zip文件"></a>zip文件</h3><p>用winhex打开压缩文件，搜索十六进制”50 4B 01 02”，找到从”50”开始的第九第十个字节全部改成”00 00”。</p>
 <p><em>（十六进制编译器里每两个数字称为一个字节）</em></p>
 <h3 id="rar文件"><a href="#rar文件" class="headerlink" title="rar文件"></a>rar文件</h3><p>用winhex打开十六进制，找到第24个字节，其尾数为0为未加密，为4则为加密。例如将’’84”改为’’80”.</p>
 <h2 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h2><h3 id="rar文件-1"><a href="#rar文件-1" class="headerlink" title="rar文件"></a>rar文件</h3><p>用ARCHPR暴力破解</p>
@@ -427,54 +869,7 @@
 </tr>
 </tbody></table>
 <p><strong><u>不想通过打分让自己觉得虽然没有完成但至少做了一点，从这次开始总结只有Y/N。哪怕只差一点也是没有完成。</u></strong></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/09/2020-01-09%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-01-09日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-01-09日目标"><a href="#2020-01-09日目标" class="headerlink" title="2020-01-09日目标"></a>2020-01-09日目标</h2><ol>
-<li>听力10min+单词10个</li>
-<li>南邮ctf 深入研究 文件包含</li>
-<li>Js函数部分</li>
-<li>看b站ctf概览建立一个框架</li>
-<li>安装好python环境</li>
-<li>晚上1：00前睡觉</li>
-</ol>
-<h2 id="2020-01-08总结"><a href="#2020-01-08总结" class="headerlink" title="2020-01-08总结"></a>2020-01-08总结</h2><ol>
-<li>买了前年的高数卷子，复习了高数第二单元</li>
-<li>完成了南邮ctf 文件包含</li>
-<li>在做文件包含时发现自己学的知识有些杂有些乱，所以想找一些ctf概览的视频明确一下方向</li>
-<li>安装了几个有用工具和java环境</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>目标</th>
-<th>(0/10)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>听力10min+单词10个</td>
-<td>5</td>
-</tr>
-<tr>
-<td>南邮ctf 文件包含</td>
-<td>8</td>
-</tr>
-<tr>
-<td>复习高数第二单元</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Js函数部分</td>
-<td>0</td>
-</tr>
-<tr>
-<td>晚上1：00前睡觉</td>
-<td>10</td>
-</tr>
-<tr>
-<td>状态</td>
-<td>7</td>
-</tr>
-</tbody></table>
-<p>ps: 2020-01-07考完英语完全放松了一天，所以那一天的计划是空白。</p>
-</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
 }</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
