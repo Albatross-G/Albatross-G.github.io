@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="链表"><meta name="keywords" content=""><meta name="author" content="George"><meta name="copyright" content="George"><title>链表 | A.</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组和链表的区别"><span class="toc-number">1.</span> <span class="toc-text">数组和链表的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几种链表"><span class="toc-number">2.</span> <span class="toc-text">几种链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单链表"><span class="toc-number">2.1.</span> <span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环链表"><span class="toc-number">2.2.</span> <span class="toc-text">循环链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">2.2.1.</span> <span class="toc-text">优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双向链表"><span class="toc-number">2.3.</span> <span class="toc-text">双向链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链表中的删除操作"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">链表中的删除操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#删除结点中“值等于某个给定值”的结点"><span class="toc-number">2.3.1.1.1.</span> <span class="toc-text">删除结点中“值等于某个给定值”的结点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除给定指针指向的结点"><span class="toc-number">2.3.1.1.2.</span> <span class="toc-text">删除给定指针指向的结点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链表中的查询操作【对于有序链表】"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">链表中的查询操作【对于有序链表】</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双向循环链表"><span class="toc-number">2.4.</span> <span class="toc-text">双向循环链表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链表的实际应用场景"><span class="toc-number">3.</span> <span class="toc-text">链表的实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU缓存淘汰算法【转】"><span class="toc-number">3.1.</span> <span class="toc-text">LRU缓存淘汰算法【转】</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链表代码的书写技巧"><span class="toc-number">4.</span> <span class="toc-text">链表代码的书写技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#警惕指针丢失和内存泄漏"><span class="toc-number">4.1.</span> <span class="toc-text">警惕指针丢失和内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用哨兵简化实现难度"><span class="toc-number">4.2.</span> <span class="toc-text">利用哨兵简化实现难度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入"><span class="toc-number">4.2.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">4.2.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化"><span class="toc-number">4.2.3.</span> <span class="toc-text">简化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点留意边界条件处理"><span class="toc-number">4.3.</span> <span class="toc-text">重点留意边界条件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多写多练"><span class="toc-number">4.4.</span> <span class="toc-text">多写多练</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">88</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">16</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">链表</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>链表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存存储空间</td>
+<td>需要<strong>连续</strong>的内存空间来存储</td>
+<td>通过指针将一组<strong>零散</strong>的内存块串联使用</td>
+</tr>
+<tr>
+<td>插入、删除数据</td>
+<td><strong>缺：</strong>为了保持数据连续性，要做大量数据搬移。时间复杂度为：<strong>O(n)</strong></td>
+<td><strong>优：</strong>只需考虑相邻结点的指针改变。时间复杂度为：<strong>O(1)</strong></td>
+</tr>
+<tr>
+<td>访问</td>
+<td><strong>优：</strong>可以<strong>随机访问</strong>第k个元素。时间复杂度为：<strong>O(1)</strong></td>
+<td><strong>缺：</strong>要<strong>遍历</strong>结点来找到目标结点。时间复杂度为：<strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>CPU缓存机制</td>
+<td><strong>优：</strong>因为数组是连续的内存空间，可以借助CPU缓存机制，预读数组中的数据，<strong>访问数据效率更高</strong>。</td>
+<td><strong>缺：</strong>不可以借助CPU缓存机制</td>
+</tr>
+<tr>
+<td>大小固定</td>
+<td><strong>缺：</strong>大小<strong>固定</strong>，改变大小需要将原来所有数据再复制过去，非常费时。</td>
+<td><strong>优：</strong>支持动态扩容。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>对于CPU缓存机制【转】</p>
+<p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个<strong>数据块</strong>(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。</p>
+<p>对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
+</blockquote>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/7.jpg" alt="7"></p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/5.jpg" alt="5"></p>
+<h1 id="几种链表"><a href="#几种链表" class="headerlink" title="几种链表"></a>几种链表</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/6.jpg" alt="6"></p>
+<p>头结点用来记录链表的基地址，尾结点指向一个空地址NULL</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/4.jpg" alt="4"></p>
+<p>循环链表的尾结点指向链表的头结点</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点：</strong></h3><p>适合处理具有环形结构的数据</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>约瑟夫问题</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/3.jpg" alt="3"></p>
+<p>比单链表多了一个prev前驱节点</p>
+<p><strong>优点：</strong>支持双向遍历</p>
+<p><strong>缺点：</strong>占用过多内存空间</p>
+<blockquote>
+<p>双向链表采用了<strong>用空间换时间</strong>的策略</p>
+</blockquote>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><h4 id="链表中的删除操作"><a href="#链表中的删除操作" class="headerlink" title="链表中的删除操作"></a>链表中的删除操作</h4><h5 id="删除结点中“值等于某个给定值”的结点"><a href="#删除结点中“值等于某个给定值”的结点" class="headerlink" title="删除结点中“值等于某个给定值”的结点"></a>删除结点中“值等于某个给定值”的结点</h5><p>单链表和双向链表都要遍历，时间复杂度均为：O(n)。</p>
+<h5 id="删除给定指针指向的结点"><a href="#删除给定指针指向的结点" class="headerlink" title="删除给定指针指向的结点"></a>删除给定指针指向的结点</h5><p>单链表：找到了要删除的结点，但不支持访问前驱节点，又要从头遍历，直到p-&gt;next=q 。时间复杂度：O(n)。</p>
+<p>双向链表：找到了要删除的结点，直接用前驱节点删除。时间复杂度：O(1)。</p>
+<h4 id="链表中的查询操作【对于有序链表】"><a href="#链表中的查询操作【对于有序链表】" class="headerlink" title="链表中的查询操作【对于有序链表】"></a>链表中的查询操作【对于有序链表】</h4><p>双向链表可以通过数据的大小决定往前还是往后查询，省去一半的时间。</p>
+<h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/2.jpg" alt="2"></p>
+<h1 id="链表的实际应用场景"><a href="#链表的实际应用场景" class="headerlink" title="链表的实际应用场景"></a>链表的实际应用场景</h1><p>几种缓存淘汰机制</p>
+<ol>
+<li>先进先出【FIFO：First In，First Out】</li>
+<li>最少使用策略【LFU：Least Frequently Used】</li>
+<li>最近最少使用策略【LRU：Least Recently Used】</li>
+</ol>
+<h2 id="LRU缓存淘汰算法【转】"><a href="#LRU缓存淘汰算法【转】" class="headerlink" title="LRU缓存淘汰算法【转】"></a>LRU缓存淘汰算法【转】</h2><p>如何基于链表实现 LRU 缓存淘汰算法？</p>
+<p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的【老数据】。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
+<ol>
+<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
+<li>如果此数据没有在缓存链表中，又可以分为两种情况：</li>
+</ol>
+<p>如果此时缓存未满，则将此结点直接插入到链表的头部；</p>
+<p>如果此时缓存已满，则链表尾结点删除，将新的数据结点插入链表的头部。</p>
+<p>这样我们就用链表实现了一个 LRU 缓存，是不是很简单？</p>
+<p>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
+<p>实际上，我们可以继续优化这个实现思路，比如引入散列表（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
+<h1 id="链表代码的书写技巧"><a href="#链表代码的书写技巧" class="headerlink" title="链表代码的书写技巧"></a>链表代码的书写技巧</h1><h2 id="警惕指针丢失和内存泄漏"><a href="#警惕指针丢失和内存泄漏" class="headerlink" title="警惕指针丢失和内存泄漏"></a>警惕指针丢失和内存泄漏</h2><p>错误样例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next=x;</span><br><span class="line">x-&gt;next=p-&gt;next;<span class="comment">//这句相当于把x的值赋给x</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用哨兵简化实现难度"><a href="#利用哨兵简化实现难度" class="headerlink" title="利用哨兵简化实现难度"></a>利用哨兵简化实现难度</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>如果要在p结点后面插入一个新的结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_node -&gt; next = p -&gt; next;</span><br><span class="line">p -&gt; next = new_node;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：向空链表插入第一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head==null)&#123;</span><br><span class="line">    head = new_node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>单链表的结点删除操作</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：删除最后一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head-&gt;next==null)&#123;</span><br><span class="line">    head = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>可以看出，无论是插入还是删除都需要考虑特殊情况，比较麻烦。</p>
+<p>这是可以考虑引入<strong>哨兵</strong>。</p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/8.jpg" alt="8"></p>
+<p>我们让head一直指向这个哨兵结点，哨兵结点内不存储任何数据，我们把这种链表称为<strong>带头链表</strong>。</p>
+<p>在这种情况下，我们插入、删除都可以利用上面的一般表达式。</p>
+<h2 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h2><ol>
+<li>如果链表为空</li>
+<li>如果链表只包含一个结点</li>
+<li>如果链表只包含两个结点</li>
+<li>代码逻辑在处理头结点和尾结点时</li>
+</ol>
+<h2 id="多写多练"><a href="#多写多练" class="headerlink" title="多写多练"></a>多写多练</h2><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表的合并</li>
+<li>删除链表倒数第n个结点</li>
+<li>求链表的中间结点</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">George</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/04/30/%E9%93%BE%E8%A1%A8/">http://yoursite.com/2020/04/30/%E9%93%BE%E8%A1%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined" async></script><nav id="pagination"><div class="next-post pull-right"><a href="/2020/03/19/XSS/"><span>XSS</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

