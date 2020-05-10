@@ -2018,6 +2018,9 @@
 
 
 
+<p>windows下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql -h 主机 -u 帐号 -p;</span><br></pre></td></tr></table></figure>
+
 <p><strong>注：</strong></p>
 <ol>
 <li><strong>以下语句为在mysql中操作，结尾必须有；</strong></li>
@@ -2039,7 +2042,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
 
 <p>创建数据表test1</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE test1 (</span><br><span class="line">-&gt; column_name1 column_type1 AUTO_INCREMENT,   #规定自增属性</span><br><span class="line">-&gt; column_name2 column_type2 NOT NULL,   #不允许字段为NULL</span><br><span class="line">-&gt; PRIMARY KEY(column_name1)   #规定主键</span><br><span class="line">-&gt; )CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE test1 (</span><br><span class="line">-&gt; column_name1 column_type1【VARCHAR(20)】 AUTO_INCREMENT,   #规定自增属性</span><br><span class="line">-&gt; column_name2 column_type2 NOT NULL,   #不允许字段为NULL</span><br><span class="line">-&gt; PRIMARY KEY(column_name1)   #规定主键</span><br><span class="line">-&gt; )CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.runoob.com/mysql/mysql-data-types.html" target="_blank" rel="noopener">column_type</a></p>
 <p>删除数据表test1</p>
