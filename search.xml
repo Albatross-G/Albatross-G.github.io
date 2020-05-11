@@ -3483,6 +3483,25 @@
       </categories>
   </entry>
   <entry>
+    <title>toUpperCase()/to LowerCase()方法 [把字符串转换为大/小写]</title>
+    <url>/2020/01/12/toUpperCase-to-LowerCase-%E6%96%B9%E6%B3%95-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%A4%A7-%E5%B0%8F%E5%86%99/</url>
+    <content><![CDATA[<h2 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>toUpperCase() 方法用于把字符串转换为大写</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string.toUpperCase()</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var txt&#x3D;&quot;Runoob&quot;;</span><br><span class="line">document.write(txt.toLowerCase() + &quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(txt.toUpperCase());</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">runoob</span><br><span class="line">RUNOOB</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JS 函数整理</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS split()方法 [将字符串分割成字符串数组]</title>
     <url>/2020/01/12/JS-split-%E6%96%B9%E6%B3%95-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>split() 方法用于把一个字符串分割成字符串数组。</p>
