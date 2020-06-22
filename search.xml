@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>记一次《c语言连接mysql的单词背诵程序》开发过程</title>
+    <url>/2020/06/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E3%80%8Ac%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5mysql%E7%9A%84%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5%E7%A8%8B%E5%BA%8F%E3%80%8B%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="项目进度"><a href="#项目进度" class="headerlink" title="项目进度"></a>项目进度</h1><h2 id="day1【2020-06-22】"><a href="#day1【2020-06-22】" class="headerlink" title="day1【2020/06-22】"></a>day1【2020/06-22】</h2><p>完成了c语言到mysql之间的连接，对vscode里一些特性做了基本的学习</p>
+<p><img src="/2020/06/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E3%80%8Ac%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5mysql%E7%9A%84%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5%E7%A8%8B%E5%BA%8F%E3%80%8B%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/day1.png" alt="day1"></p>
+<h1 id="遇到的一些问题及其解决方案"><a href="#遇到的一些问题及其解决方案" class="headerlink" title="遇到的一些问题及其解决方案"></a>遇到的一些问题及其解决方案</h1><h2 id="Q1：遇到Vscode的scanf报错问题"><a href="#Q1：遇到Vscode的scanf报错问题" class="headerlink" title="Q1：遇到Vscode的scanf报错问题"></a>Q1：遇到Vscode的scanf报错问题</h2><p>这个问题有两种解决方案：</p>
+<p>第一种是比较懒省事的方案，就是在项目属性里添加【/D _CRT_SECURE_NO_WARNINGS】，让他不再报错</p>
+<p><img src="/2020/06/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E3%80%8Ac%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5mysql%E7%9A%84%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5%E7%A8%8B%E5%BA%8F%E3%80%8B%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/1.png" alt="1"></p>
+<p>第二种就是使用vscode推荐的安全函数scanf_s，这个函数还有一些类似的，比如fopen_s等等，他们中间参数稍有些不同，后面要慢慢地熟悉使用这些函数。</p>
+<h2 id="Q2：无“mysql-h”"><a href="#Q2：无“mysql-h”" class="headerlink" title="Q2：无“mysql.h”"></a>Q2：无“mysql.h”</h2><p>先到这个网址</p>
+<blockquote>
+<p><a href="https://downloads.mysql.com/archives/c-c/" target="_blank" rel="noopener">https://downloads.mysql.com/archives/c-c/</a></p>
+</blockquote>
+<p>下载如图所示地zip</p>
+<p><img src="/2020/06/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E3%80%8Ac%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5mysql%E7%9A%84%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5%E7%A8%8B%E5%BA%8F%E3%80%8B%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/2.png" alt="2"></p>
+<p>解压好之后放入项目里和cpp同一文件夹下，然后在项目属性里增加如下内容</p>
+<p><img src="/2020/06/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E3%80%8Ac%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5mysql%E7%9A%84%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5%E7%A8%8B%E5%BA%8F%E3%80%8B%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/3.png" alt="3"></p>
+<p>接着把解压得到的lib里的.lib和.dll复制到cpp同级目录下，然后在cpp头添加如下宏</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#pragma comment(lib, &quot;libmysql.lib&quot;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>还有一点要注意一下，不知道为啥创建项目之后项目默认是win32的，就很迷，都什么时代了，所以最好记得去项目属性里把平台改为x64</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>linux基础</title>
     <url>/2020/06/13/linux%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -F   &#x2F;&#x2F;更好显示格式</span><br><span class="line">ls -a   &#x2F;&#x2F;显示隐藏文件</span><br><span class="line">ls -l   &#x2F;&#x2F;查看文件各种选项</span><br></pre></td></tr></table></figure>
