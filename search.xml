@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>逆向工程核心原理</title>
+    <url>/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="小端序和大端序"><a href="#小端序和大端序" class="headerlink" title="小端序和大端序"></a>小端序和大端序</h1><p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-1.jpg" alt="1-1"></p>
+<p>大端序【更直观】：数据的低位存储在地址的高位。</p>
+<p>小端序【符合人类思维】：数据的低位存储在地址的低位。【Intel X86 CPU】</p>
+<blockquote>
+<p>注：对于char[]字符串，字符数组在内存中是连续的，所以无论大端序还是小端序，存储顺序都是相同的。</p>
+</blockquote>
+<p>用以上数据做一个测试，拖进ollydbg：</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-2.png" alt="1-2"></p>
+<p>可以发现这里使用的是小端序。</p>
+<h1 id="IA-32寄存器【p36】"><a href="#IA-32寄存器【p36】" class="headerlink" title="IA-32寄存器【p36】"></a>IA-32寄存器【p36】</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><p>EAX：【针对操作数和结果数据】累加器</p>
+<blockquote>
+<p>EAX(0-31)：32位</p>
+<p>AX(0-15)：16位</p>
+<p>AH(8-15)：8位</p>
+<p>AL(0-7)：8位</p>
+</blockquote>
+<p>EBX：【DS段的数据指针】基址寄存器</p>
+<p>ECX：【字符串和循环操作】计数器</p>
+<p>EDX：【I/O指针】数据寄存器</p>
+<p>EBP：扩展基址寄存器</p>
+<p>ESI：源变址寄存器</p>
+<p>EDI：目的变址寄存器</p>
+<p>ESP：栈指针寄存器</p>
+<h2 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h2><p>CS：代码段寄存器</p>
+<p>SS：栈段寄存器</p>
+<p>DS：数据段寄存器</p>
+<p>ES：附加（数据）段寄存器</p>
+<p>FS：数据段寄存器</p>
+<p>GS：数据段寄存器</p>
+<h2 id="程序状态与控制寄存器"><a href="#程序状态与控制寄存器" class="headerlink" title="程序状态与控制寄存器"></a>程序状态与控制寄存器</h2><h3 id="EFLAGS：标志寄存器"><a href="#EFLAGS：标志寄存器" class="headerlink" title="EFLAGS：标志寄存器"></a>EFLAGS：标志寄存器</h3><p>ZF：零标志【运算结果为0，该位为1】</p>
+<p>OF：溢出标志【有符号整数溢出时为1/MSB（Most SIgnificant Bit 最高有效位）改变时为1】</p>
+<p>CF：进位标志【无符号整数溢出时为1】</p>
+<h2 id="指令寄存器"><a href="#指令寄存器" class="headerlink" title="指令寄存器"></a>指令寄存器</h2><p>EIP【Instruction Pointer】：CPU每执行完一条指令，就通过EIP寄存器读取并执行下一条命令。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>数据结构复习总结</title>
     <url>/2020/12/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>深度/高度:</strong>   最上面的是第一层【根节点】，最下面的是最后一层。</p>
@@ -42,7 +80,26 @@
 <li>将分开的几棵二叉树转化为树</li>
 </ol>
 <h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>WPL = 所有叶子结点，每个叶子结点，用其权值*到其的线的个数。</p>
-<h3 id="哈夫曼树的创建"><a href="#哈夫曼树的创建" class="headerlink" title="哈夫曼树的创建"></a>哈夫曼树的创建</h3><h3 id="哈夫曼树的编码"><a href="#哈夫曼树的编码" class="headerlink" title="哈夫曼树的编码"></a>哈夫曼树的编码</h3>]]></content>
+<h3 id="哈夫曼树的创建"><a href="#哈夫曼树的创建" class="headerlink" title="哈夫曼树的创建"></a>哈夫曼树的创建</h3><h3 id="哈夫曼树的编码"><a href="#哈夫曼树的编码" class="headerlink" title="哈夫曼树的编码"></a>哈夫曼树的编码</h3><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>图常表示为G(V,E)，G表示一个图，V是图中顶点的集合，E是图中连线的集合。</li>
+<li>如果两顶点之间的连线没有方向，则称这条连线为<strong>边</strong>。如果两顶点之间的连线有方向，则称这条连线为<strong>弧</strong>。箭头出发点叫<strong>弧尾</strong>，箭头指向的叫<strong>弧头</strong>。</li>
+<li><strong>强连通图</strong>：对有向图中的任意两个顶点vi，vj，均有能从vi到vj和从vj到vi。</li>
+</ol>
+<h2 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h2><h3 id="邻接矩阵表示法"><a href="#邻接矩阵表示法" class="headerlink" title="邻接矩阵表示法"></a>邻接矩阵表示法</h3><h3 id="邻接表-逆连接表表示法"><a href="#邻接表-逆连接表表示法" class="headerlink" title="邻接表/逆连接表表示法"></a>邻接表/逆连接表表示法</h3><p>邻接表：获取出度容易，入度难。</p>
+<p>逆邻接表：获取入度容易，出度难。</p>
+<h3 id="十字链表表示法【p191】"><a href="#十字链表表示法【p191】" class="headerlink" title="十字链表表示法【p191】"></a>十字链表表示法【p191】</h3><p>（图）</p>
+<p>十字链表的每一个结点代表一条弧。</p>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><ol>
+<li>深度优先遍历【无法遍历时返回<strong>最接近</strong>的一个可继续遍历的结点继续遍历】</li>
+<li>广度优先遍历</li>
+</ol>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><h3 id="普里姆【Prim】算法"><a href="#普里姆【Prim】算法" class="headerlink" title="普里姆【Prim】算法"></a>普里姆【Prim】算法</h3><p>假设未经历过的点为白色，经历过的点为灰色。</p>
+<p>先将出发点变灰，查看由灰色的点出发所能到达的白色点中权值最小的一个，将那个白色点标灰。</p>
+<p>依次类推，直到遍历完所有的点。</p>
+<h3 id="克鲁斯卡尔【Kruskal】算法"><a href="#克鲁斯卡尔【Kruskal】算法" class="headerlink" title="克鲁斯卡尔【Kruskal】算法"></a>克鲁斯卡尔【Kruskal】算法</h3><p>从全图中找到权值最小的那些点，如果连上这些边不会形成回路，则连上这条边。</p>
+<p>重复以上操作，直到遍历完所有的点。</p>
+<h2 id="有向无环图及其应用"><a href="#有向无环图及其应用" class="headerlink" title="有向无环图及其应用"></a>有向无环图及其应用</h2><h3 id="关键路径的计算"><a href="#关键路径的计算" class="headerlink" title="关键路径的计算"></a>关键路径的计算</h3><p>过去求最早用max，回来求最晚用min</p>
+<h3 id="最短路径的计算"><a href="#最短路径的计算" class="headerlink" title="最短路径的计算"></a>最短路径的计算</h3><h4 id="迪杰斯特拉【Dijkstra】算法"><a href="#迪杰斯特拉【Dijkstra】算法" class="headerlink" title="迪杰斯特拉【Dijkstra】算法"></a>迪杰斯特拉【Dijkstra】算法</h4>]]></content>
       <categories>
         <category>考前复习</category>
       </categories>
