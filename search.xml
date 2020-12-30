@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>汇编期末复习</title>
+    <url>/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
+<p>间接寻址</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/3.png" alt="3"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4.png" alt="4"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5.png" alt="5"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6.png" alt="6"></p>
+<p>loop</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7.png" alt="7"></p>
+<p>例子</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8.png" alt="8"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9.png" alt="9"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>逆向工程核心原理</title>
     <url>/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="小端序和大端序"><a href="#小端序和大端序" class="headerlink" title="小端序和大端序"></a>小端序和大端序</h1><p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-1.jpg" alt="1-1"></p>
@@ -99,7 +116,37 @@
 <h3 id="克鲁斯卡尔【Kruskal】算法"><a href="#克鲁斯卡尔【Kruskal】算法" class="headerlink" title="克鲁斯卡尔【Kruskal】算法"></a>克鲁斯卡尔【Kruskal】算法</h3><p>从全图中找到权值最小的那些点，如果连上这些边不会形成回路，则连上这条边。</p>
 <p>重复以上操作，直到遍历完所有的点。</p>
 <h2 id="有向无环图及其应用"><a href="#有向无环图及其应用" class="headerlink" title="有向无环图及其应用"></a>有向无环图及其应用</h2><h3 id="关键路径的计算"><a href="#关键路径的计算" class="headerlink" title="关键路径的计算"></a>关键路径的计算</h3><p>过去求最早用max，回来求最晚用min</p>
-<h3 id="最短路径的计算"><a href="#最短路径的计算" class="headerlink" title="最短路径的计算"></a>最短路径的计算</h3><h4 id="迪杰斯特拉【Dijkstra】算法"><a href="#迪杰斯特拉【Dijkstra】算法" class="headerlink" title="迪杰斯特拉【Dijkstra】算法"></a>迪杰斯特拉【Dijkstra】算法</h4>]]></content>
+<h3 id="最短路径的计算"><a href="#最短路径的计算" class="headerlink" title="最短路径的计算"></a>最短路径的计算</h3><h4 id="迪杰斯特拉【Dijkstra】算法"><a href="#迪杰斯特拉【Dijkstra】算法" class="headerlink" title="迪杰斯特拉【Dijkstra】算法"></a>迪杰斯特拉【Dijkstra】算法</h4><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>ASL（Average Search Length）=YASL+NASL</p>
+<h2 id="几种表的查找"><a href="#几种表的查找" class="headerlink" title="几种表的查找"></a>几种表的查找</h2><h3 id="顺序表的查找"><a href="#顺序表的查找" class="headerlink" title="顺序表的查找"></a>顺序表的查找</h3><p>YASL=(n+1)/2</p>
+<h3 id="有序表的查找"><a href="#有序表的查找" class="headerlink" title="有序表的查找"></a>有序表的查找</h3><p>折半查找：ASL=YASL+NASL=lb(n+1) + [lbn]</p>
+<p><strong>折半查找的时间复杂度：O（lbn）</strong></p>
+<blockquote>
+<p>不一定折半，可以通过计算D=（K-data[low]）/（data[high]-data[low]）</p>
+<p>来确定几分查找，其中K是查找的值</p>
+</blockquote>
+<h3 id="索引表的查找"><a href="#索引表的查找" class="headerlink" title="索引表的查找"></a>索引表的查找</h3><ol>
+<li>稠密索引</li>
+<li>分块索引：块内无序，块间有序</li>
+</ol>
+<p>最好的时间复杂度：O(  2^(1/2)  )，即块数和块内元素个数相等时</p>
+<h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>概念：左子树的值小于根的值，右子树的值大于根的值。</p>
+<h2 id="平衡二叉树【AVL树】"><a href="#平衡二叉树【AVL树】" class="headerlink" title="平衡二叉树【AVL树】"></a>平衡二叉树【AVL树】</h2><p>概念：首先是一个二叉排序树，其次每一个结点的<strong>（左子树高度-右子树高度）</strong>的值只能为-1,0,1这三个值。</p>
+<p><strong>查找、插入、删除时间复杂度：O(lbn)</strong></p>
+<h2 id="哈希查找"><a href="#哈希查找" class="headerlink" title="哈希查找"></a>哈希查找</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>直接定址法</li>
+<li>数字分析法</li>
+<li>折叠法</li>
+<li>除留取余法</li>
+</ol>
+<h3 id="处理冲突的方法"><a href="#处理冲突的方法" class="headerlink" title="处理冲突的方法"></a>处理冲突的方法</h3><h4 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h4><ol>
+<li>线性探测</li>
+<li>二次探测</li>
+<li>随机探测</li>
+</ol>
+<h4 id="再哈希法"><a href="#再哈希法" class="headerlink" title="再哈希法"></a>再哈希法</h4><h4 id="链地址法"><a href="#链地址法" class="headerlink" title="链地址法"></a>链地址法</h4><h4 id="公共溢出法"><a href="#公共溢出法" class="headerlink" title="公共溢出法"></a>公共溢出法</h4><h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><p>装填因子α=填入表的记录个数/哈希表长度</p>
+<p>如果找到了好的装填因子，那么哈希查找的时间复杂度就是O(C)。</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h2 id="性能分析-1"><a href="#性能分析-1" class="headerlink" title="性能分析"></a>性能分析</h2><p><img src="/2020/12/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/1.jpg" alt="1"></p>
+]]></content>
       <categories>
         <category>考前复习</category>
       </categories>
