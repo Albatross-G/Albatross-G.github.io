@@ -3,8 +3,10 @@
   <entry>
     <title>模电期末复习</title>
     <url>/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="第一章：直流电路"><a href="#第一章：直流电路" class="headerlink" title="第一章：直流电路"></a>第一章：直流电路</h1><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
-<h1 id="第四章：集成运算放大器"><a href="#第四章：集成运算放大器" class="headerlink" title="第四章：集成运算放大器"></a>第四章：集成运算放大器</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-11.png" alt="4-11"></p>
+    <content><![CDATA[<h1 id="第一章：直流电路"><a href="#第一章：直流电路" class="headerlink" title="第一章：直流电路"></a>第一章：直流电路</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
+<h2 id="等效电路"><a href="#等效电路" class="headerlink" title="等效电路"></a>等效电路</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-3.png" alt="1-3"></p>
+<h2 id="节点分析法"><a href="#节点分析法" class="headerlink" title="节点分析法"></a>节点分析法</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-2.png" alt="1-2"></p>
+<h1 id="第四章：集成运算放大器"><a href="#第四章：集成运算放大器" class="headerlink" title="第四章：集成运算放大器"></a>第四章：集成运算放大器</h1><h2 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-11.png" alt="4-11"></p>
 <p>电压输入时，Ri越大越好；</p>
 <p>电压输出时，Ro越小越好。</p>
 <p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-1.png" alt="4-1"></p>
@@ -33,6 +35,54 @@
 <h3 id="交流小信号模型"><a href="#交流小信号模型" class="headerlink" title="交流小信号模型"></a>交流小信号模型</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-7.png" alt="5-7"></p>
 <p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-8.png" alt="5-8"></p>
 <h2 id="常考题型"><a href="#常考题型" class="headerlink" title="常考题型"></a>常考题型</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-9.png" alt="5-9"></p>
+<h1 id="第六章：晶体三极管及其放大电路"><a href="#第六章：晶体三极管及其放大电路" class="headerlink" title="第六章：晶体三极管及其放大电路"></a>第六章：晶体三极管及其放大电路</h1><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
+<p>所以，我们可以知道</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IE&gt;IC&gt;IB</span><br></pre></td></tr></table></figure>
+
+<p>由此引出了第一种常考题型：</p>
+<h2 id="常考题型1"><a href="#常考题型1" class="headerlink" title="常考题型1"></a>常考题型1</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-3.png" alt="6-3"></p>
+<blockquote>
+<p>由<code>IE&gt;IC&gt;IB</code>可以知道<code>一号---IC、二号---IB、三号---IE</code>，而IE是指向里面的，所以是PNP型。</p>
+<p>β=IC/IB=1.5/0.03=50            //β要取绝对值</p>
+</blockquote>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-4.png" alt="6-4"></p>
+<p>由此引出第二种常考题型：</p>
+<h2 id="常考题型2"><a href="#常考题型2" class="headerlink" title="常考题型2"></a>常考题型2</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-5.png" alt="6-5"></p>
+<p>如图1：</p>
+<blockquote>
+<p>处于中间值的是5.6V，所以管脚B对应5.6V</p>
+<p>和管脚B相差0.6<del>0.7或者0.2</del>0.3的是管脚E，所以管脚E是5V，同时判断得到这是硅管</p>
+<p>剩下的是管脚C，所以VC&gt;VB&gt;VE，所以是NPN型</p>
+</blockquote>
+<h2 id="判断在截止区、放大区还是饱和区"><a href="#判断在截止区、放大区还是饱和区" class="headerlink" title="判断在截止区、放大区还是饱和区"></a>判断在截止区、放大区还是饱和区</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-6.png" alt="6-6"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-8.png" alt="6-7"></p>
+<p>在放大区时：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IC&#x3D;βIB，IE&#x3D;IC+IB≈IC</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常考题型3"><a href="#常考题型3" class="headerlink" title="常考题型3"></a>常考题型3</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-9.png" alt="6-9"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-10.png" alt="6-10"></p>
+<h2 id="基本共射极放大电路的组成"><a href="#基本共射极放大电路的组成" class="headerlink" title="基本共射极放大电路的组成"></a>基本共射极放大电路的组成</h2><h3 id="符号记法"><a href="#符号记法" class="headerlink" title="符号记法"></a>符号记法</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-11.png" alt="6-11"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-12.png" alt="6-12"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-13.png" alt="6-13"></p>
+<h3 id="直流通路"><a href="#直流通路" class="headerlink" title="直流通路"></a>直流通路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/D:%5Cgitblog%5C1%5Csource_posts%5C%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%5C6-14.png" alt="6-14"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/D:%5Cgitblog%5C1%5Csource_posts%5C%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%5C6-15.png" alt="6-15"></p>
+<h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-16.png" alt="6-16"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-17.png" alt="6-17"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-18.png" alt="6-18"></p>
+<h2 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-19.png" alt="6-19"></p>
+<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-20.png" alt="6-20"></p>
+<h1 id="第九章：负反馈放大"><a href="#第九章：负反馈放大" class="headerlink" title="第九章：负反馈放大"></a>第九章：负反馈放大</h1><h2 id="四种典型电路"><a href="#四种典型电路" class="headerlink" title="四种典型电路"></a>四种典型电路</h2><h3 id="电压串联负反馈"><a href="#电压串联负反馈" class="headerlink" title="电压串联负反馈"></a>电压串联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-1.png" alt="9-1"></p>
+<p>电压控制电压源</p>
+<p>负反馈优点：稳定输出电压</p>
+<h3 id="电压并联负反馈"><a href="#电压并联负反馈" class="headerlink" title="电压并联负反馈"></a>电压并联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-2.png" alt="9-2"></p>
+<p>电流控制电压源</p>
+<h3 id="电流串联负反馈"><a href="#电流串联负反馈" class="headerlink" title="电流串联负反馈"></a>电流串联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-3.png" alt="9-3"></p>
+<p>电压控制电流源</p>
+<h3 id="电流并联负反馈"><a href="#电流并联负反馈" class="headerlink" title="电流并联负反馈"></a>电流并联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-4.png" alt="9-4"></p>
+<p>电流控制电流源</p>
 ]]></content>
       <categories>
         <category>期末复习</category>
@@ -221,7 +271,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>/期末复习</category>
+        <category>期末复习</category>
       </categories>
   </entry>
   <entry>
@@ -472,7 +522,7 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <h2 id="标号"><a href="#标号" class="headerlink" title="标号"></a>标号</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-5.png" alt="6-5"></p>
 <h2 id="寄存器实现参数传递"><a href="#寄存器实现参数传递" class="headerlink" title="寄存器实现参数传递"></a>寄存器实现参数传递</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-6.png" alt="6-6"></p>
 <h3 id="Uses的使用【在某一过程里简化压栈和出栈】"><a href="#Uses的使用【在某一过程里简化压栈和出栈】" class="headerlink" title="Uses的使用【在某一过程里简化压栈和出栈】"></a>Uses的使用【在某一过程里简化压栈和出栈】</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-7.png" alt="6-7"></p>
-<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-1.png" alt="7-1"></p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><h2 id="标志位"><a href="#标志位" class="headerlink" title="标志位"></a>标志位</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-1.png" alt="7-1"></p>
 <p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-3.png" alt="7-3"></p>
 <h2 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-2.png" alt="7-2"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">支持的格式：</span><br><span class="line">AND reg , reg</span><br><span class="line">AND reg , mem</span><br><span class="line">AND reg , imm</span><br><span class="line">AND mem , reg</span><br><span class="line">AND mem , imm</span><br></pre></td></tr></table></figure>
@@ -481,7 +531,9 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 
 
 
-<h2 id="条件跳转指令"><a href="#条件跳转指令" class="headerlink" title="条件跳转指令"></a>条件跳转指令</h2><h3 id="基于特定的标志位"><a href="#基于特定的标志位" class="headerlink" title="基于特定的标志位"></a>基于特定的标志位</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-4.png" alt="7-4"></p>
+<h2 id="条件跳转指令"><a href="#条件跳转指令" class="headerlink" title="条件跳转指令"></a>条件跳转指令</h2><h3 id="测试指令【cmp、test】"><a href="#测试指令【cmp、test】" class="headerlink" title="测试指令【cmp、test】"></a>测试指令【cmp、test】</h3><h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><p>TEST a , b：也是比较a与b，本质是a&amp;b，不修改a和b，如果a&amp;b=0，则zf标志位置1。</p>
+<h4 id="cmp"><a href="#cmp" class="headerlink" title="cmp"></a>cmp</h4><p>CMP a , b：比较a与b，本质是a-b，不修改a和b，修改部分标志寄存器，配合跳转指令使用</p>
+<h3 id="基于特定的标志位"><a href="#基于特定的标志位" class="headerlink" title="基于特定的标志位"></a>基于特定的标志位</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-4.png" alt="7-4"></p>
 <h3 id="基于判断两操作数是否相等"><a href="#基于判断两操作数是否相等" class="headerlink" title="基于判断两操作数是否相等"></a>基于判断两操作数是否相等</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-5.png" alt="7-5"></p>
 <h3 id="基于无符号操作数的结果比较的"><a href="#基于无符号操作数的结果比较的" class="headerlink" title="基于无符号操作数的结果比较的"></a>基于无符号操作数的结果比较的</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-6.png" alt="7-6"></p>
 <h3 id="基于有符号操作数的结果比较的"><a href="#基于有符号操作数的结果比较的" class="headerlink" title="基于有符号操作数的结果比较的"></a>基于有符号操作数的结果比较的</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-7.png" alt="7-7"></p>
@@ -604,6 +656,19 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <p>OF（overflow flag）：溢出标志位。这个位是用来判断有没有溢出的。注意溢出这个概念只对于有符号数据而言，就如同进位只对于无符号数据而言。当OF=0时，说明没有溢出；当OF=1时，说明溢出了。</p>
 </blockquote>
 <h2 id="指令寄存器"><a href="#指令寄存器" class="headerlink" title="指令寄存器"></a>指令寄存器</h2><p>EIP【Instruction Pointer】：CPU每执行完一条指令，就通过EIP寄存器读取并执行下一条命令。</p>
+<h1 id="操作技巧"><a href="#操作技巧" class="headerlink" title="操作技巧"></a>操作技巧</h1><h2 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a>Ollydbg</h2><h3 id="保存打完补丁的文件"><a href="#保存打完补丁的文件" class="headerlink" title="保存打完补丁的文件"></a>保存打完补丁的文件</h3><ol>
+<li><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-1.png" alt="0-1"></li>
+<li>在新跳出的页面<img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-2.png" alt="0-2"></li>
+</ol>
+<h3 id="一些操作快捷键"><a href="#一些操作快捷键" class="headerlink" title="一些操作快捷键"></a>一些操作快捷键</h3><p>F7（Step into）：单步执行，有CALL时进入函数</p>
+<p>F8（Step Over）：单步执行，有CALL时不进入CALL的地址</p>
+<p>Ctrl + G（Go to）：转到指定地址</p>
+<p>F2：设置断点</p>
+<p>F9：运行程序到断点处</p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><ol>
+<li>不需要某条指令时，可以使用NOP设置为空指令。</li>
+<li>栈窗口点击右键，选择addressing–&gt;relative to EBP,可以把地址调成相对于EBP</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
