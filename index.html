@@ -149,6 +149,14 @@
 <blockquote>
 <p> SUID：置于 u 的 x 位，原位置有执行权限，就置为 s，没有了为 S .<br> SGID：置于 g 的 x 位，原位置有执行权限，就置为 s，没有了为 S .<br> STICKY：粘滞位，置于 o 的 x 位，原位置有执行权限，就置为 t ，否则为T .</p>
 </blockquote>
+<h3 id="给指定用户赋予指定权限"><a href="#给指定用户赋予指定权限" class="headerlink" title="给指定用户赋予指定权限"></a>给指定用户赋予指定权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getfacl file		&#x2F;&#x2F;查看文件权限</span><br><span class="line">setfacl -m u:user1:rw file		&#x2F;&#x2F;给user1用户增加对file文件的rw权限</span><br><span class="line">setfacl -x g:group1:w file		&#x2F;&#x2F;给group1组减少对file文件的w权限</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p><img src="/2021/03/21/linux100%E8%AE%B2/7.png" alt="7"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mii-tool etho			&#x2F;&#x2F;查看网卡物理连接状态</span><br><span class="line">route -n				&#x2F;&#x2F;查看网关</span><br></pre></td></tr></table></figure>
 
@@ -171,7 +179,133 @@
 <p>主机名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl	set-hostname	AGsite</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
 
+
 </blockquote>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><h3 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h3><h4 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm	-q			&#x2F;&#x2F;查询软件包</span><br><span class="line">rpm	-i			&#x2F;&#x2F;安装软件包</span><br><span class="line">rpm -e			&#x2F;&#x2F;卸载软件包</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="源代码编译安装"><a href="#源代码编译安装" class="headerlink" title="源代码编译安装"></a>源代码编译安装</h4><p><img src="/2021/03/21/linux100%E8%AE%B2/9.png" alt="9"></p>
+<p>有时会需要安装依赖包，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssl-devel			&#x2F;&#x2F;-devel表示依赖包</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname	-r			&#x2F;&#x2F;查看内核版本</span><br><span class="line">lscpu				&#x2F;&#x2F;查看CPU</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="grub文件"><a href="#grub文件" class="headerlink" title="grub文件"></a>grub文件</h2><h3 id="内核引导"><a href="#内核引导" class="headerlink" title="内核引导"></a>内核引导</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line">grep ^menu &#x2F;boot&#x2F;grub&#x2F;grub.cfg			&#x2F;&#x2F;查看有哪些内核版本</span><br><span class="line">grub-editenv list						&#x2F;&#x2F;查看当前默认内核启动版本</span><br><span class="line">grub-set-defaut 0						&#x2F;&#x2F;设置默认内核为之前【grep】的第一个</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改root密码"><a href="#修改root密码" class="headerlink" title="修改root密码"></a>修改root密码</h3><p>在选择内核界面选择需要的内核并点击e。</p>
+<ol>
+<li>kali：在quiet后面加<code>init=/bin/bash</code></li>
+<li>centos：在quiet后面加single【centos之后好像就要加别的东西了】</li>
+</ol>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps	-ef</span><br><span class="line">ps	-eLf	&#x2F;&#x2F;可查看线程信息</span><br><span class="line"></span><br><span class="line">pstree</span><br><span class="line">top</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nice -n 10 .&#x2F;a.sh【需要先停止a.sh】	&#x2F;&#x2F;调节进程优先级【-20~19,数字越小优先级越高】</span><br><span class="line">renice -n 10 1920【进程号】	【不需要停止进程】</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="进程的前后台"><a href="#进程的前后台" class="headerlink" title="进程的前后台"></a>进程的前后台</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;a.sh &amp;		&#x2F;&#x2F;进程后台运行</span><br><span class="line"></span><br><span class="line">jobs			&#x2F;&#x2F;查看运行中的程序</span><br><span class="line">Ctrl+z			&#x2F;&#x2F;将前台运行的文件放入后台并挂起</span><br><span class="line">fg 1			&#x2F;&#x2F;将后台程序调到前台【1是jobs显示的作业号】</span><br><span class="line">bd 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="nuhup和-amp"><a href="#nuhup和-amp" class="headerlink" title="nuhup和&amp;"></a>nuhup和&amp;</h3><blockquote>
+<p>SIGINT：（signal interrupt）一般Ctrl+c引起</p>
+<p>SIGHUP：（signal hang up）一般关掉终端时引起</p>
+<p>当我们运行后台程序&amp;的时候，如果要停止需要SIGNUP信号，即关掉该Session（终端）【Ctrl+c无效】</p>
+<p>当我们运行Nohup程序时，如果要停止需要SIGNINT信号，即Ctrl+c【关掉后端无效】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup .&#x2F;a.sh AG</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">screen -S ag		&#x2F;&#x2F;创建一个新会话</span><br><span class="line">screen -ls			&#x2F;&#x2F;查看已经创建的会话</span><br><span class="line">Ctrl+a+d			&#x2F;&#x2F;暂时离开当前session【前台运行bash时这样退出，恢复之后bash依然在运行】</span><br><span class="line">screen -r ag		&#x2F;&#x2F;恢复ag会话</span><br><span class="line">exit				&#x2F;&#x2F;退出当前会话【detached】</span><br><span class="line"></span><br><span class="line">screen -X -S ag quit			&#x2F;&#x2F;删除会话ag</span><br><span class="line">kill -9 会话ID					&#x2F;&#x2F;删除会话</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="系统日志"><a href="#系统日志" class="headerlink" title="系统日志"></a>系统日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;var&#x2F;log</span><br><span class="line"></span><br><span class="line">tail -f messages		&#x2F;&#x2F;系统日志</span><br><span class="line">tail -f</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h2><p><img src="/2021/03/21/linux100%E8%AE%B2/10.png" alt="10"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default		&#x2F;&#x2F;查看当前级别</span><br><span class="line">systemctl set-default 【级别】	&#x2F;&#x2F;设置重启之后的级别</span><br><span class="line">【查看对应级别：   cd &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system    ls -l runlevel*.target 】</span><br><span class="line"></span><br><span class="line">0		关机</span><br><span class="line">1		字符界面</span><br><span class="line">2-4		多用户模式</span><br><span class="line">5		图形界面</span><br><span class="line">6		重启</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="SElinux"><a href="#SElinux" class="headerlink" title="SElinux"></a>SElinux</h2><p><img src="/2021/03/21/linux100%E8%AE%B2/11.png" alt="11"></p>
+<h2 id="内存与磁盘管理"><a href="#内存与磁盘管理" class="headerlink" title="内存与磁盘管理"></a>内存与磁盘管理</h2><h3 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">free</span><br><span class="line">free -m		&#x2F;&#x2F;以M为单位</span><br><span class="line"></span><br><span class="line">top</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看磁盘"><a href="#查看磁盘" class="headerlink" title="查看磁盘"></a>查看磁盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l	&#x2F;&#x2F;查看磁盘信息</span><br><span class="line">parted -l	&#x2F;&#x2F;查看磁盘信息</span><br><span class="line"></span><br><span class="line">df -h		&#x2F;&#x2F;查看磁盘挂载点</span><br><span class="line">du 【文件名】	&#x2F;&#x2F;查看文件真实大小【即去除空洞大小】</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>创建带有空洞的文件：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero【输入文件】 bs&#x3D;4M【复制的每一块的大小】 count&#x3D;10【一共复制几块】 seek&#x3D;20【创建带空洞文件的参数：输出文件中跳过20块开始复制】 of&#x3D;afile【输出文件】</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/03/21/linux100%E8%AE%B2/12.png" alt="12"></p>
+</blockquote>
+<h3 id="i节点"><a href="#i节点" class="headerlink" title="i节点"></a>i节点</h3><p>每个文件都有一个i节点，具体可以通过<code>ls -i</code>查看，有些操作会改变i节点的值【vim file(创建时，会产生.file.swp)】，有些不会【echo &gt; file】</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><h4 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln afile【本来就有的文件】 bfile			</span><br><span class="line">&#x2F;&#x2F;该操作能将bfile指向和afile一样的i节点，对bfile和afile的操作都相当于对该i节点进行操作</span><br></pre></td></tr></table></figure>
+
+<p>不可以跨文件系统</p>
+<h4 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s afile bfile		&#x2F;&#x2F;i节点会改变，相当于创建了一个新文件【bfile -&gt; afile】</span><br></pre></td></tr></table></figure>
+
+<p>可以跨文件系统</p>
+<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l			&#x2F;&#x2F;查看分区</span><br><span class="line">fdisk &#x2F;dev&#x2F;sdb		&#x2F;&#x2F;进入分区帮助</span><br><span class="line">parted &#x2F;dev&#x2F;sdb		&#x2F;&#x2F;大于2T的磁盘分区</span><br><span class="line"></span><br><span class="line">mkfs.ext4 &#x2F;dev&#x2F;sdb1					&#x2F;&#x2F;格式化分区sdb1为ext4格式</span><br><span class="line">mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt&#x2F;sdb1			&#x2F;&#x2F;临时挂载</span><br><span class="line">mount								&#x2F;&#x2F;查看临时挂载</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;fstab   写入：</span><br><span class="line">&#x2F;dev&#x2F;sdb1 &#x2F;mnt&#x2F;sdb1 ext4【分区类型】 defaults【默认可读可写】 0 0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="用户磁盘配额"><a href="#用户磁盘配额" class="headerlink" title="用户磁盘配额"></a>用户磁盘配额</h3><p><img src="/2021/03/21/linux100%E8%AE%B2/13.png" alt="13"></p>
+<h3 id="交换分区"><a href="#交换分区" class="headerlink" title="交换分区"></a>交换分区</h3><p><img src="/2021/03/21/linux100%E8%AE%B2/14.png" alt="14"></p>
+<p>文件直接swap分区法：</p>
+<p>永久修改：<code>vim /etc/fstab</code>，写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;swapfile【创建的空文件】 swap【挂载到swap交换分区上】 swap【分区类型】 defaults【默认可读可写】 0 0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="RAID"><a href="#RAID" class="headerlink" title="RAID"></a>RAID</h3><p><img src="/2021/03/21/linux100%E8%AE%B2/15.png" alt="15"></p>
+<h3 id="逻辑卷LVM"><a href="#逻辑卷LVM" class="headerlink" title="逻辑卷LVM"></a>逻辑卷LVM</h3><p>未完待续</p>
+<h3 id="查看系统综合状态"><a href="#查看系统综合状态" class="headerlink" title="查看系统综合状态"></a>查看系统综合状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sar -u【查看CPU状态】 1【每1秒采样1次】 10【一共采样10次1】</span><br><span class="line"></span><br><span class="line">iftop	&#x2F;&#x2F;查看网络状态</span><br></pre></td></tr></table></figure>
+
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/03/17/%E6%80%BB%E7%BB%93/">总结</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-17</time><div class="content"><h2 id="assert-eval-exec-system-等的区别"><a href="#assert-eval-exec-system-等的区别" class="headerlink" title="assert(),eval(),exec(),system()等的区别"></a>assert(),eval(),exec(),system()等的区别</h2><p><a href="https://blog.csdn.net/qq_41381461/article/details/90414561" target="_blank" rel="noopener">一些函数总结</a></p>
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h3><p>eval执行字符串：</p>
 <p><img src="/2021/03/17/%E6%80%BB%E7%BB%93/1-1.png" alt="1-1"></p>
@@ -357,7 +491,41 @@
 <li>HFC（Hybird Fibre Coax）光纤同轴混合网：有线电视网基础上开发的</li>
 <li>FTTx（Fiber To The Home）：光纤到户</li>
 </ol>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><h3 id="注释里不能有-gt"><a href="#注释里不能有-gt" class="headerlink" title="注释里不能有?&gt;"></a>注释里不能有?&gt;</h3><p>php注释里不要出现?&gt;标记点，类似于</p>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><h4 id="通信步骤"><a href="#通信步骤" class="headerlink" title="通信步骤"></a>通信步骤</h4><p>设A：发送方；B：接收方</p>
+<ol>
+<li>A的数据链路层把<strong>网络层</strong>传下来的数据添加首部和尾部<strong>封装成帧</strong>。</li>
+<li>A把封装好的帧发送给B的<strong>数据链路层</strong>。</li>
+<li>若B的<strong>数据链路层</strong>接收到的帧无差错，则在收到的帧中提取<strong>IP数据报</strong>发给<strong>网络层</strong>；否则丢弃。</li>
+</ol>
+<h4 id="三个基本步骤"><a href="#三个基本步骤" class="headerlink" title="三个基本步骤"></a>三个基本步骤</h4><p><strong>封装成帧：</strong>互联网上<strong>IP数据报</strong>【网络层】是以分组为单位传播，而到了数据链路层就加上首部和尾部封装成了帧。为了区分帧首部、帧尾部和中间的IP数据报，设定了<strong>帧开始符SOH</strong>和<strong>帧结束符EOT</strong>。还有数据部分的长度上限MTU【最大传送单元】。</p>
+<p><strong>透明传输：</strong>根据封装成帧的<strong>帧界定符</strong>，我们思考，如果IP数据报里，即<strong>帧的数据部分</strong>出现了SOH或者EOT怎么办？我们在它们前面加上转义字符“ESC”【字符填充】，接收端收到数据帧<strong>上传给网络层之前</strong>，先去掉这些转义字符。</p>
+<p><strong>差错检测：</strong></p>
+<blockquote>
+<p>循环冗余检测CRC</p>
+</blockquote>
+<h4 id="PPP协议【点对点】"><a href="#PPP协议【点对点】" class="headerlink" title="PPP协议【点对点】"></a>PPP协议【点对点】</h4><h5 id="ppp协议的三个组成部分："><a href="#ppp协议的三个组成部分：" class="headerlink" title="ppp协议的三个组成部分："></a>ppp协议的三个组成部分：</h5><ol>
+<li>一个将IP数据报封装到串行链路的方法。【HDLC：High-Level Data Link Control，高级数据链路控制】</li>
+<li>一个用来建立、配置和测试数据链路连接的<strong>链路控制协议</strong>【LCP：Link Control Protocol】</li>
+<li>一套<strong>网络控制协议</strong>【NCP：Network Control Protocol】</li>
+</ol>
+<h5 id="ppp协议格式："><a href="#ppp协议格式：" class="headerlink" title="ppp协议格式："></a>ppp协议格式：</h5><p><img src="/2021/03/02/%E5%A4%A7%E4%BA%8C%E4%B8%8B/1jpg.jpg" alt="1jpg"></p>
+<p>F处的7E代表<strong>帧开始和结束</strong>。<br>协议处字段代表<strong>协议的种类</strong>【0xC021：LCP；0x0021：IP数据报；0x8021：NCP】<br>FCS：<strong>CRC帧检验</strong></p>
+<p><strong>字节填充</strong>：遇到0x7E时，变为0x7D、0x5E。<br><strong>零比特填充：</strong>遇到连续5个1，就在发送时填充一个0；然后接受时去掉这个0。</p>
+<h5 id="ppp协议工作状态："><a href="#ppp协议工作状态：" class="headerlink" title="ppp协议工作状态："></a>ppp协议工作状态：</h5><ol>
+<li>LCP协议–&gt;鉴别状态</li>
+<li>PAP口令鉴别协议/CHAP口令握手鉴别协议–&gt;网络层协议状态</li>
+<li>NCP协议–&gt;链路打开</li>
+</ol>
+<blockquote>
+<p>ppp协议和pppoe协议</p>
+<p>ppp的概述：PPP模式是指政府与私人组织之间，为了提供某种公共物品和服务，以特许权协议为基础，彼此之间形成一种伙伴式的合作关系。</p>
+<p>PPPOE的概述：PPPoE（英语：Point-to-Point Protocol Over Ethernet），以太网上的点对点协议，是将点对点协议（PPP）封装在<strong>以太网（Ethernet）框架中</strong>的一种网络隧道协议。</p>
+</blockquote>
+<h2 id="存疑知识点"><a href="#存疑知识点" class="headerlink" title="存疑知识点"></a>存疑知识点</h2><ol>
+<li>码分复用</li>
+<li>CRC循环冗余检测</li>
+</ol>
+<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><h2 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h2><h3 id="注释里不能有-gt"><a href="#注释里不能有-gt" class="headerlink" title="注释里不能有?&gt;"></a>注释里不能有?&gt;</h3><p>php注释里不要出现?&gt;标记点，类似于</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	echo &#39;123&#39;;   &#x2F;&#x2F;hhh?&gt;abcd</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
 <p>当php解释器执行到注释里的?&gt;时，会认为PHP脚本结束，所以这段会输出</p>
