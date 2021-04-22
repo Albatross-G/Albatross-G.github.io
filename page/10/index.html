@@ -241,6 +241,20 @@
 <h4 id="a-zA-Z-x7f-xff-a-zA-Z0-9-x7f-xff-【匹配变量名】"><a href="#a-zA-Z-x7f-xff-a-zA-Z0-9-x7f-xff-【匹配变量名】" class="headerlink" title="[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*【匹配变量名】"></a><code>[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</code>【匹配变量名】</h4><p>PHP 中的变量用一个美元符号后面跟变量名来表示。变量名是区分大小写的。</p>
 <p>变量名与 PHP 中其它的标签一样遵循相同的规则。一个有效的变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。按照正常的正则表达式，它将被表述为：’<code>[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</code>‘。</p>
 <p><code>\x7f-\xff</code>中除<code>\x7f</code>之外是The extended ASCII codes (character code 128-255)中的字符，其中包含一些非英文的字母，比如拉丁字母<code>À</code></p>
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">([a-z][A-Z])\1\2</span><br><span class="line">指定分组名称：</span><br><span class="line">(?P&lt;fir&gt;[a-z])(?P&lt;sec&gt;[A-Z])(?P&#x3D;fir)(?P&#x3D;sec)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="preg-replace-callback"><a href="#preg-replace-callback" class="headerlink" title="preg_replace_callback"></a>preg_replace_callback</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">call_back</span><span class="params">($str)</span></span>&#123;</span><br><span class="line">    var_dump($str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$string = <span class="string">'[color=blue]font_color[/color]'</span>;</span><br><span class="line"><span class="keyword">echo</span> preg_replace_callback(<span class="string">'/\[color=(.*)\](.*)\[\/color\]/U'</span>,<span class="string">"call_back"</span>,$string);</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array(3) &#123; [0]&#x3D;&gt; string(30) &quot;[color&#x3D;blue]font_color[&#x2F;color]&quot; [1]&#x3D;&gt; string(4) &quot;blue&quot; [2]&#x3D;&gt; string(10) &quot;font_color&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，$str这个数组，str[0]代表被匹配的整个字符串，而之后的每个单位就有点像反向引用了，匹配（）里面的内容。</p>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/04/JS-test-exec-%E5%87%BD%E6%95%B0/">JS test()/exec()函数 [字符串是否匹配]</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-04</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/JS-%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">JS 函数整理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%87%BD%E6%95%B0/">函数</a></span><div class="content"><h2 id="test"><a href="#test" class="headerlink" title="test()"></a>test()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regex.test(string);</span><br></pre></td></tr></table></figure>
 
